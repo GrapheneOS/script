@@ -17,15 +17,7 @@ get_radio_image() {
   grep -Po "require version-$1=\K.+" vendor/$2/vendor-board-info.txt | tr '[:upper:]' '[:lower:]'
 }
 
-if [[ $1 == bullhead ]]; then
-  BOOTLOADER=$(get_radio_image bootloader lge/$1)
-  RADIO=$(get_radio_image baseband lge/$1)
-  PREFIX=aosp_
-elif [[ $1 == angler ]]; then
-  BOOTLOADER=$(get_radio_image bootloader huawei/$1)
-  RADIO=$(get_radio_image baseband huawei/$1)
-  PREFIX=aosp_
-elif [[ $1 == marlin || $1 == sailfish || $1 == taimen || $1 == walleye ]]; then
+if [[ $1 == marlin || $1 == sailfish || $1 == taimen || $1 == walleye ]]; then
   BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
   RADIO=$(get_radio_image baseband google_devices/$1)
   PREFIX=aosp_
@@ -51,10 +43,6 @@ if [[ $DEVICE != hikey* ]]; then
   else
     VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048)
   fi
-fi
-
-if [[ $DEVICE == bullhead ]]; then
-  EXTRA_OTA=(-b device/lge/bullhead/update-binary)
 fi
 
 build/tools/releasetools/sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \

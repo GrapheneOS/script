@@ -22,8 +22,6 @@ aosp_forks=(
   device_google_muskie
   device_google_taimen
   device_google_wahoo
-  device_huawei_angler
-  device_lge_bullhead
   device_linaro_hikey
   platform_art
   platform_bionic
@@ -70,8 +68,6 @@ aosp_forks=(
 declare -A kernels=(
   [google_marlin]=android-8.1.0_r0.64 # June
   [google_wahoo]=android-8.1.0_r0.65 # June
-  [huawei_angler]=android-8.1.0_r0.61 # June
-  [lge_bullhead]=android-8.1.0_r0.62 # June
   [linaro_hikey]=dc721a4ac71d
 )
 
