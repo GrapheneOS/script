@@ -37,7 +37,7 @@ mkdir -p $OUT || exit 1
 TARGET_FILES=$DEVICE-target_files-$BUILD.zip
 
 if [[ $DEVICE != hikey* ]]; then
-  if [[ $DEVICE != taimen && $DEVICE != walleye ]]; then
+  if [[ $DEVICE == marlin || $DEVICE == sailfish ]]; then
     VERITY_SWITCHES=(--replace_verity_public_key "$KEY_DIR/verity_key.pub" --replace_verity_private_key "$KEY_DIR/verity"
                      --replace_verity_keyid "$KEY_DIR/verity.x509.pem")
   else
