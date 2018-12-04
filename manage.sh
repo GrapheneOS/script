@@ -17,74 +17,74 @@ aosp_version_real=PQ1A.181205.006
 aosp_tag=android-9.0.0_r21
 
 aosp_forks=(
-  device_common
+  #device_common
   device_google_marlin
   device_google_muskie
   device_google_taimen
-  device_google_wahoo
-  device_linaro_hikey
-  platform_art
+  #device_google_wahoo
+  #device_linaro_hikey
+  #platform_art
   platform_bionic
-  platform_bootable_recovery
+  #platform_bootable_recovery
   platform_build
-  platform_build_kati
-  platform_build_soong
-  platform_external_clang
-  platform_external_conscrypt
-  platform_external_llvm
-  platform_external_svox
-  platform_external_sqlite
-  platform_frameworks_av
+  #platform_build_kati
+  #platform_build_soong
+  #platform_external_clang
+  #platform_external_conscrypt
+  #platform_external_llvm
+  #platform_external_svox
+  #platform_external_sqlite
+  #platform_frameworks_av
   platform_frameworks_base
-  platform_frameworks_ex
-  platform_frameworks_native
-  platform_frameworks_opt_net_wifi
-  platform_libcore
+  #platform_frameworks_ex
+  #platform_frameworks_native
+  #platform_frameworks_opt_net_wifi
+  #platform_libcore
   platform_manifest
-  platform_packages_apps_Bluetooth
-  platform_packages_apps_Camera2
-  platform_packages_apps_Contacts
-  platform_packages_apps_DeskClock
-  platform_packages_apps_ExactCalculator
-  platform_packages_apps_Gallery2
+  #platform_packages_apps_Bluetooth
+  #platform_packages_apps_Camera2
+  #platform_packages_apps_Contacts
+  #platform_packages_apps_DeskClock
+  #platform_packages_apps_ExactCalculator
+  #platform_packages_apps_Gallery2
   platform_packages_apps_Launcher3
-  platform_packages_apps_Music
-  platform_packages_apps_Nfc
-  platform_packages_apps_PackageInstaller
-  platform_packages_apps_QuickSearchBox
-  platform_packages_apps_Settings
-  platform_packages_inputmethods_LatinIME
-  platform_packages_providers_DownloadProvider
-  platform_packages_services_Telephony
-  platform_prebuilts_clang_host_linux-x86
-  platform_system_bt
-  platform_system_core
-  platform_system_extras
-  platform_system_netd
-  platform_system_sepolicy
-  platform_test_vts-testcase_kernel
+  #platform_packages_apps_Music
+  #platform_packages_apps_Nfc
+  #platform_packages_apps_PackageInstaller
+  #platform_packages_apps_QuickSearchBox
+  #platform_packages_apps_Settings
+  #platform_packages_inputmethods_LatinIME
+  #platform_packages_providers_DownloadProvider
+  #platform_packages_services_Telephony
+  #platform_prebuilts_clang_host_linux-x86
+  #platform_system_bt
+  #platform_system_core
+  #platform_system_extras
+  #platform_system_netd
+  #platform_system_sepolicy
+  #platform_test_vts-testcase_kernel
 )
 
 declare -A kernels=(
-  [google_marlin]=android-8.1.0_r0.64 # June
-  [google_wahoo]=android-8.1.0_r0.65 # June
-  [linaro_hikey]=dc721a4ac71d
+  #[google_marlin]=android-8.1.0_r0.64 # June
+  #[google_wahoo]=android-8.1.0_r0.65 # June
+  #[linaro_hikey]=dc721a4ac71d
 )
 
 independent=(
   android-prepare-vendor
-  branding
-  chromium_patches
+  #branding
+  #chromium_patches
   platform_external_chromium
-  platform_external_Etar-Calendar
-  platform_external_F-Droid
-  platform_external_offline-calendar
-  platform_external_privacy-friendly-netmonitor
-  platform_external_Silence
-  platform_external_talkback
-  platform_packages_apps_Backup
-  platform_packages_apps_F-Droid_privileged-extension
-  platform_packages_apps_PdfViewer
+  #platform_external_Etar-Calendar
+  #platform_external_F-Droid
+  #platform_external_offline-calendar
+  #platform_external_privacy-friendly-netmonitor
+  #platform_external_Silence
+  #platform_external_talkback
+  #platform_packages_apps_Backup
+  #platform_packages_apps_F-Droid_privileged-extension
+  #platform_packages_apps_PdfViewer
   platform_packages_apps_Updater
   script
   vendor_linaro
