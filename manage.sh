@@ -35,7 +35,7 @@ aosp_forks=(
   #platform_external_llvm
   #platform_external_svox
   #platform_external_sqlite
-  #platform_frameworks_av
+  platform_frameworks_av
   platform_frameworks_base
   #platform_frameworks_ex
   #platform_frameworks_native
