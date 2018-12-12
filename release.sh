@@ -42,6 +42,7 @@ if [[ $DEVICE != hikey* ]]; then
                      --replace_verity_keyid "$KEY_DIR/verity.x509.pem")
   else
     VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048)
+    AVB_PKMD="$PWD/$KEY_DIR/avb_pkmd.bin"
   fi
 fi
 
