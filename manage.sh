@@ -80,7 +80,6 @@ independent=(
   #platform_external_Etar-Calendar
   #platform_external_F-Droid
   #platform_external_offline-calendar
-  #platform_external_privacy-friendly-netmonitor
   #platform_external_talkback
   #platform_packages_apps_Backup
   #platform_packages_apps_F-Droid_privileged-extension
