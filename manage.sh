@@ -12,9 +12,9 @@ elif [[ $# -ne 0 ]]; then
 fi
 
 branch=pie
-aosp_version=PQ1A.181205.006
-aosp_version_real=PQ1A.181205.006
-aosp_tag=android-9.0.0_r21
+aosp_version=PQ1A.190105.004
+aosp_version_real=PQ1A.190105.004
+aosp_tag=android-9.0.0_r30
 
 aosp_forks=(
   #device_common
