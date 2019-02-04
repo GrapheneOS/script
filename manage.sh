@@ -17,7 +17,7 @@ aosp_version_real=PQ1A.190105.004
 aosp_tag=android-9.0.0_r30
 
 aosp_forks=(
-  #device_common
+  device_common
   device_google_crosshatch
   device_google_marlin
   device_google_muskie
