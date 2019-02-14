@@ -22,7 +22,7 @@ aosp_forks=(
   device_google_marlin
   device_google_muskie
   device_google_taimen
-  #device_google_wahoo
+  device_google_wahoo
   #device_linaro_hikey
   #platform_art
   platform_bionic
