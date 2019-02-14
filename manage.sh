@@ -26,7 +26,7 @@ aosp_forks=(
   #device_linaro_hikey
   #platform_art
   platform_bionic
-  #platform_bootable_recovery
+  platform_bootable_recovery
   platform_build
   #platform_build_kati
   #platform_build_soong
