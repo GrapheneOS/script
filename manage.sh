@@ -53,7 +53,7 @@ aosp_forks=(
   #platform_packages_apps_PackageInstaller
   #platform_packages_apps_QuickSearchBox
   #platform_packages_apps_Settings
-  #platform_packages_inputmethods_LatinIME
+  platform_packages_inputmethods_LatinIME
   #platform_packages_providers_DownloadProvider
   #platform_packages_services_Telephony
   #platform_prebuilts_clang_host_linux-x86
