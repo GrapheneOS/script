@@ -46,7 +46,7 @@ aosp_forks=(
   #platform_packages_apps_Camera2
   #platform_packages_apps_Contacts
   #platform_packages_apps_DeskClock
-  #platform_packages_apps_ExactCalculator
+  platform_packages_apps_ExactCalculator
   #platform_packages_apps_Gallery2
   platform_packages_apps_Launcher3
   #platform_packages_apps_Music
