@@ -74,6 +74,7 @@ declare -A kernels=(
 independent=(
   android-prepare-vendor
   #branding
+  chromium_build
   chromium_patches
   platform_external_chromium
   #platform_external_Etar-Calendar
