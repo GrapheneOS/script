@@ -59,7 +59,7 @@ aosp_forks=(
   #platform_prebuilts_clang_host_linux-x86
   #platform_system_bt
   platform_system_core
-  #platform_system_extras
+  platform_system_extras
   #platform_system_netd
   platform_system_sepolicy
   #platform_test_vts-testcase_kernel
