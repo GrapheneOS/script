@@ -49,7 +49,7 @@ aosp_forks=(
   platform_packages_apps_ExactCalculator
   #platform_packages_apps_Gallery2
   platform_packages_apps_Launcher3
-  #platform_packages_apps_Music
+  platform_packages_apps_Music
   platform_packages_apps_Nfc
   #platform_packages_apps_PackageInstaller
   #platform_packages_apps_QuickSearchBox
