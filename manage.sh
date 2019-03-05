@@ -77,6 +77,7 @@ independent=(
   #branding
   chromium_build
   chromium_patches
+  hardened_malloc
   platform_external_chromium
   #platform_external_Etar-Calendar
   #platform_external_F-Droid
