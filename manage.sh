@@ -51,7 +51,7 @@ aosp_forks=(
   platform_packages_apps_Launcher3
   platform_packages_apps_Music
   platform_packages_apps_Nfc
-  #platform_packages_apps_PackageInstaller
+  platform_packages_apps_PackageInstaller
   #platform_packages_apps_QuickSearchBox
   platform_packages_apps_Settings
   platform_packages_inputmethods_LatinIME
