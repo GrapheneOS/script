@@ -75,7 +75,7 @@ declare -A kernels=(
 
 independent=(
   android-prepare-vendor
-  #branding
+  branding
   chromium_build
   chromium_patches
   hardened_malloc
