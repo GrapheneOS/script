@@ -32,7 +32,7 @@ aosp_forks=(
   #platform_build_kati
   #platform_build_soong
   #platform_external_clang
-  #platform_external_conscrypt
+  platform_external_conscrypt
   #platform_external_llvm
   #platform_external_svox
   #platform_external_sqlite
