@@ -43,7 +43,7 @@ aosp_forks=(
   #platform_frameworks_opt_net_wifi
   platform_libcore
   platform_manifest
-  #platform_packages_apps_Bluetooth
+  platform_packages_apps_Bluetooth
   #platform_packages_apps_Camera2
   #platform_packages_apps_Contacts
   platform_packages_apps_ExactCalculator
