@@ -44,7 +44,7 @@ aosp_forks=(
   platform_libcore
   platform_manifest
   platform_packages_apps_Bluetooth
-  #platform_packages_apps_Camera2
+  platform_packages_apps_Camera2
   platform_packages_apps_Contacts
   platform_packages_apps_ExactCalculator
   #platform_packages_apps_Gallery2
