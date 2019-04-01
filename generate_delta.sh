@@ -12,10 +12,6 @@ DEVICE=$1
 OLD=$2
 NEW=$3
 
-if [[ $DEVICE == bullhead ]]; then
-  EXTRA_OTA=(-b device/lge/bullhead/update-binary)
-fi
-
 ./build/tools/releasetools/ota_from_target_files --block "${EXTRA_OTA[@]}" -k "$KEY_DIR/releasekey" \
   -i archive/release-$DEVICE-$OLD/$DEVICE-target_files-$OLD.zip \
   archive/release-$DEVICE-$NEW/$DEVICE-target_files-$NEW.zip \
