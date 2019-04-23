@@ -25,6 +25,7 @@ aosp_forks=(
   device_google_taimen
   device_google_wahoo
   #device_linaro_hikey
+  kernel_configs
   platform_art
   platform_bionic
   platform_bootable_recovery
