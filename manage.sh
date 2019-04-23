@@ -31,7 +31,7 @@ aosp_forks=(
   platform_bootable_recovery
   platform_build
   #platform_build_kati
-  #platform_build_soong
+  platform_build_soong
   #platform_external_clang
   platform_external_conscrypt
   #platform_external_llvm
