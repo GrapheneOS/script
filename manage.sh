@@ -18,6 +18,7 @@ aosp_tag=android-9.0.0_r42
 
 aosp_forks=(
   device_common
+  device_google_bonito
   device_google_crosshatch
   device_google_crosshatch-sepolicy
   device_google_marlin
@@ -125,7 +126,7 @@ for repo in "${aosp_forks[@]}"; do
     fi
   else
     git fetch upstream --tags || exit 1
-    if [[ $repo != platform_manifest ]]; then
+    if [[ $repo != platform_manifest && $repo != device_google_bonito ]]; then
         git reset --hard $aosp_tag
         git cherry-pick android-9.0.0_r40..pie
     fi
