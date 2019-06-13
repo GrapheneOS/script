@@ -68,6 +68,7 @@ declare -A kernels=(
   [google_marlin]=android-9.0.0_r0.91 # June 2019
   [google_wahoo]=android-9.0.0_r0.92 # June 2019
   [google_crosshatch]=android-9.0.0_r0.93 # June 2019
+  [google_bonito]=android-9.0.0_r0.94 # June 2019
   #[linaro_hikey]=dc721a4ac71d
 )
 
