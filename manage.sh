@@ -11,10 +11,10 @@ elif [[ $# -ne 0 ]]; then
   exit 1
 fi
 
-branch=pie
-aosp_version=PQ3A.190605.003
-aosp_version_real=PQ3A.190605.003
-aosp_tag=android-9.0.0_r40
+branch=pie-b4s4
+aosp_version=PQ3B.190605.006
+aosp_version_real=PQ3B.190605.006
+aosp_tag=android-9.0.0_r42
 
 aosp_forks=(
   device_common
@@ -126,8 +126,10 @@ for repo in "${aosp_forks[@]}"; do
     fi
   else
     git fetch upstream --tags || exit 1
-
-    git pull --rebase upstream $aosp_tag || exit 1
+    if [[ $repo != platform_manifest ]]; then
+        git reset --hard $aosp_tag
+        git cherry-pick android-9.0.0_r40..pie
+    fi
     git push -f || exit 1
   fi
 
@@ -151,22 +153,9 @@ for kernel in ${!kernels[@]}; do
     git tag -s $aosp_version.$build_number -m $aosp_version.$build_number || exit 1
     git push origin $aosp_version.$build_number || exit 1
   else
-    git fetch upstream --tags || exit 1
-    kernel_tag=${kernels[$kernel]}
-    if [[ -z $kernel_tag ]]; then
-      cd .. || exit 1
-      continue
-    fi
-    if [[ $kernel == google_marlin || $kernel == google_wahoo ]]; then
-      git checkout $branch-stable-base || exit 1
-    fi
-    git rebase $kernel_tag || exit 1
+    git checkout pie || exit 1
+    git checkout -B $branch || exit 1
     git push -f || exit 1
-    if [[ $kernel == google_marlin || $kernel == google_wahoo ]]; then
-      git checkout $branch || exit 1
-      git rebase $branch-stable-base || exit 1
-      git push -f || exit 1
-    fi
   fi
 
   cd .. || exit 1
@@ -189,6 +178,10 @@ for repo in ${independent[@]}; do
     git tag -s $aosp_version.$build_number -m $aosp_version.$build_number || exit 1
     git push origin $aosp_version.$build_number || exit 1
   else
+    if [[ $repo != script ]]; then
+        git checkout pie || exit 1
+        git checkout -B $branch || exit 1
+    fi
     git push -f || exit 1
   fi
 
