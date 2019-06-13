@@ -17,7 +17,7 @@ get_radio_image() {
   grep -Po "require version-$1=\K.+" vendor/$2/vendor-board-info.txt | tr '[:upper:]' '[:lower:]'
 }
 
-if [[ $1 == marlin || $1 == sailfish || $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline ]]; then
+if [[ $1 == marlin || $1 == sailfish || $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo ]]; then
   BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
   RADIO=$(get_radio_image baseband google_devices/$1)
   PREFIX=aosp_
