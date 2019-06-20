@@ -56,7 +56,6 @@ aosp_forks=(
   platform_packages_inputmethods_LatinIME
   platform_packages_providers_DownloadProvider
   platform_packages_services_Telephony
-  platform_prebuilts_clang_host_linux-x86
   platform_system_bt
   platform_system_core
   platform_system_extras
@@ -86,6 +85,7 @@ independent=(
   #platform_packages_apps_F-Droid_privileged-extension
   #platform_packages_apps_PdfViewer
   platform_packages_apps_Updater
+  platform_prebuilts_clang_host_linux-x86 # working around GitHub 100M file limit
   script
   Vanadium
   vendor_linaro
