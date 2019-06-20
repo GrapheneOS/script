@@ -75,8 +75,6 @@ declare -A kernels=(
 independent=(
   android-prepare-vendor
   branding
-  chromium_build
-  chromium_patches
   hardened_malloc
   platform_external_Auditor
   platform_external_chromium
@@ -89,6 +87,7 @@ independent=(
   #platform_packages_apps_PdfViewer
   platform_packages_apps_Updater
   script
+  Vanadium
   vendor_linaro
 )
 
