@@ -81,11 +81,9 @@ independent=(
   platform_external_PdfViewer
   platform_external_chromium
   #platform_external_Etar-Calendar
-  #platform_external_F-Droid
   #platform_external_offline-calendar
   #platform_external_talkback
   #platform_packages_apps_Backup
-  #platform_packages_apps_F-Droid_privileged-extension
   platform_packages_apps_Updater
   platform_prebuilts_clang_host_linux-x86 # working around GitHub 100M file limit
   script
