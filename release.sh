@@ -59,6 +59,8 @@ if [[ $DEVICE != hikey* ]]; then
     $OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
 fi
 
+script/generate_metadata.py $OUT/$DEVICE-ota_update-$BUILD.zip
+
 build/tools/releasetools/img_from_target_files $OUT/$TARGET_FILES \
   $OUT/$DEVICE-img-$BUILD.zip || exit 1
 
