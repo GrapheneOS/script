@@ -11,10 +11,10 @@ elif [[ $# -ne 0 ]]; then
   exit 1
 fi
 
-branch=pie
-aosp_version=PQ3A.190801.002
-aosp_version_real=PQ3A.190801.002
-aosp_tag=android-9.0.0_r46
+branch=10
+aosp_version=QP1A.190711.020
+aosp_version_real=QP1A.190711.020
+aosp_tag=android-10.0.0_r2
 
 aosp_forks=(
   device_common
