@@ -48,7 +48,6 @@ aosp_forks=(
   platform_packages_apps_Bluetooth
   platform_packages_apps_Camera2
   platform_packages_apps_Contacts
-  platform_packages_apps_ExactCalculator
   #platform_packages_apps_Gallery2
   platform_packages_apps_Launcher3
   platform_packages_apps_Music
@@ -85,6 +84,7 @@ independent=(
   #platform_external_offline-calendar
   #platform_external_talkback
   #platform_packages_apps_Backup
+  platform_packages_apps_ExactCalculator
   platform_packages_apps_Updater
   platform_prebuilts_clang_host_linux-x86 # working around GitHub 100M file limit
   script
