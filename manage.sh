@@ -86,7 +86,7 @@ independent=(
   #platform_packages_apps_Backup
   platform_packages_apps_ExactCalculator
   platform_packages_apps_Updater
-  platform_prebuilts_clang_host_linux-x86 # working around GitHub 100M file limit
+  #platform_prebuilts_clang_host_linux-x86 # working around GitHub 100M file limit
   script
   Vanadium
   vendor_linaro
