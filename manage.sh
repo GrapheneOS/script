@@ -66,10 +66,10 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-  [google_marlin]=android-9.0.0_r0.111 # August 2019
-  [google_wahoo]=android-9.0.0_r0.112 # August 2019
-  [google_crosshatch]=android-9.0.0_r0.113 # August 2019
-  [google_bonito]=android-9.0.0_r0.114 # August 2019
+  [google_marlin]=android-10.0.0_r0.1 # September 2019
+  [google_wahoo]=android-10.0.0_r0.2 # September 2019
+  [google_crosshatch]=android-10.0.0_r0.3 # September 2019
+  [google_bonito]=android-10.0.0_r0.4 # September 2019
   #[linaro_hikey]=dc721a4ac71d
 )
 
