@@ -7,3 +7,5 @@ echo "BUILD_NUMBER=$BUILD_NUMBER"
 export DISPLAY_BUILD_NUMBER=true
 chrt -b -p 0 $$
 export PATH="$PWD/script/bin:$PATH"
+export BUILD_USERNAME=grapheneos
+export BUILD_HOSTNAME=grapheneos
