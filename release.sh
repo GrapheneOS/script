@@ -28,7 +28,7 @@ else
 fi
 
 BUILD=$BUILD_NUMBER
-VERSION=$(grep -Po "export BUILD_ID=\K.+" build/core/build_id.mk | tr '[:upper:]' '[:lower:]')
+VERSION=$(grep -Po "BUILD_ID=\K.+" build/core/build_id.mk | tr '[:upper:]' '[:lower:]')
 DEVICE=$1
 PRODUCT=$1
 
