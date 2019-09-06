@@ -77,6 +77,8 @@ independent=(
   branding
   hardened_malloc
   platform_external_Auditor
+  # temporary workaround until Vanadium supports Android 10 WebView
+  platform_external_chromium-webview
   platform_external_PdfViewer
   platform_external_vanadium
   #platform_external_Etar-Calendar
