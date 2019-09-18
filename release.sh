@@ -44,6 +44,7 @@ if [[ $DEVICE != hikey* ]]; then
     VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048
                      --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm SHA256_RSA2048)
     AVB_PKMD="$PWD/$KEY_DIR/avb_pkmd.bin"
+    EXTRA_OTA=(--retrofit_dynamic_partitions)
   else
     VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048)
     AVB_PKMD="$PWD/$KEY_DIR/avb_pkmd.bin"
@@ -55,7 +56,8 @@ build/tools/releasetools/sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITC
   $OUT/$TARGET_FILES || exit 1
 
 if [[ $DEVICE != hikey* ]]; then
-  build/tools/releasetools/ota_from_target_files --block -k "$KEY_DIR/releasekey" "${EXTRA_OTA[@]}" $OUT/$TARGET_FILES \
+  build/tools/releasetools/ota_from_target_files --block -k "$KEY_DIR/releasekey" \
+    "${EXTRA_OTA[@]}" $OUT/$TARGET_FILES \
     $OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
   script/generate_metadata.py $OUT/$DEVICE-ota_update-$BUILD.zip
 fi
