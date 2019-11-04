@@ -22,7 +22,6 @@ aosp_forks=(
   device_google_bonito-sepolicy
   device_google_crosshatch
   device_google_crosshatch-sepolicy
-  device_google_marlin
   device_google_muskie
   device_google_taimen
   device_google_wahoo
@@ -66,7 +65,6 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-  [google_marlin]=android-10.0.0_r0.7 # October 2019
   [google_wahoo]=android-10.0.0_r0.18 # November 2019
   [google_crosshatch]=android-10.0.0_r0.20 # November 2019
   #[linaro_hikey]=dc721a4ac71d

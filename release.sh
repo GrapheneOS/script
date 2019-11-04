@@ -17,7 +17,7 @@ get_radio_image() {
   grep -Po "require version-$1=\K.+" vendor/$2/vendor-board-info.txt | tr '[:upper:]' '[:lower:]'
 }
 
-if [[ $1 == marlin || $1 == sailfish || $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo ]]; then
+if [[ $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo ]]; then
   BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
   RADIO=$(get_radio_image baseband google_devices/$1)
   PREFIX=aosp_
@@ -37,10 +37,7 @@ mkdir -p $OUT || exit 1
 TARGET_FILES=$DEVICE-target_files-$BUILD.zip
 
 if [[ $DEVICE != hikey* ]]; then
-  if [[ $DEVICE == marlin || $DEVICE == sailfish ]]; then
-    VERITY_SWITCHES=(--replace_verity_public_key "$KEY_DIR/verity_key.pub" --replace_verity_private_key "$KEY_DIR/verity"
-                     --replace_verity_keyid "$KEY_DIR/verity.x509.pem")
-  elif [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo ]]; then
+  if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo ]]; then
     VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048
                      --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm SHA256_RSA2048)
     AVB_PKMD="$PWD/$KEY_DIR/avb_pkmd.bin"
