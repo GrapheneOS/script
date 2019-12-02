@@ -12,9 +12,9 @@ elif [[ $# -ne 0 ]]; then
 fi
 
 branch=10
-aosp_version=QP1A.191105.004 # version to use for build id and tag
-aosp_version_real=QP1A.191105.004 # real base version
-aosp_tag=android-10.0.0_r11
+aosp_version=QQ1A.191205.011 # version to use for build id and tag
+aosp_version_real=QQ1A.191205.011 # real base version
+aosp_tag=android-10.0.0_r16
 
 aosp_forks=(
   device_common
