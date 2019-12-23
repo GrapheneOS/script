@@ -74,6 +74,9 @@ independent=(
   android-prepare-vendor
   branding
   hardened_malloc
+  # temporarily handle out-of-tree kernel modules as independent repositories
+  kernel_google_crosshatch_drivers_staging_qcacld-3.0
+  kernel_google_crosshatch_techpack_audio
   platform_external_Auditor
   # temporary workaround until Vanadium supports Android 10 WebView
   platform_external_chromium-webview
@@ -89,6 +92,7 @@ independent=(
   script
   Vanadium
   vendor_linaro
+
 )
 
 for repo in "${aosp_forks[@]}"; do
