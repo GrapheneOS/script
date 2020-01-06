@@ -34,7 +34,6 @@ aosp_forks=(
   platform_build_soong
   #platform_external_clang
   platform_external_conscrypt
-  #platform_external_llvm
   #platform_external_sqlite
   platform_frameworks_av
   platform_frameworks_base
