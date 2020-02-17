@@ -77,7 +77,6 @@ independent=(
   kernel_google_crosshatch_drivers_staging_qcacld-3.0
   kernel_google_crosshatch_techpack_audio
   platform_external_Auditor
-  platform_external_chromium-webview
   platform_external_PdfViewer
   platform_external_vanadium
   #platform_external_Etar-Calendar
