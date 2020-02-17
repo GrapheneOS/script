@@ -89,7 +89,6 @@ independent=(
   script
   Vanadium
   vendor_linaro
-
 )
 
 for repo in "${aosp_forks[@]}"; do
