@@ -28,7 +28,7 @@ get_radio_image() {
     grep -Po "require version-$1=\K.+" vendor/$2/vendor-board-info.txt | tr '[:upper:]' '[:lower:]'
 }
 
-if [[ $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo ]]; then
+if [[ $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 == coral ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
     RADIO=$(get_radio_image baseband google_devices/$1)
     PREFIX=aosp_
@@ -46,11 +46,13 @@ mkdir -p $OUT || exit 1
 TARGET_FILES=$DEVICE-target_files-$BUILD.zip
 
 if [[ $DEVICE != hikey* ]]; then
-    if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo ]]; then
+    if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo || $1 == coral ]]; then
         VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048
                          --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm SHA256_RSA2048)
         AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
-        EXTRA_OTA=(--retrofit_dynamic_partitions)
+        if [[ $DEVICE != coral ]]; then
+            EXTRA_OTA=(--retrofit_dynamic_partitions)
+        fi
     else
         VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048)
         AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
