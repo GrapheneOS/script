@@ -1,12 +1,12 @@
 #!/bin/bash
 
 user_error() {
-  echo user error, please replace user and try again >&2
+  echo $1 >&2
   exit 1
 }
 
-[[ $# -eq 1 ]] || user_error
-[[ -n $BUILD_NUMBER ]] || user_error
+[[ $# -eq 1 ]] || user_error "expected a single argument (device type)"
+[[ -n $BUILD_NUMBER ]] || user_error "expected BUILD_NUMBER in the environment"
 
 KEY_DIR=keys/$1
 OUT=out/release-$1-$BUILD_NUMBER
@@ -24,7 +24,7 @@ if [[ $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 
 elif [[ $1 == hikey || $1 == hikey960 ]]; then
   :
 else
-  user_error
+  user_error "$1 is not supported by the release script"
 fi
 
 BUILD=$BUILD_NUMBER
