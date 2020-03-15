@@ -8,8 +8,13 @@ user_error() {
 [[ $# -eq 1 ]] || user_error "expected a single argument (device type)"
 [[ -n $BUILD_NUMBER ]] || user_error "expected BUILD_NUMBER in the environment"
 
-KEY_DIR=keys/$1
+PERSISTENT_KEY_DIR=keys/$1
 OUT=out/release-$1-$BUILD_NUMBER
+
+# decrypt keys in advance for improved performance and modern algorithm support
+KEY_DIR=$(mktemp -d) || exit 1
+cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
+script/decrypt_keys.sh "$KEY_DIR" || exit 1
 
 source device/common/clear-factory-images-variables.sh
 
