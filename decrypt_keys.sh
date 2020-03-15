@@ -2,6 +2,10 @@
 
 set -o errexit
 
+[[ $# -ne 1 ]] && exit 1
+
+cd $1
+
 read -p "Enter key passphrase (empty if none): " -s password
 echo
 
