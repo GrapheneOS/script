@@ -13,6 +13,6 @@ OLD=$2
 NEW=$3
 
 ./build/tools/releasetools/ota_from_target_files --block "${EXTRA_OTA[@]}" -k "$KEY_DIR/releasekey" \
-  -i releases/$OLD/release-$DEVICE-$OLD/$DEVICE-target_files-$OLD.zip \
-  releases/$NEW/release-$DEVICE-$NEW/$DEVICE-target_files-$NEW.zip \
-  releases/$NEW/$DEVICE-incremental-$OLD-$NEW.zip
+    -i releases/$OLD/release-$DEVICE-$OLD/$DEVICE-target_files-$OLD.zip \
+    releases/$NEW/release-$DEVICE-$NEW/$DEVICE-target_files-$NEW.zip \
+    releases/$NEW/$DEVICE-incremental-$OLD-$NEW.zip
