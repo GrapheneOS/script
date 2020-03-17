@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o errexit
+set -o errexit -o pipefail
 
 [[ $# -ne 1 ]] && exit 1
 
