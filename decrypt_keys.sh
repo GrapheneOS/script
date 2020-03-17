@@ -11,6 +11,12 @@ echo
 
 tmp="$(mktemp -d)"
 
+cleanup_keys() {
+    rm -rf "$tmp"
+}
+
+trap cleanup_keys EXIT
+
 export password
 
 for key in releasekey platform shared media networkstack; do
@@ -28,4 +34,3 @@ fi
 unset password
 
 mv "$tmp"/* .
-rmdir "$tmp"

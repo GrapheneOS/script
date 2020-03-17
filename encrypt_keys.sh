@@ -21,6 +21,12 @@ fi
 
 tmp="$(mktemp -d)"
 
+cleanup_keys() {
+    rm -rf "$tmp"
+}
+
+trap cleanup_keys EXIT
+
 export password
 export new_password
 
@@ -44,4 +50,3 @@ unset password
 unset new_password
 
 mv "$tmp"/* .
-rmdir "$tmp"
