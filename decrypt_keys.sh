@@ -9,7 +9,7 @@ cd $1
 read -p "Enter key passphrase (empty if none): " -s password
 echo
 
-tmp="$(mktemp -d)"
+tmp="$(mktemp -d --tmpdir decrypt_keys.XXXXXXXXXX)"
 
 cleanup_keys() {
     rm -rf "$tmp"

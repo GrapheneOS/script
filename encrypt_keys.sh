@@ -19,7 +19,7 @@ if [[ $new_password != $confirm_new_password ]]; then
     exit 1
 fi
 
-tmp="$(mktemp -d)"
+tmp="$(mktemp -d --tmpdir encrypt_keys.XXXXXXXXXX)"
 
 cleanup_keys() {
     rm -rf "$tmp"
