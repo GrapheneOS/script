@@ -27,7 +27,7 @@ done
 
 if [[ -f avb.pem ]]; then
     if [[ -n $password ]]; then
-        openssl pkcs8 -in avb.pem -passin env:password | openssl pkcs8 -topk8 -out "$tmp/avb.pem" -nocrypt
+        openssl pkcs8 -topk8 -in avb.pem -passin env:password -out "$tmp/avb.pem" -nocrypt
     fi
 fi
 
