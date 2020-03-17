@@ -16,6 +16,12 @@ KEY_DIR=$(mktemp -d) || exit 1
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
 script/decrypt_keys.sh "$KEY_DIR" || exit 1
 
+cleanup_keys() {
+    rm -rf "$KEY_DIR"
+}
+
+trap cleanup_keys EXIT
+
 source device/common/clear-factory-images-variables.sh
 
 get_radio_image() {
@@ -81,5 +87,3 @@ cd ../..
 if [[ -f "$KEY_DIR/../factory.sec" ]]; then
     script/signify_prehash.sh "$KEY_DIR/../factory.sec" $OUT/$DEVICE-factory-$BUILD_NUMBER.zip
 fi
-
-rm -rf "$KEY_DIR"
