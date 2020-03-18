@@ -47,11 +47,11 @@ if [[ $DEVICE != hikey* ]]; then
     if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo ]]; then
         VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048
                          --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm SHA256_RSA2048)
-        AVB_PKMD="$PWD/$KEY_DIR/avb_pkmd.bin"
+        AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
         EXTRA_OTA=(--retrofit_dynamic_partitions)
     else
         VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048)
-        AVB_PKMD="$PWD/$KEY_DIR/avb_pkmd.bin"
+        AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
     fi
 fi
 
