@@ -20,12 +20,7 @@ if [[ $new_password != $confirm_new_password ]]; then
 fi
 
 tmp="$(mktemp -d --tmpdir encrypt_keys.XXXXXXXXXX)"
-
-cleanup_keys() {
-    rm -rf "$tmp"
-}
-
-trap cleanup_keys EXIT
+trap "rm -rf \"$tmp\"" EXIT
 
 export password
 export new_password

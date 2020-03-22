@@ -13,10 +13,7 @@ OUT=out/release-$1-$BUILD_NUMBER
 
 # decrypt keys in advance for improved performance and modern algorithm support
 KEY_DIR=$(mktemp -d --tmpdir release_keys.XXXXXXXXXX) || exit 1
-cleanup_keys() {
-    rm -rf "$KEY_DIR"
-}
-trap cleanup_keys EXIT
+trap "rm -rf \"$KEY_DIR\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
 script/decrypt_keys.sh "$KEY_DIR" || exit 1
 
