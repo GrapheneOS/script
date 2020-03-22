@@ -52,8 +52,7 @@ if [[ $DEVICE != hikey* ]]; then
     fi
 fi
 
-build/tools/releasetools/sign_target_files_apks -o -d "$KEY_DIR" \
-    -k "build/target/product/security/networkstack=$KEY_DIR/networkstack" "${VERITY_SWITCHES[@]}" \
+build/tools/releasetools/sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \
     out/target/product/$DEVICE/obj/PACKAGING/target_files_intermediates/$PREFIX$DEVICE-target_files-$BUILD_NUMBER.zip \
     $OUT/$TARGET_FILES || exit 1
 
