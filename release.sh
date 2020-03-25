@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o pipefail
+
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -eq 1 ]] || user_error "expected a single argument (device type)"
