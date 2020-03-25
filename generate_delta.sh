@@ -15,10 +15,10 @@ OLD=$2
 NEW=$3
 
 # decrypt keys in advance for improved performance and modern algorithm support
-KEY_DIR=$(mktemp -d --tmpdir delta_keys.XXXXXXXXXX) || exit 1
+KEY_DIR=$(mktemp -d --tmpdir delta_keys.XXXXXXXXXX)
 trap "rm -rf \"$KEY_DIR\"" EXIT
-cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
-script/decrypt_keys.sh "$KEY_DIR" || exit 1
+cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
+script/decrypt_keys.sh "$KEY_DIR"
 
 ./build/tools/releasetools/ota_from_target_files --block "${EXTRA_OTA[@]}" -k "$KEY_DIR/releasekey" \
     -i releases/$OLD/release-$DEVICE-$OLD/$DEVICE-target_files-$OLD.zip \
