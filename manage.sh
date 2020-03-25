@@ -98,100 +98,100 @@ independent=(
 for repo in "${aosp_forks[@]}"; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
-    cd $repo || exit 1
+    cd $repo
 
-    git checkout $branch || exit 1
+    git checkout $branch
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
         git push origin :refs/tags/$DELETE_TAG
-        cd .. || exit 1
+        cd ..
         continue
     fi
 
     if [[ -n $build_number ]]; then
         if [[ $repo == platform_manifest ]]; then
-            git checkout -B tmp || exit 1
-            sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml || exit 1
-            git commit default.xml -m $aosp_version.$build_number || exit 1
+            git checkout -B tmp
+            sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
+            git commit default.xml -m $aosp_version.$build_number
         elif [[ $aosp_version != $aosp_version_real && $repo == platform_build ]]; then
-            git checkout -B tmp || exit 1
+            git checkout -B tmp
             sed -i s/$aosp_version_real/$aosp_version/ core/build_id.mk
-            git commit core/build_id.mk -m $aosp_version.$build_number || exit 1
+            git commit core/build_id.mk -m $aosp_version.$build_number
         fi
 
-        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number || exit 1
-        git push origin $aosp_version.$build_number || exit 1
+        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
+        git push origin $aosp_version.$build_number
 
         if [[ $repo == platform_manifest ]]; then
-            git checkout $branch || exit 1
-            git branch -D tmp || exit 1
+            git checkout $branch
+            git branch -D tmp
         fi
     else
-        git fetch upstream --tags || exit 1
+        git fetch upstream --tags
 
-        git pull --rebase upstream $aosp_tag || exit 1
-        git push -f || exit 1
+        git pull --rebase upstream $aosp_tag
+        git push -f
     fi
 
-    cd .. || exit 1
+    cd ..
 done
 
 for kernel in ${!kernels[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling kernel_$kernel$(tput sgr0)"
 
-    cd kernel_$kernel || exit 1
-    git checkout $branch || exit 1
+    cd kernel_$kernel
+    git checkout $branch
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
         git push origin :refs/tags/$DELETE_TAG
-        cd .. || exit 1
+        cd ..
         continue
     fi
 
     if [[ -n $build_number ]]; then
-        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number || exit 1
-        git push origin $aosp_version.$build_number || exit 1
+        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
+        git push origin $aosp_version.$build_number
     else
-        git fetch upstream --tags || exit 1
+        git fetch upstream --tags
         kernel_tag=${kernels[$kernel]}
         if [[ -z $kernel_tag ]]; then
-            cd .. || exit 1
+            cd ..
             continue
         fi
 
-        git checkout $branch-stable-base || exit 1
-        git rebase $kernel_tag || exit 1
-        git push -f || exit 1
+        git checkout $branch-stable-base
+        git rebase $kernel_tag
+        git push -f
 
-        git checkout $branch || exit 1
-        git rebase $branch-stable-base || exit 1
-        git push -f || exit 1
+        git checkout $branch
+        git rebase $branch-stable-base
+        git push -f
     fi
 
-    cd .. || exit 1
+    cd ..
 done
 
 for repo in ${independent[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
-    cd $repo || exit 1
-    git checkout $branch || exit 1
+    cd $repo
+    git checkout $branch
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
         git push origin :refs/tags/$DELETE_TAG
-        cd .. || exit 1
+        cd ..
         continue
     fi
 
     if [[ -n $build_number ]]; then
-        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number || exit 1
-        git push origin $aosp_version.$build_number || exit 1
+        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
+        git push origin $aosp_version.$build_number
     else
-        git push -f || exit 1
+        git push -f
     fi
 
-    cd .. || exit 1
+    cd ..
 done
