@@ -78,6 +78,6 @@ mv $DEVICE-$VERSION-factory-*.zip $DEVICE-factory-$BUILD_NUMBER.zip
 
 cd ../..
 
-if [[ -f "$KEY_DIR/../factory.sec" ]]; then
-    script/signify_prehash.sh "$KEY_DIR/../factory.sec" $OUT/$DEVICE-factory-$BUILD_NUMBER.zip
+if [[ -f "$KEY_DIR/factory.sec" ]]; then
+    script/signify_prehash.sh "$KEY_DIR/factory.sec" $OUT/$DEVICE-factory-$BUILD_NUMBER.zip
 fi
