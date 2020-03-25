@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit -o pipefail
+
 user_error() {
   echo user error, please replace user and try again >&2
   exit 1

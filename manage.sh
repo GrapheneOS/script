@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o nounset
+set -o errexit -o nounset -o pipefail
 
 DELETE_TAG=
 

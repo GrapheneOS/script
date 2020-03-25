@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit -o pipefail
+
 [[ $# -eq 2 ]] || exit 1
 
 for device in bonito sargo crosshatch blueline taimen walleye; do
