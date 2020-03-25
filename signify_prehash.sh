@@ -2,7 +2,9 @@
 
 set -o errexit -o pipefail
 
-[[ $# -eq 2 ]] || exit 1
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+
+[[ $# -eq 2 ]] || user_error "expected 2 arguments (key and file to sign)"
 
 key="$(realpath $1)"
 file=$(basename $2)

@@ -2,10 +2,7 @@
 
 set -o errexit -o pipefail
 
-user_error() {
-    echo $1 >&2
-    exit 1
-}
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -eq 3 ]] || user_error "expected 3 arguments (device, source and target version)"
 

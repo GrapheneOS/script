@@ -1,9 +1,6 @@
 #!/bin/bash
 
-user_error() {
-    echo $1 >&2
-    exit 1
-}
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -eq 1 ]] || user_error "expected a single argument (device type)"
 [[ -n $BUILD_NUMBER ]] || user_error "expected BUILD_NUMBER in the environment"

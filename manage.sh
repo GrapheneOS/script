@@ -2,13 +2,15 @@
 
 set -o errexit -o nounset -o pipefail
 
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+
 DELETE_TAG=
 
 build_number=
 if [[ $# -eq 1 ]]; then
   build_number=$1
 elif [[ $# -ne 0 ]]; then
-  exit 1
+  user_error "expected 0 or 1 arguments"
 fi
 
 branch=10

@@ -2,7 +2,9 @@
 
 set -o errexit -o pipefail
 
-[[ $# -ne 1 ]] && exit 1
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+
+[[ $# -ne 1 ]] && user_error "expected 1 argument (key directory)"
 
 cd $1
 

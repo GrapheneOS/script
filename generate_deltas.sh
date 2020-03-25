@@ -2,10 +2,7 @@
 
 set -o errexit -o pipefail
 
-user_error() {
-    echo $1 >&2
-    exit 1
-}
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -eq 2 ]] || user_error "expected 2 arguments (target and source version)"
 
