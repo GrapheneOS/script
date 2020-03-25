@@ -3,11 +3,11 @@
 set -o errexit -o pipefail
 
 user_error() {
-  echo user error, please replace user and try again >&2
-  exit 1
+    echo $1 >&2
+    exit 1
 }
 
-[[ $# -eq 3 ]] || user_error
+[[ $# -eq 3 ]] || user_error "expected 3 arguments (device, source and target version)"
 
 PERSISTENT_KEY_DIR=keys/$1
 DEVICE=$1

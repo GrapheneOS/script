@@ -2,7 +2,12 @@
 
 set -o errexit -o pipefail
 
-[[ $# -eq 2 ]] || exit 1
+user_error() {
+    echo $1 >&2
+    exit 1
+}
+
+[[ $# -eq 2 ]] || user_error "expected 2 arguments (target and source version)"
 
 for device in bonito sargo crosshatch blueline taimen walleye; do
     for old in $2; do
