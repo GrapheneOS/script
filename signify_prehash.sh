@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o errexit -o pipefail
+set -o errexit -o nounset -o pipefail
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
