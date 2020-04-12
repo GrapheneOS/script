@@ -44,7 +44,6 @@ aosp_forks=(
     platform_frameworks_native
     platform_frameworks_opt_net_wifi
     platform_libcore
-    platform_manifest
     platform_packages_apps_Bluetooth
     platform_packages_apps_Camera2
     platform_packages_apps_Contacts
@@ -94,7 +93,9 @@ independent=(
     vendor_linaro
 )
 
-for repo in "${aosp_forks[@]}"; do
+handle_repo() {
+    local repo=$1
+
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
@@ -105,13 +106,15 @@ for repo in "${aosp_forks[@]}"; do
         git tag -d $DELETE_TAG
         git push origin :refs/tags/$DELETE_TAG
         cd ..
-        continue
+        return
     fi
 
     if [[ -n $build_number ]]; then
         if [[ $repo == platform_manifest ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
+            ( cd .. && ./script/update_revision_hashes.py $repo/default.xml ) > default.xml.tmp
+            mv default.xml.tmp default.xml
             git commit default.xml -m $aosp_version.$build_number
         elif [[ $aosp_version != $aosp_version_real && $repo == platform_build ]]; then
             git checkout -B tmp
@@ -134,6 +137,10 @@ for repo in "${aosp_forks[@]}"; do
     fi
 
     cd ..
+}
+
+for repo in "${aosp_forks[@]}"; do
+    handle_repo $repo
 done
 
 for kernel in ${!kernels[@]}; do
@@ -194,3 +201,5 @@ for repo in ${independent[@]}; do
 
     cd ..
 done
+
+handle_repo platform_manifest
