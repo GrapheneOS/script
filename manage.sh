@@ -120,8 +120,12 @@ for repo in "${aosp_forks[@]}"; do
             git commit core/build_id.mk -m $aosp_version.$build_number
         fi
 
-        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
-        git push origin $aosp_version.$build_number
+        if [[ $repo != platform_manifest ]]; then
+            git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
+            git push origin $aosp_version.$build_number
+        else
+            git push -fu origin tmp
+        fi
 
         if [[ $repo == platform_manifest || ($aosp_version != $aosp_version_real && $repo == platform_build) ]]; then
             git checkout $branch
