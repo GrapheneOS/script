@@ -123,7 +123,7 @@ for repo in "${aosp_forks[@]}"; do
         git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
         git push origin $aosp_version.$build_number
 
-        if [[ $repo == platform_manifest ]]; then
+        if [[ $repo == platform_manifest || ($aosp_version != $aosp_version_real && $repo == platform_build) ]]; then
             git checkout $branch
             git branch -D tmp
         fi
