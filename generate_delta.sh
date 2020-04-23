@@ -4,6 +4,8 @@ set -o errexit -o nounset -o pipefail
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
+chrt -b -p 0 $$
+
 [[ $# -eq 3 ]] || user_error "expected 3 arguments (device, source and target version)"
 
 PERSISTENT_KEY_DIR=keys/$1

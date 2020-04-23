@@ -4,6 +4,8 @@ set -o errexit -o nounset -o pipefail
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
+chrt -b -p 0 $$
+
 [[ $# -eq 2 ]] || user_error "expected 2 arguments (target and source version)"
 
 for device in bonito sargo crosshatch blueline taimen walleye; do
