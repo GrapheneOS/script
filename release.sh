@@ -33,7 +33,7 @@ elif [[ $1 != hikey && $1 != hikey960 ]]; then
 fi
 
 BUILD=$BUILD_NUMBER
-VERSION=$(grep -Po "BUILD_ID=\K.+" build/core/build_id.mk | tr '[:upper:]' '[:lower:]')
+VERSION=$BUILD_NUMBER
 DEVICE=$1
 PRODUCT=$1
 
@@ -74,8 +74,6 @@ if [[ $DEVICE == hikey* ]]; then
 else
     source ../../device/common/generate-factory-images-common.sh
 fi
-
-mv $DEVICE-$VERSION-factory.zip $DEVICE-factory-$BUILD_NUMBER.zip
 
 cd ../..
 
