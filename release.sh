@@ -75,7 +75,7 @@ else
     source ../../device/common/generate-factory-images-common.sh
 fi
 
-mv $DEVICE-$VERSION-factory-*.zip $DEVICE-factory-$BUILD_NUMBER.zip
+mv $DEVICE-$VERSION-factory.zip $DEVICE-factory-$BUILD_NUMBER.zip
 
 cd ../..
 
