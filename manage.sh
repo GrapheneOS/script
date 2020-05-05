@@ -14,8 +14,7 @@ elif [[ $# -ne 0 ]]; then
 fi
 
 branch=10
-aosp_version=QQ2A.200501.001.B3 # version to use for build id and tag
-aosp_version_real=QQ2A.200501.001.B3 # real base version
+aosp_version=QQ2A.200501.001.B3
 aosp_tag=android-10.0.0_r36
 
 aosp_forks=(
@@ -114,10 +113,6 @@ for repo in "${aosp_forks[@]}"; do
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
-        elif [[ $aosp_version != $aosp_version_real && $repo == platform_build ]]; then
-            git checkout -B tmp
-            sed -i s/$aosp_version_real/$aosp_version/ core/build_id.mk
-            git commit core/build_id.mk -m $aosp_version.$build_number
         fi
 
         if [[ $repo != platform_manifest ]]; then
@@ -127,7 +122,7 @@ for repo in "${aosp_forks[@]}"; do
             git push -fu origin tmp
         fi
 
-        if [[ $repo == platform_manifest || ($aosp_version != $aosp_version_real && $repo == platform_build) ]]; then
+        if [[ $repo == platform_manifest ]]; then
             git checkout $branch
             git branch -D tmp
         fi
