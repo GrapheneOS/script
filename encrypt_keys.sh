@@ -21,7 +21,7 @@ if [[ $new_password != $confirm_new_password ]]; then
     exit 1
 fi
 
-tmp="$(mktemp -d --tmpdir encrypt_keys.XXXXXXXXXX)"
+tmp="$(mktemp -d /dev/shm/encrypt_keys.XXXXXXXXXX)"
 trap "rm -rf \"$tmp\"" EXIT
 
 export password

@@ -11,7 +11,7 @@ cd $1
 read -p "Enter key passphrase (empty if none): " -s password
 echo
 
-tmp="$(mktemp -d --tmpdir decrypt_keys.XXXXXXXXXX)"
+tmp="$(mktemp -d /dev/shm/decrypt_keys.XXXXXXXXXX)"
 trap "rm -rf \"$tmp\"" EXIT
 
 export password
