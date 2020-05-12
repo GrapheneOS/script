@@ -18,6 +18,9 @@ trap "rm -rf \"$KEY_DIR\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
 script/decrypt_keys.sh "$KEY_DIR" || exit 1
 
+PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
+PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
+
 source device/common/clear-factory-images-variables.sh
 
 get_radio_image() {
