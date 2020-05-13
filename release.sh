@@ -18,8 +18,9 @@ trap "rm -rf \"$KEY_DIR\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
 script/decrypt_keys.sh "$KEY_DIR" || exit 1
 
-PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
-PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
+OLD_PATH="$PATH"
+export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
+export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 
 source device/common/clear-factory-images-variables.sh
 
@@ -81,5 +82,6 @@ fi
 cd ../..
 
 if [[ -f "$KEY_DIR/factory.sec" ]]; then
+    export PATH="$OLD_PATH"
     script/signify_prehash.sh "$KEY_DIR/factory.sec" $OUT/$DEVICE-factory-$BUILD_NUMBER.zip
 fi
