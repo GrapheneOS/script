@@ -19,6 +19,9 @@ trap "rm -rf \"$KEY_DIR\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
 script/decrypt_keys.sh "$KEY_DIR"
 
+export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
+export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
+
 ./build/tools/releasetools/ota_from_target_files --block "${EXTRA_OTA[@]}" -k "$KEY_DIR/releasekey" \
     -i releases/$OLD/release-$DEVICE-$OLD/$DEVICE-target_files-$OLD.zip \
     releases/$NEW/release-$DEVICE-$NEW/$DEVICE-target_files-$NEW.zip \
