@@ -14,8 +14,8 @@ elif [[ $# -ne 0 ]]; then
 fi
 
 branch=10
-aosp_version=QQ2A.200501.001.B3
-aosp_tag=android-10.0.0_r36
+aosp_version=QQ3A.200605.002
+aosp_tag=android-10.0.0_r38
 
 aosp_forks=(
     device_common
