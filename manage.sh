@@ -21,6 +21,8 @@ aosp_forks=(
     device_common
     device_google_bonito
     device_google_bonito-sepolicy
+    device_google_coral
+    device_google_coral-sepolicy
     device_google_crosshatch
     device_google_crosshatch-sepolicy
     device_google_muskie
