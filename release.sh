@@ -64,7 +64,7 @@ build/tools/releasetools/sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITC
     $OUT/$TARGET_FILES || exit 1
 
 if [[ $DEVICE != hikey* ]]; then
-    build/tools/releasetools/ota_from_target_files --block -k "$KEY_DIR/releasekey" \
+    build/tools/releasetools/ota_from_target_files -k "$KEY_DIR/releasekey" \
         "${EXTRA_OTA[@]}" $OUT/$TARGET_FILES \
         $OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
     script/generate_metadata.py $OUT/$DEVICE-ota_update-$BUILD.zip
