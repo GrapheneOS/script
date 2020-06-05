@@ -70,7 +70,6 @@ aosp_forks=(
 
 declare -A kernels=(
     [google_wahoo]=android-10.0.0_r0.64 # June 2019
-    # broken tag, using branch temporarily
     [google_crosshatch]=android-10.0.0_r0.66 # June 2019
     [google_coral]=android-10.0.0_r0.67 # June 2019
     #[linaro_hikey]=dc721a4ac71d
@@ -83,6 +82,8 @@ independent=(
     # temporarily handle out-of-tree kernel modules as independent repositories
     kernel_google_crosshatch_drivers_staging_qcacld-3.0
     kernel_google_crosshatch_techpack_audio
+    kernel_google_coral_drivers_staging_qcacld-3.0
+    kernel_google_coral_techpack_audio
     platform_external_Auditor
     platform_external_PdfViewer
     platform_external_vanadium
