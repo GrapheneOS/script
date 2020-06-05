@@ -72,7 +72,7 @@ declare -A kernels=(
     [google_wahoo]=android-10.0.0_r0.64 # June 2019
     # broken tag, using branch temporarily
     [google_crosshatch]=android-10.0.0_r0.66 # June 2019
-    #[google_coral]=android-10.0.0_r0.67 # June 2019
+    [google_coral]=android-10.0.0_r0.67 # June 2019
     #[linaro_hikey]=dc721a4ac71d
 )
 
