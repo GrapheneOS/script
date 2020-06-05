@@ -19,6 +19,7 @@ aosp_tag=android-10.0.0_r38
 
 aosp_forks=(
     device_common
+    device_generic_goldfish
     device_google_bonito
     device_google_bonito-sepolicy
     device_google_coral
