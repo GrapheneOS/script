@@ -80,6 +80,7 @@ declare -A kernels=(
 independent=(
     android-prepare-vendor
     branding
+    device_google_coral-kernel
     hardened_malloc
     # temporarily handle out-of-tree kernel modules as independent repositories
     kernel_google_crosshatch_drivers_staging_qcacld-3.0
