@@ -47,14 +47,15 @@ TARGET_FILES=$DEVICE-target_files-$BUILD.zip
 
 if [[ $DEVICE != hikey* ]]; then
     AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
-    if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo || $1 == coral || $1 == flame ]]; then
+    if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo ]]; then
         VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048
                          --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm SHA256_RSA2048)
-        if [[ $DEVICE != coral && $DEVICE != flame ]]; then
-            EXTRA_OTA=(--retrofit_dynamic_partitions)
-        fi
-    else
+        EXTRA_OTA=(--retrofit_dynamic_partitions)
+    elif [[ $DEVICE == walleye || $DEVICE == taimen ]]; then
         VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048)
+    else
+        VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA4096
+                         --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm SHA256_RSA4096)
     fi
 fi
 
