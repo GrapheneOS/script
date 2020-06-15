@@ -46,16 +46,15 @@ mkdir -p $OUT || exit 1
 TARGET_FILES=$DEVICE-target_files-$BUILD.zip
 
 if [[ $DEVICE != hikey* ]]; then
+    AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
     if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo || $1 == coral || $1 == flame ]]; then
         VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048
                          --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm SHA256_RSA2048)
-        AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
         if [[ $DEVICE != coral && $DEVICE != flame ]]; then
             EXTRA_OTA=(--retrofit_dynamic_partitions)
         fi
     else
         VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm SHA256_RSA2048)
-        AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
     fi
 fi
 
