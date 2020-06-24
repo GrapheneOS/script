@@ -8,7 +8,7 @@ chrt -b -p 0 $$
 
 [[ $# -eq 2 ]] || user_error "expected 2 arguments (target and source version)"
 
-for device in bonito sargo crosshatch blueline taimen walleye; do
+for device in coral flame bonito sargo crosshatch blueline taimen walleye; do
     for old in $2; do
         script/generate_delta.sh $device $old $1
     done
