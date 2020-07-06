@@ -71,9 +71,9 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    [google_wahoo]=android-10.0.0_r0.64 # June 2019
-    [google_crosshatch]=android-10.0.0_r0.66 # June 2019
-    [google_coral]=android-10.0.0_r0.67 # June 2019
+    [google_wahoo]=android-10.0.0_r0.71 # July 2019
+    [google_crosshatch]=android-10.0.0_r0.72 # July 2019
+    [google_coral]=android-10.0.0_r0.74 # July 2019
     #[linaro_hikey]=dc721a4ac71d
 )
 
