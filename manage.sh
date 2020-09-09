@@ -13,9 +13,9 @@ elif [[ $# -ne 0 ]]; then
     user_error "expected 0 or 1 arguments"
 fi
 
-branch=10
-aosp_version=QQ3A.200805.001
-aosp_tag=android-10.0.0_r41
+branch=11
+aosp_version=RP1A.200720.011
+aosp_tag=android-11.0.0_r3
 
 aosp_forks=(
     device_common
