@@ -60,7 +60,6 @@ aosp_forks=(
     platform_packages_modules_NetworkStack
     platform_packages_providers_DownloadProvider
     platform_packages_services_Telephony
-    platform_prebuilts_abi-dumps_vndk
     platform_system_bt
     platform_system_core
     platform_system_extras
