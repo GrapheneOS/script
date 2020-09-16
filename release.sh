@@ -41,6 +41,7 @@ VERSION=$BUILD_NUMBER
 DEVICE=$1
 PRODUCT=$1
 
+rm -rf $OUT || exit 1
 mkdir -p $OUT || exit 1
 
 TARGET_FILES=$DEVICE-target_files-$BUILD.zip
