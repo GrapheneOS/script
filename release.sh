@@ -22,7 +22,7 @@ OLD_PATH="$PATH"
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
 export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 
-source device/common/clear-factory-images-variables.sh
+source $OUT/otatools/device/common/clear-factory-images-variables.sh
 
 get_radio_image() {
     grep "require version-$1" vendor/$2/vendor-board-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
@@ -82,9 +82,9 @@ $OUT/otatools/releasetools/img_from_target_files $OUT/$TARGET_FILES \
 cd $OUT || exit 1
 
 if [[ $DEVICE == hikey* ]]; then
-    source ../../device/linaro/hikey/factory-images/generate-factory-images-$DEVICE.sh
+    source otatools/device/linaro/hikey/factory-images/generate-factory-images-$DEVICE.sh
 else
-    source ../../device/common/generate-factory-images-common.sh
+    source otatools/device/common/generate-factory-images-common.sh
 fi
 
 cd ../..
