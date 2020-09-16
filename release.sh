@@ -25,7 +25,7 @@ export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 source device/common/clear-factory-images-variables.sh
 
 get_radio_image() {
-    grep -Po "require version-$1=\K.+" vendor/$2/vendor-board-info.txt | tr '[:upper:]' '[:lower:]'
+    grep "require version-$1" vendor/$2/vendor-board-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
 }
 
 if [[ $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 == coral || $1 == flame ]]; then
