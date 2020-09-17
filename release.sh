@@ -22,6 +22,10 @@ OLD_PATH="$PATH"
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
 export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 
+rm -rf $OUT || exit 1
+mkdir -p $OUT || exit 1
+unzip out/target/product/taimen/otatools.zip -d $OUT/otatools || exit 1
+
 source $OUT/otatools/device/common/clear-factory-images-variables.sh
 
 get_radio_image() {
@@ -41,9 +45,6 @@ VERSION=$BUILD_NUMBER
 DEVICE=$1
 PRODUCT=$1
 
-rm -rf $OUT || exit 1
-mkdir -p $OUT || exit 1
-
 TARGET_FILES=$DEVICE-target_files-$BUILD.zip
 
 if [[ $DEVICE != hikey* ]]; then
@@ -62,8 +63,6 @@ if [[ $DEVICE != hikey* ]]; then
                          --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm $AVB_ALGORITHM)
     fi
 fi
-
-unzip out/target/product/taimen/otatools.zip -d $OUT/otatools || exit 1
 
 $OUT/otatools/releasetools/sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \
     out/target/product/$DEVICE/obj/PACKAGING/target_files_intermediates/$PREFIX$DEVICE-target_files-$BUILD_NUMBER.zip \
