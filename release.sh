@@ -26,10 +26,10 @@ rm -rf $OUT || exit 1
 mkdir -p $OUT || exit 1
 unzip out/target/product/taimen/otatools.zip -d $OUT/otatools || exit 1
 
-source $OUT/otatools/device/common/clear-factory-images-variables.sh
+source $OUT/otatools/device/common/clear-factory-images-variables.sh || exit 1
 
 get_radio_image() {
-    grep "require version-$1" vendor/$2/vendor-board-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
+    grep "require version-$1" vendor/$2/vendor-board-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]' || exit 1
 }
 
 if [[ $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 == coral || $1 == flame ]]; then
@@ -72,7 +72,7 @@ if [[ $DEVICE != hikey* ]]; then
     $OUT/otatools/releasetools/ota_from_target_files -k "$KEY_DIR/releasekey" \
         "${EXTRA_OTA[@]}" $OUT/$TARGET_FILES \
         $OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
-    script/generate_metadata.py $OUT/$DEVICE-ota_update-$BUILD.zip
+    script/generate_metadata.py $OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
 fi
 
 $OUT/otatools/releasetools/img_from_target_files $OUT/$TARGET_FILES \
@@ -81,14 +81,14 @@ $OUT/otatools/releasetools/img_from_target_files $OUT/$TARGET_FILES \
 cd $OUT || exit 1
 
 if [[ $DEVICE == hikey* ]]; then
-    source otatools/device/linaro/hikey/factory-images/generate-factory-images-$DEVICE.sh
+    source otatools/device/linaro/hikey/factory-images/generate-factory-images-$DEVICE.sh || exit 1
 else
-    source otatools/device/common/generate-factory-images-common.sh
+    source otatools/device/common/generate-factory-images-common.sh || exit 1
 fi
 
 cd ../..
 
 if [[ -f "$KEY_DIR/factory.sec" ]]; then
     export PATH="$OLD_PATH"
-    script/signify_prehash.sh "$KEY_DIR/factory.sec" $OUT/$DEVICE-factory-$BUILD_NUMBER.zip
+    script/signify_prehash.sh "$KEY_DIR/factory.sec" $OUT/$DEVICE-factory-$BUILD_NUMBER.zip || exit 1
 fi
