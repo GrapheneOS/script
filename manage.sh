@@ -85,6 +85,8 @@ independent=(
     kernel_google_coral_drivers_staging_qcacld-3.0
     kernel_google_coral_techpack_audio
     platform_external_Auditor
+    # temporary standalone WebView until Vanadium provides it with Chromium 86
+    platform_external_chromium-webview
     platform_external_PdfViewer
     platform_external_vanadium
     platform_external_seedvault
