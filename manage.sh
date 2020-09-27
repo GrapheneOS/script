@@ -27,6 +27,8 @@ aosp_forks=(
     device_google_crosshatch
     device_google_crosshatch-sepolicy
     device_google_muskie
+    device_google_sunfish
+    device_google_sunfish-sepolicy
     device_google_taimen
     device_google_wahoo
     device_linaro_hikey
@@ -71,6 +73,7 @@ declare -A kernels=(
     [google_wahoo]=android-11.0.0_r0.1 # September 2020
     [google_crosshatch]=android-11.0.0_r0.2 # September 2020
     [google_coral]=android-11.0.0_r0.4 # September 2020
+    [google_sunfish]=android-11.0.0_r0.5 # September 2020
     #[linaro_hikey]=dc721a4ac71d
 )
 
