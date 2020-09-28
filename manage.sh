@@ -87,6 +87,8 @@ independent=(
     kernel_google_crosshatch_techpack_audio
     kernel_google_coral_drivers_staging_qcacld-3.0
     kernel_google_coral_techpack_audio
+    kernel_google_sunfish_drivers_staging_qcacld-3.0
+    kernel_google_sunfish_techpack_audio
     platform_external_Auditor
     # temporary standalone WebView until Vanadium provides it with Chromium 86
     platform_external_chromium-webview
