@@ -52,7 +52,6 @@ aosp_forks=(
     platform_packages_apps_Bluetooth
     platform_packages_apps_Camera2
     platform_packages_apps_Contacts
-    platform_packages_apps_DeskClock
     #platform_packages_apps_Gallery2
     platform_packages_apps_Launcher3
     platform_packages_apps_Nfc
@@ -97,6 +96,7 @@ independent=(
     platform_external_vanadium
     platform_external_seedvault
     #platform_external_talkback
+    platform_packages_apps_DeskClock # using master branch rather than Android 11
     platform_packages_apps_ExactCalculator
     platform_packages_apps_SetupWizard
     platform_packages_apps_Updater
