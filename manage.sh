@@ -39,7 +39,6 @@ aosp_forks=(
     platform_build
     platform_build_soong
     platform_development
-    #platform_external_clang
     platform_external_conscrypt
     #platform_external_sqlite
     platform_frameworks_av
@@ -99,7 +98,6 @@ independent=(
     platform_packages_apps_ExactCalculator
     platform_packages_apps_SetupWizard
     platform_packages_apps_Updater
-    #platform_prebuilts_clang_host_linux-x86 # working around GitHub 100M file limit
     script
     Vanadium
     vendor_linaro
