@@ -172,12 +172,8 @@ for kernel in ${!kernels[@]}; do
             continue
         fi
 
-        git checkout $branch-stable-base
-        git rebase $kernel_tag
-        git push -f
-
         git checkout $branch
-        git rebase $branch-stable-base
+        git rebase $kernel_tag
         git push -f
     fi
 
