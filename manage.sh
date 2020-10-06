@@ -73,8 +73,14 @@ aosp_forks=(
 declare -A kernels=(
     [google_wahoo]=android-11.0.0_r0.6 # October 2020
     [google_crosshatch]=android-11.0.0_r0.8 # October 2020
+    [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.8 # October 2020
+    [google_crosshatch_techpack_audio]=android-11.0.0_r0.8 # October 2020
     [google_coral]=android-11.0.0_r0.12 # October 2020
+    [google_coral_drivers_staging_qcacld-3.0]=android-11.0.0_r0.12 # October 2020
+    [google_coral_techpack_audio]=android-11.0.0_r0.12 # October 2020
     [google_sunfish]=android-11.0.0_r0.14 # October 2020
+    [google_sunfish_drivers_staging_qcacld-3.0]=android-11.0.0_r0.14 # October 2020
+    [google_sunfish_techpack_audio]=android-11.0.0_r0.14 # October 2020
     #[linaro_hikey]=dc721a4ac71d
 )
 
@@ -83,13 +89,6 @@ independent=(
     branding
     device_google_coral-kernel
     hardened_malloc
-    # temporarily handle out-of-tree kernel modules as independent repositories
-    kernel_google_crosshatch_drivers_staging_qcacld-3.0
-    kernel_google_crosshatch_techpack_audio
-    kernel_google_coral_drivers_staging_qcacld-3.0
-    kernel_google_coral_techpack_audio
-    kernel_google_sunfish_drivers_staging_qcacld-3.0
-    kernel_google_sunfish_techpack_audio
     platform_external_Auditor
     # temporary standalone WebView until Vanadium provides it with Chromium 86
     platform_external_chromium-webview
