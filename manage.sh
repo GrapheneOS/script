@@ -14,7 +14,7 @@ elif [[ $# -ne 0 ]]; then
 fi
 
 branch=11
-aosp_version=RP1A.201005.006
+aosp_version=RP1A.201005.004
 aosp_tag=android-11.0.0_r5
 
 aosp_forks=(
@@ -89,8 +89,6 @@ independent=(
     device_google_coral-kernel
     hardened_malloc
     platform_external_Auditor
-    # temporary standalone WebView until Vanadium provides it with Chromium 86
-    platform_external_chromium-webview
     platform_external_PdfViewer
     platform_external_vanadium
     platform_external_seedvault
