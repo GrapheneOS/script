@@ -32,7 +32,7 @@ get_radio_image() {
     grep "require version-$1" vendor/$2/vendor-board-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]' || exit 1
 }
 
-if [[ $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 == coral || $1 == flame ]]; then
+if [[ $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 == coral || $1 == flame || $1 == sunfish ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
     RADIO=$(get_radio_image baseband google_devices/$1)
     PREFIX=aosp_
