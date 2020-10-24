@@ -87,6 +87,7 @@ independent=(
     android-prepare-vendor
     branding
     device_google_coral-kernel
+    device_google_sunfish-kernel
     hardened_malloc
     platform_external_Auditor
     platform_external_PdfViewer
