@@ -70,7 +70,7 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    [google_wahoo]=android-11.0.0_r0.6 # October 2020
+    [google_wahoo]=android-11.0.0_r0.6 # October 2020 (end-of-life)
     [google_crosshatch]=android-11.0.0_r0.23 # November 2020
     [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.23 # November 2020
     [google_crosshatch_techpack_audio]=android-11.0.0_r0.23 # November 2020
