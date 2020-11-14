@@ -31,7 +31,6 @@ aosp_forks=(
     device_google_sunfish-sepolicy
     device_google_taimen
     device_google_wahoo
-    device_linaro_hikey
     kernel_configs
     platform_art
     platform_bionic
