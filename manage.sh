@@ -79,7 +79,6 @@ declare -A kernels=(
     [google_sunfish]=android-11.0.0_r0.25 # November 2020
     [google_sunfish_drivers_staging_qcacld-3.0]=android-11.0.0_r0.25 # November 2020
     [google_sunfish_techpack_audio]=android-11.0.0_r0.25 # November 2020
-    #[linaro_hikey]=dc721a4ac71d
 )
 
 independent=(
