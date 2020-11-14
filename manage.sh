@@ -99,7 +99,6 @@ independent=(
     platform_packages_apps_Updater
     script
     Vanadium
-    vendor_linaro
 )
 
 for repo in "${aosp_forks[@]}"; do
