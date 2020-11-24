@@ -1,3 +1,4 @@
+umask 022
 alias which='command -v'
 source build/envsetup.sh
 
