@@ -90,7 +90,6 @@ independent=(
     platform_external_Auditor
     platform_external_PdfViewer
     platform_external_vanadium
-    platform_external_seedvault
     #platform_external_talkback
     platform_packages_apps_ExactCalculator
     platform_packages_apps_SetupWizard
