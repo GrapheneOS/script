@@ -9,10 +9,12 @@ export password
 
 chrt -b -p 0 $$
 
-[[ $# -eq 2 ]] || user_error "expected 2 arguments (target and source version)"
+[[ $# -ge 2 ]] || user_error "expected 2 or more arguments (target and source versions)"
+SOURCE=$1
+shift
 
 for device in sunfish coral flame bonito sargo crosshatch blueline; do
-    for old in $2; do
-        script/generate_delta.sh $device $old $1
+    for old in $@; do
+        script/generate_delta.sh $device $old $SOURCE
     done
 done
