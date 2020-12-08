@@ -70,15 +70,15 @@ aosp_forks=(
 
 declare -A kernels=(
     #[google_wahoo]=android-11.0.0_r0.6 # October 2020 (end-of-life)
-    [google_crosshatch]=android-11.0.0_r0.23 # November 2020
-    [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.23 # November 2020
-    [google_crosshatch_techpack_audio]=android-11.0.0_r0.23 # November 2020
-    [google_coral]=android-11.0.0_r0.24 # November 2020
-    [google_coral_drivers_staging_qcacld-3.0]=android-11.0.0_r0.24 # November 2020
-    [google_coral_techpack_audio]=android-11.0.0_r0.24 # November 2020
-    [google_sunfish]=android-11.0.0_r0.25 # November 2020
-    [google_sunfish_drivers_staging_qcacld-3.0]=android-11.0.0_r0.25 # November 2020
-    [google_sunfish_techpack_audio]=android-11.0.0_r0.25 # November 2020
+    [google_crosshatch]=android-11.0.0_r0.28 # December 2020
+    [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.28 # December 2020
+    [google_crosshatch_techpack_audio]=android-11.0.0_r0.28 # December 2020
+    [google_coral]=android-11.0.0_r0.30 # December 2020
+    [google_coral_drivers_staging_qcacld-3.0]=android-11.0.0_r0.30 # December 2020
+    [google_coral_techpack_audio]=android-11.0.0_r0.30 # December 2020
+    [google_sunfish]=android-11.0.0_r0.31 # December 2020
+    [google_sunfish_drivers_staging_qcacld-3.0]=android-11.0.0_r0.31 # December 2020
+    [google_sunfish_techpack_audio]=android-11.0.0_r0.31 # December 2020
 )
 
 independent=(
