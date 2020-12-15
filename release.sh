@@ -12,20 +12,6 @@ chrt -b -p 0 $$
 PERSISTENT_KEY_DIR=keys/$1
 RELEASE_OUT=out/release-$1-$BUILD_NUMBER
 
-# decrypt keys in advance for improved performance and modern algorithm support
-KEY_DIR=$(mktemp -d /dev/shm/release_keys.XXXXXXXXXX) || exit 1
-trap "rm -rf \"$KEY_DIR\"" EXIT
-cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
-script/decrypt_keys.sh "$KEY_DIR" || exit 1
-
-OLD_PATH="$PATH"
-export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
-export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
-
-rm -rf $RELEASE_OUT || exit 1
-mkdir -p $RELEASE_OUT || exit 1
-unzip $OUT/otatools.zip -d $RELEASE_OUT/otatools || exit 1
-
 source $RELEASE_OUT/otatools/device/common/clear-factory-images-variables.sh || exit 1
 
 get_radio_image() {
@@ -39,6 +25,20 @@ if [[ $1 == taimen || $1 == walleye || $1 == crosshatch || $1 == blueline || $1 
 elif [[ $1 != hikey && $1 != hikey960 ]]; then
     user_error "$1 is not supported by the release script"
 fi
+
+# decrypt keys in advance for improved performance and modern algorithm support
+KEY_DIR=$(mktemp -d /dev/shm/release_keys.XXXXXXXXXX) || exit 1
+trap "rm -rf \"$KEY_DIR\"" EXIT
+cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
+script/decrypt_keys.sh "$KEY_DIR" || exit 1
+
+OLD_PATH="$PATH"
+export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
+export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
+
+rm -rf $RELEASE_OUT || exit 1
+mkdir -p $RELEASE_OUT || exit 1
+unzip $OUT/otatools.zip -d $RELEASE_OUT/otatools || exit 1
 
 BUILD=$BUILD_NUMBER
 VERSION=$BUILD_NUMBER
