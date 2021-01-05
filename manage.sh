@@ -26,11 +26,8 @@ aosp_forks=(
     device_google_coral-sepolicy
     device_google_crosshatch
     device_google_crosshatch-sepolicy
-    #device_google_muskie
     device_google_sunfish
     device_google_sunfish-sepolicy
-    #device_google_taimen
-    #device_google_wahoo
     kernel_configs
     platform_art
     platform_bionic
@@ -70,7 +67,6 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    #[google_wahoo]=android-11.0.0_r0.34 # December 2020 (end-of-life)
     [google_crosshatch]=android-11.0.0_r0.42 # January 2021
     [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.42 # January 2021
     [google_crosshatch_techpack_audio]=android-11.0.0_r0.42 # January 2021
