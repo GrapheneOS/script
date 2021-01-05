@@ -81,7 +81,10 @@ declare -A kernels=(
 independent=(
     android-prepare-vendor
     branding
+    device_google_blueline-kernel
+    device_google_bonito-kernel
     device_google_coral-kernel
+    device_google_crosshatch-kernel
     device_google_sunfish-kernel
     hardened_malloc
     platform_external_Auditor
