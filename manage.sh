@@ -124,6 +124,7 @@ for repo in "${aosp_forks[@]}"; do
     cd $repo
 
     git checkout $branch
+    git checkout 11-wahoo || true
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
@@ -165,6 +166,7 @@ for kernel in ${!kernels[@]}; do
 
     cd kernel_$kernel
     git checkout $branch
+    git checkout 11-wahoo || true
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
@@ -197,6 +199,7 @@ for repo in ${independent[@]}; do
 
     cd $repo
     git checkout $branch
+    git checkout 11-wahoo || true
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
