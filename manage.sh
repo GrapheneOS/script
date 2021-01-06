@@ -68,6 +68,7 @@ aosp_forks=(
 )
 
 declare -A kernels=(
+    [google_wahoo]=android-11.0.0_r0.34 # December 2020 (end-of-life)
     [google_crosshatch]=android-11.0.0_r0.42 # January 2021
     [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.42 # January 2021
     [google_crosshatch_techpack_audio]=android-11.0.0_r0.42 # January 2021
@@ -97,6 +98,10 @@ independent=(
     platform_packages_apps_Updater
     script
     Vanadium
+
+    device_google_muskie
+    device_google_taimen
+    device_google_wahoo
 )
 
 for repo in "${aosp_forks[@]}"; do
