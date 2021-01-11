@@ -56,6 +56,7 @@ aosp_forks=(
     platform_packages_apps_PackageInstaller
     platform_packages_apps_QuickSearchBox
     platform_packages_apps_Settings
+    platform_packages_apps_SettingsIntelligence
     platform_packages_inputmethods_LatinIME
     platform_packages_modules_NetworkStack
     platform_packages_providers_DownloadProvider
