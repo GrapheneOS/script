@@ -79,6 +79,9 @@ declare -A kernels=(
     [google_sunfish]=android-11.0.0_r0.45 # January 2021
     [google_sunfish_drivers_staging_qcacld-3.0]=android-11.0.0_r0.45 # January 2021
     [google_sunfish_techpack_audio]=android-11.0.0_r0.45 # January 2021
+    [google_redbull]=android-11.0.0_r0.46 # January 2021
+    [google_redbull_drivers_staging_qcacld-3.0]=android-11.0.0_r0.46 # January 2021
+    [google_redbull_techpack_audio]=android-11.0.0_r0.46 # January 2021
 )
 
 independent=(
