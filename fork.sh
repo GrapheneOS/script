@@ -11,8 +11,6 @@ fi
 repo=$1
 local_repo=${repo//\//_}
 
-branch=11
-aosp_tag=android-11.0.0_r27
 upstream="https://android.googlesource.com/$repo"
 
 git clone $upstream -b $aosp_tag

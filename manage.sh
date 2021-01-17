@@ -13,10 +13,6 @@ elif [[ $# -ne 0 ]]; then
     user_error "expected 0 or 1 arguments"
 fi
 
-branch=11
-aosp_version=RQ1A.210105.003
-aosp_tag=android-11.0.0_r27
-
 aosp_forks=(
     device_common
     device_generic_goldfish
