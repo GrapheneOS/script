@@ -23,6 +23,8 @@ aosp_forks=(
     device_google_coral-sepolicy
     device_google_crosshatch
     device_google_crosshatch-sepolicy
+    device_google_redbull
+    device_google_redbull-sepolicy
     device_google_redfin
     device_google_sunfish
     device_google_sunfish-sepolicy
