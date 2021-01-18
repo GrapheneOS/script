@@ -10,4 +10,9 @@ key="$(realpath $1)"
 file=$(basename $2)
 
 cd "$(dirname $2)"
-sha256sum --tag "$file" | signify -S -s "$key" -e -m - -x "$file.sig"
+
+if [ "$(grep -E 'debian|ubuntu' /etc/os-release)" ]; then
+   sha256sum --tag "$file" | signify-openbsd -S -s "$key" -e -m - -x "$file.sig"
+else
+   sha256sum --tag "$file" | signify -S -s "$key" -e -m - -x "$file.sig"
+fi
