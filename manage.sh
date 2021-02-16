@@ -96,6 +96,7 @@ independent=(
     device_google_redfin-kernel
     device_google_sunfish-kernel
     hardened_malloc
+    kernel_prebuilts_build-tools
     platform_external_Auditor
     platform_external_PdfViewer
     platform_external_vanadium
