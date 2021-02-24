@@ -13,7 +13,7 @@ chrt -b -p 0 $$
 SOURCE=$1
 shift
 
-for device in sunfish coral flame bonito sargo crosshatch blueline; do
+for device in redfin bramble sunfish coral flame bonito sargo crosshatch blueline; do
     for old in $@; do
         script/generate_delta.sh $device $old $SOURCE
     done
