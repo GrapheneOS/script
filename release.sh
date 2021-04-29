@@ -70,7 +70,7 @@ if [[ $DEVICE != hikey* ]]; then
     $RELEASE_OUT/otatools/releasetools/ota_from_target_files -k "$KEY_DIR/releasekey" \
         "${EXTRA_OTA[@]}" $RELEASE_OUT/$TARGET_FILES \
         $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
-    script/generate_metadata.py $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
+    script/generate_metadata.py $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip "$KEY_DIR/releasekey.pk8" || exit 1
 fi
 
 $RELEASE_OUT/otatools/releasetools/img_from_target_files $RELEASE_OUT/$TARGET_FILES \
