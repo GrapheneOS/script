@@ -65,7 +65,7 @@ with ZipFile(zip_path) as f:
             with open(metadata_path, "w") as output:
                 build_id = data["post-build"].split("/")[3]
                 incremental = data["post-build"].split("/")[4].split(":")[0]
-                metadata_line = f'{incremental} {data["post-timestamp"]} {build_id} {channel}'
+                metadata_line = f'{incremental} {data["post-timestamp"]} {build_id} {channel} {data["pre-device"]}'
                 print(metadata_line, file=output)
 
                 print(f"signing metadata: {metadata_path} ({signing_key})")
