@@ -73,19 +73,19 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    [google_crosshatch]=android-11.0.0_r0.72 # April 2021
-    [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.72 # April 2021
-    [google_crosshatch_techpack_audio]=android-11.0.0_r0.72 # April 2021
-    [google_coral]=android-11.0.0_r0.74 # April 2021
-    [google_coral_drivers_staging_qcacld-3.0]=android-11.0.0_r0.74 # April 2021
-    [google_coral_techpack_audio]=android-11.0.0_r0.74 # April 2021
-    [google_sunfish]=android-11.0.0_r0.75 # April 2021
-    [google_sunfish_drivers_staging_qcacld-3.0]=android-11.0.0_r0.75 # April 2021
-    [google_sunfish_techpack_audio]=android-11.0.0_r0.75 # April 2021
-    [google_redbull]=android-11.0.0_r0.76 # April 2021
-    [google_redbull_drivers_staging_qcacld-3.0]=android-11.0.0_r0.76 # April 2021
-    [google_redbull_techpack_audio]=android-11.0.0_r0.76 # April 2021
-    [google_redbull_arch_arm64_boot_dts_vendor]=android-11.0.0_r0.76 # April 2021
+    [google_crosshatch]=android-11.0.0_r0.77 # May 2021
+    [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.77 # May 2021
+    [google_crosshatch_techpack_audio]=android-11.0.0_r0.77 # May 2021
+    [google_coral]=android-11.0.0_r0.79 # May 2021
+    [google_coral_drivers_staging_qcacld-3.0]=android-11.0.0_r0.79 # May 2021
+    [google_coral_techpack_audio]=android-11.0.0_r0.79 # May 2021
+    [google_sunfish]=android-11.0.0_r0.80 # May 2021
+    [google_sunfish_drivers_staging_qcacld-3.0]=android-11.0.0_r0.80 # May 2021
+    [google_sunfish_techpack_audio]=android-11.0.0_r0.80 # May 2021
+    [google_redbull]=android-11.0.0_r0.81 # May 2021
+    [google_redbull_drivers_staging_qcacld-3.0]=android-11.0.0_r0.81 # May 2021
+    [google_redbull_techpack_audio]=android-11.0.0_r0.81 # May 2021
+    [google_redbull_arch_arm64_boot_dts_vendor]=android-11.0.0_r0.81 # May 2021
 )
 
 independent=(
