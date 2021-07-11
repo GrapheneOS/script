@@ -36,6 +36,7 @@ if [[ $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 ==
     BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
     RADIO=$(get_radio_image baseband google_devices/$1)
     PREFIX=aosp_
+    ERASE_APDP=true
 elif [[ $1 != hikey && $1 != hikey960 ]]; then
     user_error "$1 is not supported by the release script"
 fi
