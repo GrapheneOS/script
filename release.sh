@@ -35,7 +35,6 @@ get_radio_image() {
 if [[ $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 == coral || $1 == flame || $1 == sunfish || $1 == bramble || $1 == redfin ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
     RADIO=$(get_radio_image baseband google_devices/$1)
-    PREFIX=aosp_
 elif [[ $1 != hikey && $1 != hikey960 ]]; then
     user_error "$1 is not supported by the release script"
 fi
@@ -63,7 +62,7 @@ if [[ $DEVICE != hikey* ]]; then
 fi
 
 $RELEASE_OUT/otatools/releasetools/sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \
-    out/target/product/$DEVICE/obj/PACKAGING/target_files_intermediates/$PREFIX$DEVICE-target_files-$BUILD_NUMBER.zip \
+    out/target/product/$DEVICE/obj/PACKAGING/target_files_intermediates/$DEVICE-target_files-$BUILD_NUMBER.zip \
     $RELEASE_OUT/$TARGET_FILES || exit 1
 
 if [[ $DEVICE != hikey* ]]; then
