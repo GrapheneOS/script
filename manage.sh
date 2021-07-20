@@ -103,6 +103,7 @@ independent=(
     kernel_prebuilts_build-tools
     platform_external_Auditor
     platform_external_PdfViewer
+    platform_external_seedvault
     platform_external_talkback
     platform_external_vanadium
     platform_packages_apps_ExactCalculator
