@@ -73,6 +73,10 @@ aosp_forks=(
 )
 
 declare -A kernels=(
+    [google_barbet]=android-11.0.0_r0.110 # August 2021 - to be removed when barbet is in mainline AOSP
+    [google_barbet_drivers_staging_qcacld-3.0]=android-11.0.0_r0.110 # August 2021 - to be removed when barbet is in mainline AOSP
+    [google_barbet_techpack_audio]=android-11.0.0_r0.110 # August 2021 - to be removed when barbet is in mainline AOSP
+    [google_barbet_arch_arm64_boot_dts_vendor]=android-11.0.0_r0.110 # August 2021 - to be removed when barbet is in mainline AOSP
     [google_crosshatch]=android-11.0.0_r0.96 # August 2021
     [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.96 # August 2021
     [google_crosshatch_techpack_audio]=android-11.0.0_r0.96 # August 2021
@@ -91,12 +95,16 @@ declare -A kernels=(
 independent=(
     android-prepare-vendor
     branding
+    device_google_barbet # to be removed when barbet is in mainline AOSP
+    device_google_barbet-kernel
     device_google_blueline-kernel
     device_google_bonito-kernel
     device_google_bramble-kernel
     device_google_coral-kernel
     device_google_crosshatch-kernel
     device_google_redfin-kernel
+    device_google_redbull-barbet # to be removed when barbet is in mainline AOSP
+    device_google_redbull-sepolicy-barbet # to be removed when barbet is in mainline AOSP
     device_google_sunfish-kernel
     hardened_malloc
     kernel_prebuilts_build-tools
