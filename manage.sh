@@ -44,7 +44,6 @@ aosp_forks=(
     platform_frameworks_opt_net_wifi
     platform_hardware_google_pixel
     platform_libcore
-    platform_manifest
     platform_packages_apps_Bluetooth
     platform_packages_apps_Calendar
     platform_packages_apps_Camera2
@@ -73,6 +72,10 @@ aosp_forks=(
 )
 
 declare -A kernels=(
+    [google_barbet]=android-11.0.0_r0.110 # August 2021
+    [google_barbet_drivers_staging_qcacld-3.0]=android-11.0.0_r0.110 # August 2021
+    [google_barbet_techpack_audio]=android-11.0.0_r0.110 # August 2021
+    [google_barbet_arch_arm64_boot_dts_vendor]=android-11.0.0_r0.110 # August 2021
     [google_crosshatch]=android-11.0.0_r0.96 # August 2021
     [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.96 # August 2021
     [google_crosshatch_techpack_audio]=android-11.0.0_r0.96 # August 2021
@@ -91,6 +94,8 @@ declare -A kernels=(
 independent=(
     android-prepare-vendor
     branding
+    device_google_barbet
+    device_google_barbet-kernel
     device_google_blueline-kernel
     device_google_bonito-kernel
     device_google_bramble-kernel
@@ -105,6 +110,7 @@ independent=(
     platform_external_seedvault
     platform_external_talkback
     platform_external_vanadium
+    platform_manifest
     platform_packages_apps_ExactCalculator
     platform_packages_apps_SetupWizard
     platform_packages_apps_Updater
@@ -147,9 +153,10 @@ for repo in "${aosp_forks[@]}"; do
         fi
     else
         git fetch upstream --tags
-
-        git pull --rebase upstream $aosp_tag
-        git push -f
+        git checkout $aosp_tag
+        git cherry-pick android-11.0.0_r40..11
+        git checkout -B $branch
+        git push -fu origin $branch
     fi
 
     cd ..
@@ -179,9 +186,9 @@ for kernel in ${!kernels[@]}; do
             continue
         fi
 
-        git checkout $branch
-        git rebase $kernel_tag
-        git push -f
+        git checkout 11 || git checkout $branch
+        git checkout -B $branch
+        git push -fu origin $branch
     fi
 
     cd ..
