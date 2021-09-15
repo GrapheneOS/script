@@ -5,6 +5,7 @@ set -o errexit -o nounset -o pipefail
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 read -p "Enter key passphrase (empty if none): " -s password
+echo
 export password
 
 chrt -b -p 0 $$
@@ -13,8 +14,8 @@ chrt -b -p 0 $$
 SOURCE=$1
 shift
 
-for device in barbet redfin bramble sunfish coral flame bonito sargo crosshatch blueline; do
-    for old in $@; do
-        script/generate_delta.sh $device $old $SOURCE
-    done
-done
+rm -rf delta-generation
+mkdir delta-generation
+export TMPDIR="$PWD/delta-generation"
+
+parallel --use-cores-instead-of-threads -q script/generate_delta.sh ::: barbet redfin bramble sunfish coral flame bonito sargo crosshatch blueline ::: $@ ::: $SOURCE
