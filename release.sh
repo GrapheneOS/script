@@ -4,10 +4,10 @@ set -o pipefail
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
-chrt -b -p 0 $$
-
 [[ $# -eq 1 ]] || user_error "expected a single argument (device type)"
 [[ -n $BUILD_NUMBER ]] || user_error "expected BUILD_NUMBER in the environment"
+
+chrt -b -p 0 $$
 
 PERSISTENT_KEY_DIR=keys/$1
 RELEASE_OUT=out/release-$1-$BUILD_NUMBER
