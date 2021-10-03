@@ -16,6 +16,7 @@ fi
 aosp_forks=(
     device_common
     device_generic_goldfish
+    device_google_barbet
     device_google_bonito
     device_google_bonito-sepolicy
     device_google_bramble
@@ -54,7 +55,6 @@ aosp_forks=(
     platform_packages_apps_Gallery2
     platform_packages_apps_Launcher3
     platform_packages_apps_Nfc
-    platform_packages_apps_PackageInstaller
     platform_packages_apps_QuickSearchBox
     platform_packages_apps_Settings
     platform_packages_apps_SettingsIntelligence
@@ -62,6 +62,8 @@ aosp_forks=(
     platform_packages_apps_WallpaperPicker2
     platform_packages_inputmethods_LatinIME
     platform_packages_modules_NetworkStack
+    platform_packages_modules_Permission
+    platform_packages_modules_Wifi
     platform_packages_providers_DownloadProvider
     platform_packages_services_Telephony
     platform_prebuilts_build-tools
@@ -73,28 +75,27 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    [google_crosshatch]=android-11.0.0_r0.111 # October 2021
-    [google_crosshatch_drivers_staging_qcacld-3.0]=android-11.0.0_r0.111 # October 2021
-    [google_crosshatch_techpack_audio]=android-11.0.0_r0.111 # October 2021
-    [google_coral]=android-11.0.0_r0.113 # October 2021
-    [google_coral_drivers_staging_qcacld-3.0]=android-11.0.0_r0.113 # October 2021
-    [google_coral_techpack_audio]=android-11.0.0_r0.113 # October 2021
-    [google_sunfish]=android-11.0.0_r0.114 # October 2021
-    [google_sunfish_drivers_staging_qcacld-3.0]=android-11.0.0_r0.114 # October 2021
-    [google_sunfish_techpack_audio]=android-11.0.0_r0.114 # October 2021
-    [google_redbull]=android-11.0.0_r0.115 # October 2021
-    [google_redbull_drivers_staging_qcacld-3.0]=android-11.0.0_r0.115 # October 2021
-    [google_redbull_techpack_audio]=android-11.0.0_r0.115 # October 2021
-    [google_redbull_arch_arm64_boot_dts_vendor]=android-11.0.0_r0.115 # October 2021
-    [google_barbet]=android-11.0.0_r0.116 # October 2021
-    [google_barbet_drivers_staging_qcacld-3.0]=android-11.0.0_r0.116 # October 2021
-    [google_barbet_techpack_audio]=android-11.0.0_r0.116 # October 2021
-    [google_barbet_arch_arm64_boot_dts_vendor]=android-11.0.0_r0.116 # October 2021
+    [google_crosshatch]=android-12.0.0_r0.2 # October 2021
+    [google_crosshatch_drivers_staging_qcacld-3.0]=android-12.0.0_r0.2 # October 2021
+    [google_crosshatch_techpack_audio]=android-12.0.0_r0.2 # October 2021
+    [google_coral]=android-12.0.0_r0.4 # October 2021
+    [google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.0.0_r0.5 # October 2021
+    [google_coral_drivers_staging_qcacld-3.0]=android-12.0.0_r0.4 # October 2021
+    [google_coral_techpack_audio]=android-12.0.0_r0.4 # October 2021
+    [google_redbull]=android-12.0.0_r0.6 # October 2021
+    [google_redbull_drivers_staging_qcacld-3.0]=android-12.0.0_r0.6 # October 2021
+    [google_redbull_techpack_audio]=android-12.0.0_r0.6 # October 2021
+    [google_redbull_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.6 # October 2021
+    [google_barbet]=android-12.0.0_r0.7 # October 2021
+    [google_barbet_drivers_staging_qcacld-3.0]=android-12.0.0_r0.7 # October 2021
+    [google_barbet_techpack_audio]=android-12.0.0_r0.7 # October 2021
+    [google_barbet_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.7 # October 2021
 )
 
 independent=(
     android-prepare-vendor
     branding
+    device_google_barbet-kernel
     device_google_blueline-kernel
     device_google_bonito-kernel
     device_google_bramble-kernel
