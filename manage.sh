@@ -66,7 +66,6 @@ aosp_forks=(
     platform_packages_modules_Wifi
     platform_packages_providers_DownloadProvider
     platform_packages_services_Telephony
-    platform_prebuilts_build-tools
     platform_system_bt
     platform_system_core
     platform_system_extras
