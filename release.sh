@@ -26,6 +26,8 @@ rm -rf $RELEASE_OUT || exit 1
 mkdir -p $RELEASE_OUT || exit 1
 unzip $OUT/otatools.zip -d $RELEASE_OUT/otatools || exit 1
 
+export PATH="$RELEASE_OUT/otatools/bin:$PATH"
+
 source $RELEASE_OUT/otatools/device/common/clear-factory-images-variables.sh || exit 1
 
 get_radio_image() {
@@ -62,19 +64,19 @@ if [[ $DEVICE != hikey* ]]; then
     fi
 fi
 
-$RELEASE_OUT/otatools/releasetools/sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \
+sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \
     --extra_apks OsuLogin.apk,ServiceWifiResources.apk="$KEY_DIR/releasekey" \
     out/target/product/$DEVICE/obj/PACKAGING/target_files_intermediates/$DEVICE-target_files-$BUILD_NUMBER.zip \
     $RELEASE_OUT/$TARGET_FILES || exit 1
 
 if [[ $DEVICE != hikey* ]]; then
-    $RELEASE_OUT/otatools/releasetools/ota_from_target_files -k "$KEY_DIR/releasekey" \
+    ota_from_target_files -k "$KEY_DIR/releasekey" \
         "${EXTRA_OTA[@]}" $RELEASE_OUT/$TARGET_FILES \
         $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
     script/generate_metadata.py $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
 fi
 
-$RELEASE_OUT/otatools/releasetools/img_from_target_files $RELEASE_OUT/$TARGET_FILES \
+img_from_target_files $RELEASE_OUT/$TARGET_FILES \
     $RELEASE_OUT/$DEVICE-img-$BUILD.zip || exit 1
 
 cd $RELEASE_OUT || exit 1
