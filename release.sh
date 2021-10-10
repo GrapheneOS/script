@@ -63,7 +63,7 @@ else
 fi
 
 sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \
-    --extra_apks OsuLogin.apk,ServiceWifiResources.apk="$KEY_DIR/releasekey" \
+    --extra_apks OsuLogin.apk,ServiceConnectivityResources.apk,ServiceWifiResources.apk="$KEY_DIR/releasekey" \
     out/target/product/$DEVICE/obj/PACKAGING/target_files_intermediates/$DEVICE-target_files-$BUILD_NUMBER.zip \
     $RELEASE_OUT/$TARGET_FILES || exit 1
 
