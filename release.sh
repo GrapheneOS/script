@@ -54,15 +54,10 @@ AVB_ALGORITHM=SHA256_RSA4096
 [[ $(stat -c %s "$KEY_DIR/avb_pkmd.bin") -eq 520 ]] && AVB_ALGORITHM=SHA256_RSA2048
 
 if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo ]]; then
-    VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM
-                     --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm $AVB_ALGORITHM)
     EXTRA_OTA=(--retrofit_dynamic_partitions)
-else
-    VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM
-                     --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm $AVB_ALGORITHM)
 fi
 
-sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \
+sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM \
     --extra_apks OsuLogin.apk,ServiceConnectivityResources.apk,ServiceWifiResources.apk="$KEY_DIR/releasekey" \
     "$OUT/obj/PACKAGING/target_files_intermediates/$DEVICE-target_files-$BUILD_NUMBER.zip" \
     $RELEASE_OUT/$TARGET_FILES || exit 1
