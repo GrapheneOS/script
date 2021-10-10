@@ -74,9 +74,7 @@ cd $RELEASE_OUT || exit 1
 
 source otatools/device/common/generate-factory-images-common.sh || exit 1
 
-cd ../..
-
 if [[ -f "$KEY_DIR/factory.sec" ]]; then
     export PATH="$OLD_PATH"
-    script/signify_prehash.sh "$KEY_DIR/factory.sec" $RELEASE_OUT/$DEVICE-factory-$BUILD_NUMBER.zip || exit 1
+    ../../script/signify_prehash.sh "$KEY_DIR/factory.sec" $DEVICE-factory-$BUILD_NUMBER.zip || exit 1
 fi
