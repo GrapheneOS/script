@@ -38,7 +38,7 @@ if [[ $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 ==
     BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
     RADIO=$(get_radio_image baseband google_devices/$1)
     DISABLE_UART=true
-elif [[ $1 != hikey && $1 != hikey960 ]]; then
+else
     user_error "$1 is not supported by the release script"
 fi
 
@@ -49,19 +49,17 @@ PRODUCT=$1
 
 TARGET_FILES=$DEVICE-target_files-$BUILD.zip
 
-if [[ $DEVICE != hikey* ]]; then
-    AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
-    AVB_ALGORITHM=SHA256_RSA4096
-    [[ $(stat -c %s "$KEY_DIR/avb_pkmd.bin") -eq 520 ]] && AVB_ALGORITHM=SHA256_RSA2048
+AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
+AVB_ALGORITHM=SHA256_RSA4096
+[[ $(stat -c %s "$KEY_DIR/avb_pkmd.bin") -eq 520 ]] && AVB_ALGORITHM=SHA256_RSA2048
 
-    if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo ]]; then
-        VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM
-                         --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm $AVB_ALGORITHM)
-        EXTRA_OTA=(--retrofit_dynamic_partitions)
-    else
-        VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM
-                         --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm $AVB_ALGORITHM)
-    fi
+if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo ]]; then
+    VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM
+                     --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm $AVB_ALGORITHM)
+    EXTRA_OTA=(--retrofit_dynamic_partitions)
+else
+    VERITY_SWITCHES=(--avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM
+                     --avb_system_key "$KEY_DIR/avb.pem" --avb_system_algorithm $AVB_ALGORITHM)
 fi
 
 sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \
@@ -69,23 +67,17 @@ sign_target_files_apks -o -d "$KEY_DIR" "${VERITY_SWITCHES[@]}" \
     out/target/product/$DEVICE/obj/PACKAGING/target_files_intermediates/$DEVICE-target_files-$BUILD_NUMBER.zip \
     $RELEASE_OUT/$TARGET_FILES || exit 1
 
-if [[ $DEVICE != hikey* ]]; then
-    ota_from_target_files -k "$KEY_DIR/releasekey" \
-        "${EXTRA_OTA[@]}" $RELEASE_OUT/$TARGET_FILES \
-        $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
-    script/generate_metadata.py $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
-fi
+ota_from_target_files -k "$KEY_DIR/releasekey" \
+    "${EXTRA_OTA[@]}" $RELEASE_OUT/$TARGET_FILES \
+    $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
+script/generate_metadata.py $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
 
 img_from_target_files $RELEASE_OUT/$TARGET_FILES \
     $RELEASE_OUT/$DEVICE-img-$BUILD.zip || exit 1
 
 cd $RELEASE_OUT || exit 1
 
-if [[ $DEVICE == hikey* ]]; then
-    source otatools/device/linaro/hikey/factory-images/generate-factory-images-$DEVICE.sh || exit 1
-else
-    source otatools/device/common/generate-factory-images-common.sh || exit 1
-fi
+source otatools/device/common/generate-factory-images-common.sh || exit 1
 
 cd ../..
 
