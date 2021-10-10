@@ -61,6 +61,7 @@ aosp_forks=(
     platform_packages_apps_ThemePicker
     platform_packages_apps_WallpaperPicker2
     platform_packages_inputmethods_LatinIME
+    platform_packages_modules_Connectivity
     platform_packages_modules_NetworkStack
     platform_packages_modules_Permission
     platform_packages_modules_Wifi
