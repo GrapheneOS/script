@@ -59,7 +59,7 @@ fi
 
 sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM \
     --extra_apks OsuLogin.apk,ServiceConnectivityResources.apk,ServiceWifiResources.apk="$KEY_DIR/releasekey" \
-    "$OUT/obj/PACKAGING/target_files_intermediates/$DEVICE-target_files-$BUILD_NUMBER.zip" \
+    "$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_FILES" \
     $RELEASE_OUT/$TARGET_FILES || exit 1
 
 ota_from_target_files -k "$KEY_DIR/releasekey" \
