@@ -27,6 +27,11 @@ mkdir -p $RELEASE_OUT || exit 1
 unzip $OUT/otatools.zip -d $RELEASE_OUT || exit 1
 cd $RELEASE_OUT
 
+# reproducible key path for otacerts.zip
+ln -s "$KEY_DIR" keys
+KEY_DIR=keys
+trap "rm \"$PWD/$KEY_DIR\"" EXIT
+
 export PATH="$PWD/bin:$PATH"
 
 source device/common/clear-factory-images-variables.sh || exit 1
