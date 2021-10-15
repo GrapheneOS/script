@@ -40,7 +40,7 @@ get_radio_image() {
     grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2/vendor-board-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]' || exit 1
 }
 
-if [[ $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 == coral || $1 == flame || $1 == sunfish || $1 == bramble || $1 == redfin || $1 == barbet ]]; then
+if [[ $1 == @(crosshatch|blueline|bonito|sargo|coral|flame|sunfish|bramble|redfin|barbet) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
     RADIO=$(get_radio_image baseband google_devices/$1)
     DISABLE_UART=true
@@ -59,7 +59,7 @@ AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
 AVB_ALGORITHM=SHA256_RSA4096
 [[ $(stat -c %s "$KEY_DIR/avb_pkmd.bin") -eq 520 ]] && AVB_ALGORITHM=SHA256_RSA2048
 
-if [[ $DEVICE == blueline || $DEVICE == crosshatch || $1 == bonito || $1 == sargo ]]; then
+if [[ $DEVICE == @(blueline|crosshatch|bonito|sargo) ]]; then
     EXTRA_OTA=(--retrofit_dynamic_partitions)
 fi
 
