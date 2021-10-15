@@ -24,14 +24,15 @@ export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 
 rm -rf $RELEASE_OUT || exit 1
 mkdir -p $RELEASE_OUT || exit 1
-unzip $OUT/otatools.zip -d $RELEASE_OUT/otatools || exit 1
+unzip $OUT/otatools.zip -d $RELEASE_OUT || exit 1
+cd $RELEASE_OUT
 
-export PATH="$PWD/$RELEASE_OUT/otatools/bin:$PATH"
+export PATH="$PWD/bin:$PATH"
 
-source $RELEASE_OUT/otatools/device/common/clear-factory-images-variables.sh || exit 1
+source device/common/clear-factory-images-variables.sh || exit 1
 
 get_radio_image() {
-    grep "require version-$1" vendor/$2/vendor-board-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]' || exit 1
+    grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2/vendor-board-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]' || exit 1
 }
 
 if [[ $1 == crosshatch || $1 == blueline || $1 == bonito || $1 == sargo || $1 == coral || $1 == flame || $1 == sunfish || $1 == bramble || $1 == redfin || $1 == barbet ]]; then
@@ -60,21 +61,17 @@ fi
 sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM \
     --extra_apks OsuLogin.apk,ServiceConnectivityResources.apk,ServiceWifiResources.apk="$KEY_DIR/releasekey" \
     "$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_FILES" \
-    $RELEASE_OUT/$TARGET_FILES || exit 1
+    $TARGET_FILES || exit 1
 
-ota_from_target_files -k "$KEY_DIR/releasekey" \
-    "${EXTRA_OTA[@]}" $RELEASE_OUT/$TARGET_FILES \
-    $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
-script/generate_metadata.py $RELEASE_OUT/$DEVICE-ota_update-$BUILD.zip || exit 1
+ota_from_target_files -k "$KEY_DIR/releasekey" "${EXTRA_OTA[@]}" $TARGET_FILES \
+    $DEVICE-ota_update-$BUILD.zip || exit 1
+script/generate_metadata.py $DEVICE-ota_update-$BUILD.zip || exit 1
 
-img_from_target_files $RELEASE_OUT/$TARGET_FILES \
-    $RELEASE_OUT/$DEVICE-img-$BUILD.zip || exit 1
+img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD.zip || exit 1
 
-cd $RELEASE_OUT || exit 1
-
-source otatools/device/common/generate-factory-images-common.sh || exit 1
+source device/common/generate-factory-images-common.sh || exit 1
 
 if [[ -f "$KEY_DIR/factory.sec" ]]; then
     export PATH="$OLD_PATH"
-    ../../script/signify_prehash.sh "$KEY_DIR/factory.sec" $DEVICE-factory-$BUILD_NUMBER.zip || exit 1
+    script/signify_prehash.sh "$KEY_DIR/factory.sec" $DEVICE-factory-$BUILD_NUMBER.zip || exit 1
 fi
