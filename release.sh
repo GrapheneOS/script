@@ -36,22 +36,22 @@ export PATH="$PWD/bin:$PATH"
 
 source device/common/clear-factory-images-variables.sh || exit 1
 
+BUILD=$BUILD_NUMBER
+VERSION=$BUILD_NUMBER
+DEVICE=$1
+PRODUCT=$DEVICE
+
 get_radio_image() {
     grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2/vendor-board-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]' || exit 1
 }
 
-if [[ $1 == @(crosshatch|blueline|bonito|sargo|coral|flame|sunfish|bramble|redfin|barbet) ]]; then
-    BOOTLOADER=$(get_radio_image bootloader google_devices/$1)
-    RADIO=$(get_radio_image baseband google_devices/$1)
+if [[ $DEVICE == @(crosshatch|blueline|bonito|sargo|coral|flame|sunfish|bramble|redfin|barbet) ]]; then
+    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE)
+    RADIO=$(get_radio_image baseband google_devices/$DEVICE)
     DISABLE_UART=true
 else
-    user_error "$1 is not supported by the release script"
+    user_error "$DEVICE is not supported by the release script"
 fi
-
-BUILD=$BUILD_NUMBER
-VERSION=$BUILD_NUMBER
-DEVICE=$1
-PRODUCT=$1
 
 TARGET_FILES=$DEVICE-target_files-$BUILD.zip
 
