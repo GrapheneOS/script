@@ -26,7 +26,7 @@ rm -rf $RELEASE_OUT || exit 1
 mkdir -p $RELEASE_OUT || exit 1
 unzip $OUT/otatools.zip -d $RELEASE_OUT/otatools || exit 1
 
-export PATH="$RELEASE_OUT/otatools/bin:$PATH"
+export PATH="$PWD/$RELEASE_OUT/otatools/bin:$PATH"
 
 source $RELEASE_OUT/otatools/device/common/clear-factory-images-variables.sh || exit 1
 
