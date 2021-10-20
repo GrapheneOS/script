@@ -103,6 +103,7 @@ independent=(
     device_google_sunfish-kernel
     hardened_malloc
     platform_external_Auditor
+    platform_external_Camera
     platform_external_PdfViewer
     platform_external_seedvault
     platform_external_talkback
