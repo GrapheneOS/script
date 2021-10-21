@@ -28,7 +28,7 @@ unzip $OUT/otatools.zip -d $RELEASE_OUT || exit 1
 cd $RELEASE_OUT
 
 # reproducible key path for otacerts.zip
-ln -s "$KEY_DIR" keys
+ln -s "$KEY_DIR" keys || exit 1
 KEY_DIR=keys
 trap "rm \"$PWD/$KEY_DIR\"" EXIT
 
