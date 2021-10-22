@@ -14,7 +14,7 @@ RELEASE_OUT=out/release-$1-$BUILD_NUMBER
 
 # decrypt keys in advance for improved performance and modern algorithm support
 KEY_DIR=$(mktemp -d /dev/shm/release_keys.XXXXXXXXXX) || exit 1
-trap "rm -rf \"$KEY_DIR\"" EXIT
+trap "rm -rf \"$KEY_DIR\" && rm -f \"$PWD/$RELEASE_OUT/keys\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
 script/decrypt_keys.sh "$KEY_DIR" || exit 1
 
@@ -30,7 +30,6 @@ cd $RELEASE_OUT
 # reproducible key path for otacerts.zip
 ln -s "$KEY_DIR" keys || exit 1
 KEY_DIR=keys
-trap "rm \"$PWD/$KEY_DIR\"" EXIT
 
 export PATH="$PWD/bin:$PATH"
 
