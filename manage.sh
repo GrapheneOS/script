@@ -24,6 +24,8 @@ aosp_forks=(
     device_google_coral-sepolicy
     device_google_crosshatch
     device_google_crosshatch-sepolicy
+    device_google_gs101
+    device_google_raviole
     device_google_redbull
     device_google_redbull-sepolicy
     device_google_redfin
@@ -87,6 +89,7 @@ declare -A kernels=(
     [google_barbet_drivers_staging_qcacld-3.0]=android-12.0.0_r0.15 # November 2021
     [google_barbet_techpack_audio]=android-12.0.0_r0.15 # November 2021
     [google_barbet_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.15 # November 2021
+    [google_raviole]=android-12.0.0_r0.17 # November 2021
 )
 
 independent=(
@@ -151,8 +154,15 @@ for repo in "${aosp_forks[@]}"; do
     else
         git fetch upstream --tags
 
-        git pull --rebase upstream $aosp_tag
-        git push -f
+        if [[ $repo == @(platform_build|platform_manifest|device_google_gs101|device_google_raviole) ]]; then
+            git pull --rebase upstream $aosp_tag
+            git push -f
+        else
+            git checkout $aosp_tag
+            git cherry-pick android-12.0.0_r11..12 --keep-redundant-commits
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
@@ -182,9 +192,9 @@ for kernel in ${!kernels[@]}; do
             continue
         fi
 
-        git checkout $branch
-        git rebase $kernel_tag
-        git push -f
+        git checkout 12
+        git checkout -B $branch
+        git push -fu origin $branch
     fi
 
     cd ..
@@ -207,7 +217,13 @@ for repo in ${independent[@]}; do
         git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
         git push origin $aosp_version.$build_number
     else
-        git push -f
+        if [[ $repo == script ]]; then
+            git push -f
+        else
+            git checkout 12
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
