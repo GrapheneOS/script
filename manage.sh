@@ -24,6 +24,9 @@ aosp_forks=(
     device_google_coral-sepolicy
     device_google_crosshatch
     device_google_crosshatch-sepolicy
+    device_google_gs101
+    device_google_gs101-sepolicy
+    device_google_raviole
     device_google_redbull
     device_google_redbull-sepolicy
     device_google_redfin
@@ -36,6 +39,8 @@ aosp_forks=(
     platform_build
     platform_build_soong
     platform_development
+    platform_external_android-nn-driver
+    platform_external_armnn
     platform_external_conscrypt
     platform_frameworks_base
     platform_frameworks_ex
@@ -168,8 +173,15 @@ for repo in "${aosp_forks[@]}"; do
     else
         git fetch upstream --tags
 
-        git pull --rebase upstream $aosp_tag
-        git push -f
+        if [[ $repo == @(device_google_gs101|device_google_gs101-sepolicy|device_google_raviole|platform_build|platform_external_android-nn-driver|platform_external_armnn|platform_frameworks_base|platform_manifest) ]]; then
+            git pull --rebase upstream $aosp_tag
+            git push -f
+        else
+            git checkout $aosp_tag
+            git cherry-pick $aosp_tag_base..$branch_base --keep-redundant-commits
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
@@ -199,9 +211,9 @@ for kernel in ${!kernels[@]}; do
             continue
         fi
 
-        git checkout $branch
-        git rebase $kernel_tag
-        git push -f
+        git checkout 12
+        git checkout -B $branch
+        git push -fu origin $branch
     fi
 
     cd ..
@@ -224,7 +236,13 @@ for repo in ${independent[@]}; do
         git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
         git push origin $aosp_version.$build_number
     else
-        git push -f
+        if [[  $repo == android-prepare-vendor || $repo == script ]]; then
+            git push -f
+        else
+            git checkout 12
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
