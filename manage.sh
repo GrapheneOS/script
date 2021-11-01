@@ -72,21 +72,21 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    [google_crosshatch]=android-12.0.0_r0.2 # October 2021
-    [google_crosshatch_drivers_staging_qcacld-3.0]=android-12.0.0_r0.2 # October 2021
-    [google_crosshatch_techpack_audio]=android-12.0.0_r0.2 # October 2021
-    [google_coral]=android-12.0.0_r0.4 # October 2021
-    [google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.0.0_r0.5 # October 2021
-    [google_coral_drivers_staging_qcacld-3.0]=android-12.0.0_r0.4 # October 2021
-    [google_coral_techpack_audio]=android-12.0.0_r0.4 # October 2021
-    [google_redbull]=android-12.0.0_r0.6 # October 2021
-    [google_redbull_drivers_staging_qcacld-3.0]=android-12.0.0_r0.6 # October 2021
-    [google_redbull_techpack_audio]=android-12.0.0_r0.6 # October 2021
-    [google_redbull_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.6 # October 2021
-    [google_barbet]=android-12.0.0_r0.7 # October 2021
-    [google_barbet_drivers_staging_qcacld-3.0]=android-12.0.0_r0.7 # October 2021
-    [google_barbet_techpack_audio]=android-12.0.0_r0.7 # October 2021
-    [google_barbet_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.7 # October 2021
+    [google_crosshatch]=android-12.0.0_r0.11 # November 2021
+    [google_crosshatch_drivers_staging_qcacld-3.0]=android-12.0.0_r0.11 # November 2021
+    [google_crosshatch_techpack_audio]=android-12.0.0_r0.11 # November 2021
+    [google_coral]=android-12.0.0_r0.12 # November 2021
+    [google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.0.0_r0.13 # November 2021
+    [google_coral_drivers_staging_qcacld-3.0]=android-12.0.0_r0.12 # November 2021
+    [google_coral_techpack_audio]=android-12.0.0_r0.12 # November 2021
+    [google_redbull]=android-12.0.0_r0.14 # November 2021
+    [google_redbull_drivers_staging_qcacld-3.0]=android-12.0.0_r0.14 # November 2021
+    [google_redbull_techpack_audio]=android-12.0.0_r0.14 # November 2021
+    [google_redbull_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.14 # November 2021
+    [google_barbet]=android-12.0.0_r0.15 # November 2021
+    [google_barbet_drivers_staging_qcacld-3.0]=android-12.0.0_r0.15 # November 2021
+    [google_barbet_techpack_audio]=android-12.0.0_r0.15 # November 2021
+    [google_barbet_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.15 # November 2021
 )
 
 independent=(
