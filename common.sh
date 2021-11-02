@@ -1,5 +1,5 @@
 branch=12.1
-aosp_version=SP2A.220405.004
+aosp_version=SP1A.210812.016.C1
 aosp_tag=android-12.1.0_r4
 
 user_error() {
