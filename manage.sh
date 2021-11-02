@@ -119,6 +119,7 @@ declare -A kernels=(
 
 independent=(
     adevtool
+    android-prepare-vendor
     branding
     carriersettings-extractor
     device_google_barbet-kernel
@@ -154,8 +155,11 @@ for repo in "${aosp_forks[@]}"; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-
-    git checkout $branch
+    if [[ $repo == @(platform_manifest|platform_build) ]]; then
+        git checkout 12.1-crosshatch
+    else
+        git checkout $branch
+    fi
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
@@ -167,6 +171,7 @@ for repo in "${aosp_forks[@]}"; do
     if [[ -n $build_number ]]; then
         if [[ $repo == platform_manifest ]]; then
             git checkout -B tmp
+            sed -i s%refs/heads/12.1-crosshatch%refs/tags/$aosp_version.$build_number% default.xml
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
         fi
@@ -179,7 +184,7 @@ for repo in "${aosp_forks[@]}"; do
         fi
 
         if [[ $repo == platform_manifest ]]; then
-            git checkout $branch
+            git checkout 12.1-crosshatch
             git branch -D tmp
         fi
     else
@@ -228,7 +233,11 @@ for repo in ${independent[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    if [[ $repo == @(hardened_malloc|script) ]]; then
+        git checkout 12.1-crosshatch
+    else
+        git checkout $branch
+    fi
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
