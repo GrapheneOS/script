@@ -19,4 +19,4 @@ rm -rf delta-generation
 mkdir delta-generation
 export TMPDIR="$PWD/delta-generation"
 
-parallel --use-cores-instead-of-threads -q script/generate_delta.sh ::: barbet redfin bramble sunfish coral flame bonito sargo crosshatch blueline ::: $@ ::: $SOURCE
+parallel --use-cores-instead-of-threads -q script/generate_delta.sh ::: barbet redfin bramble sunfish coral flame bonito sargo ::: $@ ::: $SOURCE
