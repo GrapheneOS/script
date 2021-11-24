@@ -42,6 +42,7 @@ aosp_forks=(
     platform_frameworks_libs_systemui
     platform_frameworks_native
     platform_frameworks_opt_net_wifi
+    platform_hardware_google_pixel-sepolicy
     platform_libcore
     platform_manifest
     platform_packages_apps_Bluetooth
@@ -57,7 +58,6 @@ aosp_forks=(
     platform_packages_apps_SettingsIntelligence
     platform_packages_apps_ThemePicker
     platform_packages_apps_WallpaperPicker2
-    platform_hardware_google_pixel-sepolicy
     platform_packages_inputmethods_LatinIME
     platform_packages_modules_Connectivity
     platform_packages_modules_NetworkStack
