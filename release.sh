@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o pipefail
+set -o errexit -o pipefail
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
@@ -14,27 +14,27 @@ PERSISTENT_KEY_DIR=keys/$1
 RELEASE_OUT=out/release-$1-$BUILD_NUMBER
 
 # decrypt keys in advance for improved performance and modern algorithm support
-KEY_DIR=$(mktemp -d /dev/shm/release_keys.XXXXXXXXXX) || exit 1
+KEY_DIR=$(mktemp -d /dev/shm/release_keys.XXXXXXXXXX)
 trap "rm -rf \"$KEY_DIR\" && rm -f \"$PWD/$RELEASE_OUT/keys\"" EXIT
-cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR" || exit 1
-script/decrypt_keys.sh "$KEY_DIR" || exit 1
+cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
+script/decrypt_keys.sh "$KEY_DIR"
 
 OLD_PATH="$PATH"
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
 export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 
-rm -rf $RELEASE_OUT || exit 1
-mkdir -p $RELEASE_OUT || exit 1
-unzip $OUT/otatools.zip -d $RELEASE_OUT || exit 1
+rm -rf $RELEASE_OUT
+mkdir -p $RELEASE_OUT
+unzip $OUT/otatools.zip -d $RELEASE_OUT
 cd $RELEASE_OUT
 
 # reproducible key path for otacerts.zip
-ln -s "$KEY_DIR" keys || exit 1
+ln -s "$KEY_DIR" keys
 KEY_DIR=keys
 
 export PATH="$PWD/bin:$PATH"
 
-source device/common/clear-factory-images-variables.sh || exit 1
+source device/common/clear-factory-images-variables.sh
 
 BUILD=$BUILD_NUMBER
 VERSION=$BUILD_NUMBER
@@ -42,7 +42,7 @@ DEVICE=$1
 PRODUCT=$DEVICE
 
 get_radio_image() {
-    grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2 | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]' || exit 1
+    grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2 | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
 }
 
 if [[ $DEVICE == @(crosshatch|blueline|bonito|sargo|coral|flame|sunfish|bramble|redfin|barbet) ]]; then
@@ -117,17 +117,17 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.wifi.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.google.pixel.camera.hal.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.google.pixel.camera.hal.apex="$KEY_DIR/avb.pem" \
-    "$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_FILES" $TARGET_FILES || exit 1
+    "$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_FILES" $TARGET_FILES
 
 ota_from_target_files -k "$KEY_DIR/releasekey" "${EXTRA_OTA[@]}" $TARGET_FILES \
-    $DEVICE-ota_update-$BUILD.zip || exit 1
-script/generate_metadata.py $DEVICE-ota_update-$BUILD.zip || exit 1
+    $DEVICE-ota_update-$BUILD.zip
+script/generate_metadata.py $DEVICE-ota_update-$BUILD.zip
 
-img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD.zip || exit 1
+img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD.zip
 
-source device/common/generate-factory-images-common.sh || exit 1
+source device/common/generate-factory-images-common.sh
 
 if [[ -f "$KEY_DIR/factory.sec" ]]; then
     export PATH="$OLD_PATH"
-    script/signify_prehash.sh "$KEY_DIR/factory.sec" $DEVICE-factory-$BUILD_NUMBER.zip || exit 1
+    script/signify_prehash.sh "$KEY_DIR/factory.sec" $DEVICE-factory-$BUILD_NUMBER.zip
 fi
