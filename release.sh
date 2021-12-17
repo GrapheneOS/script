@@ -45,7 +45,12 @@ get_radio_image() {
     grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2 | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
 }
 
-if [[ $DEVICE == @(crosshatch|blueline|bonito|sargo|coral|flame|sunfish|bramble|redfin|barbet) ]]; then
+if [[ $DEVICE == @(bramble|redfin|barbet) ]]; then
+    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/vendor-board-info.txt)
+    RADIO=$(get_radio_image baseband google_devices/$DEVICE/vendor-board-info.txt)
+    DISABLE_UART=true
+    ERASE_APDP=true
+elif [[ $DEVICE == @(crosshatch|blueline|bonito|sargo|coral|flame|sunfish) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/vendor-board-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/vendor-board-info.txt)
     DISABLE_UART=true
