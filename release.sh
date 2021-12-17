@@ -55,6 +55,7 @@ elif [[ $DEVICE == @(crosshatch|blueline|bonito|sargo|coral|flame|sunfish) ]]; t
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/vendor-board-info.txt)
     DISABLE_UART=true
     ERASE_APDP=true
+    ERASE_MSADP=true
 elif [[ $DEVICE == @(oriole|raven) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
