@@ -45,22 +45,22 @@ get_radio_image() {
     grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2 | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
 }
 
-if [[ $DEVICE == @(bramble|redfin|barbet) ]]; then
+if [[ $DEVICE == @(raven|oriole) ]]; then
+    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
+    RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
+    DISABLE_UART=true
+    DISABLE_FIPS=true
+elif [[ $DEVICE == @(barbet|redfin|bramble) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/vendor-board-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/vendor-board-info.txt)
     DISABLE_UART=true
     ERASE_APDP=true
-elif [[ $DEVICE == @(crosshatch|blueline|bonito|sargo|coral|flame|sunfish) ]]; then
+elif [[ $DEVICE == @(sunfish|coral|flame|bonito|sargo|crosshatch|blueline) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/vendor-board-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/vendor-board-info.txt)
     DISABLE_UART=true
     ERASE_APDP=true
     ERASE_MSADP=true
-elif [[ $DEVICE == @(oriole|raven) ]]; then
-    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
-    RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
-    DISABLE_UART=true
-    DISABLE_FIPS=true
 else
     user_error "$DEVICE is not supported by the release script"
 fi
@@ -71,8 +71,8 @@ AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
 AVB_ALGORITHM=SHA256_RSA4096
 [[ $(stat -c %s "$KEY_DIR/avb_pkmd.bin") -eq 520 ]] && AVB_ALGORITHM=SHA256_RSA2048
 
-if [[ $DEVICE == @(blueline|crosshatch|bonito|sargo) ]]; then
-    EXTRA_OTA=(--retrofit_dynamic_partitions)
+if [[ $DEVICE == @(bonito|sargo|crosshatch|blueline) ]]; then
+    extra_ota=(--retrofit_dynamic_partitions)
 fi
 
 sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM \
