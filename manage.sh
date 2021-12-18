@@ -72,6 +72,7 @@ aosp_forks=(
 )
 
 declare -A kernels=(
+    [common_5.10]=android-12.0.0_r0.26 # December 2021
     [google_crosshatch]=android-12.0.0_r0.21 # December 2021
     [google_crosshatch_drivers_staging_qcacld-3.0]=android-12.0.0_r0.21 # December 2021
     [google_crosshatch_techpack_audio]=android-12.0.0_r0.21 # December 2021
