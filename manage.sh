@@ -87,6 +87,7 @@ declare -A kernels=(
     [google_barbet_drivers_staging_qcacld-3.0]=android-12.0.0_r0.25 # December 2021
     [google_barbet_techpack_audio]=android-12.0.0_r0.25 # December 2021
     [google_barbet_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.25 # December 2021
+    [google_raviole]=android-12.0.0_r0.26 # December 2021
 )
 
 independent=(
