@@ -111,6 +111,7 @@ independent=(
     device_google_bramble-kernel
     device_google_coral-kernel
     device_google_crosshatch-kernel
+    device_google_raviole-kernel
     device_google_redfin-kernel
     device_google_sunfish-kernel
     hardened_malloc
