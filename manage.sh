@@ -173,7 +173,7 @@ for repo in "${aosp_forks[@]}"; do
     else
         git fetch upstream --tags
 
-        if [[ $repo == @(device_google_gs101|device_google_gs101-sepolicy|device_google_raviole|platform_build|platform_external_android-nn-driver|platform_external_armnn|platform_frameworks_base|platform_manifest) ]]; then
+        if [[ $repo == @(device_google_gs101|device_google_gs101-sepolicy|device_google_raviole|platform_build|platform_external_android-nn-driver|platform_external_armnn|platform_frameworks_base|platform_frameworks_native|platform_manifest|platform_packages_apps_Dialer|platform_packages_apps_Settings) ]]; then
             git pull --rebase upstream $aosp_tag
             git push -f
         else
