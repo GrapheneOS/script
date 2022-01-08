@@ -47,6 +47,7 @@ aosp_forks=(
     platform_manifest
     platform_packages_apps_Bluetooth
     platform_packages_apps_Calendar
+    platform_packages_apps_CarrierConfig
     platform_packages_apps_Contacts
     platform_packages_apps_Dialer
     platform_packages_apps_Gallery2
