@@ -97,10 +97,10 @@ declare -A kernels=(
     [google_barbet_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.35
 
     # December 2021
-    [common_5.10]=android-12.0.0_r0.26
+    [common_5.10]=android-12.0.0_r0.36
 
     # December 2021
-    [google_raviole]=android-12.0.0_r0.26
+    [google_raviole]=android-12.0.0_r0.36
 )
 
 independent=(
