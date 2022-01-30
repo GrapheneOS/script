@@ -126,6 +126,7 @@ independent=(
     platform_external_vanadium
     platform_packages_apps_DeskClock # temporarily based on AOSP 11 instead of AOSP 12
     platform_packages_apps_ExactCalculator
+    platform_packages_apps_GmsCompat
     platform_packages_apps_SetupWizard
     platform_packages_apps_Updater
     platform_themes
