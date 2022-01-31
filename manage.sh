@@ -104,7 +104,7 @@ declare -A kernels=(
 )
 
 independent=(
-    #adevtool
+    adevtool
     android-prepare-vendor
     branding
     device_google_barbet-kernel
