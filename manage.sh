@@ -118,6 +118,7 @@ independent=(
     device_google_sunfish-kernel
     hardened_malloc
     kernel-manifest-raviole
+    platform_external_Apps
     platform_external_Auditor
     platform_external_Camera
     platform_external_PdfViewer
