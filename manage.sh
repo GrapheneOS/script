@@ -102,6 +102,8 @@ declare -A kernels=(
 
     # December 2021
     [google_raviole]=android-12.0.0_r0.36
+    [google-modules_wlan_bcmdhd_bcm43752]=android-12.0.0_r0.36
+    [google-modules_wlan_bcmdhd_bcm4389]=android-12.0.0_r0.36
 )
 
 independent=(
