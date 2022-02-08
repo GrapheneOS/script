@@ -75,35 +75,36 @@ aosp_forks=(
 
 declare -A kernels=(
     # February 2022
-    [google_crosshatch]=android-12.0.0_r0.37
-    [google_crosshatch_drivers_staging_qcacld-3.0]=android-12.0.0_r0.37
-    [google_crosshatch_techpack_audio]=android-12.0.0_r0.37
+    [kernel_google_crosshatch]=android-12.0.0_r0.37
+    [kernel_google_crosshatch_drivers_staging_qcacld-3.0]=android-12.0.0_r0.37
+    [kernel_google_crosshatch_techpack_audio]=android-12.0.0_r0.37
 
     # February 2022
-    [google_coral]=android-12.0.0_r0.38
-    [google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.0.0_r0.38
-    [google_coral_drivers_staging_qcacld-3.0]=android-12.0.0_r0.38
-    [google_coral_techpack_audio]=android-12.0.0_r0.38
+    [kernel_google_coral]=android-12.0.0_r0.38
+    [kernel_google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.0.0_r0.38
+    [kernel_google_coral_drivers_staging_qcacld-3.0]=android-12.0.0_r0.38
+    [kernel_google_coral_techpack_audio]=android-12.0.0_r0.38
 
     # February 2022
-    [google_redbull]=android-12.0.0_r0.40
-    [google_redbull_drivers_staging_qcacld-3.0]=android-12.0.0_r0.40
-    [google_redbull_techpack_audio]=android-12.0.0_r0.40
-    [google_redbull_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.40
+    [kernel_google_redbull]=android-12.0.0_r0.40
+    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-12.0.0_r0.40
+    [kernel_google_redbull_techpack_audio]=android-12.0.0_r0.40
+    [kernel_google_redbull_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.40
 
     # February 2022
-    [google_barbet]=android-12.0.0_r0.41
-    [google_barbet_drivers_staging_qcacld-3.0]=android-12.0.0_r0.41
-    [google_barbet_techpack_audio]=android-12.0.0_r0.41
-    [google_barbet_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.41
+    [kernel_google_barbet]=android-12.0.0_r0.41
+    [kernel_google_barbet_drivers_staging_qcacld-3.0]=android-12.0.0_r0.41
+    [kernel_google_barbet_techpack_audio]=android-12.0.0_r0.41
+    [kernel_google_barbet_arch_arm64_boot_dts_vendor]=android-12.0.0_r0.41
 
     # February 2022
-    [common_5.10]=android-12.0.0_r0.42
+    [kernel_common_5.10]=android-12.0.0_r0.42
 
     # February 2022
-    [google_raviole]=android-12.0.0_r0.42
-    [google-modules_wlan_bcmdhd_bcm43752]=android-12.0.0_r0.42
-    [google-modules_wlan_bcmdhd_bcm4389]=android-12.0.0_r0.42
+    [raviole_kernel_build]=android-12.0.0_r0.42
+    [kernel_google_raviole]=android-12.0.0_r0.42
+    [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-12.0.0_r0.42
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-12.0.0_r0.42
 )
 
 independent=(
@@ -134,7 +135,6 @@ independent=(
     platform_packages_apps_Updater
     platform_themes
     raviole-state
-    raviole_kernel_build
     raviole_kernel_manifest
     script
     Vanadium
@@ -183,9 +183,9 @@ for repo in "${aosp_forks[@]}"; do
 done
 
 for kernel in ${!kernels[@]}; do
-    echo -e "\n>>> $(tput setaf 3)Handling kernel_$kernel$(tput sgr0)"
+    echo -e "\n>>> $(tput setaf 3)Handling $kernel$(tput sgr0)"
 
-    cd kernel_$kernel
+    cd $kernel
     git checkout $branch
 
     if [[ -n $DELETE_TAG ]]; then
