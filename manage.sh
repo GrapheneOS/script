@@ -134,10 +134,10 @@ independent=(
     platform_packages_apps_SetupWizard
     platform_packages_apps_Updater
     platform_themes
-    raviole-state
     raviole_kernel_manifest
     script
     Vanadium
+    vendor_state
 )
 
 for repo in "${aosp_forks[@]}"; do
