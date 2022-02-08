@@ -120,7 +120,6 @@ independent=(
     device_google_redfin-kernel
     device_google_sunfish-kernel
     hardened_malloc
-    kernel-manifest-raviole
     platform_external_Apps
     platform_external_Auditor
     platform_external_Camera
@@ -135,6 +134,8 @@ independent=(
     platform_packages_apps_Updater
     platform_themes
     raviole-state
+    raviole_kernel_build
+    raviole_kernel_manifest
     script
     Vanadium
 )
