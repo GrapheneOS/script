@@ -1,6 +1,6 @@
-branch=12
-aosp_version=SQ1A.220205.002
-aosp_tag=android-12.0.0_r28
+branch=12.1
+aosp_version=SP2A.220305.012
+aosp_tag=android-12.1.0_r1
 
 user_error() {
     echo $1 >&2
