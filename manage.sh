@@ -106,10 +106,10 @@ declare -A kernels=(
     [kernel_common_5.10]=android-12.0.0_r0.42
 
     # February 2022
-    [raviole_kernel_build]=android-12.0.0_r0.42
-    [kernel_google_raviole]=android-12.0.0_r0.42
-    [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-12.0.0_r0.42
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-12.0.0_r0.42
+    [raviole_kernel_build]=android-s-v2-beta-3_r0.6
+    [kernel_google_raviole]=android-s-v2-beta-3_r0.6
+    [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-s-v2-beta-3_r0.6
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-s-v2-beta-3_r0.6
 )
 
 independent=(
