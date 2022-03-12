@@ -103,7 +103,7 @@ declare -A kernels=(
     [kernel_google_barbet_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.5
 
     # February 2022
-    [kernel_common_5.10]=android-12.0.0_r0.42
+    [kernel_common_5.10]=android-s-v2-beta-3_r0.6
 
     # February 2022
     [raviole_kernel_build]=android-s-v2-beta-3_r0.6
