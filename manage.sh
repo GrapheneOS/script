@@ -79,24 +79,24 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # February 2022
+    # March 2022
     [kernel_google_crosshatch]=android-12.1.0_r0.1
     [kernel_google_crosshatch_drivers_staging_qcacld-3.0]=android-12.1.0_r0.1
     [kernel_google_crosshatch_techpack_audio]=android-12.1.0_r0.1
 
-    # February 2022
+    # March 2022
     [kernel_google_coral]=android-12.1.0_r0.2
     [kernel_google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.1.0_r0.2
     [kernel_google_coral_drivers_staging_qcacld-3.0]=android-12.1.0_r0.2
     [kernel_google_coral_techpack_audio]=android-12.1.0_r0.2
 
-    # February 2022
+    # March 2022
     [kernel_google_redbull]=android-12.1.0_r0.4
     [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-12.1.0_r0.4
     [kernel_google_redbull_techpack_audio]=android-12.1.0_r0.4
     [kernel_google_redbull_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.4
 
-    # February 2022
+    # March 2022
     [kernel_google_barbet]=android-12.1.0_r0.5
     [kernel_google_barbet_drivers_staging_qcacld-3.0]=android-12.1.0_r0.5
     [kernel_google_barbet_techpack_audio]=android-12.1.0_r0.5
