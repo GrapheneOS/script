@@ -181,8 +181,15 @@ for repo in "${aosp_forks[@]}"; do
     else
         git fetch upstream --tags
 
-        git pull --rebase upstream $aosp_tag
-        git push -f
+        if [[ $repo == platform_manifest ]]; then
+            git pull --rebase upstream $aosp_tag
+            git push -f
+        else
+            git checkout $aosp_tag
+            git cherry-pick $aosp_tag_base..$branch_base
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
@@ -212,9 +219,9 @@ for kernel in ${!kernels[@]}; do
             continue
         fi
 
-        git checkout $branch
-        git rebase $kernel_tag
-        git push -f
+        git checkout $branch_base
+        git checkout -B $branch
+        git push -fu origin $branch
     fi
 
     cd ..
@@ -237,7 +244,13 @@ for repo in ${independent[@]}; do
         git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
         git push origin $aosp_version.$build_number
     else
-        git push -f
+        if [[ $repo == script ]]; then
+            git push -f
+        else
+            git checkout $branch_base
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
