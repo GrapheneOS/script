@@ -102,14 +102,14 @@ declare -A kernels=(
     [kernel_google_barbet_techpack_audio]=android-12.1.0_r0.5
     [kernel_google_barbet_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.5
 
-    # February 2022
-    [kernel_common_5.10]=android-s-v2-beta-3_r0.6
+    # March 2022
+    [kernel_common_5.10]=android12-5.10-2021-12_r8
 
-    # February 2022
-    [raviole_kernel_build]=android-s-v2-beta-3_r0.6
-    [kernel_google_raviole]=android-s-v2-beta-3_r0.6
-    [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-s-v2-beta-3_r0.6
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-s-v2-beta-3_r0.6
+    # March 2022
+    [raviole_kernel_build]=android-12.1.0_r0.6
+    [kernel_google_raviole]=android-12.1.0_r0.6
+    [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-12.1.0_r0.6
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-12.1.0_r0.6
 )
 
 independent=(
