@@ -61,6 +61,7 @@ aosp_forks=(
     platform_packages_apps_Nfc
     platform_packages_apps_Messaging
     platform_packages_apps_QuickSearchBox
+    platform_packages_apps_RemoteProvisioner
     platform_packages_apps_Settings
     platform_packages_apps_SettingsIntelligence
     platform_packages_apps_ThemePicker
