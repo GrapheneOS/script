@@ -119,6 +119,7 @@ independent=(
     adevtool
     android-prepare-vendor
     branding
+    carriersettings-extractor
     device_google_barbet-kernel
     device_google_blueline-kernel
     device_google_bonito-kernel
