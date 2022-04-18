@@ -110,6 +110,7 @@ declare -A kernels=(
 
     # April 2022
     [raviole_kernel_build]=android-12.1.0_r0.16
+    [raviole_kernel_manifest]=android-12.1.0_r0.16
     [kernel_google_raviole]=android-12.1.0_r0.16
     [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-12.1.0_r0.16
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-12.1.0_r0.16
@@ -143,7 +144,6 @@ independent=(
     platform_packages_apps_SetupWizard
     platform_packages_apps_Updater
     platform_themes
-    raviole_kernel_manifest
     script
     Vanadium
     vendor_state
