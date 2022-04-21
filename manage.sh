@@ -78,6 +78,7 @@ aosp_forks=(
     platform_system_core
     platform_system_extras
     platform_system_netd
+    platform_system_security
     platform_system_sepolicy
 )
 
