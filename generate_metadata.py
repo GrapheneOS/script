@@ -12,7 +12,7 @@ zip_path = parser.parse_args().zip
 with ZipFile(zip_path) as f:
     with f.open("META-INF/com/android/metadata") as metadata:
         data = dict(line[:-1].decode().split("=") for line in metadata)
-        for channel in ("beta", "stable", "testing"):
+        for channel in ("beta", "stable", "alpha", "testing"):
             with open(path.join(path.dirname(zip_path), data["pre-device"] + "-" + channel), "w") as output:
                 build_id = data["post-build"].split("/")[3]
                 incremental = data["post-build"].split("/")[4].split(":")[0]
