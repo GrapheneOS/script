@@ -106,7 +106,7 @@ declare -A kernels=(
     [kernel_google_barbet_techpack_audio]=android-12.1.0_r0.21
     [kernel_google_barbet_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.21
 
-    # April 2022
+    # May 2022
     [kernel_common_5.10]=ASB-2022-04-05_12-5.10
 
     # May 2022
