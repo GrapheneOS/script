@@ -56,6 +56,7 @@ aosp_forks=(
     platform_packages_apps_Contacts
     platform_packages_apps_Dialer
     platform_packages_apps_DocumentsUI
+    platform_packages_apps_EmergencyInfo
     platform_packages_apps_Gallery2
     platform_packages_apps_Launcher3
     platform_packages_apps_Nfc
