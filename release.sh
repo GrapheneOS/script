@@ -50,23 +50,27 @@ if [[ $DEVICE == @(raven|oriole) ]]; then
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
     DISABLE_UART=true
     DISABLE_FIPS=true
+    CHECK_MP=true
 elif [[ $DEVICE == @(barbet|redfin|bramble) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
     DISABLE_UART=true
     ERASE_APDP=true
+    CHECK_MP=true
 elif [[ $DEVICE == @(sunfish|coral|flame) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
     DISABLE_UART=true
     ERASE_APDP=true
     ERASE_MSADP=true
+    CHECK_MP=true
 elif [[ $DEVICE == @(bonito|sargo|crosshatch|blueline) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/vendor-board-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/vendor-board-info.txt)
     DISABLE_UART=true
     ERASE_APDP=true
     ERASE_MSADP=true
+    CHECK_MP=true
 else
     user_error "$DEVICE is not supported by the release script"
 fi
