@@ -85,36 +85,36 @@ aosp_forks=(
 
 declare -A kernels=(
     # May 2022
-    [kernel_google_crosshatch]=android-12.1.0_r0.17
-    [kernel_google_crosshatch_drivers_staging_qcacld-3.0]=android-12.1.0_r0.17
-    [kernel_google_crosshatch_techpack_audio]=android-12.1.0_r0.17
+    [kernel_google_crosshatch]=android-12.1.0_r0.23
+    [kernel_google_crosshatch_drivers_staging_qcacld-3.0]=android-12.1.0_r0.23
+    [kernel_google_crosshatch_techpack_audio]=android-12.1.0_r0.23
 
-    # May 2022
-    [kernel_google_coral]=android-12.1.0_r0.18
-    [kernel_google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.1.0_r0.18
-    [kernel_google_coral_drivers_staging_qcacld-3.0]=android-12.1.0_r0.18
-    [kernel_google_coral_techpack_audio]=android-12.1.0_r0.18
+    # June 2022
+    [kernel_google_coral]=android-12.1.0_r0.24
+    [kernel_google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.1.0_r0.24
+    [kernel_google_coral_drivers_staging_qcacld-3.0]=android-12.1.0_r0.24
+    [kernel_google_coral_techpack_audio]=android-12.1.0_r0.24
 
-    # May 2022
-    [kernel_google_redbull]=android-12.1.0_r0.20
-    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-12.1.0_r0.20
-    [kernel_google_redbull_techpack_audio]=android-12.1.0_r0.20
-    [kernel_google_redbull_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.20
+    # June 2022
+    [kernel_google_redbull]=android-12.1.0_r0.26
+    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-12.1.0_r0.26
+    [kernel_google_redbull_techpack_audio]=android-12.1.0_r0.26
+    [kernel_google_redbull_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.26
 
-    # May 2022
-    [kernel_google_barbet]=android-12.1.0_r0.21
-    [kernel_google_barbet_drivers_staging_qcacld-3.0]=android-12.1.0_r0.21
-    [kernel_google_barbet_techpack_audio]=android-12.1.0_r0.21
-    [kernel_google_barbet_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.21
+    # June 2022
+    [kernel_google_barbet]=android-12.1.0_r0.27
+    [kernel_google_barbet_drivers_staging_qcacld-3.0]=android-12.1.0_r0.27
+    [kernel_google_barbet_techpack_audio]=android-12.1.0_r0.27
+    [kernel_google_barbet_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.27
 
-    # May 2022
-    [kernel_common_5.10]=ASB-2022-05-05_12-5.10
+    # June 2022
+    [kernel_common_5.10]=ASB-2022-06-05_12-5.10
 
-    # May 2022
-    [raviole_kernel_build]=android-12.1.0_r0.22
-    [kernel_google_raviole]=android-12.1.0_r0.22
-    [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-12.1.0_r0.22
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-12.1.0_r0.22
+    # June 2022
+    [raviole_kernel_build]=android-12.1.0_r0.28
+    [kernel_google_raviole]=android-12.1.0_r0.28
+    [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-12.1.0_r0.28
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-12.1.0_r0.28
 )
 
 independent=(
