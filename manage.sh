@@ -230,8 +230,15 @@ for repo in ${independent[@]}; do
     fi
 
     if [[ -n $build_number ]]; then
-        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
-        git push origin $aosp_version.$build_number
+        if [[ $repo == raviole_kernel_manifest ]]; then
+            git checkout -B tmp
+            sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
+            git commit default.xml -m $aosp_version.$build_number
+            git push -fu origin tmp
+        else
+            git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
+            git push origin $aosp_version.$build_number
+        fi
     else
         git push -f
     fi
