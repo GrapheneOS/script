@@ -169,18 +169,10 @@ for repo in "${aosp_forks[@]}"; do
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
-        fi
-
-        if [[ $repo != platform_manifest ]]; then
+            git push -fu origin tmp
+        else
             git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
             git push origin $aosp_version.$build_number
-        else
-            git push -fu origin tmp
-        fi
-
-        if [[ $repo == platform_manifest ]]; then
-            git checkout $branch
-            git branch -D tmp
         fi
     else
         git fetch upstream --tags
