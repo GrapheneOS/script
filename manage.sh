@@ -69,10 +69,12 @@ aosp_forks=(
     platform_packages_apps_WallpaperPicker2
     platform_packages_inputmethods_LatinIME
     platform_packages_modules_Connectivity
+    platform_packages_modules_common
     platform_packages_modules_NetworkStack
     platform_packages_modules_Permission
     platform_packages_modules_Wifi
     platform_packages_providers_DownloadProvider
+    platform_packages_providers_MediaProvider
     platform_packages_providers_TelephonyProvider
     platform_packages_services_Telephony
     platform_system_bt
