@@ -148,7 +148,11 @@ for repo in "${aosp_forks[@]}"; do
 
     cd $repo
 
-    git checkout $branch
+    if [[ $repo == @(platform_manifest|device_google_gs101) ]]; then
+        git checkout 12.1-bluejay
+    else
+        git checkout $branch
+    fi
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
@@ -160,6 +164,7 @@ for repo in "${aosp_forks[@]}"; do
     if [[ -n $build_number ]]; then
         if [[ $repo == platform_manifest ]]; then
             git checkout -B tmp
+            sed -i s%refs/heads/12.1-bluejay%refs/tags/$aosp_version.$build_number% default.xml
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
             git push -fu origin tmp
@@ -181,7 +186,11 @@ for repo in ${!kernels[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    if [[ $repo == kernel_google_raviole ]]; then
+        git checkout 12.1-bluejay
+    else
+        git checkout $branch
+    fi
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
@@ -213,7 +222,11 @@ for repo in ${independent[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    if [[ $repo == @(raviole_kernel_manifest|script) ]]; then
+        git checkout 12.1-bluejay
+    else
+        git checkout $branch
+    fi
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
@@ -225,6 +238,7 @@ for repo in ${independent[@]}; do
     if [[ -n $build_number ]]; then
         if [[ $repo == raviole_kernel_manifest ]]; then
             git checkout -B tmp
+            sed -i s%refs/heads/12.1-bluejay%refs/tags/$aosp_version.$build_number% default.xml
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
             git push -fu origin tmp
