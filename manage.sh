@@ -123,6 +123,8 @@ independent=(
     adevtool
     branding
     carriersettings-extractor
+    device_google_bluejay
+    device_google_bluejay-kernel
     device_google_barbet-kernel
     device_google_blueline-kernel
     device_google_bonito-kernel
