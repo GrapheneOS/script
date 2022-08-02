@@ -188,10 +188,10 @@ for repo in "${aosp_forks[@]}"; do
     cd ..
 done
 
-for kernel in ${!kernels[@]}; do
-    echo -e "\n>>> $(tput setaf 3)Handling $kernel$(tput sgr0)"
+for repo in ${!kernels[@]}; do
+    echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
-    cd $kernel
+    cd $repo
     git checkout $branch
 
     if [[ -n $DELETE_TAG ]]; then
@@ -206,7 +206,7 @@ for kernel in ${!kernels[@]}; do
         git push origin $aosp_version.$build_number
     else
         git fetch upstream --tags
-        kernel_tag=${kernels[$kernel]}
+        kernel_tag=${kernels[$repo]}
         if [[ -z $kernel_tag ]]; then
             cd ..
             continue
