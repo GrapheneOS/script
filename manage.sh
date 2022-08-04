@@ -16,6 +16,10 @@ fi
 aosp_forks=(
     device_common
     device_generic_goldfish
+    device_google_bonito
+    device_google_bonito-sepolicy
+    device_google_crosshatch
+    device_google_crosshatch-sepolicy
     kernel_configs
     platform_art
     platform_bionic
@@ -71,11 +75,19 @@ aosp_forks=(
 )
 
 declare -A kernels=(
+    # 2022-05-05 patch level
+    [kernel_google_crosshatch]=android-12.1.0_r0.23
+    [kernel_google_crosshatch_drivers_staging_qcacld-3.0]=android-12.1.0_r0.23
+    [kernel_google_crosshatch_techpack_audio]=android-12.1.0_r0.23
 )
 
 independent=(
+    android-prepare-vendor
     branding
     carriersettings-extractor
+    device_google_blueline-kernel
+    device_google_bonito-kernel
+    device_google_crosshatch-kernel
     hardened_malloc
     platform_external_Apps
     platform_external_Auditor
@@ -98,8 +110,11 @@ for repo in "${aosp_forks[@]}"; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-
-    git checkout $branch
+    if [[ $repo == platform_manifest ]]; then
+        git checkout 12.1-crosshatch
+    else
+        git checkout $branch
+    fi
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
@@ -111,6 +126,7 @@ for repo in "${aosp_forks[@]}"; do
     if [[ -n $build_number ]]; then
         if [[ $repo == platform_manifest ]]; then
             git checkout -B tmp
+            sed -i s%refs/heads/12.1-crosshatch%refs/tags/$aosp_version.$build_number% default.xml
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
             git push -fu origin tmp
@@ -164,7 +180,11 @@ for repo in ${independent[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    if [[ $repo == script ]]; then
+        git checkout 12.1-crosshatch
+    else
+        git checkout $branch
+    fi
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
