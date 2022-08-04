@@ -61,6 +61,12 @@ elif [[ $DEVICE == @(sunfish|coral|flame) ]]; then
     DISABLE_UART=true
     ERASE_APDP=true
     ERASE_MSADP=true
+elif [[ $DEVICE == @(bonito|sargo|crosshatch|blueline) ]]; then
+    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/vendor-board-info.txt)
+    RADIO=$(get_radio_image baseband google_devices/$DEVICE/vendor-board-info.txt)
+    DISABLE_UART=true
+    ERASE_APDP=true
+    ERASE_MSADP=true
 else
     user_error "$DEVICE is not supported by the release script"
 fi
@@ -69,6 +75,11 @@ TARGET_FILES=$DEVICE-target_files-$BUILD.zip
 
 AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
 AVB_ALGORITHM=SHA256_RSA4096
+[[ $(stat -c %s "$KEY_DIR/avb_pkmd.bin") -eq 520 ]] && AVB_ALGORITHM=SHA256_RSA2048
+
+if [[ $DEVICE == @(bonito|sargo|crosshatch|blueline) ]]; then
+    extra_ota=(--retrofit_dynamic_partitions)
+fi
 
 sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM \
     --extra_apks OsuLogin.apk,ServiceConnectivityResources.apk,ServiceWifiResources.apk="$KEY_DIR/releasekey" \
