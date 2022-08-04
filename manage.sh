@@ -17,13 +17,9 @@ aosp_forks=(
     device_common
     device_generic_goldfish
     device_google_barbet
-    device_google_bonito
-    device_google_bonito-sepolicy
     device_google_bramble
     device_google_coral
     device_google_coral-sepolicy
-    device_google_crosshatch
-    device_google_crosshatch-sepolicy
     device_google_gs101
     device_google_gs101-sepolicy
     device_google_raviole
@@ -87,11 +83,6 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # 2022-05-05 patch level
-    [kernel_google_crosshatch]=android-12.1.0_r0.23
-    [kernel_google_crosshatch_drivers_staging_qcacld-3.0]=android-12.1.0_r0.23
-    [kernel_google_crosshatch_techpack_audio]=android-12.1.0_r0.23
-
     # 2022-07-05 patch level
     [kernel_google_coral]=android-12.1.0_r0.31
     [kernel_google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.1.0_r0.31
@@ -128,10 +119,8 @@ independent=(
     device_google_bluejay-kernel
     device_google_barbet-kernel
     device_google_blueline-kernel
-    device_google_bonito-kernel
     device_google_bramble-kernel
     device_google_coral-kernel
-    device_google_crosshatch-kernel
     device_google_raviole-kernel
     device_google_redfin-kernel
     device_google_sunfish-kernel
