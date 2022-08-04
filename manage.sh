@@ -17,9 +17,13 @@ aosp_forks=(
     device_common
     device_generic_goldfish
     device_google_barbet
+    device_google_bonito
+    device_google_bonito-sepolicy
     device_google_bramble
     device_google_coral
     device_google_coral-sepolicy
+    device_google_crosshatch
+    device_google_crosshatch-sepolicy
     device_google_gs101
     device_google_gs101-sepolicy
     device_google_raviole
@@ -83,6 +87,11 @@ aosp_forks=(
 )
 
 declare -A kernels=(
+    # 2022-05-05 patch level
+    [kernel_google_crosshatch]=android-12.1.0_r0.23
+    [kernel_google_crosshatch_drivers_staging_qcacld-3.0]=android-12.1.0_r0.23
+    [kernel_google_crosshatch_techpack_audio]=android-12.1.0_r0.23
+
     # 2022-07-05 patch level
     [kernel_google_coral]=android-12.1.0_r0.31
     [kernel_google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.1.0_r0.31
@@ -113,13 +122,17 @@ declare -A kernels=(
 
 independent=(
     adevtool
+    android-prepare-vendor
     branding
     carriersettings-extractor
     device_google_bluejay
     device_google_bluejay-kernel
     device_google_barbet-kernel
+    device_google_blueline-kernel
+    device_google_bonito-kernel
     device_google_bramble-kernel
     device_google_coral-kernel
+    device_google_crosshatch-kernel
     device_google_raviole-kernel
     device_google_redfin-kernel
     device_google_sunfish-kernel
@@ -147,8 +160,11 @@ for repo in "${aosp_forks[@]}"; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-
-    git checkout $branch
+    if [[ $repo == @(platform_manifest|platform_build) ]]; then
+        git checkout 12.1-crosshatch
+    else
+        git checkout $branch
+    fi
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
@@ -160,6 +176,7 @@ for repo in "${aosp_forks[@]}"; do
     if [[ -n $build_number ]]; then
         if [[ $repo == platform_manifest ]]; then
             git checkout -B tmp
+            sed -i s%refs/heads/12.1-crosshatch%refs/tags/$aosp_version.$build_number% default.xml
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
             git push -fu origin tmp
@@ -213,7 +230,11 @@ for repo in ${independent[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    if [[ $repo == @(hardened_malloc|script) ]]; then
+        git checkout 12.1-crosshatch
+    else
+        git checkout $branch
+    fi
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG
