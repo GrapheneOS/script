@@ -17,6 +17,7 @@ aosp_forks=(
     device_common
     device_generic_goldfish
     device_google_barbet
+    device_google_bluejay
     device_google_bramble
     device_google_coral
     device_google_coral-sepolicy
@@ -38,7 +39,6 @@ aosp_forks=(
     platform_external_android-nn-driver
     platform_external_armnn
     platform_external_conscrypt
-    platform_frameworks_av
     platform_frameworks_base
     platform_frameworks_ex
     platform_frameworks_libs_systemui
@@ -47,13 +47,11 @@ aosp_forks=(
     platform_hardware_google_pixel-sepolicy
     platform_libcore
     platform_manifest
-    platform_packages_apps_Bluetooth
     platform_packages_apps_Calendar
     platform_packages_apps_CarrierConfig
     platform_packages_apps_Contacts
     platform_packages_apps_Dialer
     platform_packages_apps_DocumentsUI
-    platform_packages_apps_EmergencyInfo
     platform_packages_apps_Gallery2
     platform_packages_apps_Launcher3
     platform_packages_apps_Nfc
@@ -65,6 +63,7 @@ aosp_forks=(
     platform_packages_apps_ThemePicker
     platform_packages_apps_WallpaperPicker2
     platform_packages_inputmethods_LatinIME
+    platform_packages_modules_Bluetooth
     platform_packages_modules_Connectivity
     platform_packages_modules_common
     platform_packages_modules_NetworkStack
@@ -72,50 +71,37 @@ aosp_forks=(
     platform_packages_modules_Wifi
     platform_packages_providers_DownloadProvider
     platform_packages_providers_MediaProvider
-    platform_packages_providers_TelephonyProvider
-    platform_packages_services_Telephony
-    platform_system_bt
     platform_system_core
     platform_system_extras
-    platform_system_netd
-    platform_system_security
     platform_system_sepolicy
 )
 
 declare -A kernels=(
-    # 2022-07-05 patch level
-    [kernel_google_coral]=android-12.1.0_r0.31
-    [kernel_google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.1.0_r0.31
-    [kernel_google_coral_drivers_staging_qcacld-3.0]=android-12.1.0_r0.31
-    [kernel_google_coral_techpack_audio]=android-12.1.0_r0.31
-
-    # 2022-07-05 patch level
-    [kernel_google_redbull]=android-12.1.0_r0.33
-    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-12.1.0_r0.33
-    [kernel_google_redbull_techpack_audio]=android-12.1.0_r0.33
-    [kernel_google_redbull_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.33
-
-    # 2022-07-05 patch level
-    [kernel_google_barbet]=android-12.1.0_r0.34
-    [kernel_google_barbet_drivers_staging_qcacld-3.0]=android-12.1.0_r0.34
-    [kernel_google_barbet_techpack_audio]=android-12.1.0_r0.34
-    [kernel_google_barbet_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.34
+    # 2022-08-05 patch level
+    [kernel_google_coral]=android-13.0.0_r0.1
+    [kernel_google_coral_drivers_input_touchscreen_fts_touch_s5]=android-13.0.0_r0.1
+    [kernel_google_coral_drivers_staging_qcacld-3.0]=android-13.0.0_r0.1
+    [kernel_google_coral_techpack_audio]=android-13.0.0_r0.1
 
     # 2022-08-05 patch level
-    [kernel_common_5.10]=ASB-2022-08-05_12-5.10
+    [kernel_google_redbull]=android-13.0.0_r0.3
+    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-13.0.0_r0.3
+    [kernel_google_redbull_techpack_audio]=android-13.0.0_r0.3
+    [kernel_google_redbull_arch_arm64_boot_dts_vendor]=android-13.0.0_r0.3
 
-    # 2022-07-05 patch level
-    [raviole_kernel_build]=android-12.1.0_r0.35
-    [kernel_google_raviole]=android-12.1.0_r0.35
-    [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-12.1.0_r0.35
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-12.1.0_r0.35
+    # 2022-08-05 patch level
+    [kernel_common_5.10]=ASB-2022-08-05_13-5.10
+
+    # 2022-08-05 patch level
+    [raviole_kernel_build]=android-13.0.0_r0.4
+    [kernel_google_raviole]=android-13.0.0_r0.4
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-13.0.0_r0.4
 )
 
 independent=(
     adevtool
     branding
     carriersettings-extractor
-    device_google_bluejay
     device_google_bluejay-kernel
     device_google_barbet-kernel
     device_google_bramble-kernel
@@ -131,7 +117,7 @@ independent=(
     platform_external_seedvault
     platform_external_talkback
     platform_external_vanadium
-    platform_packages_apps_DeskClock # temporarily based on AOSP 11 instead of AOSP 12
+    platform_packages_apps_DeskClock # temporarily based on AOSP 11 instead of AOSP 13
     platform_packages_apps_ExactCalculator
     platform_packages_apps_GmsCompat
     platform_packages_apps_SetupWizard
