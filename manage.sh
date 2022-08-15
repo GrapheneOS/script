@@ -118,7 +118,6 @@ independent=(
     device_google_bluejay
     device_google_bluejay-kernel
     device_google_barbet-kernel
-    device_google_blueline-kernel
     device_google_bramble-kernel
     device_google_coral-kernel
     device_google_raviole-kernel
