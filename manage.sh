@@ -100,11 +100,9 @@ independent=(
     branding
     carriersettings-extractor
     device_google_bluejay-kernel
-    device_google_barbet-kernel
-    device_google_bramble-kernel
     device_google_coral-kernel
     device_google_raviole-kernel
-    device_google_redfin-kernel
+    device_google_redbull-kernel
     device_google_sunfish-kernel
     hardened_malloc
     kernel_coral-manifest
