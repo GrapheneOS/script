@@ -71,7 +71,7 @@ AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
 AVB_ALGORITHM=SHA256_RSA4096
 
 sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM \
-    --extra_apks OsuLogin.apk,ServiceConnectivityResources.apk,ServiceWifiResources.apk="$KEY_DIR/releasekey" \
+    --extra_apks AdServicesApk.apk,Bluetooth.apk,HalfSheetUX.apk,OsuLogin.apk,SafetyCenterResources.apk,ServiceConnectivityResources.apk,ServiceUwbResources.apk,ServiceWifiResources.apk,WifiDialog.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.adbd.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.adbd.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.apex.cts.shim.apex="$KEY_DIR/releasekey" \
