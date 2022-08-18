@@ -78,10 +78,12 @@ aosp_forks=(
 
 declare -A kernels=(
     # 2022-08-05 patch level
+    [coral_kernel_build]=android-13.0.0_r0.1
     [kernel_google_coral]=android-13.0.0_r0.1
     [kernel_google_coral_techpack_audio]=android-13.0.0_r0.1
 
     # 2022-08-05 patch level
+    [redbull_kernel_build]=android-13.0.0_r0.3
     [kernel_google_redbull]=android-13.0.0_r0.3
     [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-13.0.0_r0.3
     [kernel_google_redbull_techpack_audio]=android-13.0.0_r0.3
