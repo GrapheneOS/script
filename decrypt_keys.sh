@@ -16,7 +16,7 @@ trap "rm -rf \"$tmp\"" EXIT
 
 export password
 
-for key in releasekey platform shared media networkstack sdk_sandbox; do
+for key in releasekey platform shared media networkstack bluetooth sdk_sandbox; do
     if [[ -n $password ]]; then
         openssl pkcs8 -inform DER -in $key.pk8 -passin env:password | openssl pkcs8 -topk8 -outform DER -out "$tmp/$key.pk8" -nocrypt
     else
