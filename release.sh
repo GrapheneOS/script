@@ -72,7 +72,7 @@ AVB_ALGORITHM=SHA256_RSA4096
 
 sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM \
     --extra_apks AdServicesApk.apk="$KEY_DIR/releasekey" \
-    --extra_apks Bluetooth.apk="$KEY_DIR/releasekey" \
+    --extra_apks Bluetooth.apk="$KEY_DIR/bluetooth" \
     --extra_apks HalfSheetUX.apk="$KEY_DIR/releasekey" \
     --extra_apks OsuLogin.apk="$KEY_DIR/releasekey" \
     --extra_apks SafetyCenterResources.apk="$KEY_DIR/releasekey" \
