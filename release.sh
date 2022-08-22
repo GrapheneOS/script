@@ -50,6 +50,7 @@ if [[ $DEVICE == @(bluejay|raven|oriole) ]]; then
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
     DISABLE_UART=true
     DISABLE_FIPS=true
+    DISABLE_DPM=true
 elif [[ $DEVICE == @(barbet|redfin|bramble) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
