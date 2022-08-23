@@ -83,32 +83,6 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # 2022-07-05 patch level
-    [kernel_google_coral]=android-12.1.0_r0.31
-    [kernel_google_coral_drivers_input_touchscreen_fts_touch_s5]=android-12.1.0_r0.31
-    [kernel_google_coral_drivers_staging_qcacld-3.0]=android-12.1.0_r0.31
-    [kernel_google_coral_techpack_audio]=android-12.1.0_r0.31
-
-    # 2022-07-05 patch level
-    [kernel_google_redbull]=android-12.1.0_r0.33
-    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-12.1.0_r0.33
-    [kernel_google_redbull_techpack_audio]=android-12.1.0_r0.33
-    [kernel_google_redbull_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.33
-
-    # 2022-07-05 patch level
-    [kernel_google_barbet]=android-12.1.0_r0.34
-    [kernel_google_barbet_drivers_staging_qcacld-3.0]=android-12.1.0_r0.34
-    [kernel_google_barbet_techpack_audio]=android-12.1.0_r0.34
-    [kernel_google_barbet_arch_arm64_boot_dts_vendor]=android-12.1.0_r0.34
-
-    # 2022-08-05 patch level
-    [kernel_common_5.10]=ASB-2022-08-05_12-5.10
-
-    # 2022-07-05 patch level
-    [raviole_kernel_build]=android-12.1.0_r0.35
-    [kernel_google_raviole]=android-12.1.0_r0.35
-    [kernel_google-modules_wlan_bcmdhd_bcm43752]=android-12.1.0_r0.35
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-12.1.0_r0.35
 )
 
 independent=(
