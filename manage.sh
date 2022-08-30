@@ -16,18 +16,6 @@ fi
 aosp_forks=(
     device_common
     device_generic_goldfish
-    device_google_barbet
-    device_google_bramble
-    device_google_coral
-    device_google_coral-sepolicy
-    device_google_gs101
-    device_google_gs101-sepolicy
-    device_google_raviole
-    device_google_redbull
-    device_google_redbull-sepolicy
-    device_google_redfin
-    device_google_sunfish
-    device_google_sunfish-sepolicy
     kernel_configs
     platform_art
     platform_bionic
@@ -89,14 +77,6 @@ independent=(
     adevtool
     branding
     carriersettings-extractor
-    device_google_bluejay
-    device_google_bluejay-kernel
-    device_google_barbet-kernel
-    device_google_bramble-kernel
-    device_google_coral-kernel
-    device_google_raviole-kernel
-    device_google_redfin-kernel
-    device_google_sunfish-kernel
     hardened_malloc
     platform_external_Apps
     platform_external_Auditor
