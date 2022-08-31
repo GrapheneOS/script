@@ -136,8 +136,8 @@ for repo in "${aosp_forks[@]}"; do
     git checkout $branch
 
     if [[ -n $DELETE_TAG ]]; then
-        git tag -d $DELETE_TAG
-        git push origin :refs/tags/$DELETE_TAG
+        git tag -d $DELETE_TAG || true
+        git push origin --delete $DELETE_TAG || true
         cd ..
         continue
     fi
@@ -169,8 +169,8 @@ for repo in ${!kernels[@]}; do
     git checkout $branch
 
     if [[ -n $DELETE_TAG ]]; then
-        git tag -d $DELETE_TAG
-        git push origin :refs/tags/$DELETE_TAG
+        git tag -d $DELETE_TAG || true
+        git push origin --delete $DELETE_TAG || true
         cd ..
         continue
     fi
@@ -201,8 +201,8 @@ for repo in ${independent[@]}; do
     git checkout $branch
 
     if [[ -n $DELETE_TAG ]]; then
-        git tag -d $DELETE_TAG
-        git push origin :refs/tags/$DELETE_TAG
+        git tag -d $DELETE_TAG || true
+        git push origin --delete $DELETE_TAG || true
         cd ..
         continue
     fi
