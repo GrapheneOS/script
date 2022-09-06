@@ -107,6 +107,7 @@ independent=(
     device_google_redbull-kernel
     device_google_sunfish-kernel
     hardened_malloc
+    kernel_bluejay-manifest
     kernel_coral-manifest
     kernel_raviole-manifest
     kernel_redbull-manifest
