@@ -77,24 +77,24 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # 2022-08-05 patch level
-    [coral_kernel_build]=android-13.0.0_r0.1
-    [kernel_google_coral]=android-13.0.0_r0.1
-    [kernel_google_coral_techpack_audio]=android-13.0.0_r0.1
+    # 2022-09-05 patch level
+    [coral_kernel_build]=android-13.0.0_r0.11
+    [kernel_google_coral]=android-13.0.0_r0.11
+    [kernel_google_coral_techpack_audio]=android-13.0.0_r0.11
 
-    # 2022-08-05 patch level
-    [redbull_kernel_build]=android-13.0.0_r0.3
-    [kernel_google_redbull]=android-13.0.0_r0.3
-    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-13.0.0_r0.3
-    [kernel_google_redbull_techpack_audio]=android-13.0.0_r0.3
+    # 2022-09-05 patch level
+    [redbull_kernel_build]=android-13.0.0_r0.13
+    [kernel_google_redbull]=android-13.0.0_r0.13
+    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-13.0.0_r0.13
+    [kernel_google_redbull_techpack_audio]=android-13.0.0_r0.13
 
-    # 2022-08-05 patch level
-    [kernel_common_5.10]=ASB-2022-08-05_13-5.10
+    # 2022-09-05 patch level
+    [kernel_common_5.10]=ASB-2022-09-05_13-5.10
 
-    # 2022-08-05 patch level
-    [raviole_kernel_build]=android-13.0.0_r0.4
-    [kernel_google_raviole]=android-13.0.0_r0.4
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-13.0.0_r0.4
+    # 2022-09-05 patch level
+    [raviole_kernel_build]=android-13.0.0_r0.14
+    [kernel_google_raviole]=android-13.0.0_r0.14
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-13.0.0_r0.14
 )
 
 independent=(
