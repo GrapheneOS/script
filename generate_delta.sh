@@ -21,9 +21,9 @@ script/decrypt_keys.sh "$KEY_DIR"
 
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
 export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
-export PATH="$PWD/releases/$NEW/release-$DEVICE-$NEW/bin:$PATH"
+export PATH="$PWD/legacy-releases/$NEW/release-$DEVICE-$NEW/bin:$PATH"
 
-cd "releases/$NEW"
+cd "legacy-releases/$NEW"
 
 ota_from_target_files "${EXTRA_OTA[@]}" -k "$KEY_DIR/releasekey" \
     -i ../$OLD/release-$DEVICE-$OLD/$DEVICE-target_files-$OLD.zip \
