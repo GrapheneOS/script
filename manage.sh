@@ -209,7 +209,7 @@ for repo in ${independent[@]}; do
     fi
 
     if [[ -n $build_number ]]; then
-        if [[ $repo == @(kernel_coral-manifest|kernel_redbull-manifest|kernel_raviole-manifest) ]]; then
+        if [[ $repo == @(kernel_bluejay-manifest|kernel_coral-manifest|kernel_redbull-manifest|kernel_raviole-manifest) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
