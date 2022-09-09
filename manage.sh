@@ -107,10 +107,10 @@ independent=(
     device_google_redbull-kernel
     device_google_sunfish-kernel
     hardened_malloc
-    kernel_bluejay-manifest
-    kernel_coral-manifest
-    kernel_raviole-manifest
-    kernel_redbull-manifest
+    kernel_manifest-bluejay
+    kernel_manifest-coral
+    kernel_manifest-raviole
+    kernel_manifest-redbull
     platform_external_Apps
     platform_external_Auditor
     platform_external_Camera
