@@ -95,6 +95,9 @@ declare -A kernels=(
     [raviole_kernel_build]=android-13.0.0_r0.14
     [kernel_google_raviole]=android-13.0.0_r0.14
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-13.0.0_r0.14
+
+    # 2022-09-05 patch level
+    [kernel_common_5.15]=ASB-2022-09-05_13-5.15
 )
 
 independent=(
