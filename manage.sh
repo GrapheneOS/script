@@ -89,7 +89,7 @@ declare -A kernels=(
     [kernel_google_redbull_techpack_audio]=android-13.0.0_r0.13
 
     # 2022-09-05 patch level
-    [kernel_common_5.10]=ASB-2022-09-05_13-5.10
+    [kernel_common-5.10]=ASB-2022-09-05_13-5.10
 
     # 2022-09-05 patch level
     [kernel_build-gs]=android-13.0.0_r0.14
@@ -97,7 +97,7 @@ declare -A kernels=(
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-13.0.0_r0.14
 
     # 2022-09-05 patch level
-    [kernel_common_5.15]=ASB-2022-09-05_13-5.15
+    [kernel_common-5.15]=ASB-2022-09-05_13-5.15
 )
 
 independent=(
