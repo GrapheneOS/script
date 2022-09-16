@@ -91,7 +91,6 @@ independent=(
     platform_packages_apps_SetupWizard
     platform_packages_apps_Updater
     platform_themes
-    kernel_raviole-manifest
     script
     Vanadium
     vendor_state
@@ -177,15 +176,8 @@ for repo in ${independent[@]}; do
     fi
 
     if [[ -n $build_number ]]; then
-        if [[ $repo == kernel_raviole-manifest ]]; then
-            git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
-            git commit default.xml -m $aosp_version.$build_number
-            git push -fu origin tmp
-        else
-            git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
-            git push origin $aosp_version.$build_number
-        fi
+        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
+        git push origin $aosp_version.$build_number
     else
         git push -f
     fi
