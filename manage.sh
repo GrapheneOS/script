@@ -74,7 +74,6 @@ declare -A kernels=(
 )
 
 independent=(
-    adevtool
     branding
     carriersettings-extractor
     hardened_malloc
@@ -93,7 +92,6 @@ independent=(
     platform_themes
     script
     Vanadium
-    vendor_state
 )
 
 for repo in "${aosp_forks[@]}"; do
