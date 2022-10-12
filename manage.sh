@@ -41,6 +41,7 @@ aosp_forks=(
     platform_external_conscrypt
     platform_frameworks_base
     platform_frameworks_ex
+    platform_frameworks_libs_modules-utils
     platform_frameworks_libs_systemui
     platform_frameworks_native
     platform_frameworks_opt_net_wifi
