@@ -23,6 +23,8 @@ aosp_forks=(
     device_google_coral-sepolicy
     device_google_gs101
     device_google_gs101-sepolicy
+    device_google_gs201
+    device_google_pantah
     device_google_raviole
     device_google_redbull
     device_google_redbull-sepolicy
@@ -79,29 +81,14 @@ aosp_forks=(
 
 declare -A kernels=(
     # 2022-10-05 patch level
-    [kernel_build-coral]=android-13.0.0_r0.16
-    [kernel_google_coral]=android-13.0.0_r0.16
-    [kernel_google_coral_techpack_audio]=android-13.0.0_r0.16
-
-    # 2022-10-05 patch level
-    [kernel_build-redbull]=android-13.0.0_r0.18
-    [kernel_google_redbull]=android-13.0.0_r0.18
-    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-13.0.0_r0.18
-    [kernel_google_redbull_techpack_audio]=android-13.0.0_r0.18
-
-    # 2022-10-05 patch level
-    [kernel_common-5.10]=ASB-2022-10-01_13-5.10
-
-    # 2022-10-05 patch level
-    [kernel_build-gs]=android-13.0.0_r0.19
-    [kernel_gs]=android-13.0.0_r0.19
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-13.0.0_r0.19
-
-    # 2022-10-05 patch level
-    [kernel_common-5.15]=ASB-2022-10-01_13-5.15
+    [kernel_build-pantah]=android-13.0.0_r0.32
+    [kernel_gs-pantah]=android-13.0.0_r0.32
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.32
 )
 
 independent=(
+    kernel_common-5.10
+
     adevtool
     branding
     carriersettings-extractor
@@ -160,9 +147,19 @@ for repo in "${aosp_forks[@]}"; do
         fi
     else
         git fetch upstream --tags
-
-        git pull --rebase upstream $aosp_tag
-        git push -f
+        if [[ $repo == @(device_google_gs201|device_google_pantah|platform_manifest) ]]; then
+            git pull --rebase upstream $aosp_tag
+            git push -f
+        else
+            git checkout $aosp_tag
+            if [[ $repo == platform_build ]]; then
+                git cherry-pick --keep-redundant-commits $aosp_tag_base..$branch_base~
+            else
+                git cherry-pick --keep-redundant-commits $aosp_tag_base..$branch_base
+            fi
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
@@ -224,7 +221,13 @@ for repo in ${independent[@]}; do
             git push origin $aosp_version.$build_number
         fi
     else
-        git push -f
+        if [[ $repo == script ]]; then
+            git push -f
+        else
+            git checkout $branch_base
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
