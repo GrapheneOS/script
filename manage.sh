@@ -93,9 +93,9 @@ declare -A kernels=(
     [kernel_common-5.10]=ASB-2022-10-01_13-5.10
 
     # 2022-10-05 patch level
-    [kernel_build-gs]=android-13.0.0_r0.19
-    [kernel_gs]=android-13.0.0_r0.19
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-13.0.0_r0.19
+    [kernel_build-gs101]=android-13.0.0_r0.19
+    [kernel_gs-gs101]=android-13.0.0_r0.19
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.19
 
     # 2022-10-05 patch level
     [kernel_common-5.15]=ASB-2022-10-01_13-5.15
