@@ -23,6 +23,9 @@ aosp_forks=(
     device_google_coral-sepolicy
     device_google_gs101
     device_google_gs101-sepolicy
+    device_google_gs201
+    device_google_gs201-sepolicy
+    device_google_pantah
     device_google_raviole
     device_google_redbull
     device_google_redbull-sepolicy
@@ -81,20 +84,9 @@ aosp_forks=(
 
 declare -A kernels=(
     # 2022-10-05 patch level
-    [kernel_build-coral]=android-13.0.0_r0.16
-    [kernel_msm-coral]=android-13.0.0_r0.16
-    [kernel_msm-extra-coral]=android-13.0.0_r0.16
-
-    # 2022-10-05 patch level
-    [kernel_build-redbull]=android-13.0.0_r0.18
-    [kernel_msm-redbull]=android-13.0.0_r0.18
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.18
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.18
-
-    # 2022-10-05 patch level
-    [kernel_build-gs101]=android-13.0.0_r0.19
-    [kernel_gs-gs101]=android-13.0.0_r0.19
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.19
+    [kernel_build-pantah]=android-13.0.0_r0.32
+    [kernel_gs-pantah]=android-13.0.0_r0.32
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.32
 )
 
 independent=(
@@ -103,16 +95,14 @@ independent=(
     carriersettings-extractor
     device_google_bluejay-kernel
     device_google_coral-kernel
+    device_google_pantah-kernel
     device_google_raviole-kernel
     device_google_redbull-kernel
     device_google_sunfish-kernel
     hardened_malloc
     kernel_common-5.10
     kernel_common-5.15
-    kernel_manifest-bluejay
-    kernel_manifest-coral
-    kernel_manifest-raviole
-    kernel_manifest-redbull
+    kernel_manifest-pantah
     platform_external_Apps
     platform_external_Auditor
     platform_external_Camera
@@ -158,9 +148,19 @@ for repo in "${aosp_forks[@]}"; do
         fi
     else
         git fetch upstream --tags
-
-        git pull --rebase upstream $aosp_tag
-        git push -f
+        if [[ $repo == @(device_google_gs201|device_google_gs201-sepolicy|device_google_pantah|platform_bionic|platform_manifest) ]]; then
+            git pull --rebase upstream $aosp_tag
+            git push -f
+        else
+            git checkout $aosp_tag
+            if [[ $repo == platform_build ]]; then
+                git cherry-pick --keep-redundant-commits $aosp_tag_base..$branch_base~
+            else
+                git cherry-pick --keep-redundant-commits $aosp_tag_base..$branch_base
+            fi
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
@@ -212,7 +212,7 @@ for repo in ${independent[@]}; do
     fi
 
     if [[ -n $build_number ]]; then
-        if [[ $repo == @(kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
+        if [[ $repo == @(kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
@@ -222,7 +222,13 @@ for repo in ${independent[@]}; do
             git push origin $aosp_version.$build_number
         fi
     else
-        git push -f
+        if [[ $repo == @(device_google_pantah-kernel|kernel_manifest-pantah|script) ]]; then
+            git push -f
+        else
+            git checkout $branch_base
+            git checkout -B $branch
+            git push -fu origin $branch
+        fi
     fi
 
     cd ..
