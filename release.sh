@@ -45,7 +45,7 @@ get_radio_image() {
     grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2 | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
 }
 
-if [[ $DEVICE == @(bluejay|raven|oriole) ]]; then
+if [[ $DEVICE == @(panther|cheetah|bluejay|raven|oriole) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
     DISABLE_UART=true
