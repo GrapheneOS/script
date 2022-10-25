@@ -80,14 +80,14 @@ aosp_forks=(
 declare -A kernels=(
     # 2022-10-05 patch level
     [kernel_build-coral]=android-13.0.0_r0.16
-    [kernel_google_coral]=android-13.0.0_r0.16
-    [kernel_google_coral_techpack_audio]=android-13.0.0_r0.16
+    [kernel_msm-coral]=android-13.0.0_r0.16
+    [kernel_msm-extra-coral]=android-13.0.0_r0.16
 
     # 2022-10-05 patch level
     [kernel_build-redbull]=android-13.0.0_r0.18
-    [kernel_google_redbull]=android-13.0.0_r0.18
-    [kernel_google_redbull_drivers_staging_qcacld-3.0]=android-13.0.0_r0.18
-    [kernel_google_redbull_techpack_audio]=android-13.0.0_r0.18
+    [kernel_msm-redbull]=android-13.0.0_r0.18
+    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.18
+    [kernel_msm-extra-redbull]=android-13.0.0_r0.18
 
     # 2022-10-05 patch level
     [kernel_build-gs101]=android-13.0.0_r0.19
