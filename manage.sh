@@ -39,6 +39,7 @@ aosp_forks=(
     platform_external_android-nn-driver
     platform_external_armnn
     platform_external_conscrypt
+    platform_external_crosvm
     platform_frameworks_base
     platform_frameworks_ex
     platform_frameworks_libs_modules-utils
