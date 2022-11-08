@@ -80,21 +80,21 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # October release
-    [kernel_build-coral]=android-13.0.0_r0.16
-    [kernel_msm-coral]=android-13.0.0_r0.16
-    [kernel_msm-extra-coral]=android-13.0.0_r0.16
+    # November release
+    [kernel_build-coral]=android-13.0.0_r0.41
+    [kernel_msm-coral]=android-13.0.0_r0.41
+    [kernel_msm-extra-coral]=android-13.0.0_r0.41
 
-    # October release
-    [kernel_build-redbull]=android-13.0.0_r0.18
-    [kernel_msm-redbull]=android-13.0.0_r0.18
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.18
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.18
+    # November release
+    [kernel_build-redbull]=android-13.0.0_r0.42
+    [kernel_msm-redbull]=android-13.0.0_r0.42
+    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.42
+    [kernel_msm-extra-redbull]=android-13.0.0_r0.42
 
-    # October release
-    [kernel_build-gs101]=android-13.0.0_r0.19
-    [kernel_gs-gs101]=android-13.0.0_r0.19
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.19
+    # November release
+    [kernel_build-gs101]=android-13.0.0_r0.43
+    [kernel_gs-gs101]=android-13.0.0_r0.43
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.43
 )
 
 independent=(
