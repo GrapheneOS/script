@@ -80,18 +80,18 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # 2022-10-05 patch level
+    # October release
     [kernel_build-coral]=android-13.0.0_r0.16
     [kernel_msm-coral]=android-13.0.0_r0.16
     [kernel_msm-extra-coral]=android-13.0.0_r0.16
 
-    # 2022-10-05 patch level
+    # October release
     [kernel_build-redbull]=android-13.0.0_r0.18
     [kernel_msm-redbull]=android-13.0.0_r0.18
     [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.18
     [kernel_msm-extra-redbull]=android-13.0.0_r0.18
 
-    # 2022-10-05 patch level
+    # October release
     [kernel_build-gs101]=android-13.0.0_r0.19
     [kernel_gs-gs101]=android-13.0.0_r0.19
     [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.19
