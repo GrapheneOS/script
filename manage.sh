@@ -74,6 +74,7 @@ aosp_forks=(
     platform_packages_modules_Wifi
     platform_packages_providers_DownloadProvider
     platform_packages_providers_MediaProvider
+    platform_system_ca-certificates
     platform_system_core
     platform_system_extras
     platform_system_sepolicy
