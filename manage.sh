@@ -95,6 +95,7 @@ declare -A kernels=(
     # November release
     [kernel_build-gs101]=android-13.0.0_r0.43
     [kernel_gs-gs101]=android-13.0.0_r0.43
+    [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.43
     [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.43
 )
 
