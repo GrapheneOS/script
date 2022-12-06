@@ -114,6 +114,7 @@ independent=(
     carriersettings-extractor
     device_google_bluejay-kernel
     device_google_coral-kernel
+    device_google_pantah-kernel
     device_google_raviole-kernel
     device_google_redbull-kernel
     device_google_sunfish-kernel
