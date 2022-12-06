@@ -81,28 +81,28 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # QPR1 Beta 3 release with December patches
-    [kernel_build-coral]=android-t-qpr1-beta-3_r0.2
-    [kernel_msm-coral]=android-t-qpr1-beta-3_r0.2
-    [kernel_msm-extra-coral]=android-t-qpr1-beta-3_r0.2
+    # December release
+    [kernel_build-coral]=android-13.0.0_r0.46
+    [kernel_msm-coral]=android-13.0.0_r0.46
+    [kernel_msm-extra-coral]=android-13.0.0_r0.46
 
-    # QPR1 Beta 3 release with December patches
-    [kernel_build-redbull]=android-t-qpr1-beta-3_r0.1
-    [kernel_msm-redbull]=android-t-qpr1-beta-3_r0.1
-    [kernel_msm-modules_qcacld-redbull]=android-t-qpr1-beta-3_r0.1
-    [kernel_msm-extra-redbull]=android-t-qpr1-beta-3_r0.1
+    # December release
+    [kernel_build-redbull]=android-13.0.0_r0.47
+    [kernel_msm-redbull]=android-13.0.0_r0.47
+    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.47
+    [kernel_msm-extra-redbull]=android-13.0.0_r0.47
 
-    # November release
-    [kernel_build-gs101]=android-13.0.0_r0.43
-    [kernel_gs-gs101]=android-13.0.0_r0.43
-    [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.43
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.43
+    # December release
+    [kernel_build-gs101]=android-13.0.0_r0.48
+    [kernel_gs-gs101]=android-13.0.0_r0.48
+    [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.48
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.48
 
-    # November release
-    [kernel_build-pantah]=android-13.0.0_r0.45
-    [kernel_gs-pantah]=android-13.0.0_r0.45
-    [kernel_google-modules_gpu-pantah]=android-13.0.0_r0.45
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.45
+    # December release
+    [kernel_build-pantah]=android-13.0.0_r0.50
+    [kernel_gs-pantah]=android-13.0.0_r0.50
+    [kernel_google-modules_gpu-pantah]=android-13.0.0_r0.50
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.50
 )
 
 independent=(
