@@ -23,6 +23,9 @@ aosp_forks=(
     device_google_coral-sepolicy
     device_google_gs101
     device_google_gs101-sepolicy
+    device_google_gs201
+    device_google_gs201-sepolicy
+    device_google_pantah
     device_google_raviole
     device_google_redbull
     device_google_redbull-sepolicy
