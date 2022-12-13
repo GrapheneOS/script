@@ -17,6 +17,7 @@ aosp_forks=(
     device_common
     device_generic_goldfish
     device_google_barbet
+    device_google_barbet-sepolicy
     device_google_bluejay
     device_google_bramble
     device_google_coral
