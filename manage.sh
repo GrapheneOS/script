@@ -104,7 +104,7 @@ declare -A kernels=(
     # December release
     [kernel_build-pantah]=android-13.0.0_r0.50
     [kernel_gs-pantah]=android-13.0.0_r0.50
-    [kernel_google-modules_gpu-pantah]=android-13.0.0_r0.50
+    [kernel_google-modules_gpu-pantah]=android-t-qpr2-beta-1_r0.6
     [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.50
 )
 
