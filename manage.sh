@@ -85,15 +85,15 @@ aosp_forks=(
 
 declare -A kernels=(
     # December release
-    [kernel_build-coral]=android-13.0.0_r0.46
-    [kernel_msm-coral]=android-13.0.0_r0.46
-    [kernel_msm-extra-coral]=android-13.0.0_r0.46
+    [kernel_build-coral]=android-t-qpr2-beta-1_r0.2
+    [kernel_msm-coral]=android-t-qpr2-beta-1_r0.2
+    [kernel_msm-extra-coral]=android-t-qpr2-beta-1_r0.2
 
     # December release
-    [kernel_build-redbull]=android-13.0.0_r0.47
-    [kernel_msm-redbull]=android-13.0.0_r0.47
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.47
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.47
+    [kernel_build-redbull]=android-t-qpr2-beta-1_r0.3
+    [kernel_msm-redbull]=android-t-qpr2-beta-1_r0.3
+    [kernel_msm-modules_qcacld-redbull]=android-t-qpr2-beta-1_r0.3
+    [kernel_msm-extra-redbull]=android-t-qpr2-beta-1_r0.3
 
     # December release
     [kernel_build-gs101]=android-13.0.0_r0.48
