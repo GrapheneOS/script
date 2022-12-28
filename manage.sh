@@ -81,6 +81,7 @@ independent=(
     platform_external_Auditor
     platform_external_Camera
     platform_external_PdfViewer
+    platform_external_GmsCompatConfig
     platform_external_seedvault
     platform_external_talkback
     platform_external_vanadium
