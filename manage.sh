@@ -85,12 +85,12 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # December release
+    # QPR2 Beta 1
     [kernel_build-coral]=android-t-qpr2-beta-1_r0.2
     [kernel_msm-coral]=android-t-qpr2-beta-1_r0.2
     [kernel_msm-extra-coral]=android-t-qpr2-beta-1_r0.2
 
-    # December release
+    # QPR2 Beta 1
     [kernel_build-redbull]=android-t-qpr2-beta-1_r0.3
     [kernel_msm-redbull]=android-t-qpr2-beta-1_r0.3
     [kernel_msm-modules_qcacld-redbull]=android-t-qpr2-beta-1_r0.3
@@ -102,7 +102,7 @@ declare -A kernels=(
     [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.48
     [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.48
 
-    # December release
+    # December release with QPR2 Beta 1 GPU driver
     [kernel_build-pantah]=android-13.0.0_r0.50
     [kernel_gs-pantah]=android-13.0.0_r0.50
     [kernel_google-modules_gpu-pantah]=android-t-qpr2-beta-1_r0.6
