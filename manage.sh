@@ -96,17 +96,17 @@ declare -A kernels=(
     [kernel_msm-modules_qcacld-redbull]=android-t-qpr2-beta-1_r0.3
     [kernel_msm-extra-redbull]=android-t-qpr2-beta-1_r0.3
 
-    # December release
-    [kernel_build-gs101]=android-13.0.0_r0.48
-    [kernel_gs-gs101]=android-13.0.0_r0.48
-    [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.48
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.48
+    # January release
+    [kernel_build-gs101]=android-13.0.0_r0.53
+    [kernel_gs-gs101]=android-13.0.0_r0.53
+    [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.53
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.53
 
-    # December release with QPR2 Beta 1 GPU driver
-    [kernel_build-pantah]=android-13.0.0_r0.50
-    [kernel_gs-pantah]=android-13.0.0_r0.50
+    # January release with QPR2 Beta 1 GPU driver
+    [kernel_build-pantah]=android-13.0.0_r0.55
+    [kernel_gs-pantah]=android-13.0.0_r0.55
     [kernel_google-modules_gpu-pantah]=android-t-qpr2-beta-1_r0.6
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.50
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.55
 )
 
 independent=(
