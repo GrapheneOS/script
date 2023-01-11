@@ -92,7 +92,6 @@ independent=(
     platform_packages_apps_Updater
     platform_themes
     script
-    Vanadium
 )
 
 for repo in "${aosp_forks[@]}"; do
