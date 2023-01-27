@@ -7,6 +7,9 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 [[ $# -eq 1 ]] || user_error "expected a single argument (device type)"
 [[ -n $BUILD_NUMBER ]] || user_error "expected BUILD_NUMBER in the environment"
 [[ -n $OUT ]] || user_error "expected OUT in the environment"
+if [[ $1 == @(barbet|redfin|bramble|sunfish|coral|flame) ]]; then
+    [[ -d $OUT/vendor/firmware_mnt ]] || user_error "out/target/product/$1/vendor/firmware_mnt is missing."
+fi
 
 chrt -b -p 0 $$
 
