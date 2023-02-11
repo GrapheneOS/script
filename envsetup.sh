@@ -2,7 +2,7 @@ umask 022
 alias which='command -v'
 source build/envsetup.sh
 
-export LANG=en_US.UTF-8
+export LANG=C.UTF-8
 export _JAVA_OPTIONS=-XX:-UsePerfData
 export BUILD_DATETIME=$(cat out/build_date.txt 2>/dev/null || date -u +%s)
 echo "BUILD_DATETIME=$BUILD_DATETIME"
