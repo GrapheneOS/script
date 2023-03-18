@@ -22,11 +22,11 @@ aosp_forks=(
     device_google_bramble
     device_google_coral
     device_google_coral-sepolicy
+    device_google_gs-common
     device_google_gs101
     device_google_gs101-sepolicy
     device_google_gs201
     device_google_gs201-sepolicy
-    device_google_gs-common
     device_google_pantah
     device_google_raviole
     device_google_redbull
@@ -62,8 +62,8 @@ aosp_forks=(
     platform_packages_apps_DocumentsUI
     platform_packages_apps_Gallery2
     platform_packages_apps_Launcher3
-    platform_packages_apps_Nfc
     platform_packages_apps_Messaging
+    platform_packages_apps_Nfc
     platform_packages_apps_QuickSearchBox
     platform_packages_apps_RemoteProvisioner
     platform_packages_apps_Settings
@@ -72,8 +72,8 @@ aosp_forks=(
     platform_packages_apps_WallpaperPicker2
     platform_packages_inputmethods_LatinIME
     platform_packages_modules_Bluetooth
-    platform_packages_modules_Connectivity
     platform_packages_modules_common
+    platform_packages_modules_Connectivity
     platform_packages_modules_NetworkStack
     platform_packages_modules_Permission
     platform_packages_modules_Wifi
