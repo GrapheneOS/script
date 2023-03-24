@@ -86,28 +86,28 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # QPR2 Beta 3.2
-    [kernel_build-coral]=android-t-qpr2-beta-3.2_r0.2
-    [kernel_msm-coral]=android-t-qpr2-beta-3.2_r0.2
-    [kernel_msm-extra-coral]=android-t-qpr2-beta-3.2_r0.2
+    # March 2023
+    [kernel_build-coral]=android-13.0.0_r0.61
+    [kernel_msm-coral]=android-13.0.0_r0.61
+    [kernel_msm-extra-coral]=android-13.0.0_r0.61
 
-    # QPR2 Beta 3.2
-    [kernel_build-redbull]=android-t-qpr2-beta-3.2_r0.3
-    [kernel_msm-redbull]=android-t-qpr2-beta-3.2_r0.3
-    [kernel_msm-modules_qcacld-redbull]=android-t-qpr2-beta-3.2_r0.3
-    [kernel_msm-extra-redbull]=android-t-qpr2-beta-3.2_r0.3
+    # March 2023
+    [kernel_build-redbull]=android-13.0.0_r0.62
+    [kernel_msm-redbull]=android-13.0.0_r0.62
+    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.62
+    [kernel_msm-extra-redbull]=android-13.0.0_r0.62
 
-    # QPR2 Beta 3.2
-    [kernel_build-gs101]=android-t-qpr2-beta-3.2_r0.4
-    [kernel_gs-gs101]=android-t-qpr2-beta-3.2_r0.4
-    [kernel_google-modules_gpu-gs101]=android-t-qpr2-beta-3.2_r0.4
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-t-qpr2-beta-3.2_r0.4
+    # March 2023
+    [kernel_build-gs101]=android-13.0.0_r0.63
+    [kernel_gs-gs101]=android-13.0.0_r0.63
+    [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.63
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.63
 
-    # QPR2 Beta 3.2
-    [kernel_build-pantah]=android-t-qpr2-beta-3.2_r0.6
-    [kernel_gs-pantah]=android-t-qpr2-beta-3.2_r0.6
-    [kernel_google-modules_gpu-pantah]=android-t-qpr2-beta-3.2_r0.6
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-t-qpr2-beta-3.2_r0.6
+    # March 2023
+    [kernel_build-pantah]=android-13.0.0_r0.65
+    [kernel_gs-pantah]=android-13.0.0_r0.65
+    [kernel_google-modules_gpu-pantah]=android-13.0.0_r0.65
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.65
 )
 
 independent=(
