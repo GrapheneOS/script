@@ -34,7 +34,6 @@ aosp_forks=(
     device_google_redfin
     device_google_sunfish
     device_google_sunfish-sepolicy
-    kernel_configs
     platform_art
     platform_bionic
     platform_bootable_recovery
