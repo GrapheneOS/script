@@ -82,6 +82,7 @@ aosp_forks=(
     platform_system_core
     platform_system_extras
     platform_system_sepolicy
+    platform_system_timezone
 )
 
 declare -A kernels=(
