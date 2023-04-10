@@ -86,28 +86,28 @@ aosp_forks=(
 )
 
 declare -A kernels=(
-    # March 2023
-    [kernel_build-coral]=android-13.0.0_r0.61
-    [kernel_msm-coral]=android-13.0.0_r0.61
-    [kernel_msm-extra-coral]=android-13.0.0_r0.61
+    # April 2023
+    [kernel_build-coral]=android-13.0.0_r0.66
+    [kernel_msm-coral]=android-13.0.0_r0.66
+    [kernel_msm-extra-coral]=android-13.0.0_r0.66
 
-    # March 2023
-    [kernel_build-redbull]=android-13.0.0_r0.62
-    [kernel_msm-redbull]=android-13.0.0_r0.62
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.62
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.62
+    # April 2023
+    [kernel_build-redbull]=android-13.0.0_r0.67
+    [kernel_msm-redbull]=android-13.0.0_r0.67
+    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.67
+    [kernel_msm-extra-redbull]=android-13.0.0_r0.67
 
-    # March 2023
-    [kernel_build-gs101]=android-13.0.0_r0.63
-    [kernel_gs-gs101]=android-13.0.0_r0.63
-    [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.63
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.63
+    # April 2023
+    [kernel_build-gs101]=android-13.0.0_r0.68
+    [kernel_gs-gs101]=android-13.0.0_r0.68
+    [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.68
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.68
 
-    # March 2023
-    [kernel_build-pantah]=android-13.0.0_r0.65
-    [kernel_gs-pantah]=android-13.0.0_r0.65
-    [kernel_google-modules_gpu-pantah]=android-13.0.0_r0.65
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.65
+    # April 2023
+    [kernel_build-pantah]=android-13.0.0_r0.70
+    [kernel_gs-pantah]=android-13.0.0_r0.70
+    [kernel_google-modules_gpu-pantah]=android-13.0.0_r0.70
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.70
 )
 
 independent=(
