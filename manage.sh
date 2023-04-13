@@ -123,6 +123,7 @@ independent=(
     hardened_malloc
     kernel_common-5.10
     kernel_common-5.15
+    kernel_manifest-5.15
     kernel_manifest-bluejay
     kernel_manifest-coral
     kernel_manifest-pantah
@@ -226,7 +227,7 @@ for repo in ${independent[@]}; do
     fi
 
     if [[ -n $build_number ]]; then
-        if [[ $repo == @(kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
+        if [[ $repo == @(kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
