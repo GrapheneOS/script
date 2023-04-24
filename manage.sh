@@ -76,6 +76,7 @@ aosp_forks=(
     platform_packages_modules_Connectivity
     platform_packages_modules_NetworkStack
     platform_packages_modules_Permission
+    platform_packages_modules_Uwb
     platform_packages_modules_Wifi
     platform_packages_providers_DownloadProvider
     platform_packages_providers_MediaProvider
