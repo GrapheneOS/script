@@ -20,5 +20,5 @@ git checkout -b $branch
 git remote add upstream $upstream
 git fetch upstream --tags
 git remote rm origin
-gh repo create --public --push --source . GrapheneOS/$local_repo -h https://grapheneos.org/
+gh repo create --public --push --source . GrapheneOS/$local_repo -h https://grapheneos.org/ --disable-issues --disable-wiki
 xdg-open https://github.com/GrapheneOS/$local_repo
