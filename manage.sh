@@ -27,6 +27,7 @@ aosp_forks=(
     device_google_gs101-sepolicy
     device_google_gs201
     device_google_gs201-sepolicy
+    device_google_lynx
     device_google_pantah
     device_google_raviole
     device_google_redbull
@@ -115,6 +116,7 @@ independent=(
     carriersettings-extractor
     device_google_bluejay-kernel
     device_google_coral-kernel
+    device_google_lynx-kernel
     device_google_pantah-kernel
     device_google_raviole-kernel
     device_google_redbull-kernel
@@ -126,6 +128,7 @@ independent=(
     kernel_manifest-5.15
     kernel_manifest-bluejay
     kernel_manifest-coral
+    kernel_manifest-lynx
     kernel_manifest-pantah
     kernel_manifest-raviole
     kernel_manifest-redbull
@@ -174,18 +177,28 @@ for repo in "${aosp_forks[@]}"; do
     else
         git fetch upstream --tags
 
-        git pull --rebase upstream $aosp_tag
-        git push -f
+        if [[ $repo != @(platform_build|platform_manifest|device_google_lynx) ]]; then
+            git checkout $aosp_tag
+            git cherry-pick $aosp_base_tag..$base_branch
+            git checkout -B 13-lynx
+            git push -fu origin 13-lynx
+        else
+            git push -f
+        fi
     fi
 
     cd ..
 done
 
 for repo in ${!kernels[@]}; do
+    if [[ -z $build_number ]]; then
+        continue
+    fi
+
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    git checkout $base_branch
 
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG || true
@@ -227,9 +240,9 @@ for repo in ${independent[@]}; do
     fi
 
     if [[ -n $build_number ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
             git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
+            sed -i s%refs/heads/$base_branch%refs/tags/$aosp_version.$build_number% default.xml
             git commit default.xml -m $aosp_version.$build_number
             git push -fu origin tmp
         else
@@ -237,7 +250,13 @@ for repo in ${independent[@]}; do
             git push origin $aosp_version.$build_number
         fi
     else
-        git push -f
+        if [[ $repo != script ]]; then
+            git checkout $base_branch
+            git checkout -B $branch
+            git push -fu origin $branch
+        else
+            git push -f
+        fi
     fi
 
     cd ..
