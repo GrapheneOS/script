@@ -101,16 +101,10 @@ declare -A kernels=(
     [kernel_msm-extra-redbull]=android-13.0.0_r0.72
 
     # May 2023
-    [kernel_build-gs101]=android-13.0.0_r0.73
-    [kernel_gs-gs101]=android-13.0.0_r0.73
-    [kernel_google-modules_gpu-gs101]=android-13.0.0_r0.73
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs101]=android-13.0.0_r0.73
-
-    # May 2023
-    [kernel_build-pantah]=android-13.0.0_r0.75
-    [kernel_gs-pantah]=android-13.0.0_r0.75
-    [kernel_google-modules_gpu-pantah]=android-13.0.0_r0.75
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-pantah]=android-13.0.0_r0.75
+    [kernel_build-gs]=android-13.0.0_r0.73
+    [kernel_gs]=android-13.0.0_r0.73
+    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.73
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.73
 )
 
 independent=(
