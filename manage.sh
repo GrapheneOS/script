@@ -75,6 +75,7 @@ aosp_forks=(
     platform_packages_modules_Bluetooth
     platform_packages_modules_common
     platform_packages_modules_Connectivity
+    platform_packages_modules_DnsResolver
     platform_packages_modules_NetworkStack
     platform_packages_modules_Permission
     platform_packages_modules_Uwb
@@ -86,6 +87,7 @@ aosp_forks=(
     platform_system_ca-certificates
     platform_system_core
     platform_system_extras
+    platform_system_librustutils
     platform_system_sepolicy
     platform_system_timezone
 )
