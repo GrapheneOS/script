@@ -232,8 +232,6 @@ for repo in ${kernels[@]}; do
 done
 
 for repo in ${independent[@]}; do
-    [[ $action == @(fetch|update) ]] && break
-
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
