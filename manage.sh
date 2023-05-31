@@ -4,7 +4,7 @@ set -o errexit -o nounset -o pipefail
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
-DELETE_TAG=
+readonly DELETE_TAG=
 
 build_number=
 if [[ $# -eq 1 ]]; then
@@ -13,7 +13,7 @@ elif [[ $# -ne 0 ]]; then
     user_error "expected 0 or 1 arguments"
 fi
 
-aosp_forks=(
+readonly aosp_forks=(
     device_common
     device_generic_goldfish
     device_google_barbet
@@ -92,7 +92,7 @@ aosp_forks=(
     platform_system_timezone
 )
 
-kernels=(
+readonly kernels=(
     kernel_build-coral
     kernel_msm-coral
     kernel_msm-extra-coral
@@ -108,7 +108,7 @@ kernels=(
     kernel_google-modules_wlan_bcmdhd_bcm4389-gs
 )
 
-declare -A kernel_tags=(
+declare -Ar kernel_tags=(
     # May 2023
     [kernel_build-coral]=android-13.0.0_r0.71
     [kernel_msm-coral]=android-13.0.0_r0.71
@@ -127,7 +127,7 @@ declare -A kernel_tags=(
     [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.73
 )
 
-independent=(
+readonly independent=(
     adevtool
     branding
     carriersettings-extractor
