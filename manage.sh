@@ -159,11 +159,7 @@ for repo in "${aosp_forks[@]}"; do
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG || true
         git push origin --delete $DELETE_TAG || true
-        cd ..
-        continue
-    fi
-
-    if [[ -n $build_number ]]; then
+    elif [[ -n $build_number ]]; then
         if [[ $repo == platform_manifest ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
@@ -192,11 +188,7 @@ for repo in ${!kernels[@]}; do
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG || true
         git push origin --delete $DELETE_TAG || true
-        cd ..
-        continue
-    fi
-
-    if [[ -n $build_number ]]; then
+    elif [[ -n $build_number ]]; then
         git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
         git push origin $aosp_version.$build_number
     else
@@ -218,11 +210,7 @@ for repo in ${independent[@]}; do
     if [[ -n $DELETE_TAG ]]; then
         git tag -d $DELETE_TAG || true
         git push origin --delete $DELETE_TAG || true
-        cd ..
-        continue
-    fi
-
-    if [[ -n $build_number ]]; then
+    elif [[ -n $build_number ]]; then
         if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
