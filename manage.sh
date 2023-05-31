@@ -92,7 +92,23 @@ aosp_forks=(
     platform_system_timezone
 )
 
-declare -A kernels=(
+kernels=(
+    kernel_build-coral
+    kernel_msm-coral
+    kernel_msm-extra-coral
+
+    kernel_build-redbull
+    kernel_msm-redbull
+    kernel_msm-modules_qcacld-redbull
+    kernel_msm-extra-redbull
+
+    kernel_build-gs
+    kernel_gs
+    kernel_google-modules_gpu-gs
+    kernel_google-modules_wlan_bcmdhd_bcm4389-gs
+)
+
+declare -A kernel_tags=(
     # May 2023
     [kernel_build-coral]=android-13.0.0_r0.71
     [kernel_msm-coral]=android-13.0.0_r0.71
@@ -179,7 +195,7 @@ for repo in "${aosp_forks[@]}"; do
     cd ..
 done
 
-for repo in ${!kernels[@]}; do
+for repo in ${kernels[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
@@ -194,7 +210,7 @@ for repo in ${!kernels[@]}; do
     else
         git fetch upstream --tags
         git checkout $branch
-        git rebase ${kernels[$repo]}
+        git rebase ${kernel_tags[$repo]}
         git push -f
     fi
 
