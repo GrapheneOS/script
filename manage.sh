@@ -239,7 +239,7 @@ for repo in ${independent[@]}; do
             git push origin $aosp_version.$build_number
         fi
     else
-        git push -f
+        git push
     fi
 
     cd ..
