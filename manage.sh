@@ -201,14 +201,8 @@ for repo in ${!kernels[@]}; do
         git push origin $aosp_version.$build_number
     else
         git fetch upstream --tags
-        kernel_tag=${kernels[$repo]}
-        if [[ -z $kernel_tag ]]; then
-            cd ..
-            continue
-        fi
-
         git checkout $branch
-        git rebase $kernel_tag
+        git rebase ${kernels[$repo]}
         git push -f
     fi
 
