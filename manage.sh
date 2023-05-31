@@ -4,13 +4,19 @@ set -o errexit -o nounset -o pipefail
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
-readonly DELETE_TAG=
-
-build_number=
-if [[ $# -eq 1 ]]; then
-    build_number=$1
-elif [[ $# -ne 0 ]]; then
-    user_error "expected 0 or 1 arguments"
+if [[ $1 == @(push|fetch|update) ]]; then
+    readonly action=$1
+    [[ $# -ne 1 ]] && user_error "expected no arguments for $1"
+elif [[ $1 == release ]]; then
+    readonly action=release
+    readonly build_number=$2
+    [[ $# -ne 2 ]] && user_error "expected build number for release"
+elif [[ $1 == delete ]]; then
+    readonly action=delete
+    readonly delete_tag=$2
+    [[ $# -ne 2 ]] && user_error "expected tag name for delete"
+else
+    user_error "unrecognized action"
 fi
 
 readonly aosp_forks=(
@@ -172,10 +178,10 @@ for repo in "${aosp_forks[@]}"; do
 
     git checkout $branch
 
-    if [[ -n $DELETE_TAG ]]; then
-        git tag -d $DELETE_TAG || true
-        git push origin --delete $DELETE_TAG || true
-    elif [[ -n $build_number ]]; then
+    if [[ $action == delete ]]; then
+        git tag -d $delete_tag || true
+        git push origin --delete $delete_tag || true
+    elif [[ $action == release ]]; then
         if [[ $repo == platform_manifest ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
@@ -185,11 +191,15 @@ for repo in "${aosp_forks[@]}"; do
             git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
             git push origin $aosp_version.$build_number
         fi
-    else
+    elif [[ $action == update ]]; then
         git fetch upstream --tags
 
         git pull --rebase upstream $aosp_tag
         git push -f
+    elif [[ $action == push ]]; then
+        git push
+    elif [[ $action == fetch ]]; then
+        git fetch upstream --tags
     fi
 
     cd ..
@@ -201,32 +211,38 @@ for repo in ${kernels[@]}; do
     cd $repo
     git checkout $branch
 
-    if [[ -n $DELETE_TAG ]]; then
-        git tag -d $DELETE_TAG || true
-        git push origin --delete $DELETE_TAG || true
-    elif [[ -n $build_number ]]; then
+    if [[ $action == delete ]]; then
+        git tag -d $delete_tag || true
+        git push origin --delete $delete_tag || true
+    elif [[ $action == release ]]; then
         git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
         git push origin $aosp_version.$build_number
-    else
+    elif [[ $action == update ]]; then
         git fetch upstream --tags
         git checkout $branch
         git rebase ${kernel_tags[$repo]}
         git push -f
+    elif [[ $action == push ]]; then
+        git push
+    elif [[ $action == fetch ]]; then
+        git fetch upstream --tags
     fi
 
     cd ..
 done
 
 for repo in ${independent[@]}; do
+    [[ $action == @(fetch|update) ]] && break
+
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
     git checkout $branch
 
-    if [[ -n $DELETE_TAG ]]; then
-        git tag -d $DELETE_TAG || true
-        git push origin --delete $DELETE_TAG || true
-    elif [[ -n $build_number ]]; then
+    if [[ $action == delete ]]; then
+        git tag -d $delete_tag || true
+        git push origin --delete $delete_tag || true
+    elif [[ $action == release ]]; then
         if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
@@ -236,7 +252,7 @@ for repo in ${independent[@]}; do
             git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
             git push origin $aosp_version.$build_number
         fi
-    else
+    elif [[ $action == push ]]; then
         git push
     fi
 
