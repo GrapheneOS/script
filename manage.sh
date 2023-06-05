@@ -195,8 +195,7 @@ for repo in "${aosp_forks[@]}"; do
         fi
     elif [[ $action == update ]]; then
         git fetch upstream --tags
-
-        git pull --rebase upstream $aosp_tag
+        git rebase $aosp_tag
         git push -f
     elif [[ $action == push ]]; then
         git push
