@@ -4,6 +4,8 @@ set -o errexit -o nounset -o pipefail
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
+[[ $# -eq 0 ]] && user_error "expected action as argument"
+
 if [[ $1 == @(push|fetch|update) ]]; then
     readonly action=$1
     [[ $# -ne 1 ]] && user_error "expected no arguments for $1"
