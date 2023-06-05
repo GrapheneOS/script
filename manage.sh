@@ -116,6 +116,25 @@ readonly kernels=(
     kernel_google-modules_wlan_bcmdhd_bcm4389-gs
 )
 
+declare -Ar kernel_tags_old=(
+    # May 2023
+    [kernel_build-coral]=android-13.0.0_r0.71
+    [kernel_msm-coral]=android-13.0.0_r0.71
+    [kernel_msm-extra-coral]=android-13.0.0_r0.71
+
+    # May 2023
+    [kernel_build-redbull]=android-13.0.0_r0.72
+    [kernel_msm-redbull]=android-13.0.0_r0.72
+    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.72
+    [kernel_msm-extra-redbull]=android-13.0.0_r0.72
+
+    # May 2023
+    [kernel_build-gs]=android-13.0.0_r0.73
+    [kernel_gs]=android-13.0.0_r0.73
+    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.73
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.73
+)
+
 declare -Ar kernel_tags=(
     # May 2023
     [kernel_build-coral]=android-13.0.0_r0.71
@@ -195,7 +214,7 @@ for repo in "${aosp_forks[@]}"; do
         fi
     elif [[ $action == update ]]; then
         git fetch upstream --tags
-        git rebase $aosp_tag
+        git rebase --onto $aosp_tag $aosp_tag_old
         git push -f
     elif [[ $action == push ]]; then
         git push
@@ -220,7 +239,7 @@ for repo in ${kernels[@]}; do
         git push origin $aosp_version.$build_number
     elif [[ $action == update ]]; then
         git fetch upstream --tags
-        git rebase ${kernel_tags[$repo]}
+        git rebase --onto ${kernel_tags[$repo]} ${kernel_tags_old[$repo]}
         git push -f
     elif [[ $action == push ]]; then
         git push
