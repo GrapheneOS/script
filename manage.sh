@@ -196,7 +196,6 @@ for repo in "${aosp_forks[@]}"; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-
     git checkout $branch
 
     if [[ $action == delete ]]; then
