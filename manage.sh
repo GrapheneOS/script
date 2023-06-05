@@ -221,7 +221,6 @@ for repo in ${kernels[@]}; do
         git push origin $aosp_version.$build_number
     elif [[ $action == update ]]; then
         git fetch upstream --tags
-        git checkout $branch
         git rebase ${kernel_tags[$repo]}
         git push -f
     elif [[ $action == push ]]; then
