@@ -119,41 +119,41 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # May 2023
-    [kernel_build-coral]=android-13.0.0_r0.71
-    [kernel_msm-coral]=android-13.0.0_r0.71
-    [kernel_msm-extra-coral]=android-13.0.0_r0.71
+    # QPR3 Beta 3.1
+    [kernel_build-coral]=android-t-qpr3-beta-3.1_r0.1
+    [kernel_msm-coral]=android-t-qpr3-beta-3.1_r0.1
+    [kernel_msm-extra-coral]=android-t-qpr3-beta-3.1_r0.1
 
-    # May 2023
-    [kernel_build-redbull]=android-13.0.0_r0.72
-    [kernel_msm-redbull]=android-13.0.0_r0.72
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.72
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.72
+    # QPR3 Beta 3.1
+    [kernel_build-redbull]=android-t-qpr3-beta-3.1_r0.2
+    [kernel_msm-redbull]=android-t-qpr3-beta-3.1_r0.2
+    [kernel_msm-modules_qcacld-redbull]=android-t-qpr3-beta-3.1_r0.2
+    [kernel_msm-extra-redbull]=android-t-qpr3-beta-3.1_r0.2
 
-    # May 2023
-    [kernel_build-gs]=android-13.0.0_r0.73
-    [kernel_gs]=android-13.0.0_r0.73
-    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.73
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.73
+    # QPR3 Beta 3.1
+    [kernel_build-gs]=android-t-qpr3-beta-3.1_r0.3
+    [kernel_gs]=android-t-qpr3-beta-3.1_r0.3
+    [kernel_google-modules_gpu-gs]=android-t-qpr3-beta-3.1_r0.3
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-t-qpr3-beta-3.1_r0.3
 )
 
 declare -Ar kernel_tags=(
-    # May 2023
-    [kernel_build-coral]=android-13.0.0_r0.71
-    [kernel_msm-coral]=android-13.0.0_r0.71
-    [kernel_msm-extra-coral]=android-13.0.0_r0.71
+    # QPR3 Beta 3.1
+    [kernel_build-coral]=android-t-qpr3-beta-3.1_r0.1
+    [kernel_msm-coral]=android-t-qpr3-beta-3.1_r0.1
+    [kernel_msm-extra-coral]=android-t-qpr3-beta-3.1_r0.1
 
-    # May 2023
-    [kernel_build-redbull]=android-13.0.0_r0.72
-    [kernel_msm-redbull]=android-13.0.0_r0.72
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.72
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.72
+    # QPR3 Beta 3.1
+    [kernel_build-redbull]=android-t-qpr3-beta-3.1_r0.2
+    [kernel_msm-redbull]=android-t-qpr3-beta-3.1_r0.2
+    [kernel_msm-modules_qcacld-redbull]=android-t-qpr3-beta-3.1_r0.2
+    [kernel_msm-extra-redbull]=android-t-qpr3-beta-3.1_r0.2
 
-    # May 2023
-    [kernel_build-gs]=android-13.0.0_r0.73
-    [kernel_gs]=android-13.0.0_r0.73
-    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.73
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.73
+    # QPR3 Beta 3.1
+    [kernel_build-gs]=android-t-qpr3-beta-3.1_r0.3
+    [kernel_gs]=android-t-qpr3-beta-3.1_r0.3
+    [kernel_google-modules_gpu-gs]=android-t-qpr3-beta-3.1_r0.3
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-t-qpr3-beta-3.1_r0.3
 )
 
 readonly independent=(
