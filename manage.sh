@@ -221,6 +221,9 @@ for repo in "${aosp_forks[@]}"; do
 
         if [[ $repo != @(platform_build|platform_manifest|device_google_lynx) ]]; then
             git checkout $aosp_tag
+            if [[ $repo == platform_frameworks_base ]]; then
+                git revert beb119d4f4990ddce8e75a93ab134a17603614b0 --no-edit
+            fi
             git cherry-pick $aosp_base_tag..$base_branch
             git checkout -B 13-lynx
             git push -fu origin 13-lynx
