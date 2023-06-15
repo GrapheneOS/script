@@ -207,12 +207,12 @@ for repo in "${aosp_forks[@]}"; do
     elif [[ $action == release ]]; then
         if [[ $repo == platform_manifest ]]; then
             git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
-            git commit default.xml -m $aosp_version.$build_number
+            sed -i s%refs/heads/$branch%refs/tags/$build_number% default.xml
+            git commit default.xml -m $build_number
             git push -fu origin tmp
         else
-            git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
-            git push origin $aosp_version.$build_number
+            git tag -s $build_number -m $build_number
+            git push origin $build_number
         fi
     elif [[ $action == update ]]; then
         git fetch upstream --tags
@@ -237,8 +237,8 @@ for repo in ${kernels[@]}; do
         git tag -d $delete_tag || true
         git push origin --delete $delete_tag || true
     elif [[ $action == release ]]; then
-        git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
-        git push origin $aosp_version.$build_number
+        git tag -s $build_number -m $build_number
+        git push origin $build_number
     elif [[ $action == update ]]; then
         git fetch upstream --tags
         git rebase --onto ${kernel_tags[$repo]} ${kernel_tags_old[$repo]}
@@ -264,12 +264,12 @@ for repo in ${independent[@]}; do
     elif [[ $action == release ]]; then
         if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
             git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$aosp_version.$build_number% default.xml
-            git commit default.xml -m $aosp_version.$build_number
+            sed -i s%refs/heads/$branch%refs/tags/$build_number% default.xml
+            git commit default.xml -m $build_number
             git push -fu origin tmp
         else
-            git tag -s $aosp_version.$build_number -m $aosp_version.$build_number
-            git push origin $aosp_version.$build_number
+            git tag -s $build_number -m $build_number
+            git push origin $build_number
         fi
     elif [[ $action == push ]]; then
         git push
