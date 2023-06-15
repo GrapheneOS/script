@@ -5,12 +5,11 @@ set -o errexit -o nounset -o pipefail
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -eq 0 ]] && user_error "expected action as argument"
+readonly action=$1
 
-if [[ $1 == @(push|fetch|update) ]]; then
-    readonly action=$1
-    [[ $# -ne 1 ]] && user_error "expected no arguments for $1"
-elif [[ $1 == @(release|delete) ]]; then
-    readonly action=$1
+if [[ $action == @(push|fetch|update) ]]; then
+    [[ $# -ne 1 ]] && user_error "expected no arguments for $action"
+elif [[ $action == @(release|delete) ]]; then
     readonly tag_name=$2
     [[ $# -ne 2 ]] && user_error "expected tag name as argument for $action"
 else
