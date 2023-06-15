@@ -9,14 +9,10 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 if [[ $1 == @(push|fetch|update) ]]; then
     readonly action=$1
     [[ $# -ne 1 ]] && user_error "expected no arguments for $1"
-elif [[ $1 == release ]]; then
-    readonly action=release
-    readonly build_number=$2
-    [[ $# -ne 2 ]] && user_error "expected build number for release"
-elif [[ $1 == delete ]]; then
-    readonly action=delete
-    readonly delete_tag=$2
-    [[ $# -ne 2 ]] && user_error "expected tag name for delete"
+elif [[ $1 == @(release|delete) ]]; then
+    readonly action=$1
+    readonly tag_name=$2
+    [[ $# -ne 2 ]] && user_error "expected tag name as argument for $action"
 else
     user_error "unrecognized action"
 fi
@@ -202,17 +198,17 @@ for repo in "${aosp_forks[@]}"; do
     git checkout $branch
 
     if [[ $action == delete ]]; then
-        git tag -d $delete_tag || true
-        git push origin --delete $delete_tag || true
+        git tag -d $tag_name || true
+        git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
         if [[ $repo == platform_manifest ]]; then
             git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$build_number% default.xml
-            git commit default.xml -m $build_number
+            sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
+            git commit default.xml -m $tag_name
             git push -fu origin tmp
         else
-            git tag -s $build_number -m $build_number
-            git push origin $build_number
+            git tag -s $tag_name -m $tag_name
+            git push origin $tag_name
         fi
     elif [[ $action == update ]]; then
         git fetch upstream --tags
@@ -234,11 +230,11 @@ for repo in ${kernels[@]}; do
     git checkout $branch
 
     if [[ $action == delete ]]; then
-        git tag -d $delete_tag || true
-        git push origin --delete $delete_tag || true
+        git tag -d $tag_name || true
+        git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        git tag -s $build_number -m $build_number
-        git push origin $build_number
+        git tag -s $tag_name -m $tag_name
+        git push origin $tag_name
     elif [[ $action == update ]]; then
         git fetch upstream --tags
         git rebase --onto ${kernel_tags[$repo]} ${kernel_tags_old[$repo]}
@@ -259,17 +255,17 @@ for repo in ${independent[@]}; do
     git checkout $branch
 
     if [[ $action == delete ]]; then
-        git tag -d $delete_tag || true
-        git push origin --delete $delete_tag || true
+        git tag -d $tag_name || true
+        git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
         if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
             git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$build_number% default.xml
-            git commit default.xml -m $build_number
+            sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
+            git commit default.xml -m $tag_name
             git push -fu origin tmp
         else
-            git tag -s $build_number -m $build_number
-            git push origin $build_number
+            git tag -s $tag_name -m $tag_name
+            git push origin $tag_name
         fi
     elif [[ $action == push ]]; then
         git push
