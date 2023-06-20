@@ -1,6 +1,8 @@
-readonly branch=13
-readonly aosp_tag_old=android-13.0.0_r75
-readonly aosp_tag=android-13.0.0_r75
+readonly base_branch=13
+readonly branch=13-tangorpro
+readonly aosp_tag_old=android-13.0.0_r76
+readonly aosp_tag=android-13.0.0_r76
+readonly aosp_base_tag=android-13.0.0_r75
 
 user_error() {
     echo $1 >&2
