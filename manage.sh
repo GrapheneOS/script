@@ -38,6 +38,7 @@ readonly aosp_forks=(
     device_google_redfin
     device_google_sunfish
     device_google_sunfish-sepolicy
+    device_google_felix
     platform_art
     platform_bionic
     platform_bootable_recovery
@@ -162,6 +163,7 @@ readonly independent=(
     device_google_raviole-kernel
     device_google_redbull-kernel
     device_google_sunfish-kernel
+    device_google_felix-kernel
     hardened_malloc
     kernel_common-5.10
     kernel_common-5.15
@@ -173,6 +175,7 @@ readonly independent=(
     kernel_manifest-pantah
     kernel_manifest-raviole
     kernel_manifest-redbull
+    kernel_manifest-felix
     platform_external_Apps
     platform_external_Auditor
     platform_external_Camera
@@ -212,8 +215,20 @@ for repo in "${aosp_forks[@]}"; do
         fi
     elif [[ $action == update ]]; then
         git fetch upstream --tags
-        git rebase --onto $aosp_tag $aosp_tag_old
-        git push -f
+        if [[ $repo != @(platform_build|platform_manifest|device_google_felix) ]]; then
+            # reuse base branch when AOSP tags have the same commit
+            if [[ $(git rev-list -n 1 $aosp_base_tag) == $(git rev-list -n 1 $aosp_tag) ]]; then
+                git checkout $base_branch
+            else
+                git checkout $aosp_tag
+                git cherry-pick $aosp_base_tag..$base_branch
+            fi
+            git checkout -B $branch
+            git push -fu origin $branch
+        else
+            git rebase --onto $aosp_tag $aosp_tag_old
+            git push -f
+        fi
     elif [[ $action == push ]]; then
         git push
     elif [[ $action == fetch ]]; then
@@ -224,10 +239,12 @@ for repo in "${aosp_forks[@]}"; do
 done
 
 for repo in ${kernels[@]}; do
+    [[ $action != @(release|delete) ]] && continue
+
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    git checkout $base_branch
 
     if [[ $action == delete ]]; then
         git tag -d $tag_name || true
@@ -258,14 +275,20 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-felix) ]]; then
             git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
+            sed -i s%refs/heads/$base_branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
             git push -fu origin tmp
         else
             git tag -s $tag_name -m $tag_name
             git push origin $tag_name
+        fi
+    elif [[ $action == update ]]; then
+        if [[ $repo != @(device_google_felix-kernel|kernel_manifest-felix|script) ]]; then
+            git checkout $base_branch
+            git checkout -B $branch
+            git push -fu origin $branch
         fi
     elif [[ $action == push ]]; then
         git push
