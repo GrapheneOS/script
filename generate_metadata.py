@@ -14,6 +14,5 @@ with ZipFile(zip_path) as f:
         data = dict(line[:-1].decode().split("=") for line in metadata)
         for channel in ("beta", "stable", "alpha", "testing"):
             with open(path.join(path.dirname(zip_path), data["pre-device"] + "-" + channel), "w") as output:
-                build_id = data["post-build"].split("/")[3]
                 incremental = data["post-build"].split("/")[4].split(":")[0]
-                print(incremental, data["post-timestamp"], build_id, channel, file=output)
+                print(incremental, data["post-timestamp"], data["pre-device"], channel, file=output)
