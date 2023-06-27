@@ -3,6 +3,7 @@
 set -o errexit -o nounset -o pipefail
 
 readonly devices=(
+    felix
     tangorpro
     lynx
     cheetah
@@ -19,6 +20,7 @@ readonly devices=(
 )
 
 declare -Ar releases=(
+    [felix]=tq3c.230605.010.c1
     [tangorpro]=tq3a.230605.009.a1
     [lynx]=tq3a.230605.012
     [cheetah]=tq3a.230605.012
