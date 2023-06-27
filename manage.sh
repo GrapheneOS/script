@@ -215,7 +215,7 @@ for repo in "${aosp_forks[@]}"; do
         fi
     elif [[ $action == update ]]; then
         git fetch upstream --tags
-        if [[ $repo != @(platform_build|platform_manifest|device_google_felix) ]]; then
+        if [[ $repo != @(platform_build|platform_frameworks_base|platform_manifest|device_google_felix) ]]; then
             # reuse base branch when AOSP tags have the same commit
             if [[ $(git rev-list -n 1 $aosp_base_tag) == $(git rev-list -n 1 $aosp_tag) ]]; then
                 git checkout $base_branch
