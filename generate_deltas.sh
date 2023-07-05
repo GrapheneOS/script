@@ -19,5 +19,5 @@ rm -rf delta-generation
 mkdir delta-generation
 export TMPDIR="$PWD/delta-generation"
 
-parallel --use-cores-instead-of-threads -q script/generate_delta.sh ::: tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame ::: $@ ::: $SOURCE
+parallel --use-cores-instead-of-threads -q script/generate_delta.sh ::: felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame ::: $@ ::: $SOURCE
 rmdir delta-generation
