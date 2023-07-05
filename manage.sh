@@ -25,6 +25,7 @@ readonly aosp_forks=(
     device_google_bramble
     device_google_coral
     device_google_coral-sepolicy
+    device_google_felix
     device_google_gs-common
     device_google_gs101
     device_google_gs101-sepolicy
@@ -158,6 +159,7 @@ readonly independent=(
     carriersettings-extractor
     device_google_bluejay-kernel
     device_google_coral-kernel
+    device_google_felix-kernel
     device_google_lynx-kernel
     device_google_pantah-kernel
     device_google_raviole-kernel
@@ -171,6 +173,7 @@ readonly independent=(
     kernel_manifest-5.15
     kernel_manifest-bluejay
     kernel_manifest-coral
+    kernel_manifest-felix
     kernel_manifest-lynx
     kernel_manifest-pantah
     kernel_manifest-raviole
@@ -261,7 +264,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-tangorpro) ]]; then
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-felix|kernel_manifest-felix|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-tangorpro) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
