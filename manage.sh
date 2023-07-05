@@ -38,6 +38,7 @@ readonly aosp_forks=(
     device_google_redfin
     device_google_sunfish
     device_google_sunfish-sepolicy
+    device_google_tangorpro
     platform_art
     platform_bionic
     platform_bootable_recovery
@@ -162,6 +163,7 @@ readonly independent=(
     device_google_raviole-kernel
     device_google_redbull-kernel
     device_google_sunfish-kernel
+    device_google_tangorpro-kernel
     hardened_malloc
     kernel_common-5.10
     kernel_common-5.15
@@ -173,6 +175,7 @@ readonly independent=(
     kernel_manifest-pantah
     kernel_manifest-raviole
     kernel_manifest-redbull
+    kernel_manifest-tangorpro
     platform_external_Apps
     platform_external_Auditor
     platform_external_Camera
@@ -258,7 +261,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole) ]]; then
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-tangorpro) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
