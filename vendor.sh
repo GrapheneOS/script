@@ -20,18 +20,18 @@ readonly devices=(
 )
 
 declare -Ar releases=(
-    [felix]=tq3c.230605.010.c1
-    [tangorpro]=tq3a.230605.009.a1
-    [lynx]=tq3a.230605.012
-    [cheetah]=tq3a.230605.012
-    [panther]=tq3a.230605.012
-    [bluejay]=tq3a.230605.010
-    [raven]=tq3a.230605.010
-    [oriole]=tq3a.230605.010
-    [barbet]=tq3a.230605.011
-    [redfin]=tq3a.230605.011
-    [bramble]=tq3a.230605.011
-    [sunfish]=tq3a.230605.011
+    [felix]=tq3c.230705.001.c1
+    [tangorpro]=tq3a.230705.001.b4
+    [lynx]=tq3a.230705.001
+    [cheetah]=tq3a.230705.001
+    [panther]=tq3a.230705.001
+    [bluejay]=tq3a.230705.001
+    [raven]=tq3a.230705.001
+    [oriole]=tq3a.230705.001
+    [barbet]=tq3a.230705.001
+    [redfin]=tq3a.230705.001
+    [bramble]=tq3a.230705.001
+    [sunfish]=tq3a.230705.001
     [coral]=tp1a.221005.002.b2
     [flame]=tp1a.221005.002.b2
 )
