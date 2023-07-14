@@ -50,10 +50,8 @@ readonly aosp_forks=(
     platform_external_armnn
     platform_external_boringssl
     platform_external_conscrypt
-    platform_external_crosvm
     platform_external_libvpx
     platform_external_webp
-    platform_frameworks_av
     platform_frameworks_base
     platform_frameworks_ex
     platform_frameworks_libs_modules-utils
@@ -75,7 +73,6 @@ readonly aosp_forks=(
     platform_packages_apps_Messaging
     platform_packages_apps_Nfc
     platform_packages_apps_QuickSearchBox
-    platform_packages_apps_RemoteProvisioner
     platform_packages_apps_Settings
     platform_packages_apps_SettingsIntelligence
     platform_packages_apps_ThemePicker
@@ -83,22 +80,22 @@ readonly aosp_forks=(
     platform_packages_inputmethods_LatinIME
     platform_packages_modules_Bluetooth
     platform_packages_modules_common
+    platform_packages_modules_ConfigInfrastructure
     platform_packages_modules_Connectivity
     platform_packages_modules_DnsResolver
     platform_packages_modules_NetworkStack
     platform_packages_modules_Permission
+    platform_packages_modules_RemoteKeyProvisioning
     platform_packages_modules_Uwb
     platform_packages_modules_Wifi
     platform_packages_providers_ContactsProvider
     platform_packages_providers_DownloadProvider
     platform_packages_providers_MediaProvider
     platform_packages_services_Telephony
-    platform_system_ca-certificates
     platform_system_core
     platform_system_extras
     platform_system_librustutils
     platform_system_sepolicy
-    platform_system_timezone
 )
 
 readonly kernels=(
@@ -123,17 +120,17 @@ declare -Ar kernel_tags_old=(
     [kernel_msm-coral]=android-13.0.0_r0.110
     [kernel_msm-extra-coral]=android-13.0.0_r0.110
 
-    # September 2023
-    [kernel_build-redbull]=android-13.0.0_r0.122
-    [kernel_msm-redbull]=android-13.0.0_r0.122
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.122
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.122
+    # October 2023
+    [kernel_build-redbull]=android-14.0.0_r0.1
+    [kernel_msm-redbull]=android-14.0.0_r0.1
+    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.1
+    [kernel_msm-extra-redbull]=android-14.0.0_r0.1
 
-    # September 2023
-    [kernel_build-gs]=android-13.0.0_r0.123
-    [kernel_gs]=android-13.0.0_r0.123
-    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.123
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.123
+    # October 2023
+    [kernel_build-gs]=android-14.0.0_r0.2
+    [kernel_gs]=android-14.0.0_r0.2
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.2
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-14.0.0_r0.2
 )
 
 declare -Ar kernel_tags=(
@@ -142,17 +139,17 @@ declare -Ar kernel_tags=(
     [kernel_msm-coral]=android-13.0.0_r0.110
     [kernel_msm-extra-coral]=android-13.0.0_r0.110
 
-    # September 2023
-    [kernel_build-redbull]=android-13.0.0_r0.122
-    [kernel_msm-redbull]=android-13.0.0_r0.122
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.122
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.122
+    # October 2023
+    [kernel_build-redbull]=android-14.0.0_r0.1
+    [kernel_msm-redbull]=android-14.0.0_r0.1
+    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.1
+    [kernel_msm-extra-redbull]=android-14.0.0_r0.1
 
-    # September 2023
-    [kernel_build-gs]=android-13.0.0_r0.123
-    [kernel_gs]=android-13.0.0_r0.123
-    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.123
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.123
+    # October 2023
+    [kernel_build-gs]=android-14.0.0_r0.2
+    [kernel_gs]=android-14.0.0_r0.2
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.2
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-14.0.0_r0.2
 )
 
 readonly independent=(
