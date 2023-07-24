@@ -59,11 +59,11 @@ readonly aosp_forks=(
     platform_frameworks_native
     platform_frameworks_opt_net_wifi
     platform_frameworks_opt_telephony
+    platform_hardware_google_pixel
     platform_hardware_google_pixel-sepolicy
     platform_libcore
     platform_manifest
     platform_packages_apps_Calendar
-    platform_packages_apps_CarrierConfig
     platform_packages_apps_CellBroadcastReceiver
     platform_packages_apps_Contacts
     platform_packages_apps_Dialer
@@ -156,7 +156,6 @@ declare -Ar kernel_tags=(
 readonly independent=(
     adevtool
     branding
-    carriersettings-extractor
     device_google_bluejay-kernel
     device_google_coral-kernel
     device_google_felix-kernel
@@ -187,6 +186,7 @@ readonly independent=(
     platform_external_seedvault
     platform_external_talkback
     platform_external_vanadium
+    platform_packages_apps_CarrierConfig2
     platform_packages_apps_DeskClock # temporarily based on AOSP 11 instead of AOSP 13
     platform_packages_apps_ExactCalculator
     platform_packages_apps_GmsCompat
