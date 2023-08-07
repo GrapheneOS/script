@@ -116,41 +116,41 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # July 2023
-    [kernel_build-coral]=android-13.0.0_r0.101
-    [kernel_msm-coral]=android-13.0.0_r0.101
-    [kernel_msm-extra-coral]=android-13.0.0_r0.101
+    # August 2023
+    [kernel_build-coral]=android-13.0.0_r0.110
+    [kernel_msm-coral]=android-13.0.0_r0.110
+    [kernel_msm-extra-coral]=android-13.0.0_r0.110
 
-    # July 2023
-    [kernel_build-redbull]=android-13.0.0_r0.102
-    [kernel_msm-redbull]=android-13.0.0_r0.102
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.102
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.102
+    # August 2023
+    [kernel_build-redbull]=android-13.0.0_r0.111
+    [kernel_msm-redbull]=android-13.0.0_r0.111
+    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.111
+    [kernel_msm-extra-redbull]=android-13.0.0_r0.111
 
-    # July 2023
-    [kernel_build-gs]=android-13.0.0_r0.100
-    [kernel_gs]=android-13.0.0_r0.100
-    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.100
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.100
+    # August 2023
+    [kernel_build-gs]=android-13.0.0_r0.112
+    [kernel_gs]=android-13.0.0_r0.112
+    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.112
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.112
 )
 
 declare -Ar kernel_tags=(
-    # July 2023
-    [kernel_build-coral]=android-13.0.0_r0.101
-    [kernel_msm-coral]=android-13.0.0_r0.101
-    [kernel_msm-extra-coral]=android-13.0.0_r0.101
+    # August 2023
+    [kernel_build-coral]=android-13.0.0_r0.110
+    [kernel_msm-coral]=android-13.0.0_r0.110
+    [kernel_msm-extra-coral]=android-13.0.0_r0.110
 
-    # July 2023
-    [kernel_build-redbull]=android-13.0.0_r0.102
-    [kernel_msm-redbull]=android-13.0.0_r0.102
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.102
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.102
+    # August 2023
+    [kernel_build-redbull]=android-13.0.0_r0.111
+    [kernel_msm-redbull]=android-13.0.0_r0.111
+    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.111
+    [kernel_msm-extra-redbull]=android-13.0.0_r0.111
 
-    # July 2023
-    [kernel_build-gs]=android-13.0.0_r0.100
-    [kernel_gs]=android-13.0.0_r0.100
-    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.100
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.100
+    # August 2023
+    [kernel_build-gs]=android-13.0.0_r0.112
+    [kernel_gs]=android-13.0.0_r0.112
+    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.112
+    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.112
 )
 
 readonly independent=(
