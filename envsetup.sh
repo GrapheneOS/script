@@ -1,5 +1,7 @@
 umask 022
 alias which='command -v'
+alias adevtool='vendor/adevtool/bin/run'
+alias adto='vendor/adevtool/bin/run'
 source build/envsetup.sh
 
 export LANG=C.UTF-8
