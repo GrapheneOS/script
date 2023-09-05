@@ -84,6 +84,7 @@ readonly aosp_forks=(
     platform_packages_modules_Connectivity
     platform_packages_modules_DnsResolver
     platform_packages_modules_NetworkStack
+    platform_packages_modules_NeuralNetworks
     platform_packages_modules_Permission
     platform_packages_modules_Uwb
     platform_packages_modules_Wifi
