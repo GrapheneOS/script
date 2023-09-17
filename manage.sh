@@ -51,6 +51,7 @@ readonly aosp_forks=(
     platform_external_boringssl
     platform_external_conscrypt
     platform_external_crosvm
+    platform_external_webp
     platform_frameworks_av
     platform_frameworks_base
     platform_frameworks_ex
