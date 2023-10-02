@@ -52,6 +52,7 @@ readonly aosp_forks=(
     platform_external_conscrypt
     platform_external_crosvm
     platform_external_libvpx
+    platform_external_libxml2
     platform_external_webp
     platform_frameworks_av
     platform_frameworks_base
