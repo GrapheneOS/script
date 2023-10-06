@@ -104,10 +104,16 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.cellbroadcast.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.compos.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.compos.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.configinfrastructure.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.configinfrastructure.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.conscrypt.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.conscrypt.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.devicelock.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.devicelock.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.extservices.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.extservices.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.healthfitness.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.healthfitness.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.i18n.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.i18n.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.ipsec.apex="$KEY_DIR/releasekey" \
@@ -128,6 +134,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.permission.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.resolv.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.resolv.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.rkpd.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.rkpd.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.runtime.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.runtime.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.scheduling.apex="$KEY_DIR/releasekey" \
@@ -144,6 +152,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.virt.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.vndk.current.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.vndk.current.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.vndk.current.on_vendor.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.vndk.current.on_vendor.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.wifi.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.wifi.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.google.pixel.camera.hal.apex="$KEY_DIR/releasekey" \
