@@ -167,8 +167,10 @@ readonly independent=(
     hardened_malloc
     kernel_common-5.10
     kernel_common-5.15
+    kernel_common-6.1
     kernel_manifest-5.10
     kernel_manifest-5.15
+    kernel_manifest-6.1
     kernel_manifest-bluejay
     kernel_manifest-coral
     kernel_manifest-felix
