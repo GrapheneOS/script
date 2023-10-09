@@ -8,7 +8,7 @@ if [[ $# -ne 1 ]]; then
     user_error "expected 1 argument"
 fi
 
-repo=$1
+repo=${1%/}
 local_repo=${repo//\//_}
 
 upstream="https://android.googlesource.com/$repo"
