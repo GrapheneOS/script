@@ -50,6 +50,7 @@ readonly aosp_forks=(
     platform_external_armnn
     platform_external_boringssl
     platform_external_conscrypt
+    platform_external_curl
     platform_external_libvpx
     platform_external_webp
     platform_frameworks_base
