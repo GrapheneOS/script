@@ -13,7 +13,7 @@ local_repo=${repo//\//_}
 
 upstream="https://android.googlesource.com/$repo"
 
-git clone $upstream -b $aosp_tag
+git clone $upstream -b android-14.0.0_r0.8
 mv $(basename $repo) $local_repo
 cd $local_repo
 git checkout -b $branch
