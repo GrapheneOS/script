@@ -112,7 +112,7 @@ readonly kernels=(
     kernel_build-gs
     kernel_gs
     kernel_google-modules_gpu-gs
-    kernel_google-modules_wlan_bcmdhd_bcm4389-gs
+    kernel_google-modules_wlan_bcmdhd_bcm4389
 )
 
 declare -Ar kernel_tags_old=(
@@ -131,7 +131,7 @@ declare -Ar kernel_tags_old=(
     [kernel_build-gs]=android-14.0.0_r0.2
     [kernel_gs]=android-14.0.0_r0.2
     [kernel_google-modules_gpu-gs]=android-14.0.0_r0.2
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-14.0.0_r0.2
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.2
 )
 
 declare -Ar kernel_tags=(
@@ -150,7 +150,7 @@ declare -Ar kernel_tags=(
     [kernel_build-gs]=android-14.0.0_r0.2
     [kernel_gs]=android-14.0.0_r0.2
     [kernel_google-modules_gpu-gs]=android-14.0.0_r0.2
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-14.0.0_r0.2
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.2
 )
 
 readonly independent=(
