@@ -16,7 +16,7 @@ fi
 chrt -b -p 0 $$
 
 PERSISTENT_KEY_DIR=keys/$1
-RELEASE_OUT=out/release-$1-$BUILD_NUMBER
+RELEASE_OUT=${OUT_DIR:-out}/release-$1-$BUILD_NUMBER
 
 # decrypt keys in advance for improved performance and modern algorithm support
 KEY_DIR=$(mktemp -d /dev/shm/release_keys.XXXXXXXXXX)
