@@ -120,17 +120,17 @@ declare -Ar kernel_tags_old=(
     [kernel_msm-coral]=android-13.0.0_r0.110
     [kernel_msm-extra-coral]=android-13.0.0_r0.110
 
-    # October 2023
-    [kernel_build-redbull]=android-14.0.0_r0.1
-    [kernel_msm-redbull]=android-14.0.0_r0.1
-    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.1
-    [kernel_msm-extra-redbull]=android-14.0.0_r0.1
+    # November 2023
+    [kernel_build-redbull]=android-14.0.0_r0.12
+    [kernel_msm-redbull]=android-14.0.0_r0.12
+    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.12
+    [kernel_msm-extra-redbull]=android-14.0.0_r0.12
 
-    # October 2023
-    [kernel_build-gs]=android-14.0.0_r0.2
-    [kernel_gs]=android-14.0.0_r0.2
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.2
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.2
+    # November 2023
+    [kernel_build-gs]=android-14.0.0_r0.11
+    [kernel_gs]=android-14.0.0_r0.11
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.11
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.11
 )
 
 declare -Ar kernel_tags=(
@@ -139,17 +139,17 @@ declare -Ar kernel_tags=(
     [kernel_msm-coral]=android-13.0.0_r0.110
     [kernel_msm-extra-coral]=android-13.0.0_r0.110
 
-    # October 2023
-    [kernel_build-redbull]=android-14.0.0_r0.1
-    [kernel_msm-redbull]=android-14.0.0_r0.1
-    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.1
-    [kernel_msm-extra-redbull]=android-14.0.0_r0.1
+    # November 2023
+    [kernel_build-redbull]=android-14.0.0_r0.12
+    [kernel_msm-redbull]=android-14.0.0_r0.12
+    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.12
+    [kernel_msm-extra-redbull]=android-14.0.0_r0.12
 
-    # October 2023
-    [kernel_build-gs]=android-14.0.0_r0.2
-    [kernel_gs]=android-14.0.0_r0.2
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.2
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.2
+    # November 2023
+    [kernel_build-gs]=android-14.0.0_r0.11
+    [kernel_gs]=android-14.0.0_r0.11
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.11
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.11
 )
 
 readonly independent=(
