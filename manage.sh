@@ -37,9 +37,12 @@ readonly aosp_forks=(
     device_google_redbull
     device_google_redbull-sepolicy
     device_google_redfin
+    device_google_shusky
     device_google_sunfish
     device_google_sunfish-sepolicy
     device_google_tangorpro
+    device_google_zuma
+    device_google_zuma-sepolicy
     platform_art
     platform_bionic
     platform_bootable_recovery
@@ -102,57 +105,68 @@ readonly aosp_forks=(
 )
 
 readonly kernels=(
-    kernel_build-coral
-    kernel_msm-coral
-    kernel_msm-extra-coral
+    #kernel_build-coral
+    #kernel_msm-coral
+    #kernel_msm-extra-coral
 
-    kernel_build-redbull
-    kernel_msm-redbull
-    kernel_msm-modules_qcacld-redbull
-    kernel_msm-extra-redbull
+    #kernel_build-redbull
+    #kernel_msm-redbull
+    #kernel_msm-modules_qcacld-redbull
+    #kernel_msm-extra-redbull
 
-    kernel_build-gs
-    kernel_gs
-    kernel_google-modules_gpu-gs
-    kernel_google-modules_wlan_bcmdhd_bcm4389
+    #kernel_build-gs
+    #kernel_gs
+    #kernel_google-modules_gpu-gs
+    #kernel_google-modules_wlan_bcmdhd_bcm4389
+
+    kernel_devices_google_shusky
+    kernel_google-modules_wlan_bcmdhd_bcm4398
 )
 
 declare -Ar kernel_tags_old=(
     # August 2023
-    [kernel_build-coral]=android-13.0.0_r0.110
-    [kernel_msm-coral]=android-13.0.0_r0.110
-    [kernel_msm-extra-coral]=android-13.0.0_r0.110
+    #[kernel_build-coral]=android-13.0.0_r0.110
+    #[kernel_msm-coral]=android-13.0.0_r0.110
+    #[kernel_msm-extra-coral]=android-13.0.0_r0.110
 
     # November 2023
-    [kernel_build-redbull]=android-14.0.0_r0.12
-    [kernel_msm-redbull]=android-14.0.0_r0.12
-    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.12
-    [kernel_msm-extra-redbull]=android-14.0.0_r0.12
+    #[kernel_build-redbull]=android-14.0.0_r0.12
+    #[kernel_msm-redbull]=android-14.0.0_r0.12
+    #[kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.12
+    #[kernel_msm-extra-redbull]=android-14.0.0_r0.12
 
     # November 2023
-    [kernel_build-gs]=android-14.0.0_r0.11
-    [kernel_gs]=android-14.0.0_r0.11
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.11
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.11
+    #[kernel_build-gs]=android-14.0.0_r0.11
+    #[kernel_gs]=android-14.0.0_r0.11
+    #[kernel_google-modules_gpu-gs]=android-14.0.0_r0.11
+    #[kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.11
+
+    # November 2023
+    [kernel_devices_google_shusky]=android-14.0.0_r0.18
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.18
 )
 
 declare -Ar kernel_tags=(
     # August 2023
-    [kernel_build-coral]=android-13.0.0_r0.110
-    [kernel_msm-coral]=android-13.0.0_r0.110
-    [kernel_msm-extra-coral]=android-13.0.0_r0.110
+    #[kernel_build-coral]=android-13.0.0_r0.110
+    #[kernel_msm-coral]=android-13.0.0_r0.110
+    #[kernel_msm-extra-coral]=android-13.0.0_r0.110
 
     # November 2023
-    [kernel_build-redbull]=android-14.0.0_r0.12
-    [kernel_msm-redbull]=android-14.0.0_r0.12
-    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.12
-    [kernel_msm-extra-redbull]=android-14.0.0_r0.12
+    #[kernel_build-redbull]=android-14.0.0_r0.12
+    #[kernel_msm-redbull]=android-14.0.0_r0.12
+    #[kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.12
+    #[kernel_msm-extra-redbull]=android-14.0.0_r0.12
 
     # November 2023
-    [kernel_build-gs]=android-14.0.0_r0.11
-    [kernel_gs]=android-14.0.0_r0.11
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.11
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.11
+    #[kernel_build-gs]=android-14.0.0_r0.11
+    #[kernel_gs]=android-14.0.0_r0.11
+    #[kernel_google-modules_gpu-gs]=android-14.0.0_r0.11
+    #[kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.11
+
+    # November 2023
+    [kernel_devices_google_shusky]=android-14.0.0_r0.18
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.18
 )
 
 readonly independent=(
@@ -165,6 +179,7 @@ readonly independent=(
     device_google_pantah-kernel
     device_google_raviole-kernel
     device_google_redbull-kernel
+    device_google_shusky-kernel
     device_google_sunfish-kernel
     device_google_tangorpro-kernel
     hardened_malloc
@@ -181,6 +196,7 @@ readonly independent=(
     kernel_manifest-pantah
     kernel_manifest-raviole
     kernel_manifest-redbull
+    kernel_manifest-shusky
     kernel_manifest-tangorpro
     platform_external_Apps
     platform_external_Auditor
@@ -222,8 +238,20 @@ for repo in "${aosp_forks[@]}"; do
         fi
     elif [[ $action == update ]]; then
         git fetch upstream --tags
-        git rebase --onto $aosp_tag $aosp_tag_old
-        git push -f
+        if [[ $repo != @(device_google_gs101|device_google_gs201|device_google_shusky|device_google_zuma|device_google_zuma-sepolicy|platform_external_android-nn-driver|platform_external_armnn|platform_frameworks_base|platform_manifest) ]]; then
+            # reuse base branch when AOSP tags have the same commit
+            if [[ $(git rev-list -n 1 $aosp_base_tag) == $(git rev-list -n 1 $aosp_tag) ]]; then
+                git checkout $base_branch
+            else
+                git checkout $aosp_tag
+                git cherry-pick --keep-redundant-commits $aosp_base_tag..$base_branch
+            fi
+            git checkout -B $branch
+            git push -fu origin $branch
+        else
+            git rebase --onto $aosp_tag $aosp_tag_old
+            git push -f
+        fi
     elif [[ $action == push ]]; then
         git push
     elif [[ $action == fetch ]]; then
@@ -274,14 +302,22 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-felix|kernel_manifest-felix|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-tangorpro) ]]; then
-            git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
-            git commit default.xml -m $tag_name
-            git push -fu origin tmp
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-felix|kernel_manifest-felix|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-shusky|kernel_manifest-tangorpro) ]]; then
+            if [[ $repo == kernel_manifest-shusky ]]; then
+                git checkout -B tmp
+                sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
+                git commit default.xml -m $tag_name
+                git push -fu origin tmp
+            fi
         else
             git tag -s $tag_name -m $tag_name
             git push origin $tag_name
+        fi
+    elif [[ $action == update ]]; then
+        if [[ $repo != @(device_google_shusky-kernel|kernel_common-5.15|kernel_manifest-shusky|script) ]]; then
+            git checkout $base_branch
+            git checkout -B $branch
+            git push -fu origin $branch
         fi
     elif [[ $action == push ]]; then
         git push
