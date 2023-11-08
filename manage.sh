@@ -55,6 +55,7 @@ readonly aosp_forks=(
     platform_packages_apps_Dialer
     platform_packages_apps_DocumentsUI
     platform_packages_apps_Gallery2
+    platform_packages_apps_KeyChain
     platform_packages_apps_Launcher3
     platform_packages_apps_Messaging
     platform_packages_apps_Nfc
@@ -71,11 +72,13 @@ readonly aosp_forks=(
     platform_packages_modules_DnsResolver
     platform_packages_modules_NetworkStack
     platform_packages_modules_Permission
+    platform_packages_modules_StatsD
     platform_packages_modules_Uwb
     platform_packages_modules_Wifi
     platform_packages_providers_ContactsProvider
     platform_packages_providers_DownloadProvider
     platform_packages_providers_MediaProvider
+    platform_packages_providers_TelephonyProvider
     platform_packages_services_Telecomm
     platform_packages_services_Telephony
     platform_system_ca-certificates
