@@ -9,7 +9,7 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 [[ -n $OUT ]] || user_error "expected OUT in the environment"
 
 # detect Android build system bug
-if [[ $1 == @(barbet|redfin|bramble|sunfish|coral|flame) ]]; then
+if [[ $1 == @(sunfish|coral|flame) ]]; then
     [[ -d $OUT/vendor/firmware_mnt ]] || user_error "out/target/product/$1/vendor/firmware_mnt is missing."
 fi
 
@@ -50,18 +50,7 @@ get_radio_image() {
     grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2 | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
 }
 
-if [[ $DEVICE == @(felix|tangorpro|lynx|cheetah|panther|bluejay|raven|oriole) ]]; then
-    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
-    [[ $DEVICE != tangorpro ]] && RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
-    DISABLE_UART=true
-    DISABLE_FIPS=true
-    DISABLE_DPM=true
-elif [[ $DEVICE == @(barbet|redfin|bramble) ]]; then
-    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
-    RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
-    DISABLE_UART=true
-    ERASE_APDP=true
-elif [[ $DEVICE == @(sunfish|coral|flame) ]]; then
+if [[ $DEVICE == @(sunfish|coral|flame) ]]; then
     BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
     DISABLE_UART=true
