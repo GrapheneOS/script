@@ -96,17 +96,17 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # August 2023
-    [kernel_build-coral]=android-13.0.0_r0.110
-    [kernel_msm-coral]=android-13.0.0_r0.110
-    [kernel_msm-extra-coral]=android-13.0.0_r0.110
+    # November 2023
+    [kernel_build-coral]=android-13.0.0_r0.130
+    [kernel_msm-coral]=android-13.0.0_r0.130
+    [kernel_msm-extra-coral]=android-13.0.0_r0.130
 )
 
 declare -Ar kernel_tags=(
-    # August 2023
-    [kernel_build-coral]=android-13.0.0_r0.110
-    [kernel_msm-coral]=android-13.0.0_r0.110
-    [kernel_msm-extra-coral]=android-13.0.0_r0.110
+    # November 2023
+    [kernel_build-coral]=android-13.0.0_r0.130
+    [kernel_msm-coral]=android-13.0.0_r0.130
+    [kernel_msm-extra-coral]=android-13.0.0_r0.130
 )
 
 readonly independent=(
