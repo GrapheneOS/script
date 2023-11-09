@@ -19,27 +19,10 @@ fi
 readonly aosp_forks=(
     device_common
     device_generic_goldfish
-    device_google_barbet
-    device_google_barbet-sepolicy
-    device_google_bluejay
-    device_google_bramble
     device_google_coral
     device_google_coral-sepolicy
-    device_google_felix
-    device_google_gs-common
-    device_google_gs101
-    device_google_gs101-sepolicy
-    device_google_gs201
-    device_google_gs201-sepolicy
-    device_google_lynx
-    device_google_pantah
-    device_google_raviole
-    device_google_redbull
-    device_google_redbull-sepolicy
-    device_google_redfin
     device_google_sunfish
     device_google_sunfish-sepolicy
-    device_google_tangorpro
     platform_art
     platform_bionic
     platform_bootable_recovery
@@ -107,16 +90,6 @@ readonly kernels=(
     kernel_build-coral
     kernel_msm-coral
     kernel_msm-extra-coral
-
-    kernel_build-redbull
-    kernel_msm-redbull
-    kernel_msm-modules_qcacld-redbull
-    kernel_msm-extra-redbull
-
-    kernel_build-gs
-    kernel_gs
-    kernel_google-modules_gpu-gs
-    kernel_google-modules_wlan_bcmdhd_bcm4389-gs
 )
 
 declare -Ar kernel_tags_old=(
@@ -124,18 +97,6 @@ declare -Ar kernel_tags_old=(
     [kernel_build-coral]=android-13.0.0_r0.110
     [kernel_msm-coral]=android-13.0.0_r0.110
     [kernel_msm-extra-coral]=android-13.0.0_r0.110
-
-    # September 2023
-    [kernel_build-redbull]=android-13.0.0_r0.122
-    [kernel_msm-redbull]=android-13.0.0_r0.122
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.122
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.122
-
-    # September 2023
-    [kernel_build-gs]=android-13.0.0_r0.123
-    [kernel_gs]=android-13.0.0_r0.123
-    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.123
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.123
 )
 
 declare -Ar kernel_tags=(
@@ -143,45 +104,15 @@ declare -Ar kernel_tags=(
     [kernel_build-coral]=android-13.0.0_r0.110
     [kernel_msm-coral]=android-13.0.0_r0.110
     [kernel_msm-extra-coral]=android-13.0.0_r0.110
-
-    # September 2023
-    [kernel_build-redbull]=android-13.0.0_r0.122
-    [kernel_msm-redbull]=android-13.0.0_r0.122
-    [kernel_msm-modules_qcacld-redbull]=android-13.0.0_r0.122
-    [kernel_msm-extra-redbull]=android-13.0.0_r0.122
-
-    # September 2023
-    [kernel_build-gs]=android-13.0.0_r0.123
-    [kernel_gs]=android-13.0.0_r0.123
-    [kernel_google-modules_gpu-gs]=android-13.0.0_r0.123
-    [kernel_google-modules_wlan_bcmdhd_bcm4389-gs]=android-13.0.0_r0.123
 )
 
 readonly independent=(
     adevtool
     branding
-    device_google_bluejay-kernel
     device_google_coral-kernel
-    device_google_felix-kernel
-    device_google_lynx-kernel
-    device_google_pantah-kernel
-    device_google_raviole-kernel
-    device_google_redbull-kernel
     device_google_sunfish-kernel
-    device_google_tangorpro-kernel
     hardened_malloc
-    kernel_common-5.10
-    kernel_common-5.15
-    kernel_manifest-5.10
-    kernel_manifest-5.15
-    kernel_manifest-bluejay
     kernel_manifest-coral
-    kernel_manifest-felix
-    kernel_manifest-lynx
-    kernel_manifest-pantah
-    kernel_manifest-raviole
-    kernel_manifest-redbull
-    kernel_manifest-tangorpro
     platform_external_Apps
     platform_external_Auditor
     platform_external_Camera
