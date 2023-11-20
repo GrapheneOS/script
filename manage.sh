@@ -92,6 +92,7 @@ readonly aosp_forks=(
     platform_packages_providers_DownloadProvider
     platform_packages_providers_MediaProvider
     platform_packages_services_Telephony
+    platform_prebuilts_abi-dumps_platform
     platform_prebuilts_abi-dumps_vndk
     platform_system_core
     platform_system_extras
