@@ -95,6 +95,7 @@ readonly aosp_forks=(
     platform_prebuilts_abi-dumps_vndk
     platform_system_core
     platform_system_extras
+    platform_system_logging
     platform_system_librustutils
     platform_system_sepolicy
 )
