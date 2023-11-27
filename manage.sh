@@ -182,6 +182,7 @@ readonly independent=(
     kernel_manifest-raviole
     kernel_manifest-redbull
     kernel_manifest-tangorpro
+    platform_external_AppCompatConfig
     platform_external_Apps
     platform_external_Auditor
     platform_external_Camera
