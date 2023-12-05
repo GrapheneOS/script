@@ -8,11 +8,6 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 [[ -n $BUILD_NUMBER ]] || user_error "expected BUILD_NUMBER in the environment"
 [[ -n $OUT ]] || user_error "expected OUT in the environment"
 
-# detect Android build system bug
-if [[ $1 == @(barbet|redfin|bramble|sunfish|coral|flame) ]]; then
-    [[ -d $OUT/vendor/firmware_mnt ]] || user_error "out/target/product/$1/vendor/firmware_mnt is missing."
-fi
-
 chrt -b -p 0 $$
 
 PERSISTENT_KEY_DIR=keys/$1
