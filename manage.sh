@@ -37,9 +37,12 @@ readonly aosp_forks=(
     device_google_redbull
     device_google_redbull-sepolicy
     device_google_redfin
+    device_google_shusky
     device_google_sunfish
     device_google_sunfish-sepolicy
     device_google_tangorpro
+    device_google_zuma
+    device_google_zuma-sepolicy
     platform_art
     platform_bionic
     platform_bootable_recovery
@@ -115,6 +118,9 @@ readonly kernels=(
     kernel_gs
     kernel_google-modules_gpu-gs
     kernel_google-modules_wlan_bcmdhd_bcm4389
+
+    kernel_devices_google_shusky
+    kernel_google-modules_wlan_bcmdhd_bcm4398
 )
 
 declare -Ar kernel_tags_old=(
@@ -134,6 +140,10 @@ declare -Ar kernel_tags_old=(
     [kernel_gs]=android-14.0.0_r0.11
     [kernel_google-modules_gpu-gs]=android-14.0.0_r0.11
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.11
+
+    # November 2023
+    [kernel_devices_google_shusky]=android-14.0.0_r0.18
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.18
 )
 
 declare -Ar kernel_tags=(
@@ -153,6 +163,10 @@ declare -Ar kernel_tags=(
     [kernel_gs]=android-14.0.0_r0.11
     [kernel_google-modules_gpu-gs]=android-14.0.0_r0.11
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.11
+
+    # November 2023
+    [kernel_devices_google_shusky]=android-14.0.0_r0.18
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.18
 )
 
 readonly independent=(
@@ -165,6 +179,7 @@ readonly independent=(
     device_google_pantah-kernel
     device_google_raviole-kernel
     device_google_redbull-kernel
+    device_google_shusky-kernel
     device_google_sunfish-kernel
     device_google_tangorpro-kernel
     hardened_malloc
@@ -181,6 +196,7 @@ readonly independent=(
     kernel_manifest-pantah
     kernel_manifest-raviole
     kernel_manifest-redbull
+    kernel_manifest-shusky
     kernel_manifest-tangorpro
     platform_external_AppCompatConfig
     platform_external_Apps
@@ -276,7 +292,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-felix|kernel_manifest-felix|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-tangorpro) ]]; then
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-felix|kernel_manifest-felix|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-shusky|kernel_manifest-tangorpro) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
