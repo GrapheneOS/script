@@ -49,8 +49,6 @@ readonly aosp_forks=(
     platform_build
     platform_build_soong
     platform_development
-    platform_external_android-nn-driver
-    platform_external_armnn
     platform_external_boringssl
     platform_external_conscrypt
     platform_external_libvpx
