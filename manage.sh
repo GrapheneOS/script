@@ -45,7 +45,6 @@ readonly aosp_forks=(
     platform_bootable_recovery
     platform_build
     platform_build_soong
-    platform_cts
     platform_development
     platform_external_android-nn-driver
     platform_external_armnn
