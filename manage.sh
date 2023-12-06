@@ -90,7 +90,6 @@ readonly aosp_forks=(
     platform_packages_modules_Permission
     platform_packages_modules_RemoteKeyProvisioning
     platform_packages_modules_Uwb
-    platform_packages_modules_Virtualization
     platform_packages_modules_Wifi
     platform_packages_providers_ContactsProvider
     platform_packages_providers_DownloadProvider
