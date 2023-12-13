@@ -210,7 +210,11 @@ for repo in "${aosp_forks[@]}"; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    if [[ $repo == platform_manifest ]]; then
+        git checkout 14-redfin
+    else
+        git checkout $branch
+    fi
 
     if [[ $action == delete ]]; then
         git tag -d $tag_name || true
@@ -273,7 +277,11 @@ for repo in ${independent[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    if [[ $repo == script ]]; then
+        git checkout 14-redfin
+    else
+        git checkout $branch
+    fi
 
     if [[ $action == delete ]]; then
         git tag -d $tag_name || true
