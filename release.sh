@@ -16,7 +16,7 @@ RELEASE_OUT=${OUT_DIR:-out}/release-$1-$BUILD_NUMBER
 # decrypt keys in advance for improved performance and modern algorithm support
 KEY_DIR=$(mktemp -d /dev/shm/release_keys.XXXXXXXXXX)
 trap "rm -rf \"$KEY_DIR\" && rm -f \"$PWD/$RELEASE_OUT/keys\"" EXIT
-cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
+cp -r "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
 script/decrypt_keys.sh "$KEY_DIR"
 
 OLD_PATH="$PATH"
