@@ -23,8 +23,6 @@ readonly aosp_forks=(
     device_google_barbet-sepolicy
     device_google_bluejay
     device_google_bramble
-    device_google_coral
-    device_google_coral-sepolicy
     device_google_felix
     device_google_gs-common
     device_google_gs101
@@ -38,8 +36,6 @@ readonly aosp_forks=(
     device_google_redbull-sepolicy
     device_google_redfin
     device_google_shusky
-    device_google_sunfish
-    device_google_sunfish-sepolicy
     device_google_tangorpro
     device_google_zuma
     device_google_zuma-sepolicy
@@ -104,10 +100,6 @@ readonly aosp_forks=(
 )
 
 readonly kernels=(
-    kernel_build-coral
-    kernel_msm-coral
-    kernel_msm-extra-coral
-
     kernel_build-redbull
     kernel_msm-redbull
     kernel_msm-modules_qcacld-redbull
@@ -123,11 +115,6 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # August 2023
-    [kernel_build-coral]=android-13.0.0_r0.110
-    [kernel_msm-coral]=android-13.0.0_r0.110
-    [kernel_msm-extra-coral]=android-13.0.0_r0.110
-
     # December 2023
     [kernel_build-redbull]=android-14.0.0_r0.20
     [kernel_msm-redbull]=android-14.0.0_r0.20
@@ -146,11 +133,6 @@ declare -Ar kernel_tags_old=(
 )
 
 declare -Ar kernel_tags=(
-    # August 2023
-    [kernel_build-coral]=android-13.0.0_r0.110
-    [kernel_msm-coral]=android-13.0.0_r0.110
-    [kernel_msm-extra-coral]=android-13.0.0_r0.110
-
     # December 2023
     [kernel_build-redbull]=android-14.0.0_r0.20
     [kernel_msm-redbull]=android-14.0.0_r0.20
@@ -172,14 +154,12 @@ readonly independent=(
     adevtool
     branding
     device_google_bluejay-kernel
-    device_google_coral-kernel
     device_google_felix-kernel
     device_google_lynx-kernel
     device_google_pantah-kernel
     device_google_raviole-kernel
     device_google_redbull-kernel
     device_google_shusky-kernel
-    device_google_sunfish-kernel
     device_google_tangorpro-kernel
     hardened_malloc
     kernel_common-5.10
@@ -189,7 +169,6 @@ readonly independent=(
     kernel_manifest-5.15
     kernel_manifest-6.1
     kernel_manifest-bluejay
-    kernel_manifest-coral
     kernel_manifest-felix
     kernel_manifest-lynx
     kernel_manifest-pantah
@@ -291,7 +270,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-bluejay|kernel_manifest-coral|kernel_manifest-felix|kernel_manifest-felix|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-shusky|kernel_manifest-tangorpro) ]]; then
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-bluejay|kernel_manifest-felix|kernel_manifest-felix|kernel_manifest-lynx|kernel_manifest-pantah|kernel_manifest-redbull|kernel_manifest-raviole|kernel_manifest-shusky|kernel_manifest-tangorpro) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
