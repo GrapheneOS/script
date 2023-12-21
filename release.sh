@@ -56,12 +56,6 @@ elif [[ $DEVICE == @(barbet|redfin|bramble) ]]; then
     RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
     DISABLE_UART=true
     ERASE_APDP=true
-elif [[ $DEVICE == @(sunfish|coral|flame) ]]; then
-    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
-    RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
-    DISABLE_UART=true
-    ERASE_APDP=true
-    ERASE_MSADP=true
 else
     user_error "$DEVICE is not supported by the release script"
 fi
