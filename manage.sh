@@ -116,39 +116,39 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # December 2023
-    [kernel_build-redbull]=android-14.0.0_r0.20
-    [kernel_msm-redbull]=android-14.0.0_r0.20
-    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.20
-    [kernel_msm-extra-redbull]=android-14.0.0_r0.20
+    # January 2024
+    [kernel_build-redbull]=android-14.0.0_r0.32
+    [kernel_msm-redbull]=android-14.0.0_r0.32
+    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.32
+    [kernel_msm-extra-redbull]=android-14.0.0_r0.32
 
-    # December 2023
-    [kernel_build-gs]=android-14.0.0_r0.25
-    [kernel_gs]=android-14.0.0_r0.25
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.25
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.25
+    # January 2024
+    [kernel_build-gs]=android-14.0.0_r0.31
+    [kernel_gs]=android-14.0.0_r0.31
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.31
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.31
 
-    # December 2023
-    [kernel_devices_google_shusky]=android-14.0.0_r0.26
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.26
+    # January 2024
+    [kernel_devices_google_shusky]=android-14.0.0_r0.38
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.38
 )
 
 declare -Ar kernel_tags=(
-    # December 2023
-    [kernel_build-redbull]=android-14.0.0_r0.20
-    [kernel_msm-redbull]=android-14.0.0_r0.20
-    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.20
-    [kernel_msm-extra-redbull]=android-14.0.0_r0.20
+    # January 2024
+    [kernel_build-redbull]=android-14.0.0_r0.32
+    [kernel_msm-redbull]=android-14.0.0_r0.32
+    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.32
+    [kernel_msm-extra-redbull]=android-14.0.0_r0.32
 
-    # December 2023
-    [kernel_build-gs]=android-14.0.0_r0.25
-    [kernel_gs]=android-14.0.0_r0.25
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.25
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.25
+    # January 2024
+    [kernel_build-gs]=android-14.0.0_r0.31
+    [kernel_gs]=android-14.0.0_r0.31
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.31
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.31
 
-    # December 2023
-    [kernel_devices_google_shusky]=android-14.0.0_r0.26
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.26
+    # January 2024
+    [kernel_devices_google_shusky]=android-14.0.0_r0.38
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.38
 )
 
 readonly independent=(
