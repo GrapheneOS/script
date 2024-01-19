@@ -144,10 +144,12 @@ declare -Ar kernel_tags=(
     [kernel_build-gs]=android-14.0.0_r0.31
     [kernel_gs]=android-14.0.0_r0.31
     [kernel_google-modules_gpu-gs]=android-14.0.0_r0.31
+    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.31
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.31
 
     # January 2024
     [kernel_devices_google_shusky]=android-14.0.0_r0.38
+    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.38
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.38
 )
 
