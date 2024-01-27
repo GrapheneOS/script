@@ -109,9 +109,11 @@ readonly kernels=(
     kernel_build-gs
     kernel_gs
     kernel_google-modules_gpu-gs
+    kernel_google-modules_power_reset-gs
     kernel_google-modules_wlan_bcmdhd_bcm4389
 
     kernel_devices_google_shusky
+    kernel_google-modules_power_reset-zuma
     kernel_google-modules_wlan_bcmdhd_bcm4398
 )
 
