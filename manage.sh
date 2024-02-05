@@ -124,17 +124,17 @@ declare -Ar kernel_tags_old=(
     [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.32
     [kernel_msm-extra-redbull]=android-14.0.0_r0.32
 
-    # January 2024
-    [kernel_build-gs]=android-14.0.0_r0.31
-    [kernel_gs]=android-14.0.0_r0.31
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.31
-    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.31
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.31
+    # February 2024
+    [kernel_build-gs]=android-14.0.0_r0.44
+    [kernel_gs]=android-14.0.0_r0.44
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.44
+    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.44
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.44
 
-    # January 2024
-    [kernel_devices_google_shusky]=android-14.0.0_r0.38
-    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.38
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.38
+    # February 2024
+    [kernel_devices_google_shusky]=android-14.0.0_r0.45
+    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.45
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.45
 )
 
 declare -Ar kernel_tags=(
@@ -144,17 +144,17 @@ declare -Ar kernel_tags=(
     [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.32
     [kernel_msm-extra-redbull]=android-14.0.0_r0.32
 
-    # January 2024
-    [kernel_build-gs]=android-14.0.0_r0.31
-    [kernel_gs]=android-14.0.0_r0.31
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.31
-    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.31
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.31
+    # February 2024
+    [kernel_build-gs]=android-14.0.0_r0.44
+    [kernel_gs]=android-14.0.0_r0.44
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.44
+    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.44
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.44
 
-    # January 2024
-    [kernel_devices_google_shusky]=android-14.0.0_r0.38
-    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.38
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.38
+    # February 2024
+    [kernel_devices_google_shusky]=android-14.0.0_r0.45
+    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.45
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.45
 )
 
 readonly independent=(
