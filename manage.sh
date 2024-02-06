@@ -118,11 +118,11 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # January 2024
-    [kernel_build-redbull]=android-14.0.0_r0.32
-    [kernel_msm-redbull]=android-14.0.0_r0.32
-    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.32
-    [kernel_msm-extra-redbull]=android-14.0.0_r0.32
+    # QPR2 Beta 3.1
+    [kernel_build-redbull]=android-u-qpr2-beta-3.1_r0.6
+    [kernel_msm-redbull]=android-u-qpr2-beta-3.1_r0.6
+    [kernel_msm-modules_qcacld-redbull]=android-u-qpr2-beta-3.1_r0.6
+    [kernel_msm-extra-redbull]=android-u-qpr2-beta-3.1_r0.6
 
     # February 2024
     [kernel_build-gs]=android-14.0.0_r0.44
@@ -138,11 +138,11 @@ declare -Ar kernel_tags_old=(
 )
 
 declare -Ar kernel_tags=(
-    # January 2024
-    [kernel_build-redbull]=android-14.0.0_r0.32
-    [kernel_msm-redbull]=android-14.0.0_r0.32
-    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.32
-    [kernel_msm-extra-redbull]=android-14.0.0_r0.32
+    # QPR2 Beta 3.1
+    [kernel_build-redbull]=android-u-qpr2-beta-3.1_r0.6
+    [kernel_msm-redbull]=android-u-qpr2-beta-3.1_r0.6
+    [kernel_msm-modules_qcacld-redbull]=android-u-qpr2-beta-3.1_r0.6
+    [kernel_msm-extra-redbull]=android-u-qpr2-beta-3.1_r0.6
 
     # February 2024
     [kernel_build-gs]=android-14.0.0_r0.44
