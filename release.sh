@@ -147,7 +147,7 @@ img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD.zip
 
 source device/common/generate-factory-images-common.sh
 
-if [[ -f "$KEY_DIR/factory.sec" ]]; then
+if [[ -f "$KEY_DIR/id_ed25519" ]]; then
     export PATH="$OLD_PATH"
-    script/signify_prehash.sh "$KEY_DIR/factory.sec" $DEVICE-factory-$BUILD_NUMBER.zip
+    ssh-keygen -Y sign -n "factory images" -f "$KEY_DIR/id_ed25519" $DEVICE-factory-$BUILD_NUMBER.zip
 fi
