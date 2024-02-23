@@ -137,7 +137,12 @@ readonly independent=(
     vendor_state
 )
 
-[[ $OFFICIAL_BUILD = true ]] && export GIT_COMMITTER_NAME=GrapheneOS GIT_COMMITTER_EMAIL=contact@grapheneos.org
+if [[ $OFFICIAL_BUILD = true ]]; then
+    export GIT_AUTHOR_NAME=GrapheneOS
+    export GIT_AUTHOR_EMAIL=contact@grapheneos.org
+    export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+    export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+fi
 
 for repo in "${aosp_forks[@]}"; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
