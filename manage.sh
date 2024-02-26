@@ -56,6 +56,7 @@ readonly aosp_forks=(
     platform_frameworks_native
     platform_frameworks_opt_net_wifi
     platform_frameworks_opt_telephony
+    platform_hardware_interfaces
     platform_hardware_google_graphics_common
     platform_hardware_google_pixel
     platform_hardware_google_pixel-sepolicy
