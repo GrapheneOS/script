@@ -114,6 +114,7 @@ readonly kernels=(
 
     kernel_devices_google_shusky
     kernel_google-modules_power_reset-zuma
+    kernel_google-modules_soc_gs
     kernel_google-modules_wlan_bcmdhd_bcm4398
 )
 
@@ -134,6 +135,7 @@ declare -Ar kernel_tags_old=(
     # February 2024
     [kernel_devices_google_shusky]=android-14.0.0_r0.45
     [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.45
+    [kernel_google-modules_soc_gs]=android-14.0.0_r0.45
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.45
 )
 
@@ -154,6 +156,7 @@ declare -Ar kernel_tags=(
     # February 2024
     [kernel_devices_google_shusky]=android-14.0.0_r0.45
     [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.45
+    [kernel_google-modules_soc_gs]=android-14.0.0_r0.45
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.45
 )
 
