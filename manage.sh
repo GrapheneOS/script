@@ -118,45 +118,45 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # QPR2 Beta 3.1
-    [kernel_build-redbull]=android-u-qpr2-beta-3.1_r0.6
-    [kernel_msm-redbull]=android-u-qpr2-beta-3.1_r0.6
-    [kernel_msm-modules_qcacld-redbull]=android-u-qpr2-beta-3.1_r0.6
-    [kernel_msm-extra-redbull]=android-u-qpr2-beta-3.1_r0.6
+    # March 2024
+    [kernel_build-redbull]=android-14.0.0_r0.58
+    [kernel_msm-redbull]=android-14.0.0_r0.58
+    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.58
+    [kernel_msm-extra-redbull]=android-14.0.0_r0.58
 
-    # February 2024
-    [kernel_build-gs]=android-14.0.0_r0.44
-    [kernel_gs]=android-14.0.0_r0.44
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.44
-    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.44
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.44
+    # March 2024
+    [kernel_build-gs]=android-14.0.0_r0.51
+    [kernel_gs]=android-14.0.0_r0.51
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.51
+    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.51
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.51
 
-    # February 2024
-    [kernel_devices_google_shusky]=android-14.0.0_r0.45
-    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.45
-    [kernel_google-modules_soc_gs]=android-14.0.0_r0.45
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.45
+    # March 2024
+    [kernel_devices_google_shusky]=android-14.0.0_r0.57
+    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.57
+    [kernel_google-modules_soc_gs]=android-14.0.0_r0.57
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.57
 )
 
 declare -Ar kernel_tags=(
-    # QPR2 Beta 3.1
-    [kernel_build-redbull]=android-u-qpr2-beta-3.1_r0.6
-    [kernel_msm-redbull]=android-u-qpr2-beta-3.1_r0.6
-    [kernel_msm-modules_qcacld-redbull]=android-u-qpr2-beta-3.1_r0.6
-    [kernel_msm-extra-redbull]=android-u-qpr2-beta-3.1_r0.6
+    # March 2024
+    [kernel_build-redbull]=android-14.0.0_r0.58
+    [kernel_msm-redbull]=android-14.0.0_r0.58
+    [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.58
+    [kernel_msm-extra-redbull]=android-14.0.0_r0.58
 
-    # February 2024
-    [kernel_build-gs]=android-14.0.0_r0.44
-    [kernel_gs]=android-14.0.0_r0.44
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.44
-    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.44
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.44
+    # March 2024
+    [kernel_build-gs]=android-14.0.0_r0.51
+    [kernel_gs]=android-14.0.0_r0.51
+    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.51
+    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.51
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.51
 
-    # February 2024
-    [kernel_devices_google_shusky]=android-14.0.0_r0.45
-    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.45
-    [kernel_google-modules_soc_gs]=android-14.0.0_r0.45
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.45
+    # March 2024
+    [kernel_devices_google_shusky]=android-14.0.0_r0.57
+    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.57
+    [kernel_google-modules_soc_gs]=android-14.0.0_r0.57
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.57
 )
 
 readonly independent=(
