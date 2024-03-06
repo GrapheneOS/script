@@ -102,6 +102,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.devicelock.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.extservices.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.extservices.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.hardware.biometrics.fingerprint.virtual.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.hardware.biometrics.fingerprint.virtual.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.hardware.cas.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.hardware.cas.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.healthfitness.apex="$KEY_DIR/releasekey" \
