@@ -70,6 +70,7 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apks Bluetooth.apk="$KEY_DIR/bluetooth" \
     --extra_apks HalfSheetUX.apk="$KEY_DIR/releasekey" \
     --extra_apks OsuLogin.apk="$KEY_DIR/releasekey" \
+    --extra_apks PdfViewer.apk="$KEY_DIR/releasekey" \
     --extra_apks SafetyCenterResources.apk="$KEY_DIR/releasekey" \
     --extra_apks ServiceConnectivityResources.apk="$KEY_DIR/releasekey" \
     --extra_apks ServiceUwbResources.apk="$KEY_DIR/releasekey" \
