@@ -60,7 +60,7 @@ else
     user_error "$DEVICE is not supported by the release script"
 fi
 
-TARGET_FILES=$DEVICE-target_files-$BUILD.zip
+TARGET_FILES=$DEVICE-target_files.zip
 
 AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
 AVB_ALGORITHM=SHA256_RSA4096
