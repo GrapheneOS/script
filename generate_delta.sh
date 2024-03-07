@@ -27,5 +27,5 @@ cd "releases/$NEW"
 
 ota_from_target_files "${EXTRA_OTA[@]}" -k "$KEY_DIR/releasekey" \
     -i ../$OLD/release-$DEVICE-$OLD/$DEVICE-target_files-$OLD.zip \
-    release-$DEVICE-$NEW/$DEVICE-target_files-$NEW.zip \
+    release-$DEVICE-$NEW/$DEVICE-target_files.zip \
     $DEVICE-incremental-$OLD-$NEW.zip
