@@ -1,1 +1,0 @@
-source build/envsetup.sh
