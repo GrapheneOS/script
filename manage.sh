@@ -97,6 +97,7 @@ readonly aosp_forks=(
     platform_system_logging
     platform_system_librustutils
     platform_system_sepolicy
+    platform_system_timezone
 )
 
 readonly kernels=(
