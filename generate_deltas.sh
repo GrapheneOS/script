@@ -15,6 +15,6 @@ chrt -b -p 0 $$
 SOURCE=$1
 shift
 
-export TMPDIR="$PWD/delta-generation"
+export TMPDIR="${OUT:-$PWD/delta-generation}"
 
 parallel -j4 -q script/generate_delta.sh ::: husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet ::: $@ ::: $SOURCE
