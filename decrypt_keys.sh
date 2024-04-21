@@ -8,7 +8,7 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 cd $1
 
-[[ "${password+defined}" = defined ]] || read -p "Enter key passphrase (empty if none): " -s password
+[[ "${password+defined}" = defined ]] || read -r -p "Enter key passphrase (empty if none): " -s password
 echo
 
 tmp="$(mktemp -d /dev/shm/decrypt_keys.XXXXXXXXXX)"
