@@ -16,7 +16,7 @@ echo
 read -rp "Confirm new key passphrase: " -s confirm_new_password
 echo
 
-if [[ $new_password != $confirm_new_password ]]; then
+if [[ "$new_password" != "$confirm_new_password" ]]; then
     echo new password does not match
     exit 1
 fi

@@ -6,7 +6,7 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -ge 2 ]] || user_error "expected 2 or more arguments (target and source versions)"
 
-read -p "Enter key passphrase (empty if none): " -s password
+read -rp "Enter key passphrase (empty if none): " -s password
 echo
 export password
 
