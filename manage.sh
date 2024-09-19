@@ -24,6 +24,8 @@ readonly aosp_forks=(
     device_google_barbet-sepolicy
     device_google_bluejay
     device_google_bramble
+    device_google_caimito
+    device_google_comet
     device_google_felix
     device_google_gs-common
     device_google_gs101
@@ -40,6 +42,8 @@ readonly aosp_forks=(
     device_google_tangorpro
     device_google_zuma
     device_google_zuma-sepolicy
+    device_google_zumapro
+    device_google_zumapro-sepolicy
     kernel_configs
     platform_art
     platform_bionic
@@ -126,6 +130,17 @@ readonly kernels=(
     kernel_google-modules_uwb_qorvo_qm35
     kernel_google-modules_wlan_bcmdhd_bcm4383
     kernel_google-modules_wlan_bcmdhd_bcm4398
+
+    kernel_build-zumapro
+    kernel_devices_google_caimito
+    kernel_devices_google_comet
+    kernel_google-modules_amplifiers-zumapro
+    kernel_google-modules_bms-zumapro
+    kernel_google-modules_edgetpu_rio
+    kernel_google-modules_gxp_zuma
+    kernel_google-modules_power_reset-zumapro
+    kernel_google-modules_soc_gs-zumapro
+    kernel_google-modules_wlan_bcmdhd_bcm4383-comet
 )
 
 declare -Ar kernel_tags_old=(
@@ -153,6 +168,18 @@ declare -Ar kernel_tags_old=(
     [kernel_google-modules_uwb_qorvo_qm35]=android-14.0.0_r0.137
     [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-14.0.0_r0.137
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.137
+
+    # September 2024
+    [kernel_build-zumapro]=android-14.0.0_r0.139
+    [kernel_devices_google_caimito]=android-14.0.0_r0.139
+    [kernel_devices_google_comet]=android-14.0.0_r0.139
+    [kernel_google-modules_amplifiers-zumapro]=android-14.0.0_r0.139
+    [kernel_google-modules_bms-zumapro]=android-14.0.0_r0.139
+    [kernel_google-modules_edgetpu_rio]=android-14.0.0_r0.139
+    [kernel_google-modules_gxp_zuma]=android-14.0.0_r0.139
+    [kernel_google-modules_power_reset-zumapro]=android-14.0.0_r0.139
+    [kernel_google-modules_soc_gs-zumapro]=android-14.0.0_r0.139
+    [kernel_google-modules_wlan_bcmdhd_bcm4383-comet]=android-14.0.0_r0.139
 )
 
 declare -Ar kernel_tags=(
@@ -180,6 +207,18 @@ declare -Ar kernel_tags=(
     [kernel_google-modules_uwb_qorvo_qm35]=android-14.0.0_r0.137
     [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-14.0.0_r0.137
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.137
+
+    # September 2024
+    [kernel_build-zumapro]=android-14.0.0_r0.139
+    [kernel_devices_google_caimito]=android-14.0.0_r0.139
+    [kernel_devices_google_comet]=android-14.0.0_r0.139
+    [kernel_google-modules_amplifiers-zumapro]=android-14.0.0_r0.139
+    [kernel_google-modules_bms-zumapro]=android-14.0.0_r0.139
+    [kernel_google-modules_edgetpu_rio]=android-14.0.0_r0.139
+    [kernel_google-modules_gxp_zuma]=android-14.0.0_r0.139
+    [kernel_google-modules_power_reset-zumapro]=android-14.0.0_r0.139
+    [kernel_google-modules_soc_gs-zumapro]=android-14.0.0_r0.139
+    [kernel_google-modules_wlan_bcmdhd_bcm4383-comet]=android-14.0.0_r0.139
 )
 
 readonly independent=(
@@ -187,6 +226,8 @@ readonly independent=(
     branding
     device_google_akita-kernel
     device_google_bluejay-kernel
+    device_google_caimito-kernels_6.1
+    device_google_comet-kernels_6.1
     device_google_felix-kernel
     device_google_lynx-kernel
     device_google_pantah-kernel
@@ -204,6 +245,7 @@ readonly independent=(
     kernel_manifest-gs
     kernel_manifest-redbull
     kernel_manifest-zuma
+    kernel_manifest-zumapro
     platform_external_AppCompatConfig
     platform_external_AppStore
     platform_external_Auditor
@@ -306,7 +348,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-gs|kernel_manifest-redbull|kernel_manifest-zuma) ]]; then
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-gs|kernel_manifest-redbull|kernel_manifest-zuma|kernel_manifest-zumapro) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
