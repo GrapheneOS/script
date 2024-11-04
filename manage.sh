@@ -92,6 +92,7 @@ readonly aosp_forks=(
     platform_packages_providers_ContactsProvider
     platform_packages_providers_DownloadProvider
     platform_packages_providers_MediaProvider
+    platform_packages_services_Mms
     platform_packages_services_Telecomm
     platform_packages_services_Telephony
     platform_prebuilts_abi-dumps_platform
