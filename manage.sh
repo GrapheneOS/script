@@ -51,6 +51,7 @@ readonly aosp_forks=(
     platform_external_expat
     platform_external_selinux
     platform_external_skia
+    platform_frameworks_av
     platform_frameworks_base
     platform_frameworks_libs_modules-utils
     platform_frameworks_libs_systemui
