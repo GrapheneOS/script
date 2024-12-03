@@ -1,0 +1,26 @@
+#!/bin/bash
+
+source build/envsetup.sh
+
+if [[ $HOSTNAME == raphael ]]; then
+    readonly devices=(comet tokay shiba lynx bluejay)
+elif [[ $HOSTNAME = raptor ]]; then
+    readonly devices=(komodo akita felix cheetah raven)
+elif [[ $HOSTNAME = vermeer ]]; then
+    readonly devices=(caiman husky tangorpro panther oriole)
+else
+    echo invalid hostname >&2
+    exit 1
+fi
+
+for device in ${devices[@]}; do
+    rm -rf out || exit 1
+    lunch $device-cur-user || exit 1
+    if [[ $device = @(bluejay|raven|oriole) ]]; then
+        m vendorbootimage target-files-package otatools-package || exit 1
+    else
+        m vendorbootimage vendorkernelbootimage target-files-package otatools-package || exit 1
+    fi
+    script/finalize.sh || exit 1
+    rm -rf out || exit 1
+done
