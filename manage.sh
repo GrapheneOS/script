@@ -139,69 +139,69 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # November 2024
-    [kernel_build-gs]=android-15.0.0_r0.25
-    [kernel_devices_google_tangorpro]=android-15.0.0_r0.25
-    [kernel_gs]=android-15.0.0_r0.25
-    [kernel_google-modules_amplifiers-gs]=android-15.0.0_r0.25
-    [kernel_google-modules_power_reset-gs]=android-15.0.0_r0.25
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.25
+    # December 2024
+    [kernel_build-gs]=android-15.0.0_r0.35
+    [kernel_devices_google_tangorpro]=android-15.0.0_r0.35
+    [kernel_gs]=android-15.0.0_r0.35
+    [kernel_google-modules_amplifiers-gs]=android-15.0.0_r0.35
+    [kernel_google-modules_power_reset-gs]=android-15.0.0_r0.35
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.35
 
-    # November 2024
-    [kernel_build-zuma]=android-15.0.0_r0.27
-    [kernel_devices_google_akita]=android-15.0.0_r0.27
-    [kernel_devices_google_shusky]=android-15.0.0_r0.27
-    [kernel_google-modules_amplifiers-zuma]=android-15.0.0_r0.27
-    [kernel_google-modules_power_reset-zuma]=android-15.0.0_r0.27
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.27
-    [kernel_google-modules_uwb_qorvo_qm35]=android-15.0.0_r0.27
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.27
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.27
+    # December 2024
+    [kernel_build-zuma]=android-15.0.0_r0.37
+    [kernel_devices_google_akita]=android-15.0.0_r0.37
+    [kernel_devices_google_shusky]=android-15.0.0_r0.37
+    [kernel_google-modules_amplifiers-zuma]=android-15.0.0_r0.37
+    [kernel_google-modules_power_reset-zuma]=android-15.0.0_r0.37
+    [kernel_google-modules_soc_gs]=android-15.0.0_r0.37
+    [kernel_google-modules_uwb_qorvo_qm35]=android-15.0.0_r0.37
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.37
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.37
 
-    # November 2024
-    [kernel_build-zumapro]=android-15.0.0_r0.29
-    [kernel_devices_google_caimito]=android-15.0.0_r0.29
-    [kernel_devices_google_comet]=android-15.0.0_r0.29
-    [kernel_google-modules_amplifiers-zumapro]=android-15.0.0_r0.29
-    [kernel_google-modules_bms-zumapro]=android-15.0.0_r0.29
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.29
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.29
-    [kernel_google-modules_power_reset-zumapro]=android-15.0.0_r0.29
-    [kernel_google-modules_soc_gs-zumapro]=android-15.0.0_r0.29
-    [kernel_google-modules_wlan_bcmdhd_bcm4383-comet]=android-15.0.0_r0.29
+    # December 2024
+    [kernel_build-zumapro]=android-15.0.0_r0.39
+    [kernel_devices_google_caimito]=android-15.0.0_r0.39
+    [kernel_devices_google_comet]=android-15.0.0_r0.39
+    [kernel_google-modules_amplifiers-zumapro]=android-15.0.0_r0.39
+    [kernel_google-modules_bms-zumapro]=android-15.0.0_r0.39
+    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.39
+    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.39
+    [kernel_google-modules_power_reset-zumapro]=android-15.0.0_r0.39
+    [kernel_google-modules_soc_gs-zumapro]=android-15.0.0_r0.39
+    [kernel_google-modules_wlan_bcmdhd_bcm4383-comet]=android-15.0.0_r0.39
 )
 
 declare -Ar kernel_tags=(
-    # November 2024
-    [kernel_build-gs]=android-15.0.0_r0.25
-    [kernel_devices_google_tangorpro]=android-15.0.0_r0.25
-    [kernel_gs]=android-15.0.0_r0.25
-    [kernel_google-modules_amplifiers-gs]=android-15.0.0_r0.25
-    [kernel_google-modules_power_reset-gs]=android-15.0.0_r0.25
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.25
+    # December 2024
+    [kernel_build-gs]=android-15.0.0_r0.35
+    [kernel_devices_google_tangorpro]=android-15.0.0_r0.35
+    [kernel_gs]=android-15.0.0_r0.35
+    [kernel_google-modules_amplifiers-gs]=android-15.0.0_r0.35
+    [kernel_google-modules_power_reset-gs]=android-15.0.0_r0.35
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.35
 
-    # November 2024
-    [kernel_build-zuma]=android-15.0.0_r0.27
-    [kernel_devices_google_akita]=android-15.0.0_r0.27
-    [kernel_devices_google_shusky]=android-15.0.0_r0.27
-    [kernel_google-modules_amplifiers-zuma]=android-15.0.0_r0.27
-    [kernel_google-modules_power_reset-zuma]=android-15.0.0_r0.27
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.27
-    [kernel_google-modules_uwb_qorvo_qm35]=android-15.0.0_r0.27
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.27
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.27
+    # December 2024
+    [kernel_build-zuma]=android-15.0.0_r0.37
+    [kernel_devices_google_akita]=android-15.0.0_r0.37
+    [kernel_devices_google_shusky]=android-15.0.0_r0.37
+    [kernel_google-modules_amplifiers-zuma]=android-15.0.0_r0.37
+    [kernel_google-modules_power_reset-zuma]=android-15.0.0_r0.37
+    [kernel_google-modules_soc_gs]=android-15.0.0_r0.37
+    [kernel_google-modules_uwb_qorvo_qm35]=android-15.0.0_r0.37
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.37
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.37
 
-    # November 2024
-    [kernel_build-zumapro]=android-15.0.0_r0.29
-    [kernel_devices_google_caimito]=android-15.0.0_r0.29
-    [kernel_devices_google_comet]=android-15.0.0_r0.29
-    [kernel_google-modules_amplifiers-zumapro]=android-15.0.0_r0.29
-    [kernel_google-modules_bms-zumapro]=android-15.0.0_r0.29
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.29
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.29
-    [kernel_google-modules_power_reset-zumapro]=android-15.0.0_r0.29
-    [kernel_google-modules_soc_gs-zumapro]=android-15.0.0_r0.29
-    [kernel_google-modules_wlan_bcmdhd_bcm4383-comet]=android-15.0.0_r0.29
+    # December 2024
+    [kernel_build-zumapro]=android-15.0.0_r0.39
+    [kernel_devices_google_caimito]=android-15.0.0_r0.39
+    [kernel_devices_google_comet]=android-15.0.0_r0.39
+    [kernel_google-modules_amplifiers-zumapro]=android-15.0.0_r0.39
+    [kernel_google-modules_bms-zumapro]=android-15.0.0_r0.39
+    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.39
+    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.39
+    [kernel_google-modules_power_reset-zumapro]=android-15.0.0_r0.39
+    [kernel_google-modules_soc_gs-zumapro]=android-15.0.0_r0.39
+    [kernel_google-modules_wlan_bcmdhd_bcm4383-comet]=android-15.0.0_r0.39
 )
 
 readonly independent=(
