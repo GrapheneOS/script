@@ -17,4 +17,4 @@ shift
 
 export TMPDIR="${OUT:-$PWD/delta-generation}"
 
-parallel -j4 -q script/generate-delta.sh ::: comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble ::: $@ ::: $SOURCE
+parallel -j4 -q script/generate-delta.sh ::: barbet redfin bramble ::: $@ ::: $SOURCE

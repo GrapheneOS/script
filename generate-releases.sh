@@ -14,4 +14,4 @@ chrt -b -p 0 $$
 
 export TMPDIR="${OUT:-$PWD/delta-generation}"
 
-parallel -j4 -q script/generate-release.sh ::: comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble ::: $1
+parallel -j4 -q script/generate-release.sh ::: barbet redfin bramble ::: $1

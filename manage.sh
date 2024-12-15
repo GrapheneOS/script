@@ -19,27 +19,12 @@ fi
 readonly aosp_forks=(
     device_common
     device_generic_goldfish
-    device_google_akita
     device_google_barbet
     device_google_barbet-sepolicy
-    device_google_bluejay
     device_google_bramble
-    device_google_felix
-    device_google_gs-common
-    device_google_gs101
-    device_google_gs101-sepolicy
-    device_google_gs201
-    device_google_gs201-sepolicy
-    device_google_lynx
-    device_google_pantah
-    device_google_raviole
     device_google_redbull
     device_google_redbull-sepolicy
     device_google_redfin
-    device_google_shusky
-    device_google_tangorpro
-    device_google_zuma
-    device_google_zuma-sepolicy
     kernel_configs
     platform_art
     platform_bionic
@@ -112,23 +97,6 @@ readonly kernels=(
     kernel_msm-redbull
     kernel_msm-modules_qcacld-redbull
     kernel_msm-extra-redbull
-
-    kernel_build-gs
-    kernel_devices_google_tangorpro
-    kernel_gs
-    kernel_google-modules_amplifiers-gs
-    kernel_google-modules_power_reset-gs
-    kernel_google-modules_wlan_bcmdhd_bcm4389
-
-    kernel_build-zuma
-    kernel_devices_google_akita
-    kernel_devices_google_shusky
-    kernel_google-modules_amplifiers-zuma
-    kernel_google-modules_power_reset-zuma
-    kernel_google-modules_soc_gs
-    kernel_google-modules_uwb_qorvo_qm35
-    kernel_google-modules_wlan_bcmdhd_bcm4383
-    kernel_google-modules_wlan_bcmdhd_bcm4398
 )
 
 declare -Ar kernel_tags_old=(
@@ -137,25 +105,6 @@ declare -Ar kernel_tags_old=(
     [kernel_msm-redbull]=android-14.0.0_r0.111
     [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.111
     [kernel_msm-extra-redbull]=android-14.0.0_r0.111
-
-    # September 2024
-    [kernel_build-gs]=android-14.0.0_r0.135
-    [kernel_devices_google_tangorpro]=android-14.0.0_r0.135
-    [kernel_gs]=android-14.0.0_r0.135
-    [kernel_google-modules_amplifiers-gs]=android-14.0.0_r0.135
-    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.135
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.135
-
-    # September 2024
-    [kernel_build-zuma]=android-14.0.0_r0.137
-    [kernel_devices_google_akita]=android-14.0.0_r0.137
-    [kernel_devices_google_shusky]=android-14.0.0_r0.137
-    [kernel_google-modules_amplifiers-zuma]=android-14.0.0_r0.137
-    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.137
-    [kernel_google-modules_soc_gs]=android-14.0.0_r0.137
-    [kernel_google-modules_uwb_qorvo_qm35]=android-14.0.0_r0.137
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-14.0.0_r0.137
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.137
 )
 
 declare -Ar kernel_tags=(
@@ -164,49 +113,14 @@ declare -Ar kernel_tags=(
     [kernel_msm-redbull]=android-14.0.0_r0.111
     [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.111
     [kernel_msm-extra-redbull]=android-14.0.0_r0.111
-
-    # September 2024
-    [kernel_build-gs]=android-14.0.0_r0.135
-    [kernel_devices_google_tangorpro]=android-14.0.0_r0.135
-    [kernel_gs]=android-14.0.0_r0.135
-    [kernel_google-modules_amplifiers-gs]=android-14.0.0_r0.135
-    [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.135
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.135
-
-    # September 2024
-    [kernel_build-zuma]=android-14.0.0_r0.137
-    [kernel_devices_google_akita]=android-14.0.0_r0.137
-    [kernel_devices_google_shusky]=android-14.0.0_r0.137
-    [kernel_google-modules_amplifiers-zuma]=android-14.0.0_r0.137
-    [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.137
-    [kernel_google-modules_soc_gs]=android-14.0.0_r0.137
-    [kernel_google-modules_uwb_qorvo_qm35]=android-14.0.0_r0.137
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-14.0.0_r0.137
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.137
 )
 
 readonly independent=(
     adevtool
     branding
-    device_google_akita-kernel
-    device_google_bluejay-kernel
-    device_google_felix-kernel
-    device_google_lynx-kernel
-    device_google_pantah-kernel
-    device_google_raviole-kernel
     device_google_redbull-kernel
-    device_google_shusky-kernel
-    device_google_tangorpro-kernel
     hardened_malloc
-    kernel_common-5.10
-    kernel_common-5.15
-    kernel_common-6.1
-    kernel_manifest-5.10
-    kernel_manifest-5.15
-    kernel_manifest-6.1
-    kernel_manifest-gs
     kernel_manifest-redbull
-    kernel_manifest-zuma
     platform_external_AppCompatConfig
     platform_external_AppStore
     platform_external_Auditor
@@ -309,7 +223,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-gs|kernel_manifest-redbull|kernel_manifest-zuma) ]]; then
+        if [[ $repo == kernel_manifest-redbull ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
