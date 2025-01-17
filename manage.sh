@@ -103,6 +103,7 @@ readonly aosp_forks=(
     platform_system_netd
     platform_system_sepolicy
     platform_system_vold
+    platform_tools_metalava
 )
 
 readonly kernels=(
