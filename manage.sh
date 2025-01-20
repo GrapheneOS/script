@@ -128,13 +128,13 @@ readonly independent=(
     platform_external_GmsCompatConfig
     platform_external_Info
     platform_external_PdfViewer
-    platform_external_seedvault
     platform_external_talkback
     platform_external_vanadium
     platform_packages_apps_CarrierConfig2
     platform_packages_apps_DeskClock # temporarily based on AOSP 11 instead of AOSP 13
     platform_packages_apps_ExactCalculator
     platform_packages_apps_GmsCompat
+    platform_packages_apps_Seedvault
     platform_packages_apps_SetupWizard
     platform_packages_apps_Updater
     script
