@@ -36,6 +36,7 @@ readonly aosp_forks=(
     platform_external_boringssl
     platform_external_conscrypt
     platform_external_expat
+    platform_external_giflib
     platform_external_selinux
     platform_external_skia
     platform_frameworks_base
