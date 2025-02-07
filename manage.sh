@@ -151,7 +151,6 @@ declare -Ar kernel_tags_old=(
     [kernel_google-modules_amplifiers-zuma]=android-15.0.0_r0.57
     [kernel_google-modules_power_reset-zuma]=android-15.0.0_r0.57
     [kernel_google-modules_soc_gs-zuma]=android-15.0.0_r0.57
-    [kernel_google-modules_uwb_qorvo_qm35]=android-15.0.0_r0.57
     [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.57
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.57
 
@@ -186,7 +185,6 @@ declare -Ar kernel_tags=(
     [kernel_google-modules_amplifiers-zuma]=android-15.0.0_r0.57
     [kernel_google-modules_power_reset-zuma]=android-15.0.0_r0.57
     [kernel_google-modules_soc_gs-zuma]=android-15.0.0_r0.57
-    [kernel_google-modules_uwb_qorvo_qm35]=android-15.0.0_r0.57
     [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.57
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.57
 
