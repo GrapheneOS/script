@@ -117,20 +117,20 @@ readonly kernels=(
     kernel_devices_google_shusky
     kernel_google-modules_amplifiers-zuma
     kernel_google-modules_power_reset-zuma
-    kernel_google-modules_soc_gs
+    kernel_google-modules_soc_gs-zuma
     kernel_google-modules_wlan_bcmdhd_bcm4383
     kernel_google-modules_wlan_bcmdhd_bcm4398
 
-    kernel_build-zumapro
+    kernel_build
     kernel_devices_google_caimito
     kernel_devices_google_comet
-    kernel_google-modules_amplifiers-zumapro
-    kernel_google-modules_bms-zumapro
+    kernel_google-modules_amplifiers
+    kernel_google-modules_bms
     kernel_google-modules_edgetpu_rio
-    kernel_google-modules_gpu-zumapro
+    kernel_google-modules_gpu
     kernel_google-modules_gxp_zuma
-    kernel_google-modules_power_reset-zumapro
-    kernel_google-modules_soc_gs-zumapro
+    kernel_google-modules_power_reset
+    kernel_google-modules_soc_gs
     kernel_google-modules_wlan_bcmdhd_bcm4390
 )
 
@@ -150,22 +150,22 @@ declare -Ar kernel_tags_old=(
     [kernel_devices_google_shusky]=android-15.0.0_r0.57
     [kernel_google-modules_amplifiers-zuma]=android-15.0.0_r0.57
     [kernel_google-modules_power_reset-zuma]=android-15.0.0_r0.57
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.57
+    [kernel_google-modules_soc_gs-zuma]=android-15.0.0_r0.57
     [kernel_google-modules_uwb_qorvo_qm35]=android-15.0.0_r0.57
     [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.57
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.57
 
     # February 2025
-    [kernel_build-zumapro]=android-15.0.0_r0.59
+    [kernel_build]=android-15.0.0_r0.59
     [kernel_devices_google_caimito]=android-15.0.0_r0.59
     [kernel_devices_google_comet]=android-15.0.0_r0.59
-    [kernel_google-modules_amplifiers-zumapro]=android-15.0.0_r0.59
-    [kernel_google-modules_bms-zumapro]=android-15.0.0_r0.59
+    [kernel_google-modules_amplifiers]=android-15.0.0_r0.59
+    [kernel_google-modules_bms]=android-15.0.0_r0.59
     [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.59
-    [kernel_google-modules_gpu-zumapro]=android-15-qpr2-beta-3_r0.9
+    [kernel_google-modules_gpu]=android-15-qpr2-beta-3_r0.9
     [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.59
-    [kernel_google-modules_power_reset-zumapro]=android-15.0.0_r0.59
-    [kernel_google-modules_soc_gs-zumapro]=android-15.0.0_r0.59
+    [kernel_google-modules_power_reset]=android-15.0.0_r0.59
+    [kernel_google-modules_soc_gs]=android-15.0.0_r0.59
     [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.59
 )
 
@@ -185,22 +185,22 @@ declare -Ar kernel_tags=(
     [kernel_devices_google_shusky]=android-15.0.0_r0.57
     [kernel_google-modules_amplifiers-zuma]=android-15.0.0_r0.57
     [kernel_google-modules_power_reset-zuma]=android-15.0.0_r0.57
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.57
+    [kernel_google-modules_soc_gs-zuma]=android-15.0.0_r0.57
     [kernel_google-modules_uwb_qorvo_qm35]=android-15.0.0_r0.57
     [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.57
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.57
 
     # February 2025
-    [kernel_build-zumapro]=android-15.0.0_r0.59
+    [kernel_build]=android-15.0.0_r0.59
     [kernel_devices_google_caimito]=android-15.0.0_r0.59
     [kernel_devices_google_comet]=android-15.0.0_r0.59
-    [kernel_google-modules_amplifiers-zumapro]=android-15.0.0_r0.59
-    [kernel_google-modules_bms-zumapro]=android-15.0.0_r0.59
+    [kernel_google-modules_amplifiers]=android-15.0.0_r0.59
+    [kernel_google-modules_bms]=android-15.0.0_r0.59
     [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.59
-    [kernel_google-modules_gpu-zumapro]=android-15-qpr2-beta-3_r0.9
+    [kernel_google-modules_gpu]=android-15-qpr2-beta-3_r0.9
     [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.59
-    [kernel_google-modules_power_reset-zumapro]=android-15.0.0_r0.59
-    [kernel_google-modules_soc_gs-zumapro]=android-15.0.0_r0.59
+    [kernel_google-modules_power_reset]=android-15.0.0_r0.59
+    [kernel_google-modules_soc_gs]=android-15.0.0_r0.59
     [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.59
 )
 
@@ -228,7 +228,7 @@ readonly independent=(
     kernel_manifest-6.6
     kernel_manifest-gs
     kernel_manifest-zuma
-    kernel_manifest-zumapro
+    kernel_manifest-pixel
     platform_external_AppCompatConfig
     platform_external_AppStore
     platform_external_Auditor
@@ -332,7 +332,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-6.6|kernel_manifest-gs|kernel_manifest-zuma|kernel_manifest-zumapro) ]]; then
+        if [[ $repo == @(kernel_manifest-pixel|kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-6.6|kernel_manifest-gs|kernel_manifest-zuma) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
