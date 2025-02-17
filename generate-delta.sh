@@ -17,7 +17,7 @@ NEW=$3
 KEY_DIR=$(mktemp -d /dev/shm/generate-delta.XXXXXXXXXX)
 trap "rm -rf \"$KEY_DIR\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
-script/decrypt-keys.sh "$KEY_DIR"
+script/decrypt-keys "$KEY_DIR"
 
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
 export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
