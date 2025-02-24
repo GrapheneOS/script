@@ -243,6 +243,7 @@ readonly independent=(
     platform_packages_apps_ExactCalculator
     platform_packages_apps_GmsCompat
     platform_packages_apps_LogViewer
+    platform_packages_apps_NetworkLocation
     platform_packages_apps_Seedvault
     platform_packages_apps_SetupWizard2
     platform_packages_apps_Updater
