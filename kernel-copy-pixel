@@ -2,5 +2,5 @@
 
 set -o errexit -o nounset -o pipefail
 
-devices=(caimito comet)
+devices=(raviole bluejay pantah lynx tangorpro felix shusky akita caimito comet)
 parallel 'rm -rf {} && cp -a pixel {}' ::: ${devices[@]}

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -o errexit -o nounset -o pipefail
-
-devices=(shusky akita)
-parallel 'rm -rf {} && cp -a zuma {}' ::: ${devices[@]}

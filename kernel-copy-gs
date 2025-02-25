@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -o errexit -o nounset -o pipefail
-
-devices=(raviole bluejay pantah lynx tangorpro felix)
-parallel 'rm -rf {} && cp -a gs {}' ::: ${devices[@]}
