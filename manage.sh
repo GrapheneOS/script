@@ -48,7 +48,6 @@ readonly aosp_forks=(
     platform_development
     platform_external_boringssl
     platform_external_conscrypt
-    platform_external_dng_sdk
     platform_external_selinux
     platform_frameworks_base
     platform_frameworks_libs_systemui
