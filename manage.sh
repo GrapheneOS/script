@@ -85,6 +85,7 @@ readonly aosp_forks=(
     platform_packages_modules_NetworkStack
     platform_packages_modules_Permission
     platform_packages_modules_RemoteKeyProvisioning
+    platform_packages_modules_StatsD
     platform_packages_modules_Uwb
     platform_packages_modules_Virtualization
     platform_packages_modules_Wifi
