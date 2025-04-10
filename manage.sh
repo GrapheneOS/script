@@ -47,9 +47,7 @@ readonly aosp_forks=(
     platform_build_soong
     platform_development
     platform_external_conscrypt
-    platform_external_dng_sdk
     platform_external_selinux
-    platform_external_skia
     platform_frameworks_base
     platform_frameworks_libs_systemui
     platform_frameworks_native
@@ -83,7 +81,6 @@ readonly aosp_forks=(
     platform_packages_modules_Connectivity
     platform_packages_modules_DnsResolver
     platform_packages_modules_HealthFitness
-    platform_packages_modules_IntentResolver
     platform_packages_modules_NetworkStack
     platform_packages_modules_Permission
     platform_packages_modules_RemoteKeyProvisioning
