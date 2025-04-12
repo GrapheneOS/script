@@ -54,7 +54,7 @@ get_radio_image() {
 
 unzip $TARGET_FILES_INPUT OTA/android-info.txt
 
-if [[ $DEVICE == @(comet|komodo|caiman|tokay|akita|husky|shiba|felix|tangorpro|lynx|cheetah|panther|bluejay|raven|oriole) ]]; then
+if [[ $DEVICE == @(tegu|comet|komodo|caiman|tokay|akita|husky|shiba|felix|tangorpro|lynx|cheetah|panther|bluejay|raven|oriole) ]]; then
     BOOTLOADER=$(get_radio_image bootloader)
     [[ $DEVICE != tangorpro ]] && RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
