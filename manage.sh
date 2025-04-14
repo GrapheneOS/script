@@ -156,6 +156,7 @@ readonly independent=(
     #device_google_raviole-kernels_6.1
     #device_google_shusky-kernels_6.1
     #device_google_tangorpro-kernels_6.1
+    device_google_tegu-kernels_6.1
     hardened_malloc
     kernel_common-6.1
     kernel_common-6.6
