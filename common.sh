@@ -123,57 +123,57 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # April 2025
-    [kernel_build]=android-15.0.0_r0.79
-    [kernel_devices_google_akita]=android-15.0.0_r0.79
-    [kernel_devices_google_bluejay]=android-15.0.0_r0.79
-    [kernel_devices_google_caimito]=android-15.0.0_r0.79
-    [kernel_devices_google_comet]=android-15.0.0_r0.79
-    [kernel_devices_google_felix]=android-15.0.0_r0.79
-    [kernel_devices_google_lynx]=android-15.0.0_r0.79
-    [kernel_devices_google_pantah]=android-15.0.0_r0.79
-    [kernel_devices_google_raviole]=android-15.0.0_r0.79
-    [kernel_devices_google_shusky]=android-15.0.0_r0.79
-    [kernel_devices_google_tangorpro]=android-15.0.0_r0.79
-    [kernel_google-modules_amplifiers]=android-15.0.0_r0.79
-    [kernel_google-modules_bms]=android-15.0.0_r0.79
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.79
-    [kernel_google-modules_gxp_gs201]=android-15.0.0_r0.79
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.79
-    [kernel_google-modules_power_reset]=android-15.0.0_r0.79
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_syna_dhd43752p]=android-15.0.0_r0.79
+    # May 2025
+    [kernel_build]=android-15.0.0_r0.99
+    [kernel_devices_google_akita]=android-15.0.0_r0.99
+    [kernel_devices_google_bluejay]=android-15.0.0_r0.99
+    [kernel_devices_google_caimito]=android-15.0.0_r0.99
+    [kernel_devices_google_comet]=android-15.0.0_r0.99
+    [kernel_devices_google_felix]=android-15.0.0_r0.99
+    [kernel_devices_google_lynx]=android-15.0.0_r0.99
+    [kernel_devices_google_pantah]=android-15.0.0_r0.99
+    [kernel_devices_google_raviole]=android-15.0.0_r0.99
+    [kernel_devices_google_shusky]=android-15.0.0_r0.99
+    [kernel_devices_google_tangorpro]=android-15.0.0_r0.99
+    [kernel_google-modules_amplifiers]=android-15.0.0_r0.99
+    [kernel_google-modules_bms]=android-15.0.0_r0.99
+    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.99
+    [kernel_google-modules_gxp_gs201]=android-15.0.0_r0.99
+    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.99
+    [kernel_google-modules_power_reset]=android-15.0.0_r0.99
+    [kernel_google-modules_soc_gs]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_syna_dhd43752p]=android-15.0.0_r0.99
 )
 
 declare -Ar kernel_tags=(
-    # April 2025
-    [kernel_build]=android-15.0.0_r0.79
-    [kernel_devices_google_akita]=android-15.0.0_r0.79
-    [kernel_devices_google_bluejay]=android-15.0.0_r0.79
-    [kernel_devices_google_caimito]=android-15.0.0_r0.79
-    [kernel_devices_google_comet]=android-15.0.0_r0.79
-    [kernel_devices_google_felix]=android-15.0.0_r0.79
-    [kernel_devices_google_lynx]=android-15.0.0_r0.79
-    [kernel_devices_google_pantah]=android-15.0.0_r0.79
-    [kernel_devices_google_raviole]=android-15.0.0_r0.79
-    [kernel_devices_google_shusky]=android-15.0.0_r0.79
-    [kernel_devices_google_tangorpro]=android-15.0.0_r0.79
-    [kernel_google-modules_amplifiers]=android-15.0.0_r0.79
-    [kernel_google-modules_bms]=android-15.0.0_r0.79
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.79
-    [kernel_google-modules_gxp_gs201]=android-15.0.0_r0.79
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.79
-    [kernel_google-modules_power_reset]=android-15.0.0_r0.79
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.79
-    [kernel_google-modules_wlan_syna_dhd43752p]=android-15.0.0_r0.79
+    # May 2025
+    [kernel_build]=android-15.0.0_r0.99
+    [kernel_devices_google_akita]=android-15.0.0_r0.99
+    [kernel_devices_google_bluejay]=android-15.0.0_r0.99
+    [kernel_devices_google_caimito]=android-15.0.0_r0.99
+    [kernel_devices_google_comet]=android-15.0.0_r0.99
+    [kernel_devices_google_felix]=android-15.0.0_r0.99
+    [kernel_devices_google_lynx]=android-15.0.0_r0.99
+    [kernel_devices_google_pantah]=android-15.0.0_r0.99
+    [kernel_devices_google_raviole]=android-15.0.0_r0.99
+    [kernel_devices_google_shusky]=android-15.0.0_r0.99
+    [kernel_devices_google_tangorpro]=android-15.0.0_r0.99
+    [kernel_google-modules_amplifiers]=android-15.0.0_r0.99
+    [kernel_google-modules_bms]=android-15.0.0_r0.99
+    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.99
+    [kernel_google-modules_gxp_gs201]=android-15.0.0_r0.99
+    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.99
+    [kernel_google-modules_power_reset]=android-15.0.0_r0.99
+    [kernel_google-modules_soc_gs]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.99
+    [kernel_google-modules_wlan_syna_dhd43752p]=android-15.0.0_r0.99
 )
 
 readonly independent=(
