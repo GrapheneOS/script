@@ -112,29 +112,29 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # April 2025
-    [kernel_build]=android-15.0.0_r0.81
-    [kernel_devices_google_tegu]=android-15.0.0_r0.81
-    [kernel_google-modules_amplifiers]=android-15.0.0_r0.81
-    [kernel_google-modules_bms]=android-15.0.0_r0.81
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.81
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.81
-    [kernel_google-modules_power_reset]=android-15.0.0_r0.81
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.81
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.81
+    # May 2025
+    [kernel_build]=android-15.0.0_r0.82
+    [kernel_devices_google_tegu]=android-15.0.0_r0.82
+    [kernel_google-modules_amplifiers]=android-15.0.0_r0.82
+    [kernel_google-modules_bms]=android-15.0.0_r0.82
+    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.82
+    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.82
+    [kernel_google-modules_power_reset]=android-15.0.0_r0.82
+    [kernel_google-modules_soc_gs]=android-15.0.0_r0.82
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.82
 )
 
 declare -Ar kernel_tags=(
-    # April 2025
-    [kernel_build]=android-15.0.0_r0.81
-    [kernel_devices_google_tegu]=android-15.0.0_r0.81
-    [kernel_google-modules_amplifiers]=android-15.0.0_r0.81
-    [kernel_google-modules_bms]=android-15.0.0_r0.81
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.81
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.81
-    [kernel_google-modules_power_reset]=android-15.0.0_r0.81
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.81
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.81
+    # May 2025
+    [kernel_build]=android-15.0.0_r0.82
+    [kernel_devices_google_tegu]=android-15.0.0_r0.82
+    [kernel_google-modules_amplifiers]=android-15.0.0_r0.82
+    [kernel_google-modules_bms]=android-15.0.0_r0.82
+    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.82
+    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.82
+    [kernel_google-modules_power_reset]=android-15.0.0_r0.82
+    [kernel_google-modules_soc_gs]=android-15.0.0_r0.82
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.82
 )
 
 readonly independent=(
