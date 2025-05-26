@@ -2,9 +2,19 @@ readonly branch=16
 readonly aosp_tag_old=android-16.0.0_r1
 readonly aosp_tag=android-16.0.0_r1
 
+# The reference (branch/tag) containing the Graphene code of interest. Typically this will be the same as branch, but
+# might not be when handling a device released on old code. For tags, just specifying the tag is fine. For branches,
+# specifying the remote is needed (e.g. remotes/grapheneos/15-qpr2).
+readonly graphene_ref=remotes/grapheneos/15-qpr2
+readonly developer_port_branch=port-to-15-qpr2
+
 user_error() {
     echo $1 >&2
     exit 1
+}
+
+echo_red() {
+   echo "$(tput setaf 1)$1$(tput setaf 0)"
 }
 
 readonly aosp_forks=(
