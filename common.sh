@@ -40,6 +40,7 @@ readonly aosp_forks=(
     platform_external_conscrypt
     platform_external_robolectric
     platform_external_selinux
+    platform_frameworks_av
     platform_frameworks_base
     platform_frameworks_libs_systemui
     platform_frameworks_native
