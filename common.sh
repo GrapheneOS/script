@@ -86,6 +86,7 @@ readonly aosp_forks=(
     platform_packages_services_Mms
     platform_packages_services_Telecomm
     platform_packages_services_Telephony
+    platform_system_ca-certificates
     platform_system_core
     platform_system_extras
     platform_system_librustutils
