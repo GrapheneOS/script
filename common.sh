@@ -59,6 +59,7 @@ readonly aosp_forks=(
     platform_packages_apps_EmergencyInfo
     platform_packages_apps_Gallery2
     platform_packages_apps_Launcher3
+    platform_packages_apps_ManagedProvisioning
     platform_packages_apps_Nfc
     platform_packages_apps_Settings
     platform_packages_apps_SettingsIntelligence
