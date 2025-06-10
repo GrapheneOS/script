@@ -1,6 +1,6 @@
-readonly branch=15-qpr2
-readonly aosp_tag_old=android-15.0.0_r36
-readonly aosp_tag=android-15.0.0_r36
+readonly branch=16
+readonly aosp_tag_old=android-16.0.0_r1
+readonly aosp_tag=android-16.0.0_r1
 
 user_error() {
     echo $1 >&2
@@ -10,26 +10,6 @@ user_error() {
 readonly aosp_forks=(
     device_common
     device_generic_goldfish
-    device_google_akita
-    device_google_bluejay
-    device_google_caimito
-    device_google_comet
-    device_google_felix
-    device_google_gs-common
-    device_google_gs101
-    device_google_gs101-sepolicy
-    device_google_gs201
-    device_google_gs201-sepolicy
-    device_google_lynx
-    device_google_pantah
-    device_google_raviole
-    device_google_shusky
-    device_google_tangorpro
-    device_google_zuma
-    device_google_zuma-sepolicy
-    device_google_zumapro
-    device_google_zumapro-sepolicy
-    kernel_configs
     platform_art
     platform_bionic
     platform_bootable_recovery
@@ -40,7 +20,6 @@ readonly aosp_forks=(
     platform_external_conscrypt
     platform_external_robolectric
     platform_external_selinux
-    platform_frameworks_av
     platform_frameworks_base
     platform_frameworks_libs_systemui
     platform_frameworks_native
@@ -59,8 +38,6 @@ readonly aosp_forks=(
     platform_packages_apps_EmergencyInfo
     platform_packages_apps_Gallery2
     platform_packages_apps_Launcher3
-    platform_packages_apps_ManagedProvisioning
-    platform_packages_apps_Nfc
     platform_packages_apps_Settings
     platform_packages_apps_SettingsIntelligence
     platform_packages_apps_StorageManager
@@ -76,6 +53,7 @@ readonly aosp_forks=(
     platform_packages_modules_DnsResolver
     platform_packages_modules_HealthFitness
     platform_packages_modules_NetworkStack
+    platform_packages_modules_Nfc
     platform_packages_modules_Permission
     platform_packages_modules_RemoteKeyProvisioning
     platform_packages_modules_StatsD
@@ -91,7 +69,6 @@ readonly aosp_forks=(
     platform_system_ca-certificates
     platform_system_core
     platform_system_extras
-    platform_system_librustutils
     platform_system_logging
     platform_system_netd
     platform_system_sepolicy
@@ -101,16 +78,21 @@ readonly aosp_forks=(
 
 readonly kernels=(
     kernel_build
-    kernel_devices_google_akita
+
+    kernel_devices_google_common
+
+    kernel_devices_google_raviole
     kernel_devices_google_bluejay
+    kernel_devices_google_pantah
+    kernel_devices_google_lynx
+    kernel_devices_google_tangorpro
+    kernel_devices_google_felix
+    kernel_devices_google_shusky
+    kernel_devices_google_akita
     kernel_devices_google_caimito
     kernel_devices_google_comet
-    kernel_devices_google_felix
-    kernel_devices_google_lynx
-    kernel_devices_google_pantah
-    kernel_devices_google_raviole
-    kernel_devices_google_shusky
-    kernel_devices_google_tangorpro
+    kernel_devices_google_tegu
+
     kernel_google-modules_amplifiers
     kernel_google-modules_bms
     kernel_google-modules_edgetpu_rio
@@ -126,60 +108,89 @@ readonly kernels=(
 )
 
 declare -Ar kernel_tags_old=(
-    # May 2025
-    [kernel_build]=android-15.0.0_r0.99
-    [kernel_devices_google_akita]=android-15.0.0_r0.99
-    [kernel_devices_google_bluejay]=android-15.0.0_r0.99
-    [kernel_devices_google_caimito]=android-15.0.0_r0.99
-    [kernel_devices_google_comet]=android-15.0.0_r0.99
-    [kernel_devices_google_felix]=android-15.0.0_r0.99
-    [kernel_devices_google_lynx]=android-15.0.0_r0.99
-    [kernel_devices_google_pantah]=android-15.0.0_r0.99
-    [kernel_devices_google_raviole]=android-15.0.0_r0.99
-    [kernel_devices_google_shusky]=android-15.0.0_r0.99
-    [kernel_devices_google_tangorpro]=android-15.0.0_r0.99
-    [kernel_google-modules_amplifiers]=android-15.0.0_r0.99
-    [kernel_google-modules_bms]=android-15.0.0_r0.99
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.99
-    [kernel_google-modules_gxp_gs201]=android-15.0.0_r0.99
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.99
-    [kernel_google-modules_power_reset]=android-15.0.0_r0.99
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_syna_dhd43752p]=android-15.0.0_r0.99
+    [kernel_build]=android-16.0.0_r0.0
+
+    [kernel_devices_google_common]=android-16.0.0_r0.0
+
+    [kernel_devices_google_raviole]=android-16.0.0_r0.0
+    [kernel_devices_google_bluejay]=android-16.0.0_r0.0
+    [kernel_devices_google_pantah]=android-16.0.0_r0.0
+    [kernel_devices_google_lynx]=android-16.0.0_r0.0
+    [kernel_devices_google_tangorpro]=android-16.0.0_r0.0
+    [kernel_devices_google_felix]=android-16.0.0_r0.0
+    [kernel_devices_google_shusky]=android-16.0.0_r0.0
+    [kernel_devices_google_akita]=android-16.0.0_r0.0
+    [kernel_devices_google_caimito]=android-16.0.0_r0.0
+    [kernel_devices_google_comet]=android-16.0.0_r0.0
+    [kernel_devices_google_tegu]=android-16.0.0_r0.0
+
+    [kernel_google-modules_amplifiers]=android-16.0.0_r0.0
+    [kernel_google-modules_bms]=android-16.0.0_r0.0
+    [kernel_google-modules_edgetpu_rio]=android-16.0.0_r0.0
+    [kernel_google-modules_gxp_gs201]=android-16.0.0_r0.0
+    [kernel_google-modules_gxp_zuma]=android-16.0.0_r0.0
+    [kernel_google-modules_power_reset]=android-16.0.0_r0.0
+    [kernel_google-modules_soc_gs]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_syna_dhd43752p]=android-16.0.0_r0.0
 )
 
 declare -Ar kernel_tags=(
-    # May 2025
-    [kernel_build]=android-15.0.0_r0.99
-    [kernel_devices_google_akita]=android-15.0.0_r0.99
-    [kernel_devices_google_bluejay]=android-15.0.0_r0.99
-    [kernel_devices_google_caimito]=android-15.0.0_r0.99
-    [kernel_devices_google_comet]=android-15.0.0_r0.99
-    [kernel_devices_google_felix]=android-15.0.0_r0.99
-    [kernel_devices_google_lynx]=android-15.0.0_r0.99
-    [kernel_devices_google_pantah]=android-15.0.0_r0.99
-    [kernel_devices_google_raviole]=android-15.0.0_r0.99
-    [kernel_devices_google_shusky]=android-15.0.0_r0.99
-    [kernel_devices_google_tangorpro]=android-15.0.0_r0.99
-    [kernel_google-modules_amplifiers]=android-15.0.0_r0.99
-    [kernel_google-modules_bms]=android-15.0.0_r0.99
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.99
-    [kernel_google-modules_gxp_gs201]=android-15.0.0_r0.99
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.99
-    [kernel_google-modules_power_reset]=android-15.0.0_r0.99
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_syna_dhd43752p]=android-15.0.0_r0.99
+    [kernel_build]=android-16.0.0_r0.0
+
+    [kernel_devices_google_common]=android-16.0.0_r0.0
+
+    [kernel_devices_google_raviole]=android-16.0.0_r0.0
+    [kernel_devices_google_bluejay]=android-16.0.0_r0.0
+    [kernel_devices_google_pantah]=android-16.0.0_r0.0
+    [kernel_devices_google_lynx]=android-16.0.0_r0.0
+    [kernel_devices_google_tangorpro]=android-16.0.0_r0.0
+    [kernel_devices_google_felix]=android-16.0.0_r0.0
+    [kernel_devices_google_shusky]=android-16.0.0_r0.0
+    [kernel_devices_google_akita]=android-16.0.0_r0.0
+    [kernel_devices_google_caimito]=android-16.0.0_r0.0
+    [kernel_devices_google_comet]=android-16.0.0_r0.0
+    [kernel_devices_google_tegu]=android-16.0.0_r0.0
+
+    [kernel_google-modules_amplifiers]=android-16.0.0_r0.0
+    [kernel_google-modules_bms]=android-16.0.0_r0.0
+    [kernel_google-modules_edgetpu_rio]=android-16.0.0_r0.0
+    [kernel_google-modules_gxp_gs201]=android-16.0.0_r0.0
+    [kernel_google-modules_gxp_zuma]=android-16.0.0_r0.0
+    [kernel_google-modules_power_reset]=android-16.0.0_r0.0
+    [kernel_google-modules_soc_gs]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-16.0.0_r0.0
+    [kernel_google-modules_wlan_syna_dhd43752p]=android-16.0.0_r0.0
 )
 
 readonly independent=(
+    device_google_akita
+    device_google_bluejay
+    device_google_caimito
+    device_google_comet
+    device_google_felix
+    device_google_gs-common
+    device_google_gs101
+    device_google_gs101-sepolicy
+    device_google_gs201
+    device_google_gs201-sepolicy
+    device_google_lynx
+    device_google_pantah
+    device_google_raviole
+    device_google_shusky
+    device_google_tangorpro
+    device_google_tegu
+    device_google_zuma
+    device_google_zuma-sepolicy
+    device_google_zumapro
+    device_google_zumapro-sepolicy
+
     adevtool
     branding
     device_google_akita-kernels_6.1
@@ -192,6 +203,7 @@ readonly independent=(
     device_google_raviole-kernels_6.1
     device_google_shusky-kernels_6.1
     device_google_tangorpro-kernels_6.1
+    device_google_tegu-kernels_6.1
     hardened_malloc
     kernel_common-6.1
     kernel_common-6.6

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+
+for repo in ${kernels[@]}; do
+    echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
+
+    cd $repo
+    git checkout android-16.0.0_r0.2
+    git checkout -B 16-kernel-2
+    git cherry-pick android-16.0.0_r0.0..16
+    git push -fu origin 16-kernel-2
+    cd ..
+done
+
+for repo in ${kernels[@]}; do
+    echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
+
+    cd $repo
+    git checkout android-16.0.0_r0.8
+    git checkout -B 16-kernel-3
+    git cherry-pick android-16.0.0_r0.0..16
+    git push -fu origin 16-kernel-3
+    cd ..
+done
