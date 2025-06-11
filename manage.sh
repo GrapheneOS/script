@@ -51,9 +51,7 @@ for repo in "${aosp_forks[@]}"; do
     elif [[ $action == fetch ]]; then
         git fetch upstream --tags
     elif [[ $action == default ]]; then
-        if [[ $repo != platform_packages_modules_Connectivity ]]; then
-            gh repo edit GrapheneOS/$repo --default-branch $branch
-        fi
+        gh repo edit GrapheneOS/$repo --default-branch $branch
     fi
 
     cd ..
@@ -108,7 +106,7 @@ for repo in ${independent[@]}; do
     elif [[ $action == push ]]; then
         git push
     elif [[ $action == default ]]; then
-        if [[ $repo != platform_external_vanadium ]]; then
+        if [[ $repo != @(hardened_malloc|platform_external_vanadium) ]]; then
             gh repo edit GrapheneOS/$repo --default-branch $branch
         fi
     fi
