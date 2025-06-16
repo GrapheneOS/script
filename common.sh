@@ -100,83 +100,12 @@ readonly aosp_forks=(
 )
 
 readonly kernels=(
-    kernel_build
-    kernel_devices_google_akita
-    kernel_devices_google_bluejay
-    kernel_devices_google_caimito
-    kernel_devices_google_comet
-    kernel_devices_google_felix
-    kernel_devices_google_lynx
-    kernel_devices_google_pantah
-    kernel_devices_google_raviole
-    kernel_devices_google_shusky
-    kernel_devices_google_tangorpro
-    kernel_google-modules_amplifiers
-    kernel_google-modules_bms
-    kernel_google-modules_edgetpu_rio
-    kernel_google-modules_gxp_gs201
-    kernel_google-modules_gxp_zuma
-    kernel_google-modules_power_reset
-    kernel_google-modules_soc_gs
-    kernel_google-modules_wlan_bcmdhd_bcm4383
-    kernel_google-modules_wlan_bcmdhd_bcm4389
-    kernel_google-modules_wlan_bcmdhd_bcm4390
-    kernel_google-modules_wlan_bcmdhd_bcm4398
-    kernel_google-modules_wlan_syna_dhd43752p
 )
 
 declare -Ar kernel_tags_old=(
-    # May 2025
-    [kernel_build]=android-15.0.0_r0.99
-    [kernel_devices_google_akita]=android-15.0.0_r0.99
-    [kernel_devices_google_bluejay]=android-15.0.0_r0.99
-    [kernel_devices_google_caimito]=android-15.0.0_r0.99
-    [kernel_devices_google_comet]=android-15.0.0_r0.99
-    [kernel_devices_google_felix]=android-15.0.0_r0.99
-    [kernel_devices_google_lynx]=android-15.0.0_r0.99
-    [kernel_devices_google_pantah]=android-15.0.0_r0.99
-    [kernel_devices_google_raviole]=android-15.0.0_r0.99
-    [kernel_devices_google_shusky]=android-15.0.0_r0.99
-    [kernel_devices_google_tangorpro]=android-15.0.0_r0.99
-    [kernel_google-modules_amplifiers]=android-15.0.0_r0.99
-    [kernel_google-modules_bms]=android-15.0.0_r0.99
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.99
-    [kernel_google-modules_gxp_gs201]=android-15.0.0_r0.99
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.99
-    [kernel_google-modules_power_reset]=android-15.0.0_r0.99
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_syna_dhd43752p]=android-15.0.0_r0.99
 )
 
 declare -Ar kernel_tags=(
-    # May 2025
-    [kernel_build]=android-15.0.0_r0.99
-    [kernel_devices_google_akita]=android-15.0.0_r0.99
-    [kernel_devices_google_bluejay]=android-15.0.0_r0.99
-    [kernel_devices_google_caimito]=android-15.0.0_r0.99
-    [kernel_devices_google_comet]=android-15.0.0_r0.99
-    [kernel_devices_google_felix]=android-15.0.0_r0.99
-    [kernel_devices_google_lynx]=android-15.0.0_r0.99
-    [kernel_devices_google_pantah]=android-15.0.0_r0.99
-    [kernel_devices_google_raviole]=android-15.0.0_r0.99
-    [kernel_devices_google_shusky]=android-15.0.0_r0.99
-    [kernel_devices_google_tangorpro]=android-15.0.0_r0.99
-    [kernel_google-modules_amplifiers]=android-15.0.0_r0.99
-    [kernel_google-modules_bms]=android-15.0.0_r0.99
-    [kernel_google-modules_edgetpu_rio]=android-15.0.0_r0.99
-    [kernel_google-modules_gxp_gs201]=android-15.0.0_r0.99
-    [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.99
-    [kernel_google-modules_power_reset]=android-15.0.0_r0.99
-    [kernel_google-modules_soc_gs]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-15.0.0_r0.99
-    [kernel_google-modules_wlan_syna_dhd43752p]=android-15.0.0_r0.99
 )
 
 readonly independent=(
@@ -193,11 +122,6 @@ readonly independent=(
     device_google_shusky-kernels_6.1
     device_google_tangorpro-kernels_6.1
     hardened_malloc
-    kernel_common-6.1
-    kernel_common-6.6
-    kernel_manifest-6.1
-    kernel_manifest-6.6
-    kernel_manifest-pixel
     platform_external_AppCompatConfig
     platform_external_AppStore
     platform_external_Auditor
