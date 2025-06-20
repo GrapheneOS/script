@@ -90,6 +90,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.art.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.art.debug.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.art.debug.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.bt.apex="$KEY_DIR/bluetooth" \
+    --extra_apex_payload_key com.android.bt.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.btservices.apex="$KEY_DIR/bluetooth" \
     --extra_apex_payload_key com.android.btservices.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.cellbroadcast.apex="$KEY_DIR/releasekey" \
@@ -100,6 +102,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.configinfrastructure.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.conscrypt.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.conscrypt.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.crashrecovery.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.crashrecovery.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.devicelock.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.devicelock.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.extservices.apex="$KEY_DIR/releasekey" \
@@ -148,6 +152,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.tethering.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.tzdata.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.tzdata.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.uprobestats.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.uprobestats.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.uwb.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.uwb.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.virt.apex="$KEY_DIR/releasekey" \
