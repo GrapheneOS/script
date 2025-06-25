@@ -171,21 +171,31 @@ declare -Ar kernel_tags=(
 
 readonly independent=(
     device_google_akita
+    device_google_akita-sepolicy
     device_google_bluejay
+    device_google_bluejay-sepolicy
     device_google_caimito
+    device_google_caimito-sepolicy
     device_google_comet
+    device_google_comet-sepolicy
     device_google_felix
+    device_google_felix-sepolicy
     device_google_gs-common
     device_google_gs101
     device_google_gs101-sepolicy
     device_google_gs201
     device_google_gs201-sepolicy
     device_google_lynx
+    device_google_lynx-sepolicy
     device_google_pantah
+    device_google_pantah-sepolicy
     device_google_raviole
     device_google_shusky
+    device_google_shusky-sepolicy
     device_google_tangorpro
+    device_google_tangorpro-sepolicy
     device_google_tegu
+    device_google_tegu-sepolicy
     device_google_zuma
     device_google_zuma-sepolicy
     device_google_zumapro
