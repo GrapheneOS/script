@@ -217,6 +217,7 @@ readonly independent=(
     hardened_malloc
     kernel_common-6.1
     kernel_common-6.6
+    kernel_common-6.12
     kernel_manifest-6.1
     kernel_manifest-6.6
     kernel_manifest-pixel
