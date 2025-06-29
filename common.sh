@@ -242,6 +242,7 @@ readonly independent=(
     platform_packages_apps_SetupWizard2
     platform_packages_apps_Updater
     platform_prebuilts_qemu-kernel
+    platform_tools_arsclib
     script
     vendor_state
 )
