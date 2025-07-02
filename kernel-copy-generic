@@ -2,5 +2,5 @@
 
 set -o errexit -o nounset -o pipefail
 
-devices=(microdroid-arm64 microdroid-x86_64)
+devices=(emulator-x86_64 microdroid-arm64 microdroid-x86_64)
 parallel 'rm -rf {} && cp -a 6.6 {}' ::: ${devices[@]}
