@@ -2,12 +2,14 @@
 
 source build/envsetup.sh
 
-if [[ $HOSTNAME == raphael ]]; then
-    readonly devices=(tegu caiman husky tangorpro panther oriole)
+if [[ $HOSTNAME == granite ]]; then
+    readonly devices=(tegu tokay felix panther)
+elif [[ $HOSTNAME = raphael ]]; then
+    readonly devices=(comet akita tangorpro bluejay)
 elif [[ $HOSTNAME = raptor ]]; then
-    readonly devices=(comet tokay shiba lynx bluejay)
+    readonly devices=(komodo husky lynx raven)
 elif [[ $HOSTNAME = vermeer ]]; then
-    readonly devices=(komodo akita felix cheetah raven)
+    readonly devices=(caiman shiba cheetah oriole)
 else
     echo invalid hostname >&2
     exit 1
