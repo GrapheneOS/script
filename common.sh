@@ -14,6 +14,7 @@ readonly aosp_forks=(
     platform_bionic
     platform_bootable_recovery
     platform_build
+    platform_build_blueprint
     platform_build_release
     platform_build_soong
     platform_development
