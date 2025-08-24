@@ -94,7 +94,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-pixel|kernel_manifest-6.1|kernel_manifest-6.6) ]]; then
+        if [[ $repo == @(kernel_manifest-pixel|kernel_manifest-6.1|kernel_manifest-6.6|kernel_manifest-6.12) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
