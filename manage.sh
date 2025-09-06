@@ -57,33 +57,6 @@ for repo in "${aosp_forks[@]}"; do
     cd ..
 done
 
-for repo in ${kernels[@]}; do
-    echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
-
-    cd $repo
-    git checkout $branch
-
-    if [[ $action == delete ]]; then
-        git tag -d $tag_name || true
-        git push origin --delete $tag_name || true
-    elif [[ $action == release ]]; then
-        git tag -s $tag_name -m $tag_name
-        git push origin $tag_name
-    elif [[ $action == update ]]; then
-        git fetch upstream --tags
-        git rebase --onto ${kernel_tags[$repo]} ${kernel_tags_old[$repo]}
-        git push -f
-    elif [[ $action == push ]]; then
-        git push
-    elif [[ $action == fetch ]]; then
-        git fetch upstream --tags
-    elif [[ $action == default ]]; then
-        gh repo edit GrapheneOS/$repo --default-branch $branch
-    fi
-
-    cd ..
-done
-
 for repo in ${independent[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 

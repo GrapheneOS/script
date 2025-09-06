@@ -78,99 +78,6 @@ readonly aosp_forks=(
     platform_tools_metalava
 )
 
-readonly kernels=(
-    kernel_build
-
-    kernel_devices_google_common
-
-    kernel_devices_google_raviole
-    kernel_devices_google_bluejay
-    kernel_devices_google_pantah
-    kernel_devices_google_lynx
-    kernel_devices_google_tangorpro
-    kernel_devices_google_felix
-    kernel_devices_google_shusky
-    kernel_devices_google_akita
-    kernel_devices_google_caimito
-    kernel_devices_google_comet
-    kernel_devices_google_tegu
-
-    kernel_google-modules_amplifiers
-    kernel_google-modules_bms
-    kernel_google-modules_edgetpu_rio
-    kernel_google-modules_gxp_gs201
-    kernel_google-modules_gxp_zuma
-    kernel_google-modules_power_reset
-    kernel_google-modules_soc_gs
-    kernel_google-modules_wlan_bcmdhd_bcm4383
-    kernel_google-modules_wlan_bcmdhd_bcm4389
-    kernel_google-modules_wlan_bcmdhd_bcm4390
-    kernel_google-modules_wlan_bcmdhd_bcm4398
-    kernel_google-modules_wlan_syna_dhd43752p
-)
-
-declare -Ar kernel_tags_old=(
-    [kernel_build]=android-16.0.0_r0.0
-
-    [kernel_devices_google_common]=android-16.0.0_r0.0
-
-    [kernel_devices_google_raviole]=android-16.0.0_r0.0
-    [kernel_devices_google_bluejay]=android-16.0.0_r0.0
-    [kernel_devices_google_pantah]=android-16.0.0_r0.0
-    [kernel_devices_google_lynx]=android-16.0.0_r0.0
-    [kernel_devices_google_tangorpro]=android-16.0.0_r0.0
-    [kernel_devices_google_felix]=android-16.0.0_r0.0
-    [kernel_devices_google_shusky]=android-16.0.0_r0.0
-    [kernel_devices_google_akita]=android-16.0.0_r0.0
-    [kernel_devices_google_caimito]=android-16.0.0_r0.0
-    [kernel_devices_google_comet]=android-16.0.0_r0.0
-    [kernel_devices_google_tegu]=android-16.0.0_r0.0
-
-    [kernel_google-modules_amplifiers]=android-16.0.0_r0.0
-    [kernel_google-modules_bms]=android-16.0.0_r0.0
-    [kernel_google-modules_edgetpu_rio]=android-16.0.0_r0.0
-    [kernel_google-modules_gxp_gs201]=android-16.0.0_r0.0
-    [kernel_google-modules_gxp_zuma]=android-16.0.0_r0.0
-    [kernel_google-modules_power_reset]=android-16.0.0_r0.0
-    [kernel_google-modules_soc_gs]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_syna_dhd43752p]=android-16.0.0_r0.0
-)
-
-declare -Ar kernel_tags=(
-    [kernel_build]=android-16.0.0_r0.0
-
-    [kernel_devices_google_common]=android-16.0.0_r0.0
-
-    [kernel_devices_google_raviole]=android-16.0.0_r0.0
-    [kernel_devices_google_bluejay]=android-16.0.0_r0.0
-    [kernel_devices_google_pantah]=android-16.0.0_r0.0
-    [kernel_devices_google_lynx]=android-16.0.0_r0.0
-    [kernel_devices_google_tangorpro]=android-16.0.0_r0.0
-    [kernel_devices_google_felix]=android-16.0.0_r0.0
-    [kernel_devices_google_shusky]=android-16.0.0_r0.0
-    [kernel_devices_google_akita]=android-16.0.0_r0.0
-    [kernel_devices_google_caimito]=android-16.0.0_r0.0
-    [kernel_devices_google_comet]=android-16.0.0_r0.0
-    [kernel_devices_google_tegu]=android-16.0.0_r0.0
-
-    [kernel_google-modules_amplifiers]=android-16.0.0_r0.0
-    [kernel_google-modules_bms]=android-16.0.0_r0.0
-    [kernel_google-modules_edgetpu_rio]=android-16.0.0_r0.0
-    [kernel_google-modules_gxp_gs201]=android-16.0.0_r0.0
-    [kernel_google-modules_gxp_zuma]=android-16.0.0_r0.0
-    [kernel_google-modules_power_reset]=android-16.0.0_r0.0
-    [kernel_google-modules_soc_gs]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-16.0.0_r0.0
-    [kernel_google-modules_wlan_syna_dhd43752p]=android-16.0.0_r0.0
-)
-
 readonly independent=(
     device_google_akita
     device_google_akita-sepolicy
@@ -223,7 +130,7 @@ readonly independent=(
     kernel_manifest-6.1
     kernel_manifest-6.6
     kernel_manifest-6.12
-    kernel_manifest-pixel
+    kernel_pixel
     platform_external_AppCompatConfig
     platform_external_AppStore
     platform_external_Auditor
