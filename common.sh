@@ -20,6 +20,7 @@ readonly aosp_forks=(
     platform_external_conscrypt
     platform_external_robolectric
     platform_external_selinux
+    platform_external_sqlite
     platform_frameworks_base
     platform_frameworks_libs_systemui
     platform_frameworks_native
@@ -29,7 +30,6 @@ readonly aosp_forks=(
     platform_hardware_google_pixel-sepolicy
     platform_hardware_interfaces
     platform_libcore
-    platform_manifest
     platform_packages_apps_Calendar
     platform_packages_apps_CellBroadcastReceiver
     platform_packages_apps_Contacts
@@ -80,15 +80,22 @@ readonly aosp_forks=(
 )
 
 readonly independent=(
+    adevtool
+    branding
     device_google_akita
+    device_google_akita-kernels_6.1
     device_google_akita-sepolicy
     device_google_bluejay
+    device_google_bluejay-kernels_6.1
     device_google_bluejay-sepolicy
     device_google_caimito
+    device_google_caimito-kernels_6.1
     device_google_caimito-sepolicy
     device_google_comet
+    device_google_comet-kernels_6.1
     device_google_comet-sepolicy
     device_google_felix
+    device_google_felix-kernels_6.1
     device_google_felix-sepolicy
     device_google_gs-common
     device_google_gs101
@@ -96,34 +103,26 @@ readonly independent=(
     device_google_gs201
     device_google_gs201-sepolicy
     device_google_lynx
+    device_google_lynx-kernels_6.1
     device_google_lynx-sepolicy
     device_google_pantah
+    device_google_pantah-kernels_6.1
     device_google_pantah-sepolicy
     device_google_raviole
+    device_google_raviole-kernels_6.1
     device_google_shusky
+    device_google_shusky-kernels_6.1
     device_google_shusky-sepolicy
     device_google_tangorpro
+    device_google_tangorpro-kernels_6.1
     device_google_tangorpro-sepolicy
     device_google_tegu
+    device_google_tegu-kernels_6.1
     device_google_tegu-sepolicy
     device_google_zuma
     device_google_zuma-sepolicy
     device_google_zumapro
     device_google_zumapro-sepolicy
-
-    adevtool
-    branding
-    device_google_akita-kernels_6.1
-    device_google_bluejay-kernels_6.1
-    device_google_caimito-kernels_6.1
-    device_google_comet-kernels_6.1
-    device_google_felix-kernels_6.1
-    device_google_lynx-kernels_6.1
-    device_google_pantah-kernels_6.1
-    device_google_raviole-kernels_6.1
-    device_google_shusky-kernels_6.1
-    device_google_tangorpro-kernels_6.1
-    device_google_tegu-kernels_6.1
     hardened_malloc
     kernel_common-6.1
     kernel_common-6.6
@@ -140,12 +139,12 @@ readonly independent=(
     platform_external_Info
     platform_external_Messaging
     platform_external_PdfViewer
-    platform_external_sqlite
     platform_external_talkback
     platform_external_vanadium
+    platform_manifest
     platform_packages_apps_AppCompatConfig
     platform_packages_apps_CarrierConfig2
-    platform_packages_apps_DeskClock # temporarily based on AOSP 11 instead of AOSP 13
+    platform_packages_apps_DeskClock
     platform_packages_apps_ExactCalculator
     platform_packages_apps_GmsCompat
     platform_packages_apps_LogViewer
