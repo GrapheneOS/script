@@ -33,15 +33,8 @@ for repo in "${aosp_forks[@]}"; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == platform_manifest ]]; then
-            git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
-            git commit default.xml -m $tag_name
-            git push -fu origin tmp
-        else
-            git tag -s $tag_name -m $tag_name
-            git push origin $tag_name
-        fi
+        git tag -s $tag_name -m $tag_name
+        git push origin $tag_name
     elif [[ $action == update ]]; then
         git fetch upstream --tags
         git rebase --onto $aosp_tag $aosp_tag_old
@@ -67,7 +60,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-pixel|kernel_manifest-6.1|kernel_manifest-6.6|kernel_manifest-6.12) ]]; then
+        if [[ $repo == @(kernel_manifest-pixel|kernel_manifest-6.1|kernel_manifest-6.6|kernel_manifest-6.12|platform_manifest) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
