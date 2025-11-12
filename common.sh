@@ -18,7 +18,6 @@ readonly aosp_forks=(
     platform_build_soong
     platform_development
     platform_external_conscrypt
-    platform_external_robolectric
     platform_external_selinux
     platform_external_sqlite
     platform_frameworks_base
@@ -26,7 +25,6 @@ readonly aosp_forks=(
     platform_frameworks_native
     platform_frameworks_opt_net_wifi
     platform_frameworks_opt_telephony
-    platform_hardware_interfaces
     platform_libcore
     platform_packages_apps_Calendar
     platform_packages_apps_CellBroadcastReceiver
@@ -50,7 +48,6 @@ readonly aosp_forks=(
     platform_packages_modules_Connectivity
     platform_packages_modules_DnsResolver
     platform_packages_modules_HealthFitness
-    platform_packages_modules_IntentResolver
     platform_packages_modules_NetworkStack
     platform_packages_modules_Nfc
     platform_packages_modules_Permission
@@ -66,7 +63,6 @@ readonly aosp_forks=(
     platform_packages_services_Mms
     platform_packages_services_Telecomm
     platform_packages_services_Telephony
-    platform_system_apex
     platform_system_ca-certificates
     platform_system_core
     platform_system_extras
