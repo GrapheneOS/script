@@ -72,7 +72,7 @@ for repo in ${independent[@]}; do
     elif [[ $action == push ]]; then
         git push
     elif [[ $action == default ]]; then
-        if [[ $repo != @(hardened_malloc|platform_external_vanadium) ]]; then
+        if [[ $repo != @(hardened_malloc|kernel_pixel|kernel_pixel_muzel|platform_external_vanadium) ]]; then
             gh repo edit GrapheneOS/$repo --default-branch $branch
         fi
     fi
