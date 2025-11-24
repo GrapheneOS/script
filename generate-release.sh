@@ -54,7 +54,11 @@ get_radio_image() {
 
 unzip $TARGET_FILES_INPUT OTA/android-info.txt
 
-if [[ $DEVICE == @(tegu|comet|komodo|caiman|tokay|akita|husky|shiba|felix|tangorpro|lynx|cheetah|panther|bluejay|raven|oriole) ]]; then
+if [[ $DEVICE == @(rango|mustang|blazer|frankel) ]]; then
+    BOOTLOADER=$(get_radio_image bootloader)
+    RADIO=$(get_radio_image baseband)
+    DISABLE_UART=true
+elif [[ $DEVICE == @(tegu|comet|komodo|caiman|tokay|akita|husky|shiba|felix|tangorpro|lynx|cheetah|panther|bluejay|raven|oriole) ]]; then
     BOOTLOADER=$(get_radio_image bootloader)
     [[ $DEVICE != tangorpro ]] && RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
@@ -176,7 +180,11 @@ img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD_NUMBER.zip
 
 source device/common/generate-factory-images-common.sh
 
-MAX_DOWNLOAD_SIZE=0xf900000
+if [[ $DEVICE == @(rango|mustang|blazer|frankel) ]]; then
+    MAX_DOWNLOAD_SIZE=0x10000000
+else
+    MAX_DOWNLOAD_SIZE=0xf900000
+fi
 
 # Second arg to optimize-factory-image is the name of outer zip directory.
 # Output zip name defaults to <outer zip dir name>.zip
