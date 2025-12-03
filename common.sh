@@ -1,5 +1,5 @@
 readonly branch=16-qpr1
-readonly aosp_tag_old=android-16.0.0_r1
+readonly aosp_tag_old=android-16.0.0_r3
 readonly aosp_tag=android-16.0.0_r3
 
 user_error() {
