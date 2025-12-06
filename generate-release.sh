@@ -152,6 +152,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.scheduling.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.sdkext.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.sdkext.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.telephonycore.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.telephonycore.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.tethering.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.tethering.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.tzdata.apex="$KEY_DIR/releasekey" \
