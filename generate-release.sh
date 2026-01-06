@@ -57,6 +57,7 @@ if [[ $DEVICE == @(rango|mustang|blazer|frankel) ]]; then
     BOOTLOADER=$(get_radio_image bootloader)
     RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
+    DISABLE_DPM=true
 elif [[ $DEVICE == @(tegu|comet|komodo|caiman|tokay|akita|husky|shiba|felix|tangorpro|lynx|cheetah|panther|bluejay|raven|oriole) ]]; then
     BOOTLOADER=$(get_radio_image bootloader)
     [[ $DEVICE != tangorpro ]] && RADIO=$(get_radio_image baseband)
