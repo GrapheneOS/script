@@ -31,9 +31,8 @@ rm -rf $RELEASE_OUT
 mkdir -p $RELEASE_OUT
 unzip releases/$BUILD_NUMBER/$DEVICE-otatools.zip -d $RELEASE_OUT
 cd $RELEASE_OUT
-# remove duplicate Android.bp from unpacked otatools, otherwise they get
-# detected by soong, which breaks subsequent builds
-find -name Android.bp -delete
+# make soong ignore Android.bp from unpacked otatools to avoid breaking subsequent builds
+touch .find-ignore
 
 # reproducible key path for otacerts.zip
 ln -s "$KEY_DIR" keys
