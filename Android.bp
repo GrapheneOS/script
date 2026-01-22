@@ -1,0 +1,18 @@
+soong_namespace {}
+
+genrule {
+    name: "otatools_files",
+    tools: ["soong_zip"],
+    cmd: "mkdir -p $(genDir)/script && " +
+        "cp $(in) $(genDir)/script && " +
+        "$(location soong_zip) -o $(out) -C $(genDir) -D $(genDir)/script",
+    srcs: [
+        "common.sh",
+        "decrypt-keys",
+        "encrypt-keys",
+        "generate-metadata",
+        "generate-release.sh",
+        "generate-delta.sh",
+    ],
+    out: ["otatools_files.zip"],
+}
