@@ -11,5 +11,6 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 readonly releases=releases/$BUILD_NUMBER
 mkdir -p $releases
-cp "$OUT/otatools.zip" "$releases/$TARGET_PRODUCT-otatools.zip"
+otatools="${ANDROID_BUILD_TOP}/out/soong/.intermediates/build/make/tools/otatools_package/otatools-package/linux_glibc_x86_64/gen/otatools.zip"
+cp "${otatools}" "$releases/$TARGET_PRODUCT-otatools.zip"
 cp "$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_PRODUCT-target_files.zip" "$releases/"
