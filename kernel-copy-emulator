@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+devices=(emulator-arm64 emulator-x86_64)
+parallel 'rm -rf build/{} && cp -a 6.12 build/{}' ::: ${devices[@]}
