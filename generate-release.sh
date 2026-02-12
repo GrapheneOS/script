@@ -96,8 +96,6 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.art.debug.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.bt.apex="$KEY_DIR/bluetooth" \
     --extra_apex_payload_key com.android.bt.apex="$KEY_DIR/avb.pem" \
-    --extra_apks com.android.btservices.apex="$KEY_DIR/bluetooth" \
-    --extra_apex_payload_key com.android.btservices.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.cellbroadcast.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.cellbroadcast.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.compos.apex="$KEY_DIR/releasekey" \
@@ -164,10 +162,6 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.uwb.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.virt.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.virt.apex="$KEY_DIR/avb.pem" \
-    --extra_apks com.android.vndk.current.apex="$KEY_DIR/releasekey" \
-    --extra_apex_payload_key com.android.vndk.current.apex="$KEY_DIR/avb.pem" \
-    --extra_apks com.android.vndk.current.on_vendor.apex="$KEY_DIR/releasekey" \
-    --extra_apex_payload_key com.android.vndk.current.on_vendor.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.wifi.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.wifi.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.google.pixel.camera.hal.apex="$KEY_DIR/releasekey" \
