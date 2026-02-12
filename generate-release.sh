@@ -72,18 +72,11 @@ AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
 AVB_ALGORITHM=SHA256_RSA4096
 
 sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM \
-    --extra_apks AdServicesApk.apk="$KEY_DIR/releasekey" \
-    --extra_apks Bluetooth.apk="$KEY_DIR/bluetooth" \
     --extra_apks HalfSheetUX.apk="$KEY_DIR/releasekey" \
-    --extra_apks OsuLogin.apk="$KEY_DIR/releasekey" \
     --extra_apks PdfViewer.apk="$KEY_DIR/releasekey" \
-    --extra_apks SafetyCenterResources.apk="$KEY_DIR/releasekey" \
-    --extra_apks ServiceConnectivityResources.apk="$KEY_DIR/releasekey" \
-    --extra_apks ServiceUwbResources.apk="$KEY_DIR/releasekey" \
-    --extra_apks ServiceWifiResources.apk="$KEY_DIR/releasekey" \
-    --extra_apks WifiDialog.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.adbd.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.adbd.apex="$KEY_DIR/avb.pem" \
+    --extra_apks AdServicesApk.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.adservices.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.adservices.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.apex.cts.shim.apex="$KEY_DIR/releasekey" \
@@ -95,6 +88,7 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.art.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.art.debug.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.art.debug.apex="$KEY_DIR/avb.pem" \
+    --extra_apks Bluetooth.apk="$KEY_DIR/bluetooth" \
     --extra_apks com.android.bt.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.bt.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.cellbroadcast.apex="$KEY_DIR/releasekey" \
@@ -140,6 +134,7 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.ondevicepersonalization.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.os.statsd.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.os.statsd.apex="$KEY_DIR/avb.pem" \
+    --extra_apks SafetyCenterResources.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.permission.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.permission.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.profiling.apex="$KEY_DIR/releasekey" \
@@ -156,16 +151,21 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.sdkext.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.telephonycore.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.telephonycore.apex="$KEY_DIR/avb.pem" \
+    --extra_apks ServiceConnectivityResources.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.tethering.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.tethering.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.tzdata.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.tzdata.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.uprobestats.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.uprobestats.apex="$KEY_DIR/avb.pem" \
+    --extra_apks ServiceUwbResources.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.uwb.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.uwb.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.virt.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.virt.apex="$KEY_DIR/avb.pem" \
+    --extra_apks OsuLogin.apk="$KEY_DIR/releasekey" \
+    --extra_apks ServiceWifiResources.apk="$KEY_DIR/releasekey" \
+    --extra_apks WifiDialog.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.wifi.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.wifi.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.google.pixel.camera.hal.apex="$KEY_DIR/releasekey" \
