@@ -126,3 +126,14 @@ readonly independent=(
     script
     vendor_state
 )
+
+readonly signing_keys=(
+    bluetooth
+    gmscompat_lib
+    media
+    networkstack
+    platform
+    releasekey
+    sdk_sandbox
+    shared
+)
