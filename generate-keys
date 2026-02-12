@@ -1,19 +1,16 @@
 #!/bin/bash
 
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+
 devices=()
 
 for device in ${devices[@]}; do
     mkdir -p keys/$device
     cd keys/$device
     CN=GrapheneOS
-    ../../development/tools/make_key releasekey "/CN=$CN/"
-    ../../development/tools/make_key platform "/CN=$CN/"
-    ../../development/tools/make_key shared "/CN=$CN/"
-    ../../development/tools/make_key media "/CN=$CN/"
-    ../../development/tools/make_key networkstack "/CN=$CN/"
-    ../../development/tools/make_key bluetooth "/CN=$CN/"
-    ../../development/tools/make_key sdk_sandbox "/CN=$CN/"
-    ../../development/tools/make_key gmscompat_lib "/CN=$CN/"
+    for key in ${signing_keys[@]}; do
+        ../../development/tools/make_key $key "/CN=$CN/"
+    done
     openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
     ../../external/avb/avbtool.py extract_public_key --key avb.pem --output avb_pkmd.bin
     cd ../..
