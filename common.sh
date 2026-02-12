@@ -132,6 +132,7 @@ readonly signing_keys=(
     gmscompat_lib
     media
     networkstack
+    nfc
     platform
     releasekey
     sdk_sandbox
