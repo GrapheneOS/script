@@ -88,6 +88,7 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.adservices.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.apex.cts.shim.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.apex.cts.shim.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.appsearch.apk.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.appsearch.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.appsearch.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.art.apex="$KEY_DIR/releasekey" \
@@ -116,6 +117,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.hardware.biometrics.fingerprint.virtual.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.hardware.cas.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.hardware.cas.apex="$KEY_DIR/avb.pem" \
+    --extra_apks HealthConnectBackupRestore.apk="$KEY_DIR/releasekey" \
+    --extra_apks HealthConnectController.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.healthfitness.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.healthfitness.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.i18n.apex="$KEY_DIR/releasekey" \
@@ -132,6 +135,7 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.neuralnetworks.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.nfcservices.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.nfcservices.apex="$KEY_DIR/avb.pem" \
+    --extra_apks FederatedCompute.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.ondevicepersonalization.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.ondevicepersonalization.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.os.statsd.apex="$KEY_DIR/releasekey" \
