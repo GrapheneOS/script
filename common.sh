@@ -20,6 +20,7 @@ readonly aosp_forks=(
     platform_external_conscrypt
     platform_external_dng_sdk
     platform_external_libpng
+    platform_external_protobuf
     platform_external_selinux
     platform_external_sqlite
     platform_frameworks_av
