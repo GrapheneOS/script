@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+
+[[ $# -eq 2 ]] || user_error "expected 2 arguments: kernel source directory and temporary build directory"
+
+KERNEL_SRC_DIR=$(realpath "$1")
+
+if [[ -e "$KERNEL_SRC_DIR/build_muzel.sh" ]]; then
+    targets=(muzel rango)
+else
+    targets=(raviole bluejay pantah lynx tangorpro felix shusky akita caimito comet tegu stallion)
+fi
+
+BUILD_DIR=$2
+mkdir -p "$BUILD_DIR"
+BUILD_DIR=$(realpath "$BUILD_DIR")
+
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+parallel --jobs "${BUILD_JOBS:-3}" \
+    "rm -rf $BUILD_DIR/{} && cp -a $KERNEL_SRC_DIR $BUILD_DIR/{} && ./kernel-update-prebuilt $BUILD_DIR/{} {}" \
+    ::: "${targets[@]}"
