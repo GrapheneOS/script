@@ -1,0 +1,109 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+
+[[ $# -eq 2 ]] || user_error "expected 2 arguments: kernel source directory and the target name"
+
+TARGET=$2
+
+OS_CHECKOUT_ROOT=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
+
+if [[ $TARGET == @(muzel|rango) ]]; then
+    IS_LAGUNA=1
+    PREBUILTS_REPO=$(realpath "$OS_CHECKOUT_ROOT/device/google/laguna-kernels/6.6")
+    REPO_URL="https://gitlab.com/grapheneos/kernel_pixel_muzel.git"
+else
+    IS_LAGUNA=0
+    PREBUILTS_REPO=$(realpath "$OS_CHECKOUT_ROOT/device/google/$TARGET-kernels/6.1")
+    REPO_URL="https://gitlab.com/grapheneos/kernel_pixel.git"
+fi
+
+[[ -e $PREBUILTS_REPO ]] || "$PREBUILTS_REPO doesn't exist"
+
+KERNEL_SRC_DIR=$(realpath "$1")
+
+cd "$KERNEL_SRC_DIR"
+
+[[ $(git status --short) == "" ]] || user_error "$KERNEL_SRC_DIR is not clean"
+
+[[ $(git remote get-url origin) == "$REPO_URL" ]] || \
+        user_error "unexpected URL of origin remote in $KERNEL_SRC_DIR"
+
+if [[ ! -v SKIP_REPO_SYNC ]]; then
+    if [[ $TARGET == "stallion" ]]; then
+        KERNEL_BRANCH="${branch}-stallion"
+    else
+        KERNEL_BRANCH=${branch}
+    fi
+    git fetch origin "$KERNEL_BRANCH"
+    git checkout "origin/$KERNEL_BRANCH"
+    git submodule update --recursive
+
+    [[ $(git status --short) == "" ]] || user_error "$KERNEL_SRC_DIR is not clean after branch switch"
+fi
+
+KERNEL_REVISION=$(git rev-parse HEAD)
+
+KERNEL_OUT_DIR="$KERNEL_SRC_DIR/out"
+
+if [[ -d $KERNEL_OUT_DIR ]]; then
+    if [[ ${REUSE_KERNEL_OUT:-0} != 1 ]]; then
+        rm -rf "$KERNEL_OUT_DIR"
+        echo "removed $KERNEL_OUT_DIR"
+    else
+        echo "reusing $KERNEL_OUT_DIR"
+    fi
+fi
+
+if [[ $IS_LAGUNA == 1 ]]; then
+    "./build_$TARGET.sh" --lto="${KERNEL_LTO_MODE:-"full"}" --repo_manifest="$KERNEL_SRC_DIR:$KERNEL_SRC_DIR/aosp_manifest.xml"
+else
+    KLEAF_REPO_MANIFEST=aosp_manifest.xml "./build_$TARGET.sh" --lto="${KERNEL_LTO_MODE:-"full"}"
+fi
+
+DIST_DIR="$KERNEL_OUT_DIR/$TARGET/dist"
+[[ -d $DIST_DIR ]] || user_error "$DIST_DIR is missing after successful build"
+
+if [[ $IS_LAGUNA == 1 ]]; then
+    DEST_DIR_RELATIVE="grapheneos/$TARGET"
+else
+    DEST_DIR_RELATIVE="grapheneos"
+fi
+
+DEST_DIR="$PREBUILTS_REPO/$DEST_DIR_RELATIVE"
+
+rm -rf "$DEST_DIR"
+echo "cleared $DEST_DIR"
+mkdir "$DEST_DIR"
+
+cd "$DIST_DIR"
+cp -- \
+    *.blocklist \
+    *.dtb \
+    *.ko \
+    *modules.load \
+    dtbo.img \
+    Image.lz4 \
+    init.insmod.*.cfg \
+    System.map \
+    "$DEST_DIR"
+
+echo "$KERNEL_REVISION" > "$DEST_DIR/src-revision"
+
+cd "$PREBUILTS_REPO"
+if [[ $IS_LAGUNA == 1 ]]; then
+    exec 3<>lock
+    flock --exclusive 3
+fi
+git add "$DEST_DIR_RELATIVE"
+git commit -m "${COMMIT_MSG:-"$TARGET update"}"
+if [[ $IS_LAGUNA == 1 ]]; then
+    flock --unlock 3
+fi
+
+if [[ ${REUSE_KERNEL_OUT:-0} != 1 ]]; then
+    rm -rf "$KERNEL_OUT_DIR"
+    echo "removed $KERNEL_OUT_DIR"
+fi
