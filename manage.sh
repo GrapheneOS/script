@@ -10,13 +10,13 @@ readonly action=$1
 if [[ $action == @(push|fetch|update|default) ]]; then
     [[ $# -ne 1 ]] && user_error "expected no arguments for $action"
 elif [[ $action == @(release|delete) ]]; then
-    readonly tag_name=$2
     [[ $# -ne 2 ]] && user_error "expected tag name as argument for $action"
+    readonly tag_name=$2
 else
     user_error "unrecognized action"
 fi
 
-if [[ $OFFICIAL_BUILD = true ]]; then
+if [[ ${OFFICIAL_BUILD:-} = true ]]; then
     export GIT_AUTHOR_NAME=GrapheneOS
     export GIT_AUTHOR_EMAIL=contact@grapheneos.org
     export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
