@@ -170,7 +170,7 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.google.pixel.camera.hal.apex="$KEY_DIR/avb.pem" \
     $TARGET_FILES_INPUT $TARGET_FILES
 
-ota_from_target_files -k "$KEY_DIR/releasekey" "${EXTRA_OTA[@]}" $TARGET_FILES \
+ota_from_target_files -k "$KEY_DIR/releasekey" $TARGET_FILES \
     $DEVICE-ota_update-$BUILD_NUMBER.zip
 script/generate-metadata $DEVICE-ota_update-$BUILD_NUMBER.zip
 
