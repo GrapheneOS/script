@@ -5,9 +5,10 @@ set -o errexit -o nounset -o pipefail
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -eq 0 ]] || user_error "expected no arguments"
-[[ -n $TARGET_PRODUCT ]] || user_error "expected TARGET_PRODUCT in the environment"
-[[ -n $BUILD_NUMBER ]] || user_error "expected BUILD_NUMBER in the environment"
-[[ -n $OUT ]] || user_error "expected OUT in the environment"
+[[ -n ${TARGET_PRODUCT:-} ]] || user_error "expected TARGET_PRODUCT in the environment"
+[[ -n ${BUILD_NUMBER:-} ]] || user_error "expected BUILD_NUMBER in the environment"
+[[ -n ${OUT:-} ]] || user_error "expected OUT in the environment"
+[[ -n ${ANDROID_HOST_OUT:-} ]] || user_error "expected ANDROID_HOST_OUT in the environment"
 
 readonly releases=releases/$BUILD_NUMBER
 mkdir -p $releases
