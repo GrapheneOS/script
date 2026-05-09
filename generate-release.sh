@@ -36,10 +36,10 @@ export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 TARGET_FILES=$DEVICE-target_files.zip
 TARGET_FILES_INPUT=$PWD/releases/$BUILD_NUMBER/$TARGET_FILES
 
-rm -rf $RELEASE_OUT
-mkdir -p $RELEASE_OUT
-unzip releases/$BUILD_NUMBER/$DEVICE-otatools.zip -d $RELEASE_OUT
-cd $RELEASE_OUT
+rm -rf "$RELEASE_OUT"
+mkdir -p "$RELEASE_OUT"
+unzip "releases/$BUILD_NUMBER/$DEVICE-otatools.zip" -d "$RELEASE_OUT"
+cd "$RELEASE_OUT"
 # make soong ignore Android.bp from unpacked otatools to avoid breaking subsequent builds
 touch .find-ignore
 
@@ -60,7 +60,7 @@ get_radio_image() {
     grep "require version-$1" OTA/android-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
 }
 
-unzip $TARGET_FILES_INPUT OTA/android-info.txt
+unzip "$TARGET_FILES_INPUT" OTA/android-info.txt
 
 if [[ $DEVICE == @(rango|mustang|blazer|frankel) ]]; then
     BOOTLOADER=$(get_radio_image bootloader)
