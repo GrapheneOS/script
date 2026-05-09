@@ -6,7 +6,7 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -ne 1 ]] && user_error "expected 1 argument (key directory)"
 
-cd $1
+cd "$1"
 
 read -rp "Enter old key passphrase (empty if none): " -s password
 echo
@@ -20,26 +20,24 @@ if [[ "$new_password" != "$confirm_new_password" ]]; then
     echo new password does not match
     exit 1
 fi
+export -n password new_password confirm_new_password
 
 tmp="$(mktemp -d /dev/shm/encrypt-keys.XXXXXXXXXX)"
 trap "rm -rf \"$tmp\"" EXIT
 
-export password
-export new_password
-
-for key in ${signing_keys[@]}; do
+for key in "${signing_keys[@]}"; do
     if [[ -n $password ]]; then
-        openssl pkcs8 -inform DER -in $key.pk8 -passin env:password | openssl pkcs8 -topk8 -outform DER -out "$tmp/$key.pk8" -passout env:new_password -scrypt
+        env "password=$password" openssl pkcs8 -inform DER -in "$key.pk8" -passin env:password | env "new_password=$new_password" openssl pkcs8 -topk8 -outform DER -out "$tmp/$key.pk8" -passout env:new_password -scrypt
     else
-        openssl pkcs8 -topk8 -inform DER -in $key.pk8 -outform DER -out "$tmp/$key.pk8" -passout env:new_password -scrypt
+        env "new_password=$new_password" openssl pkcs8 -topk8 -inform DER -in "$key.pk8" -outform DER -out "$tmp/$key.pk8" -passout env:new_password -scrypt
     fi
 done
 
 if [[ -f avb.pem ]]; then
     if [[ -n $password ]]; then
-        openssl pkcs8 -topk8 -in avb.pem -passin env:password -out "$tmp/avb.pem" -passout env:new_password -scrypt
+        env "password=$password" "new_password=$new_password" openssl pkcs8 -topk8 -in avb.pem -passin env:password -out "$tmp/avb.pem" -passout env:new_password -scrypt
     else
-        openssl pkcs8 -topk8 -in avb.pem -out "$tmp/avb.pem" -passout env:new_password -scrypt
+        env "new_password=$new_password" openssl pkcs8 -topk8 -in avb.pem -out "$tmp/avb.pem" -passout env:new_password -scrypt
     fi
 fi
 

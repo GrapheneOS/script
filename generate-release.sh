@@ -6,6 +6,10 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -eq 2 ]] || user_error "expected two arguments: DEVICE BUILD_NUMBER"
 
+if [[ "${password+defined}" = defined ]]; then
+    export -n password
+fi
+
 chrt -b -p 0 $$
 
 DEVICE=$1
@@ -18,7 +22,12 @@ RELEASE_OUT=releases/$BUILD_NUMBER/release-$DEVICE-$BUILD_NUMBER
 KEY_DIR=$(mktemp -d /dev/shm/generate-release.XXXXXXXXXX)
 trap "rm -rf \"$KEY_DIR\" && rm -f \"$PWD/$RELEASE_OUT/keys\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
-script/decrypt-keys "$KEY_DIR"
+if [[ "${password+defined}" = defined ]]; then
+    env "password=$password" script/decrypt-keys "$KEY_DIR"
+    unset password
+else
+    script/decrypt-keys "$KEY_DIR"
+fi
 
 OLD_PATH="$PATH"
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"

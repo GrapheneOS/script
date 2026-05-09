@@ -6,6 +6,10 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -eq 3 ]] || user_error "expected 3 arguments (device, source and target version)"
 
+if [[ "${password+defined}" = defined ]]; then
+    export -n password
+fi
+
 chrt -b -p 0 $$
 
 PERSISTENT_KEY_DIR=keys/$1
@@ -17,7 +21,12 @@ NEW=$3
 KEY_DIR=$(mktemp -d /dev/shm/generate-delta.XXXXXXXXXX)
 trap "rm -rf \"$KEY_DIR\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
-script/decrypt-keys "$KEY_DIR"
+if [[ "${password+defined}" = defined ]]; then
+    env "password=$password" script/decrypt-keys "$KEY_DIR"
+    unset password
+else
+    script/decrypt-keys "$KEY_DIR"
+fi
 
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
 export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"

@@ -6,27 +6,26 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -ne 1 ]] && user_error "expected 1 argument (key directory)"
 
-cd $1
+cd "$1"
 
 [[ "${password+defined}" = defined ]] || read -rp "Enter key passphrase (empty if none): " -s password
 echo
+export -n password
 
 tmp="$(mktemp -d /dev/shm/decrypt-keys.XXXXXXXXXX)"
 trap "rm -rf \"$tmp\"" EXIT
 
-export password
-
-for key in ${signing_keys[@]}; do
+for key in "${signing_keys[@]}"; do
     if [[ -n $password ]]; then
-        openssl pkcs8 -inform DER -in $key.pk8 -passin env:password | openssl pkcs8 -topk8 -outform DER -out "$tmp/$key.pk8" -nocrypt
+        env "password=$password" openssl pkcs8 -inform DER -in "$key.pk8" -passin env:password | openssl pkcs8 -topk8 -outform DER -out "$tmp/$key.pk8" -nocrypt
     else
-        openssl pkcs8 -topk8 -inform DER -in $key.pk8 -outform DER -out "$tmp/$key.pk8" -nocrypt
+        openssl pkcs8 -topk8 -inform DER -in "$key.pk8" -outform DER -out "$tmp/$key.pk8" -nocrypt
     fi
 done
 
 if [[ -f avb.pem ]]; then
     if [[ -n $password ]]; then
-        openssl pkcs8 -topk8 -in avb.pem -passin env:password -out "$tmp/avb.pem" -nocrypt
+        env "password=$password" openssl pkcs8 -topk8 -in avb.pem -passin env:password -out "$tmp/avb.pem" -nocrypt
     else
         openssl pkcs8 -topk8 -in avb.pem -out "$tmp/avb.pem" -nocrypt
     fi

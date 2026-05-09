@@ -8,7 +8,6 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 read -rp "Enter key passphrase (empty if none): " -s password
 echo
-export password
 
 chrt -b -p 0 $$
 
@@ -17,4 +16,4 @@ shift
 
 export TMPDIR="${OUT:-$PWD/delta-generation}"
 
-parallel -j4 -q script/generate-delta.sh ::: stallion rango mustang blazer frankel tegu comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole ::: $@ ::: $SOURCE
+env "password=$password" parallel -j4 -q script/generate-delta.sh ::: stallion rango mustang blazer frankel tegu comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole ::: $@ ::: $SOURCE
