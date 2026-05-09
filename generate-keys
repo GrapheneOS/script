@@ -1,15 +1,17 @@
 #!/bin/bash
 
-source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+set -o errexit -o nounset -o pipefail
+
+source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 
 devices=()
 
-for device in ${devices[@]}; do
-    mkdir -p keys/$device
-    cd keys/$device
+for device in "${devices[@]}"; do
+    mkdir -p "keys/$device"
+    cd "keys/$device"
     CN=GrapheneOS
-    for key in ${signing_keys[@]}; do
-        ../../development/tools/make_key $key "/CN=$CN/"
+    for key in "${signing_keys[@]}"; do
+        ../../development/tools/make_key "$key" "/CN=$CN/"
     done
     openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
     ../../external/avb/avbtool.py extract_public_key --key avb.pem --output avb_pkmd.bin
