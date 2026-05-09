@@ -9,10 +9,25 @@ parser.add_argument("zip")
 
 zip_path = parser.parse_args().zip
 
+
+def parse_metadata(metadata):
+    data = {}
+    for raw_line in metadata:
+        line = raw_line.decode().rstrip("\n")
+        key, separator, value = line.partition("=")
+        if not separator:
+            raise ValueError(f"malformed metadata line: {line!r}")
+        data[key] = value
+    return data
+
+
 with ZipFile(zip_path) as f:
     with f.open("META-INF/com/android/metadata") as metadata:
-        data = dict(line[:-1].decode().split("=") for line in metadata)
+        data = parse_metadata(metadata)
+        missing = {"post-build-incremental", "post-timestamp", "pre-device"} - data.keys()
+        if missing:
+            raise ValueError("metadata is missing required fields: " + ", ".join(sorted(missing)))
+        incremental = data["post-build-incremental"]
         for channel in ("beta", "stable", "alpha", "testing"):
             with open(path.join(path.dirname(zip_path), data["pre-device"] + "-" + channel), "w") as output:
-                incremental = data["post-build"].split("/")[4].split(":")[0]
                 print(incremental, data["post-timestamp"], data["pre-device"], channel, file=output)
