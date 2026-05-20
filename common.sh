@@ -113,6 +113,7 @@ readonly independent=(
     platform_external_Info
     platform_external_Messaging
     platform_external_PdfViewer
+    platform_external_SpeechServices
     platform_external_talkback
     platform_external_vanadium
     platform_manifest
