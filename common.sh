@@ -39,6 +39,7 @@ readonly aosp_forks=(
     platform_packages_apps_DocumentsUI
     platform_packages_apps_EmergencyInfo
     platform_packages_apps_Gallery2
+    platform_packages_apps_KeyChain
     platform_packages_apps_Launcher3
     platform_packages_apps_Settings
     platform_packages_apps_SettingsIntelligence
