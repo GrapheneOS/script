@@ -33,6 +33,7 @@ readonly aosp_forks=(
     platform_libcore
     platform_packages_apps_Calendar
     platform_packages_apps_CellBroadcastReceiver
+    platform_packages_apps_CertInstaller
     platform_packages_apps_Contacts
     platform_packages_apps_Dialer
     platform_packages_apps_DocumentsUI
