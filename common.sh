@@ -18,28 +18,23 @@ readonly aosp_forks=(
     platform_build_soong
     platform_development
     platform_external_conscrypt
-    platform_external_dng_sdk
     platform_external_libpng
     platform_external_protobuf
     platform_external_selinux
-    platform_external_sqlite
     platform_frameworks_av
     platform_frameworks_base
     platform_frameworks_libs_systemui
     platform_frameworks_native
     platform_frameworks_opt_net_wifi
     platform_frameworks_opt_telephony
-    platform_hardware_st_nfc
     platform_libcore
     platform_packages_apps_Calendar
     platform_packages_apps_CellBroadcastReceiver
-    platform_packages_apps_CertInstaller
     platform_packages_apps_Contacts
     platform_packages_apps_Dialer
     platform_packages_apps_DocumentsUI
     platform_packages_apps_EmergencyInfo
     platform_packages_apps_Gallery2
-    platform_packages_apps_KeyChain
     platform_packages_apps_Launcher3
     platform_packages_apps_Settings
     platform_packages_apps_SettingsIntelligence
@@ -50,7 +45,6 @@ readonly aosp_forks=(
     platform_packages_modules_adb
     platform_packages_modules_AppSearch
     platform_packages_modules_Bluetooth
-    platform_packages_modules_common
     platform_packages_modules_ConfigInfrastructure
     platform_packages_modules_Connectivity
     platform_packages_modules_DnsResolver
