@@ -2,7 +2,7 @@
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
-devices=()
+devices=($*)
 
 for device in ${devices[@]}; do
     mkdir -p keys/$device
