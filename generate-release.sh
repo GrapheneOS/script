@@ -127,6 +127,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.neuralnetworks.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.nfcservices.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.nfcservices.apex="$KEY_DIR/avb.pem" \
+    --extra_apks com.android.npumanager.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.npumanager.apex="$KEY_DIR/avb.pem" \
     --extra_apks FederatedCompute.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.ondevicepersonalization.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.ondevicepersonalization.apex="$KEY_DIR/avb.pem" \
@@ -147,6 +149,8 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.scheduling.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.sdkext.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.sdkext.apex="$KEY_DIR/avb.pem" \
+    --extra_apks TelecomServiceResources.apk="$KEY_DIR/releasekey" \
+    --extra_apks TelecomUi.apk="$KEY_DIR/releasekey" \
     --extra_apks com.android.telephonycore.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.telephonycore.apex="$KEY_DIR/avb.pem" \
     --extra_apks ServiceConnectivityResources.apk="$KEY_DIR/releasekey" \
@@ -161,6 +165,9 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.uwb.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.android.virt.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.virt.apex="$KEY_DIR/avb.pem" \
+    --extra_apks WebAppService.apk="$KEY_DIR/releasekey" \
+    --extra_apks com.android.webapp.apex="$KEY_DIR/releasekey" \
+    --extra_apex_payload_key com.android.webapp.apex="$KEY_DIR/avb.pem" \
     --extra_apks OsuLogin.apk="$KEY_DIR/releasekey" \
     --extra_apks ServiceWifiResources.apk="$KEY_DIR/releasekey" \
     --extra_apks WifiDialog.apk="$KEY_DIR/releasekey" \
