@@ -1,6 +1,6 @@
-readonly branch=16-qpr2
-readonly aosp_tag_old=android-16.0.0_r4
-readonly aosp_tag=android-16.0.0_r4
+readonly branch=17
+readonly aosp_tag_old=android-17.0.0_r1
+readonly aosp_tag=android-17.0.0_r1
 
 user_error() {
     echo $1 >&2
