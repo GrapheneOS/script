@@ -25,7 +25,13 @@ export PATH="$PWD/releases/$NEW/release-$DEVICE-$NEW/bin:$PATH"
 
 cd "releases/$NEW"
 
-ota_from_target_files -k "$KEY_DIR/releasekey" \
+if [[ $DEVICE == @(rango|mustang|blazer|frankel) ]]; then
+    OTA_ARGS=--disable_ublk
+else
+    OTA_ARGS=
+fi
+
+ota_from_target_files -k "$KEY_DIR/releasekey" $OTA_ARGS \
     -i ../$OLD/release-$DEVICE-$OLD/$DEVICE-target_files.zip \
     release-$DEVICE-$NEW/$DEVICE-target_files.zip \
     $DEVICE-incremental-$OLD-$NEW.zip

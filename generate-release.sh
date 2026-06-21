@@ -58,12 +58,14 @@ if [[ $DEVICE == @(rango|mustang|blazer|frankel) ]]; then
     RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
     DISABLE_DPM=true
+    OTA_ARGS=--disable_ublk
 elif [[ $DEVICE == @(stallion|tegu|comet|komodo|caiman|tokay|akita|husky|shiba|felix|tangorpro|lynx|cheetah|panther|bluejay|raven|oriole) ]]; then
     BOOTLOADER=$(get_radio_image bootloader)
     [[ $DEVICE != tangorpro ]] && RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
     DISABLE_FIPS=true
     DISABLE_DPM=true
+    OTA_ARGS=
 else
     user_error "$DEVICE is not supported by the release script"
 fi
@@ -177,7 +179,7 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.google.pixel.camera.hal.apex="$KEY_DIR/avb.pem" \
     $TARGET_FILES_INPUT $TARGET_FILES
 
-ota_from_target_files -k "$KEY_DIR/releasekey" $TARGET_FILES \
+ota_from_target_files -k "$KEY_DIR/releasekey" $OTA_ARGS $TARGET_FILES \
     $DEVICE-ota_update-$BUILD_NUMBER.zip
 script/generate-metadata $DEVICE-ota_update-$BUILD_NUMBER.zip
 
