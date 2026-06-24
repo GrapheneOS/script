@@ -74,6 +74,7 @@ readonly aosp_forks=(
     platform_system_tools_aidl
     platform_system_update_engine
     platform_system_vold
+    platform_system_zygote
     platform_tools_apksig
     platform_tools_metalava
 )
