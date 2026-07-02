@@ -43,6 +43,7 @@ readonly aosp_forks=(
     platform_packages_apps_WallpaperPicker2
     platform_packages_inputmethods_LatinIME
     platform_packages_modules_adb
+    platform_packages_modules_AdServices
     platform_packages_modules_AppSearch
     platform_packages_modules_Bluetooth
     platform_packages_modules_ConfigInfrastructure
