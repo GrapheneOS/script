@@ -18,6 +18,7 @@ readonly aosp_forks=(
     platform_build_soong
     platform_development
     platform_external_conscrypt
+    platform_external_freetype
     platform_external_libpng
     platform_external_protobuf
     platform_external_selinux
