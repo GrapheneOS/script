@@ -16,6 +16,7 @@ readonly aosp_forks=(
     platform_build
     platform_build_release
     platform_build_soong
+    platform_cts
     platform_development
     platform_external_conscrypt
     platform_external_freetype
