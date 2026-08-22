@@ -53,7 +53,11 @@ get_radio_image() {
 
 unzip $TARGET_FILES_INPUT OTA/android-info.txt
 
-if [[ $DEVICE == @(rango|mustang|blazer|frankel) ]]; then
+if [[ $DEVICE == @(yogi|kodiak|grizzly|cubs) ]]; then
+    GSCFIRMWARESRC="epic" # Titan-M3 codename is "epic"
+fi
+
+if [[ $DEVICE == @(yogi|kodiak|grizzly|cubs|rango|mustang|blazer|frankel) ]]; then
     BOOTLOADER=$(get_radio_image bootloader)
     RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
@@ -187,7 +191,9 @@ img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD_NUMBER.zip
 
 source device/common/generate-factory-images-common.sh
 
-if [[ $DEVICE == @(rango|mustang|blazer|frankel) ]]; then
+if [[ $DEVICE == @(yogi|kodiak|grizzly|cubs) ]]; then
+    MAX_DOWNLOAD_SIZE=0x20000000
+elif [[ $DEVICE == @(rango|mustang|blazer|frankel) ]]; then
     MAX_DOWNLOAD_SIZE=0x10000000
 else
     MAX_DOWNLOAD_SIZE=0xf900000
