@@ -3,4 +3,4 @@
 set -o errexit -o nounset -o pipefail
 
 devices=(muzel rango)
-parallel 'rm -rf build/{} && cp -a muzel build/{}' ::: ${devices[@]}
+parallel 'rm -rf build/{} && cp -a pixel_6.6 build/{}' ::: ${devices[@]}

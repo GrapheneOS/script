@@ -3,4 +3,4 @@
 set -o errexit -o nounset -o pipefail
 
 devices=(raviole bluejay pantah lynx tangorpro felix shusky akita caimito comet tegu)
-parallel 'rm -rf build/{} && cp -a pixel build/{}' ::: ${devices[@]}
+parallel 'rm -rf build/{} && cp -a pixel_6.1 build/{}' ::: ${devices[@]}
