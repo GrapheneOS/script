@@ -29,6 +29,7 @@ readonly aosp_forks=(
     platform_frameworks_native
     platform_frameworks_opt_net_wifi
     platform_frameworks_opt_telephony
+    platform_frameworks_proto_logging
     platform_libcore
     platform_packages_apps_Calendar
     platform_packages_apps_CellBroadcastReceiver
@@ -78,6 +79,7 @@ readonly aosp_forks=(
     platform_system_vold
     platform_system_zygote
     platform_tools_apksig
+    platform_tools_lint_checks
     platform_tools_metalava
 )
 
@@ -114,6 +116,7 @@ readonly independent=(
     platform_external_Messaging
     platform_external_PdfViewer
     platform_external_SpeechServices
+    platform_external_population-density
     platform_external_talkback
     platform_external_vanadium
     platform_manifest
