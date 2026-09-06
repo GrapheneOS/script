@@ -104,8 +104,8 @@ readonly independent=(
     kernel_manifest-6.1
     kernel_manifest-6.6
     kernel_manifest-6.12
-    kernel_pixel
-    kernel_pixel_muzel
+    kernel_pixel_6.1
+    kernel_pixel_6.6
     platform_external_AppCompatConfig
     platform_external_AppStore
     platform_external_Auditor
