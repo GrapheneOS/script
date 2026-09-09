@@ -35,6 +35,7 @@ readonly aosp_forks=(
     platform_frameworks_opt_net_wifi
     platform_frameworks_opt_telephony
     platform_hardware_interfaces
+    platform_hardware_st_nfc
     platform_libcore
     platform_packages_apps_Calendar
     platform_packages_apps_CellBroadcastReceiver
