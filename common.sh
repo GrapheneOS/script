@@ -21,6 +21,7 @@ readonly aosp_forks=(
     platform_external_conscrypt
     platform_external_exfatprogs
     platform_external_freetype
+    platform_external_libcupsfilters
     platform_external_libpng
     platform_external_protobuf
     platform_external_selinux
