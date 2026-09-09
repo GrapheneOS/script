@@ -82,6 +82,7 @@ readonly aosp_forks=(
     platform_system_extras
     platform_system_fs_fs_mgr
     platform_system_libfmq
+    platform_system_libufdt
     platform_system_logging
     platform_system_netd
     platform_system_sepolicy
