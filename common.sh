@@ -27,6 +27,7 @@ readonly aosp_forks=(
     platform_external_libpng
     platform_external_protobuf
     platform_external_selinux
+    platform_external_wpa_supplicant_8
     platform_frameworks_av
     platform_frameworks_base
     platform_frameworks_libs_systemui
