@@ -73,6 +73,7 @@ readonly aosp_forks=(
     platform_packages_providers_DownloadProvider
     platform_packages_providers_MediaProvider
     platform_packages_providers_TelephonyProvider
+    platform_packages_services_BuiltInPrintService
     platform_packages_services_Mms
     platform_packages_services_Telecomm
     platform_packages_services_Telephony
