@@ -74,10 +74,17 @@ else
     user_error "$DEVICE is not supported by the release script"
 fi
 
-AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
-AVB_ALGORITHM=SHA256_RSA4096
+if [[ $DEVICE == @(grizzly|cubs|kodiak|yogi) ]]; then
+    AVB_KEY="$KEY_DIR/avb_mldsa.pem"
+    AVB_PKMD="$KEY_DIR/avb_mldsa_pkmd.bin"
+    AVB_ALGORITHM=MLDSA65
+else
+    AVB_KEY="$KEY_DIR/avb.pem"
+    AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
+    AVB_ALGORITHM=SHA256_RSA4096
+fi
 
-sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --avb_vbmeta_algorithm $AVB_ALGORITHM \
+sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$AVB_KEY" --avb_vbmeta_algorithm $AVB_ALGORITHM \
     --extra_apks com.android.adbd.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.android.adbd.apex="$KEY_DIR/avb.pem" \
     --extra_apks AdServicesApk.apk="$KEY_DIR/releasekey" \
