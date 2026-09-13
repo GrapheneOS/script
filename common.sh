@@ -18,6 +18,7 @@ readonly aosp_forks=(
     platform_build_soong
     platform_cts
     platform_development
+    platform_external_cldr
     platform_external_conscrypt
     platform_external_exfatprogs
     platform_external_freetype
