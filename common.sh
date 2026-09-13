@@ -88,6 +88,7 @@ readonly aosp_forks=(
     platform_system_logging
     platform_system_netd
     platform_system_sepolicy
+    platform_system_timezone
     platform_system_tools_aidl
     platform_system_update_engine
     platform_system_vold
