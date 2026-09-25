@@ -32,6 +32,7 @@ readonly aosp_forks=(
     platform_external_wpa_supplicant_8
     platform_frameworks_av
     platform_frameworks_base
+    platform_frameworks_hardware_interfaces
     platform_frameworks_libs_systemui
     platform_frameworks_native
     platform_frameworks_opt_net_wifi
