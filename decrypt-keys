@@ -6,6 +6,8 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 [[ $# -ne 1 ]] && user_error "expected 1 argument (key directory)"
 
+export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
+
 cd $1
 
 [[ "${password+defined}" = defined ]] || read -rp "Enter key passphrase (empty if none): " -s password
@@ -24,13 +26,14 @@ for key in ${signing_keys[@]}; do
     fi
 done
 
-if [[ -f avb.pem ]]; then
+for key in avb.pem avb_mldsa.pem; do
+    [[ -f $key ]] || continue
     if [[ -n $password ]]; then
-        openssl pkcs8 -topk8 -in avb.pem -passin env:password -out "$tmp/avb.pem" -nocrypt
+        openssl pkcs8 -topk8 -in $key -passin env:password -out "$tmp/$key" -nocrypt
     else
-        openssl pkcs8 -topk8 -in avb.pem -out "$tmp/avb.pem" -nocrypt
+        openssl pkcs8 -topk8 -in $key -out "$tmp/$key" -nocrypt
     fi
-fi
+done
 
 unset password
 
