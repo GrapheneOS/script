@@ -10,6 +10,7 @@ user_error() {
 readonly aosp_forks=(
     device_common
     device_generic_goldfish
+    device_google_cuttlefish
     platform_art
     platform_bionic
     platform_bootable_recovery
