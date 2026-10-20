@@ -28,6 +28,7 @@ readonly aosp_forks=(
     platform_external_libhevc
     platform_external_libjxl
     platform_external_libpng
+    platform_external_mesa3d
     platform_external_protobuf
     platform_external_selinux
     platform_external_wpa_supplicant_8
