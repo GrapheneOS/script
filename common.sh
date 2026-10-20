@@ -126,6 +126,10 @@ readonly independent=(
     kernel_manifest-6.18
     kernel_pixel_6.1
     kernel_pixel_6.6
+    kernel_prebuilts_6.18_arm64
+    kernel_prebuilts_6.18_x86-64
+    kernel_prebuilts_common-modules_virtual-device_6.18_arm64
+    kernel_prebuilts_common-modules_virtual-device_6.18_x86-64
     platform_external_AppCompatConfig
     platform_external_AppStore
     platform_external_Auditor
