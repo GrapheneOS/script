@@ -61,6 +61,7 @@ readonly aosp_forks=(
     platform_packages_apps_SettingsIntelligence
     platform_packages_apps_StorageManager
     platform_packages_apps_ThemePicker
+    platform_packages_apps_TvSettings
     platform_packages_apps_WallpaperPicker2
     platform_packages_inputmethods_LatinIME
     platform_packages_modules_adb
