@@ -29,6 +29,7 @@ readonly aosp_forks=(
     platform_external_libcupsfilters
     platform_external_libhevc
     platform_external_libjxl
+    platform_external_libopenapv
     platform_external_libpng
     platform_external_mesa3d
     platform_external_protobuf
