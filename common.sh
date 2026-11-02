@@ -20,6 +20,7 @@ readonly aosp_forks=(
     platform_cts
     platform_development
     platform_external_aac
+    platform_external_avb
     platform_external_cldr
     platform_external_conscrypt
     platform_external_exfatprogs
