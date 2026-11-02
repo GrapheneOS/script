@@ -34,6 +34,7 @@ readonly aosp_forks=(
     platform_external_mesa3d
     platform_external_protobuf
     platform_external_selinux
+    platform_external_tremolo
     platform_external_wpa_supplicant_8
     platform_frameworks_av
     platform_frameworks_base
