@@ -121,7 +121,6 @@ readonly independent=(
     device_google_caimito-kernels_6.1
     device_google_comet-kernels_6.1
     device_google_felix-kernels_6.1
-    device_google_laguna-kernels_6.6
     device_google_laguna-kernels_6.18
     device_google_lynx-kernels_6.1
     device_google_pantah-kernels_6.1
@@ -132,12 +131,9 @@ readonly independent=(
     device_google_tegu-kernels_6.1
     hardened_malloc
     kernel_common-6.1
-    kernel_common-6.6
-    kernel_common-6.12
     kernel_common-6.18
     kernel_manifest-6.18
     kernel_pixel_6.1
-    kernel_pixel_6.6
     kernel_prebuilts_6.18_arm64
     kernel_prebuilts_6.18_x86-64
     kernel_prebuilts_common-modules_virtual-device_6.18_arm64
