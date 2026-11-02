@@ -77,6 +77,7 @@ readonly aosp_forks=(
     platform_packages_modules_NeuralNetworks
     platform_packages_modules_Nfc
     platform_packages_modules_Permission
+    platform_packages_modules_Profiling
     platform_packages_modules_RemoteKeyProvisioning
     platform_packages_modules_StatsD
     platform_packages_modules_Telephony
