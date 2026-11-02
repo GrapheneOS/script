@@ -47,6 +47,7 @@ readonly aosp_forks=(
     platform_hardware_st_nfc
     platform_libcore
     platform_packages_apps_Calendar
+    platform_packages_apps_Car_Settings
     platform_packages_apps_CellBroadcastReceiver
     platform_packages_apps_Contacts
     platform_packages_apps_ContactsPicker
