@@ -109,6 +109,7 @@ readonly aosp_forks=(
     platform_system_zygote
     platform_tools_apksig
     platform_tools_metalava
+    trusty_lib
 )
 
 readonly independent=(
