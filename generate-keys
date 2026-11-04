@@ -4,6 +4,8 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 devices=($*)
 
+export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
+
 for device in ${devices[@]}; do
     mkdir -p keys/$device
     cd keys/$device
@@ -13,5 +15,7 @@ for device in ${devices[@]}; do
     done
     openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
     ../../external/avb/avbtool.py extract_public_key --key avb.pem --output avb_pkmd.bin
+    openssl genpkey -algorithm ML-DSA-65 | openssl pkcs8 -topk8 -scrypt -out avb_mldsa.pem
+    ../../external/avb/avbtool.py extract_public_key --key avb_mldsa.pem --output avb_mldsa_pkmd.bin
     cd ../..
 done
