@@ -134,6 +134,7 @@ readonly independent=(
     kernel_common-6.18
     kernel_manifest-6.18
     kernel_pixel_6.1
+    kernel_pixel_6.18_muzel
     kernel_prebuilts_6.18_arm64
     kernel_prebuilts_6.18_x86-64
     kernel_prebuilts_common-modules_virtual-device_6.18_arm64

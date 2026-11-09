@@ -54,7 +54,11 @@ for repo in ${independent[@]}; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
     cd $repo
-    git checkout $branch
+    if [[ $repo = kernel_pixel_6.18_muzel ]]; then
+        git checkout 17-muzel
+    else
+        git checkout $branch
+    fi
 
     if [[ $action == delete ]]; then
         git tag -d $tag_name || true
