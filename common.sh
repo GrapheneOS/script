@@ -124,6 +124,7 @@ readonly independent=(
     device_google_laguna-kernels_6.18
     device_google_lynx-kernels_6.1
     device_google_pantah-kernels_6.1
+    device_google_pixel-kernels_6.18
     device_google_raviole-kernels_6.1
     device_google_shusky-kernels_6.1
     device_google_stallion-kernels_6.1
