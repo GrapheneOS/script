@@ -55,7 +55,9 @@ for repo in ${independent[@]}; do
 
     cd $repo
     if [[ $repo = kernel_pixel_6.18_muzel ]]; then
-        git checkout 17-muzel
+        git checkout 17-qpr2-muzel
+    if [[ $repo = kernel_pixel_6.1 ]]; then
+        git checkout 17-qpr2
     else
         git checkout $branch
     fi
