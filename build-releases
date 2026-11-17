@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source build/envsetup.sh
 
@@ -15,9 +15,9 @@ else
     exit 1
 fi
 
-for device in ${devices[@]}; do
+for device in "${devices[@]}"; do
     rm -rf out || exit 1
-    lunch $device-cur-user || exit 1
+    lunch "$device-cur-user" || exit 1
     if [[ $device = @(bluejay|raven|oriole) ]]; then
         m vendorbootimage target-files-package otatools-package || exit 1
     else

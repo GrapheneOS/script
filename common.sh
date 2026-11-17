@@ -1,9 +1,10 @@
+#!/usr/bin/env bash
 readonly branch=17
 readonly aosp_tag_old=android-17.0.0_r1
 readonly aosp_tag=android-17.0.0_r1
 
 user_error() {
-    echo $1 >&2
+    echo "$1" >&2
     exit 1
 }
 

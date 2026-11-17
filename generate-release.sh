@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -o errexit -o pipefail
 
-source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 
-[[ $# -eq 2 ]] || user_error "expected two arguments: DEVICE BUILD_NUMBER"
+(( $# == 2 )) || user_error "expected two arguments: DEVICE BUILD_NUMBER"
 
 chrt -b -p 0 $$
 
@@ -16,7 +16,7 @@ RELEASE_OUT=releases/$BUILD_NUMBER/release-$DEVICE-$BUILD_NUMBER
 
 # decrypt keys in advance for improved performance and modern algorithm support
 KEY_DIR=$(mktemp -d /dev/shm/generate-release.XXXXXXXXXX)
-trap "rm -rf \"$KEY_DIR\" && rm -f \"$PWD/$RELEASE_OUT/keys\"" EXIT
+trap 'rm -rf "$KEY_DIR" && rm -f "$PWD/$RELEASE_OUT/keys"' EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
 script/decrypt-keys "$KEY_DIR"
 
@@ -27,10 +27,10 @@ export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 TARGET_FILES=$DEVICE-target_files.zip
 TARGET_FILES_INPUT=$PWD/releases/$BUILD_NUMBER/$TARGET_FILES
 
-rm -rf $RELEASE_OUT
-mkdir -p $RELEASE_OUT
-unzip releases/$BUILD_NUMBER/$DEVICE-otatools.zip -d $RELEASE_OUT
-cd $RELEASE_OUT
+rm -rf "$RELEASE_OUT"
+mkdir -p "$RELEASE_OUT"
+unzip "releases/$BUILD_NUMBER/$DEVICE-otatools.zip" -d "$RELEASE_OUT"
+cd "$RELEASE_OUT"
 # make soong ignore Android.bp from unpacked otatools to avoid breaking subsequent builds
 touch .find-ignore
 
@@ -51,25 +51,26 @@ get_radio_image() {
     grep "require version-$1" OTA/android-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
 }
 
-unzip $TARGET_FILES_INPUT OTA/android-info.txt
+unzip "$TARGET_FILES_INPUT" OTA/android-info.txt
 
 if [[ $DEVICE == @(yogi|kodiak|grizzly|cubs) ]]; then
     GSCFIRMWARESRC="epic" # Titan-M3 codename is "epic"
 fi
+
+OTA_ARGS=()
 
 if [[ $DEVICE == @(yogi|kodiak|grizzly|cubs|rango|mustang|blazer|frankel) ]]; then
     BOOTLOADER=$(get_radio_image bootloader)
     RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
     DISABLE_DPM=true
-    OTA_ARGS=--disable_ublk
+    OTA_ARGS=( --disable_ublk )
 elif [[ $DEVICE == @(stallion|tegu|comet|komodo|caiman|tokay|akita|husky|shiba|felix|tangorpro|lynx|cheetah|panther|bluejay|raven|oriole) ]]; then
     BOOTLOADER=$(get_radio_image bootloader)
     [[ $DEVICE != tangorpro ]] && RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
     DISABLE_FIPS=true
     DISABLE_DPM=true
-    OTA_ARGS=
 else
     user_error "$DEVICE is not supported by the release script"
 fi
@@ -181,13 +182,13 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.wifi.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.google.pixel.camera.hal.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.google.pixel.camera.hal.apex="$KEY_DIR/avb.pem" \
-    $TARGET_FILES_INPUT $TARGET_FILES
+    "$TARGET_FILES_INPUT" "$TARGET_FILES"
 
-ota_from_target_files -k "$KEY_DIR/releasekey" $OTA_ARGS $TARGET_FILES \
-    $DEVICE-ota_update-$BUILD_NUMBER.zip
-script/generate-metadata $DEVICE-ota_update-$BUILD_NUMBER.zip
+ota_from_target_files -k "$KEY_DIR/releasekey" "${OTA_ARGS[@]}" "$TARGET_FILES" \
+    "$DEVICE-ota_update-$BUILD_NUMBER.zip"
+script/generate-metadata "$DEVICE-ota_update-$BUILD_NUMBER.zip"
 
-img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD_NUMBER.zip
+img_from_target_files "$TARGET_FILES" "$DEVICE-img-$BUILD_NUMBER.zip"
 
 source device/common/generate-factory-images-common.sh
 
@@ -201,9 +202,9 @@ fi
 
 # Second arg to optimize-factory-image is the name of outer zip directory.
 # Output zip name defaults to <outer zip dir name>.zip
-fastboot -S $MAX_DOWNLOAD_SIZE optimize-factory-image $DEVICE-factory-$BUILD_NUMBER.zip $DEVICE-install-$BUILD_NUMBER
+fastboot -S $MAX_DOWNLOAD_SIZE optimize-factory-image "$DEVICE-factory-$BUILD_NUMBER.zip" "$DEVICE-install-$BUILD_NUMBER"
 
 if [[ -f "$KEY_DIR/id_ed25519" ]]; then
     export PATH="$OLD_PATH"
-    ssh-keygen -Y sign -n "factory images" -f "$KEY_DIR/id_ed25519" $DEVICE-install-$BUILD_NUMBER.zip
+    ssh-keygen -Y sign -n "factory images" -f "$KEY_DIR/id_ed25519" "$DEVICE-install-$BUILD_NUMBER.zip"
 fi
