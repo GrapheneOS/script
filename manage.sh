@@ -1,16 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -o errexit -o nounset -o pipefail
 
-source "$(dirname ${BASH_SOURCE[0]})/common.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 
-[[ $# -eq 0 ]] && user_error "expected action as argument"
+(( $# == 0 )) && user_error "expected action as argument"
 readonly action=$1
 
 if [[ $action == @(push|fetch|update|default) ]]; then
-    [[ $# -ne 1 ]] && user_error "expected no arguments for $action"
+    (( $# != 1 )) && user_error "expected no arguments for $action"
 elif [[ $action == @(release|delete) ]]; then
-    [[ $# -ne 2 ]] && user_error "expected tag name as argument for $action"
+    (( $# != 2 )) && user_error "expected tag name as argument for $action"
     readonly tag_name=$2
 else
     user_error "unrecognized action"
@@ -26,15 +26,15 @@ fi
 for repo in "${aosp_forks[@]}"; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
-    cd $repo
-    git checkout $branch
+    cd "$repo"
+    git checkout "$branch"
 
     if [[ $action == delete ]]; then
-        git tag -d $tag_name || true
-        git push origin --delete $tag_name || true
+        git tag -d "$tag_name" || true
+        git push origin --delete "$tag_name" || true
     elif [[ $action == release ]]; then
-        git tag -s $tag_name -m $tag_name
-        git push origin $tag_name
+        git tag -s "$tag_name" -m "$tag_name"
+        git push origin "$tag_name"
     elif [[ $action == update ]]; then
         git fetch upstream --tags
         git rebase --onto $aosp_tag $aosp_tag_old
@@ -44,42 +44,42 @@ for repo in "${aosp_forks[@]}"; do
     elif [[ $action == fetch ]]; then
         git fetch upstream --tags
     elif [[ $action == default ]]; then
-        gh repo edit GrapheneOS/$repo --default-branch $branch
+        gh repo edit "GrapheneOS/$repo" --default-branch "$branch"
     fi
 
     cd ..
 done
 
-for repo in ${independent[@]}; do
+for repo in "${independent[@]}"; do
     echo -e "\n>>> $(tput setaf 3)Handling $repo$(tput sgr0)"
 
-    cd $repo
+    cd "$repo"
     if [[ $repo = kernel_pixel_6.18_muzel ]]; then
         git checkout 17-qpr2-muzel
-    if [[ $repo = kernel_pixel_6.1 ]]; then
+    elif [[ $repo = kernel_pixel_6.1 ]]; then
         git checkout 17-qpr2
     else
-        git checkout $branch
+        git checkout "$branch"
     fi
 
     if [[ $action == delete ]]; then
-        git tag -d $tag_name || true
-        git push origin --delete $tag_name || true
+        git tag -d "$tag_name" || true
+        git push origin --delete "$tag_name" || true
     elif [[ $action == release ]]; then
         if [[ $repo == @(kernel_manifest-6.18|platform_manifest) ]]; then
             git checkout -B tmp
-            sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
-            git commit default.xml -m $tag_name
+            sed -i "s%refs/heads/$branch%refs/tags/$tag_name%" default.xml
+            git commit default.xml -m "$tag_name"
             git push -fu origin tmp
         else
-            git tag -s $tag_name -m $tag_name
-            git push origin $tag_name
+            git tag -s "$tag_name" -m "$tag_name"
+            git push origin "$tag_name"
         fi
     elif [[ $action == push ]]; then
         git push
     elif [[ $action == default ]]; then
         if [[ $repo != @(hardened_malloc|kernel_pixel_6.1|kernel_pixel_6.18|platform_external_SpeechServices|platform_external_vanadium) ]]; then
-            gh repo edit GrapheneOS/$repo --default-branch $branch
+            gh repo edit "GrapheneOS/$repo" --default-branch "$branch"
         fi
     fi
 
